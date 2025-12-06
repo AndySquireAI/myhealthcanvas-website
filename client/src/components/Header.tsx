@@ -21,10 +21,15 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/">
-          <div className="flex items-center space-x-2 cursor-pointer">
-            <div className="text-2xl font-bold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
+          <div className="flex items-center space-x-3 cursor-pointer">
+            <img 
+              src="/logo.png" 
+              alt="MyHealthCanvas Logo" 
+              className="h-12 w-auto"
+            />
+            <span className="text-xl font-bold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent hidden sm:inline">
               MyHealthCanvas
-            </div>
+            </span>
           </div>
         </Link>
 
