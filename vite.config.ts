@@ -35,6 +35,13 @@ export default defineConfig({
       ".manusvm.computer",
       "localhost",
       "127.0.0.1",
+      "myhealthcanvas.com",
+      ".myhealthcanvas.com",
+      "andyaaa.com",
+      ".andyaaa.com",
+      "myhealthcanvas.us",
+      "myhealthcanvas.co.uk",
+      "myhealthcanvas.org",
     ],
     fs: {
       strict: true,
