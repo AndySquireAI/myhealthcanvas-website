@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://myhealthcanvas.com/</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- MyHealthCanvas Product Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/myhealthcanvas</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://myhealthcanvas.com/images/MyHealthCanvasLOGO.png</image:loc>
+      <image:title>MyHealthCanvas Patient Health Forms</image:title>
+    </image:image>
+  </url>
+  
+  <!-- MyHealthCanvas Advocacy Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/myhealthcanvas/advocacy</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- AAA - AI Agents Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/aaa</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- eLibrary Main Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- eLibrary Articles -->
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/how-small-businesses-save-50k-with-ai-agents</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-agent-700-jobs</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-tools-small-business</loc>
+    <lastmod>2024-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-automation-mistakes</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-for-restaurants</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-ecommerce-automation</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/humanoid-healthcare-robots</loc>
+    <lastmod>2024-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-clinical-assistants</loc>
+    <lastmod>2024-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-alzheimers-digital-therapeutics</loc>
+    <lastmod>2024-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/ai-mental-health-apps</loc>
+    <lastmod>2024-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/medical-robots</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/second-medical-opinion</loc>
+    <lastmod>2024-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/wearable-health-tech</loc>
+    <lastmod>2024-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/robotic-exoskeletons</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/85-percent-cliff</loc>
+    <lastmod>2024-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/deepfake-dilemma</loc>
+    <lastmod>2024-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/frontier-firms</loc>
+    <lastmod>2024-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/new-governance-aiitl-vs-hitl</loc>
+    <lastmod>2024-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/openai-ai-companion</loc>
+    <lastmod>2024-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/pharma-digital-revolution</loc>
+    <lastmod>2024-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/robot-workforce-revolution</loc>
+    <lastmod>2024-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://myhealthcanvas.com/elibrary/trust-algorithm</loc>
+    <lastmod>2024-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/about</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://myhealthcanvas.com/contact</loc>
+    <lastmod>2025-12-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
