@@ -152,8 +152,11 @@ export default function MyHealthCanvas() {
               />
             </div>
             {/* Hero Clarifier - FEAT-MHC-009 */}
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              MyHealthCanvas is a non-medical space where you can organise your health story before sharing it with others.
+            </p>
             <p className="text-base text-muted-foreground/80 max-w-xl mx-auto italic">
-              A patient-controlled, non-medical tool designed to support clarity, dignity, and shared decision-making.
+              A patient-controlled tool designed to support clarity, dignity, and shared decision-making.
             </p>
             
             {/* Patient-Doctor Hero Image */}
@@ -306,7 +309,7 @@ export default function MyHealthCanvas() {
             <Card className="hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl">Current Plan</CardTitle>
-                <CardDescription>For recent health tracking</CardDescription>
+                <CardDescription>A quick sketch of critical health information</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£9</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
@@ -353,7 +356,7 @@ export default function MyHealthCanvas() {
               </div>
               <CardHeader>
                 <CardTitle className="text-2xl">Complete Plan</CardTitle>
-                <CardDescription>For comprehensive health management</CardDescription>
+                <CardDescription>A fuller picture for your ongoing health story</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£12</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
