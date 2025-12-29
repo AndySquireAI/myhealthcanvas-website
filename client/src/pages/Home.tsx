@@ -20,7 +20,17 @@ export default function Home() {
               Patient health forms, AI business automation, and evidence-based insights
               from a 2× cancer survivor and AI expert.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Human-Centric Hero Image */}
+            <div className="mt-8 max-w-4xl mx-auto">
+              <img 
+                src="/images/human-centric-hero.png" 
+                alt="Human-Centric AI - AIITL Governance and Human-Centric Pilot" 
+                className="w-full rounded-2xl shadow-2xl"
+              />
+            </div>
+            
+            {/* CTA Buttons - below the image */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
               <Link href="/myhealthcanvas">
                 <Button size="lg" className="text-lg px-8">
                   Explore MyHealthCanvas
@@ -31,15 +41,6 @@ export default function Home() {
                   Meet Andy
                 </Button>
               </Link>
-            </div>
-            
-            {/* Human-Centric Hero Image */}
-            <div className="mt-12 max-w-4xl mx-auto">
-              <img 
-                src="/images/human-centric-hero.png" 
-                alt="Human-Centric AI - AIITL Governance and Human-Centric Pilot" 
-                className="w-full rounded-2xl shadow-2xl"
-              />
             </div>
           </div>
         </div>
