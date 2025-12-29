@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Download, Heart, Users, FileText } from "lucide-react";
+import { CheckCircle2, Download, Heart, Users, FileText, XCircle, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
+import { Link } from "wouter";
 
 declare global {
   interface Window {
@@ -38,8 +39,16 @@ export default function MyHealthCanvas() {
             },
             onApprove: function (_data: any, actions: any) {
               return actions.order.capture().then(function () {
+                // Trigger download of Current Plan PDF
+                const link = document.createElement('a');
+                link.href = '/downloads/MyHealthCanvas-Current-Plan.pdf';
+                link.download = 'MyHealthCanvas-Current-Plan.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
                 alert(
-                  "Thank you for your purchase! Your download link will be sent to your email."
+                  "Thank you for your purchase! Your download should start automatically."
                 );
                 // Track conversion
                 if (typeof window !== "undefined" && (window as any).gtag) {
@@ -81,8 +90,16 @@ export default function MyHealthCanvas() {
             },
             onApprove: function (_data: any, actions: any) {
               return actions.order.capture().then(function () {
+                // Trigger download of Complete Plan PDF
+                const link = document.createElement('a');
+                link.href = '/downloads/MyHealthCanvas-Complete-Plan.pdf';
+                link.download = 'MyHealthCanvas-Complete-Plan.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
                 alert(
-                  "Thank you for your purchase! Your download link will be sent to your email."
+                  "Thank you for your purchase! Your download should start automatically."
                 );
                 // Track conversion
                 if (typeof window !== "undefined" && (window as any).gtag) {
@@ -128,6 +145,75 @@ export default function MyHealthCanvas() {
               medical team. Created by a 2× cancer survivor who understands what
               patients need.
             </p>
+            {/* Hero Clarifier - FEAT-MHC-009 */}
+            <p className="text-base text-muted-foreground/80 max-w-xl mx-auto italic">
+              A patient-controlled, non-medical tool designed to support clarity, dignity, and shared decision-making.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* What This Is / What This Is Not Block - FEAT-MHC-009 */}
+      <section className="py-12 bg-background border-b">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* What MyHealthCanvas IS */}
+              <Card className="border-2 border-[oklch(0.55_0.15_195)]/30 bg-[oklch(0.55_0.15_195)]/5">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl flex items-center gap-2 text-[oklch(0.45_0.15_195)]">
+                    <CheckCircle2 className="h-6 w-6" />
+                    What MyHealthCanvas IS
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">A personal health communication and reflection tool</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">A way to organise symptoms, questions, and priorities</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Support for conversations with clinicians and caregivers</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Fully controlled by the patient</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* What MyHealthCanvas is NOT */}
+              <Card className="border-2 border-muted bg-muted/20">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl flex items-center gap-2 text-muted-foreground">
+                    <XCircle className="h-6 w-6" />
+                    What MyHealthCanvas is NOT
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-muted-foreground/60 flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Not a diagnostic tool</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-muted-foreground/60 flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Not a medical device</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-muted-foreground/60 flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Not a replacement for clinicians</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <XCircle className="h-5 w-5 text-muted-foreground/60 flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">Not an automated decision-maker</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -377,6 +463,20 @@ export default function MyHealthCanvas() {
               alt="MyHealthCanvas Form Preview"
               className="rounded-xl shadow-2xl w-full"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* PAG Link Section - FEAT-MHC-009 */}
+      <section className="py-8 bg-muted/20 border-t">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <Link href="/myhealthcanvas/advocacy">
+              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+                For Patient Advocacy Groups
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
