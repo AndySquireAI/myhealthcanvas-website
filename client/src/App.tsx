@@ -11,6 +11,7 @@ import MyHealthCanvas from "./pages/MyHealthCanvas";
 import MyHealthCanvasAdvocacy from "./pages/MyHealthCanvasAdvocacy";
 import AAA from "./pages/AAA";
 import ELibrary from "./pages/ELibrary";
+import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/aaa" component={AAA} />
         <Route path="/elibrary" component={ELibrary} />
+        <Route path="/elibrary/:slug" component={BlogPost} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/404" component={NotFound} />
