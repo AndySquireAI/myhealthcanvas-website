@@ -80,10 +80,10 @@ export default function About() {
                   <div className="flex items-start gap-4">
                     <Award className="h-8 w-8 text-primary flex-shrink-0" />
                     <div className="space-y-2">
-                      <h3 className="text-xl font-bold">Education</h3>
+                      <h3 className="text-xl font-bold">AI Education</h3>
                       <ul className="space-y-2 text-muted-foreground">
                         <li>• University of Oxford</li>
-                        <li>• INSEAD Business School</li>
+                        <li>• Harvard Medical School</li>
                         <li>• University of Cambridge</li>
                       </ul>
                     </div>
@@ -117,10 +117,10 @@ export default function About() {
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">Healthcare Experience</h3>
                       <ul className="space-y-2 text-muted-foreground">
-                        <li>• Patient Advocacy</li>
+                        <li>• Patient Journey & Advocacy</li>
                         <li>• Pharma CX Strategy</li>
                         <li>• Clinical Workflow Design</li>
-                        <li>• Healthcare Innovation</li>
+                        <li>• Safety Regulatory Architect</li>
                       </ul>
                     </div>
                   </div>
@@ -135,9 +135,9 @@ export default function About() {
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold">Partnerships</h3>
                       <ul className="space-y-2 text-muted-foreground">
-                        <li>• Harvard Medical School</li>
-                        <li>• Commercial Innovation Track</li>
-                        <li>• December 2025 Placement</li>
+                        <li>• Harvard Medical School Capstone - Human centric Safety OS</li>
+                        <li>• AI Automation Agency Accelerator Lab Community</li>
+                        <li>• Safety OS Submission to United Nations AIForGood</li>
                       </ul>
                     </div>
                   </div>

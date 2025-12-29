@@ -200,13 +200,13 @@ export default function Home() {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                     <span>
-                      <strong>Education:</strong> Oxford, INSEAD, Cambridge
+                      <strong>AI Education:</strong> Oxford, Harvard Medical School, Cambridge
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                     <span>
-                      <strong>Partnership:</strong> Harvard Medical School (Dec 2025)
+                      <strong>Partnership:</strong> Harvard Medical School Capstone - Human centric Safety OS
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
