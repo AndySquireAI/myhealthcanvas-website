@@ -32,6 +32,15 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+            
+            {/* Human-Centric Hero Image */}
+            <div className="mt-12 max-w-4xl mx-auto">
+              <img 
+                src="/images/human-centric-hero.png" 
+                alt="Human-Centric AI - AIITL Governance and Human-Centric Pilot" 
+                className="w-full rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
