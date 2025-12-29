@@ -155,6 +155,15 @@ export default function MyHealthCanvas() {
             <p className="text-base text-muted-foreground/80 max-w-xl mx-auto italic">
               A patient-controlled, non-medical tool designed to support clarity, dignity, and shared decision-making.
             </p>
+            
+            {/* Patient-Doctor Hero Image */}
+            <div className="mt-8 max-w-3xl mx-auto">
+              <img 
+                src="/images/patient-doctor-myhealthcanvas.png" 
+                alt="Patient showing MyHealthCanvas to doctor on phone - improving patient-clinician communication" 
+                className="w-full rounded-2xl shadow-xl"
+              />
+            </div>
           </div>
         </div>
       </section>
