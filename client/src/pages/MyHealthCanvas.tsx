@@ -474,7 +474,7 @@ export default function MyHealthCanvas() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-bold">See What You'll Get</h2>
             <img
-              src="/images/MyHealthCanvas-Preview-Cream.jpg"
+              src="/images/MyHealthCanvas-Preview-v2.png"
               alt="MyHealthCanvas Form Preview"
               className="rounded-xl shadow-2xl w-full"
             />
