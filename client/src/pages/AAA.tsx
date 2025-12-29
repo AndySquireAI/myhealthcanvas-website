@@ -45,6 +45,13 @@ export default function AAA() {
               Save 50+ hours per month with AI agents that actually work for your
               business. Custom-built, affordable, and proven to deliver ROI.
             </p>
+            <div className="mt-8">
+              <img 
+                src="/images/hero-aaa-new.png" 
+                alt="AI Automation Agency - 24/7 Agent Co-Workers with 90% Cost Savings" 
+                className="rounded-xl shadow-2xl max-w-3xl mx-auto w-full"
+              />
+            </div>
           </div>
         </div>
       </section>
