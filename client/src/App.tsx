@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
+import MyHealthCanvasAdvocacy from "./pages/MyHealthCanvasAdvocacy";
 import AAA from "./pages/AAA";
 import ELibrary from "./pages/ELibrary";
 import About from "./pages/About";
@@ -20,6 +21,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
+        <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/aaa" component={AAA} />
         <Route path="/elibrary" component={ELibrary} />
         <Route path="/about" component={About} />

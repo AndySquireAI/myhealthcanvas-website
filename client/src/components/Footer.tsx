@@ -71,6 +71,13 @@ export default function Footer() {
                   Investor Portal
                 </a>
               </li>
+              <li>
+                <Link href="/myhealthcanvas/advocacy">
+                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
+                    For Advocacy Groups
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
 
