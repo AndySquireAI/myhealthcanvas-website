@@ -483,13 +483,14 @@ export default function MyHealthCanvas() {
       </section>
 
       {/* PAG Link Section - FEAT-MHC-009 */}
-      <section className="py-8 bg-muted/20 border-t">
+      <section className="py-12 bg-muted/30 border-t">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <p className="text-muted-foreground">Are you a healthcare organisation or advocacy group?</p>
             <Link href="/myhealthcanvas/advocacy">
-              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+              <span className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium border-2 border-primary/30 rounded-lg text-primary hover:bg-primary/5 hover:border-primary/50 transition-all cursor-pointer">
                 For Patient Advocacy Groups
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </span>
             </Link>
           </div>
