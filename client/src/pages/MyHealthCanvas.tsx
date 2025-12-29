@@ -135,16 +135,22 @@ export default function MyHealthCanvas() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              Your Health Story,{" "}
+              Take Control of Your{" "}
               <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
-                Your Way
+                Health Masterpiece
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Gentle, easy-to-use health forms that improve communication with your
-              medical team. Created by a 2× cancer survivor who understands what
-              patients need.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto italic">
+              From patient to artist of your own story
             </p>
+            {/* MyHealthCanvas Logo */}
+            <div className="flex justify-center py-4">
+              <img 
+                src="/images/myhealthcanvas-logo.png" 
+                alt="MyHealthCanvas Logo" 
+                className="h-48 md:h-64 w-auto"
+              />
+            </div>
             {/* Hero Clarifier - FEAT-MHC-009 */}
             <p className="text-base text-muted-foreground/80 max-w-xl mx-auto italic">
               A patient-controlled, non-medical tool designed to support clarity, dignity, and shared decision-making.
