@@ -153,10 +153,7 @@ export default function MyHealthCanvas() {
             </div>
             {/* Hero Clarifier - FEAT-MHC-009 */}
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              MyHealthCanvas is a non-medical space where you can organise your health story before sharing it with others.
-            </p>
-            <p className="text-base text-muted-foreground/80 max-w-xl mx-auto italic">
-              A patient-controlled tool designed to support clarity, dignity, and shared decision-making.
+              MyHealthCanvas is a non-medical space where you can organise your health story before sharing it with others. A patient-controlled tool designed to support clarity, dignity, and shared decision-making.
             </p>
             
             {/* Patient-Doctor Hero Image */}
