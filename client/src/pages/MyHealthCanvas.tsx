@@ -203,6 +203,19 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Patient-Doctor Image */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <img
+              src="/images/patient-doctor-myhealthcanvas-final.png"
+              alt="Patient and doctor discussing MyHealthCanvas on phone"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Section 3 - Why Patients Use It */}
       <section className="py-16 bg-muted/30">
         <div className="container">
@@ -213,23 +226,23 @@ export default function MyHealthCanvas() {
             <ul className="space-y-4 text-lg text-muted-foreground">
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Appointments often feel too short</span>
+                <span>Appointments can be short & stress makes it hard to remember everything</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Stress makes it hard to remember everything</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Health information is scattered across notes and memory</span>
+                <span>Health information is scattered across documents, emails, texts and memory</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
                 <span>Important concerns get missed or postponed</span>
               </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
+                <span>Journaling reduces anxiety, encouraging better quality of life</span>
+              </li>
             </ul>
             <p className="text-lg text-muted-foreground text-center pt-4">
-              MyHealthCanvas brings everything together in one calm place — so your doctor can understand you better.
+              MyHealthCanvas brings everything together in one calm place — so your doctors can understand you better. Avoid repeating yourself by sharing the form with new medical staff.
             </p>
           </div>
         </div>
@@ -252,7 +265,7 @@ export default function MyHealthCanvas() {
               <div className="space-y-3">
                 <h3 className="text-xl font-semibold">2. Write in your own words</h3>
                 <p className="text-lg text-muted-foreground">
-                  There are no "right" answers. Skip anything that doesn't apply.
+                  There are no "right" answers. Skip anything that doesn't apply. Check details with your doctor.
                 </p>
               </div>
               <div className="space-y-3">
@@ -313,22 +326,22 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Section 6 - AI (Minimal) */}
+      {/* Section 6 - About MyHealthCanvas Support */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-3xl mx-auto space-y-4 text-center">
             <h2 className="text-2xl md:text-3xl font-bold">
-              About AI support
+              About MyHealthCanvas support
             </h2>
             <div className="text-lg text-muted-foreground space-y-3">
               <p>
-                Any AI assistance within MyHealthCanvas is designed only to support clarity and reflection.
+                This form is designed by patients, for patients, to restore some control & encourage reflection.
               </p>
               <p>
                 It does not diagnose, treat, or make clinical decisions.
               </p>
               <p className="font-medium">
-                You remain in control at all times.
+                You download the form locally, and you control who sees your data.
               </p>
             </div>
           </div>
@@ -352,7 +365,7 @@ export default function MyHealthCanvas() {
             <Card className="hover:shadow-xl transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl">Current Plan</CardTitle>
-                <CardDescription>For recent health tracking</CardDescription>
+                <CardDescription>One page summary</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£9</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
@@ -362,23 +375,23 @@ export default function MyHealthCanvas() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Current medications & dosages</span>
+                    <span>Core personal & administrative details</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Recent medical history (last 2 years)</span>
+                    <span>Health summary, symptoms</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Current symptoms & concerns</span>
+                    <span>Treatments, allergies & warnings</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Allergies & reactions</span>
+                    <span>Questions and concerns</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Downloadable PDF</span>
+                    <span>Goals, plans and looking ahead</span>
                   </li>
                 </ul>
               </CardContent>
@@ -399,7 +412,7 @@ export default function MyHealthCanvas() {
               </div>
               <CardHeader>
                 <CardTitle className="text-2xl">Complete Plan</CardTitle>
-                <CardDescription>For comprehensive health records</CardDescription>
+                <CardDescription>Two pages with extra details</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£12</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
@@ -407,28 +420,24 @@ export default function MyHealthCanvas() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm font-semibold text-primary">
-                  Everything in Current Plan, plus:
+                  The same as in Current, plus:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Complete medical history (all years)</span>
+                    <span>Deeper reflection on your experiences</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Family health history</span>
+                    <span>Insights, resources & communities</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Lifestyle & wellness tracking</span>
+                    <span>Future care wishes & legal planning</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Mental health & quality of life</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Advanced care planning</span>
+                    <span>Hope, strength and meaning</span>
                   </li>
                 </ul>
               </CardContent>
@@ -445,61 +454,14 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Section 7 - Emotional Close */}
-      <section className="py-16">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              You don't have to do this alone
-            </h2>
-            <div className="text-lg text-muted-foreground space-y-4">
-              <p>
-                Preparing for healthcare conversations can feel heavy — especially when you're already dealing with illness or uncertainty.
-              </p>
-              <p>
-                MyHealthCanvas exists to make that process a little calmer, clearer, and more humane.
-              </p>
-              <p className="font-medium text-xl">
-                Use as much or as little as you like.
-              </p>
-            </div>
-            <div className="pt-6">
-              <Button size="lg" className="text-lg px-8" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Start MyHealthCanvas
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mission Section */}
       <section className="py-16 bg-muted/30">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">The Mission</h2>
-            <p className="text-xl text-muted-foreground">
-              Created by a 2× cancer survivor who understands what patients need
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Created by a 2× cancer survivor, alongside other patients, to help people organise their health stories and ask the questions that matter most in medical conversations.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <Heart className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">50%</div>
-                  <p className="text-muted-foreground">
-                    of profits go to cancer research
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <Users className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">Patient First</div>
-                  <p className="text-muted-foreground">
-                    Designed by patients, for patients
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
