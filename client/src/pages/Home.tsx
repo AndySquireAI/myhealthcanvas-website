@@ -36,11 +36,11 @@ export default function Home() {
                   Explore MyHealthCanvas
                 </Button>
               </Link>
-              <Link href="/about">
+              <a href="#mission">
                 <Button size="lg" variant="outline" className="text-lg px-8">
-                  Meet Andy
+                  Why This Exists
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -229,12 +229,15 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20">
+      <section id="mission" className="py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl font-bold">The Mission</h2>
             <p className="text-xl text-muted-foreground">
-              Put patients over profit. Empower small businesses. Advance AI governance.
+              Put patients over profit by designing evidence-based, human-in-the-loop AI that supports care, not replaces clinicians.
+            </p>
+            <p className="text-base text-muted-foreground/80">
+              Built from lived patient experience and regulatory-grade healthcare expertise.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <Card>

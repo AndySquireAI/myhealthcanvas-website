@@ -9,20 +9,20 @@ export default function Footer() {
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
-          {/* A. Mission Anchor (Left Column) */}
+          {/* Column 1: Brand Anchor */}
           <div className="space-y-4 lg:col-span-1">
             <h3 className="text-lg font-bold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
               MyHealthCanvas
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Empowering patients, caregivers, and healthcare innovators through patient-first design, evidence-based AI, and responsible governance.
+              Empowering patients and caregivers through patient-first design, evidence-based AI, and responsible governance.
             </p>
             <p className="text-xs text-muted-foreground/80">
               Built by patient advocate and AI healthcare expert Andy Squire.
             </p>
           </div>
 
-          {/* B. Column 1: For Patients & Caregivers */}
+          {/* Column 2: For Patients & Caregivers (2 links only) */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">For Patients & Caregivers</h4>
             <ul className="space-y-2">
@@ -40,24 +40,10 @@ export default function Footer() {
                   </span>
                 </Link>
               </li>
-              <li>
-                <Link href="/about">
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    About Andy
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    Contact
-                  </span>
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* B. Column 2: For Professionals & Organisations */}
+          {/* Column 3: For Professionals & Organisations (3 links only) */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">For Professionals & Organisations</h4>
             <ul className="space-y-2">
@@ -76,16 +62,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="https://andysquire.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-primary"
-                >
-                  Investor Portal
-                </a>
-              </li>
-              <li>
                 <Link href="/impressum">
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     AI Governance & Safety
@@ -95,7 +71,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* B. Column 3: For Healthcare & Research */}
+          {/* Column 4: For Healthcare & Research (1 link + descriptors) */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">For Healthcare & Research</h4>
             <ul className="space-y-2">
@@ -106,31 +82,19 @@ export default function Footer() {
                   </span>
                 </Link>
               </li>
-              <li>
-                <Link href="/aaa">
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    Evidence-Based Framework (AAA)
-                  </span>
-                </Link>
+              <li className="text-sm text-muted-foreground/70">
+                Evidence-based frameworks
               </li>
-              <li>
-                <Link href="/elibrary">
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    Clinical Workflow & Safety Concepts
-                  </span>
-                </Link>
+              <li className="text-sm text-muted-foreground/70">
+                Clinical workflow & safety concepts
               </li>
-              <li>
-                <Link href="/contact">
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    Speaking / Collaboration
-                  </span>
-                </Link>
+              <li className="text-sm text-muted-foreground/70">
+                Speaking & collaboration
               </li>
             </ul>
           </div>
 
-          {/* C. Credentials & Recognition (Right Column) */}
+          {/* Column 5: Credentials & Recognition (no links) */}
           <div className="space-y-3">
             <h4 className="text-sm font-semibold">Credentials & Recognition</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -147,16 +111,18 @@ export default function Footer() {
           <div className="max-w-2xl mx-auto text-center space-y-4">
             <h4 className="text-lg font-semibold">Let's Connect</h4>
             <p className="text-sm text-muted-foreground">
-              Whether you are a patient, caregiver, healthcare professional, or organisation, Andy would be pleased to hear from you.
+              If you are a patient, caregiver, healthcare professional, or organisation, Andy would be pleased to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold">
-                Contact Founder - Andy Squire
-              </span>
+              <Link href="/contact">
+                <Button variant="default" size="sm">
+                  Contact Andy
+                </Button>
+              </Link>
               <a href="mailto:andy@patientcentriccare.ai">
                 <Button variant="outline" size="sm" className="gap-2">
                   <Mail className="h-4 w-4" />
-                  Email: andy@patientcentriccare.ai
+                  Email
                 </Button>
               </a>
             </div>
@@ -170,7 +136,7 @@ export default function Footer() {
             <span className="hidden sm:inline">•</span>
             <span>No autonomous diagnosis or treatment</span>
             <span className="hidden sm:inline">•</span>
-            <span>Evidence-based, human-in-the-loop AI</span>
+            <span>Physician-led, evidence-based AI</span>
           </div>
         </div>
 
