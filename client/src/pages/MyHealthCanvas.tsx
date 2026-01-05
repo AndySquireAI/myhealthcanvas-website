@@ -152,7 +152,7 @@ export default function MyHealthCanvas() {
             </h2>
             <div className="text-lg text-muted-foreground space-y-4 max-w-3xl mx-auto text-left">
               <p>
-                Medical appointments can feel rushed, emotional, and overwhelming. Important details are easy to forget — especially when you are anxious, tired, or unwell.
+                Medical appointments can feel rushed and overwhelming. Important details are easy to forget — especially when you are anxious, tired, or unwell.
               </p>
               <p>
                 MyHealthCanvas gives you a quiet, structured place to organise your health story before you meet your care team.
@@ -173,9 +173,6 @@ export default function MyHealthCanvas() {
               What is MyHealthCanvas?
             </h2>
             <div className="text-lg text-muted-foreground space-y-4">
-              <p>
-                MyHealthCanvas is a patient-friendly health preparation tool.
-              </p>
               <p className="font-medium">It helps you:</p>
               <ul className="space-y-3 ml-6">
                 <li className="flex items-start gap-3">
@@ -190,28 +187,11 @@ export default function MyHealthCanvas() {
                   <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
                   <span>prepare questions you don't want to forget</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                  <span>communicate more clearly with your doctor or care team</span>
-                </li>
               </ul>
               <p className="italic">
                 It is not a test, a diagnosis, or something you need to "get right".
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Patient-Doctor Image */}
-      <section className="py-16">
-        <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <img
-              src="/images/patient-doctor-myhealthcanvas-final.png"
-              alt="Patient and doctor discussing MyHealthCanvas on phone"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
           </div>
         </div>
       </section>
@@ -236,14 +216,23 @@ export default function MyHealthCanvas() {
                 <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
                 <span>Important concerns get missed or postponed</span>
               </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Journaling reduces anxiety, encouraging better quality of life</span>
-              </li>
             </ul>
             <p className="text-lg text-muted-foreground text-center pt-4">
-              MyHealthCanvas brings everything together in one calm place — so your doctors can understand you better. Avoid repeating yourself by sharing the form with new medical staff.
+              MyHealthCanvas brings everything together in one calm place — so you don't have to repeat yourself.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Patient-Doctor Image */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <img
+              src="/images/patient-doctor-myhealthcanvas-final.png"
+              alt="Patient and doctor discussing MyHealthCanvas on phone"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>
@@ -265,7 +254,7 @@ export default function MyHealthCanvas() {
               <div className="space-y-3">
                 <h3 className="text-xl font-semibold">2. Write in your own words</h3>
                 <p className="text-lg text-muted-foreground">
-                  There are no "right" answers. Skip anything that doesn't apply. Check details with your doctor.
+                  Skip anything that doesn't apply. Check details with your doctor.
                 </p>
               </div>
               <div className="space-y-3">
@@ -280,9 +269,9 @@ export default function MyHealthCanvas() {
       </section>
 
       {/* Section 5 - Gentle Boundaries */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container">
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl mx-auto space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center">
               What MyHealthCanvas is — and isn't
             </h2>
@@ -322,27 +311,40 @@ export default function MyHealthCanvas() {
                 </ul>
               </div>
             </div>
+            <p className="text-center text-muted-foreground pt-4">
+              You download the form locally and remain in control of your data at all times.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Section 6 - About MyHealthCanvas Support */}
-      <section className="py-16">
+      {/* Mission Section */}
+      <section className="py-16 bg-muted/30">
         <div className="container">
-          <div className="max-w-3xl mx-auto space-y-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold">
-              About MyHealthCanvas support
-            </h2>
-            <div className="text-lg text-muted-foreground space-y-3">
-              <p>
-                This form is designed by patients, for patients, to restore some control & encourage reflection.
-              </p>
-              <p>
-                It does not diagnose, treat, or make clinical decisions.
-              </p>
-              <p className="font-medium">
-                You download the form locally, and you control who sees your data.
-              </p>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold">The Mission</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Created by a 2× cancer survivor, alongside other patients, to help people organise their health stories and ask the questions that matter most in medical conversations.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+              <Card>
+                <CardContent className="pt-6 text-center">
+                  <Heart className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
+                  <div className="text-4xl font-bold text-primary mb-2">50%</div>
+                  <p className="text-muted-foreground">
+                    of profits go to cancer research
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent className="pt-6 text-center">
+                  <Users className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
+                  <div className="text-4xl font-bold text-primary mb-2">Patient First</div>
+                  <p className="text-muted-foreground">
+                    Designed by patients, for patients
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
@@ -352,12 +354,9 @@ export default function MyHealthCanvas() {
       <section className="py-20 bg-muted/30">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold">
               Choose Your Plan
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Both plans are downloadable PDF forms you can fill out at your own pace
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -454,37 +453,6 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">The Mission</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Created by a 2× cancer survivor, alongside other patients, to help people organise their health stories and ask the questions that matter most in medical conversations.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <Heart className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">50%</div>
-                  <p className="text-muted-foreground">
-                    of profits go to cancer research
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <Users className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">Patient First</div>
-                  <p className="text-muted-foreground">
-                    Designed by patients, for patients
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
