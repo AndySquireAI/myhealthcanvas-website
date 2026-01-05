@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, Download, Heart, Users, FileText } from "lucide-react";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 
 declare global {
   interface Window {
@@ -114,6 +115,13 @@ export default function MyHealthCanvas() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title="MyHealthCanvas - Patient Health Record PDF Forms"
+        description="A calmer way to prepare for medical appointments. Organize your health story at your own pace, in your own words. Downloadable PDF forms designed by a 2× cancer survivor to help patients communicate clearly with doctors."
+        keywords="patient health forms, MyHealthCanvas PDF, medical appointment preparation, health record forms, patient advocacy, cancer survivor, doctor appointment forms, medical history organizer, patient communication tool"
+        canonicalPath="/myhealthcanvas"
+        ogImage="https://myhealthcanvas.com/images/patient-doctor-myhealthcanvas-final.png"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.15_195)]/10 via-background to-background py-20">
         <div className="container">
@@ -363,7 +371,7 @@ export default function MyHealthCanvas() {
             {/* Current Plan */}
             <Card className="hover:shadow-xl transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl">Current Plan</CardTitle>
+                <CardTitle className="text-2xl">Current Plan PDF</CardTitle>
                 <CardDescription>One page summary</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£9</span>
@@ -410,7 +418,7 @@ export default function MyHealthCanvas() {
                 Most Popular
               </div>
               <CardHeader>
-                <CardTitle className="text-2xl">Complete Plan</CardTitle>
+                <CardTitle className="text-2xl">Complete Plan PDF</CardTitle>
                 <CardDescription>Two pages with extra details</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£12</span>

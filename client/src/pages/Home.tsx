@@ -2,10 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
 import { Heart, Bot, BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title="MyHealthCanvas - AI & Healthcare for Everyone"
+        description="Patient health forms, safe AI tools, and evidence-based healthcare insights — designed by a patient, not a platform. Used by patients and professionals across Asia, Australia, Europe, Latin America and US."
+        keywords="patient health records, MyHealthCanvas, AI healthcare, patient advocacy, Andy Squire, health forms, medical records, patient-first AI, healthcare insights, digital health, patient-centric care"
+        canonicalPath="/"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/10 via-background to-background py-24 overflow-hidden">
         <div className="container">
