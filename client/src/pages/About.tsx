@@ -136,11 +136,11 @@ export default function About() {
               Whether you're a patient, caregiver, healthcare professional, or organisation, Andy would be pleased to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/contact">
+              <a href="mailto:andy@patientcentriccare.ai">
                 <Button size="lg">
                   Contact Andy
                 </Button>
-              </Link>
+              </a>
               <Link href="/myhealthcanvas">
                 <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer underline">
                   Explore MyHealthCanvas

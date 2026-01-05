@@ -147,9 +147,9 @@ export default function BlogPost() {
                   The complete article content is being prepared. In the meantime, explore 
                   related articles below or contact Andy for more information on this topic.
                 </p>
-                <Link href="/contact">
+                <a href="mailto:andy@patientcentriccare.ai">
                   <Button>Contact Andy</Button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

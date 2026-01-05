@@ -279,11 +279,11 @@ export default function Home() {
               here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
+              <a href="mailto:andy@patientcentriccare.ai">
                 <Button size="lg" className="text-lg px-8">
                   Contact Andy
                 </Button>
-              </Link>
+              </a>
               <Link href="/elibrary">
                 <Button size="lg" variant="outline" className="text-lg px-8">
                   Browse eLibrary

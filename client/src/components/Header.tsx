@@ -1,5 +1,4 @@
 import { Link, useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -7,20 +6,24 @@ export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/myhealthcanvas", label: "MyHealthCanvas" },
-    { path: "/aaa", label: "AAA - AI Agents" },
-    { path: "/elibrary", label: "eLibrary" },
-    { path: "/about", label: "About Andy" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: "Home", isEmail: false },
+    { path: "/myhealthcanvas", label: "MyHealthCanvas", isEmail: false },
+    { path: "/aaa", label: "AAA - AI Agents", isEmail: false },
+    { path: "/elibrary", label: "eLibrary", isEmail: false },
+    { path: "/about", label: "About Andy", isEmail: false },
+    { path: "mailto:andy@patientcentriccare.ai", label: "Contact", isEmail: true },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" onClick={scrollToTop}>
           <div className="flex items-center space-x-3 cursor-pointer">
             <img 
               src="/logo.png" 
@@ -36,17 +39,27 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link key={item.path} href={item.path}>
-              <span
-                className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                  location === item.path
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {item.label}
-              </span>
-            </Link>
+            item.isEmail ? (
+              <a key={item.path} href={item.path}>
+                <span
+                  className="text-sm font-medium transition-colors hover:text-primary cursor-pointer text-muted-foreground"
+                >
+                  {item.label}
+                </span>
+              </a>
+            ) : (
+              <Link key={item.path} href={item.path} onClick={scrollToTop}>
+                <span
+                  className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
+                    location === item.path
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            )
           ))}
         </nav>
 
@@ -64,18 +77,27 @@ export default function Header() {
         <div className="md:hidden border-t bg-background">
           <nav className="container flex flex-col space-y-4 py-4">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path}>
-                <span
-                  className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
-                    location === item.path
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </span>
-              </Link>
+              item.isEmail ? (
+                <a key={item.path} href={item.path} onClick={() => setMobileMenuOpen(false)}>
+                  <span
+                    className="text-sm font-medium transition-colors hover:text-primary cursor-pointer text-muted-foreground"
+                  >
+                    {item.label}
+                  </span>
+                </a>
+              ) : (
+                <Link key={item.path} href={item.path} onClick={() => { scrollToTop(); setMobileMenuOpen(false); }}>
+                  <span
+                    className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
+                      location === item.path
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              )
             ))}
           </nav>
         </div>

@@ -1,8 +1,12 @@
 import { Link } from "wouter";
-import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
+  // Function to scroll to top when navigating
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="border-t bg-muted/50 mt-auto">
       <div className="container py-12">
@@ -11,7 +15,7 @@ export default function Footer() {
           
           {/* Column 1: Brand & Purpose (No Links Except Home) */}
           <div className="space-y-4 lg:col-span-1">
-            <Link href="/">
+            <Link href="/" onClick={scrollToTop}>
               <span className="text-lg font-bold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent cursor-pointer hover:opacity-80">
                 MyHealthCanvas
               </span>
@@ -29,39 +33,39 @@ export default function Footer() {
             <h4 className="text-sm font-semibold">Explore</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/myhealthcanvas">
+                <Link href="/myhealthcanvas" onClick={scrollToTop}>
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     MyHealthCanvas
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/aaa">
+                <Link href="/aaa" onClick={scrollToTop}>
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     AAA – AI Agents
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/elibrary">
+                <Link href="/elibrary" onClick={scrollToTop}>
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     eLibrary
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/about">
+                <Link href="/about" onClick={scrollToTop}>
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     About Andy
                   </span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
+                <a href="mailto:andy@patientcentriccare.ai">
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     Contact
                   </span>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -88,25 +92,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Contact (One Action Only) */}
+          {/* Column 5: Contact (One Action Only - Opens Email) */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold">Let's Connect</h4>
             <p className="text-sm text-muted-foreground">
               Andy would be pleased to hear from you.
             </p>
-            <div className="flex flex-col gap-3">
-              <Link href="/contact">
-                <Button variant="default" size="sm" className="w-full">
-                  Contact Andy
-                </Button>
-              </Link>
-              <a href="mailto:andy@patientcentriccare.ai">
-                <Button variant="outline" size="sm" className="w-full gap-2">
-                  <Mail className="h-4 w-4" />
-                  Email
-                </Button>
-              </a>
-            </div>
+            <a href="mailto:andy@patientcentriccare.ai">
+              <Button variant="default" size="sm" className="w-full">
+                Contact Andy
+              </Button>
+            </a>
           </div>
         </div>
 
@@ -125,15 +121,15 @@ export default function Footer() {
         <div className="mt-8 pt-6 border-t text-center text-xs text-muted-foreground">
           <p>
             © {new Date().getFullYear()} MyHealthCanvas · {" "}
-            <Link href="/privacy">
+            <Link href="/privacy" onClick={scrollToTop}>
               <span className="hover:text-primary cursor-pointer">Privacy Policy</span>
             </Link>
             {" · "}
-            <Link href="/terms">
+            <Link href="/terms" onClick={scrollToTop}>
               <span className="hover:text-primary cursor-pointer">Terms</span>
             </Link>
             {" · "}
-            <Link href="/impressum">
+            <Link href="/impressum" onClick={scrollToTop}>
               <span className="hover:text-primary cursor-pointer">Impressum</span>
             </Link>
             {" · "}
