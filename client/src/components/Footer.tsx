@@ -92,17 +92,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Contact (One Action Only - Opens Email) */}
+          {/* Column 5: Contact - Visible Email with mailto backup */}
           <div className="space-y-4">
             <h4 className="text-sm font-semibold">Let's Connect</h4>
             <p className="text-sm text-muted-foreground">
               Andy would be pleased to hear from you.
             </p>
-            <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
-              <Button variant="default" size="sm" className="w-full">
-                Contact Andy
-              </Button>
-            </a>
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-[oklch(0.55_0.15_195)]">Contact Founder - Andy Squire</p>
+              <a 
+                href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A"
+                className="text-sm text-muted-foreground hover:text-primary underline cursor-pointer block"
+              >
+                andy@patientcentriccare.ai
+              </a>
+            </div>
           </div>
         </div>
 

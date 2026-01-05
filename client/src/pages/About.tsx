@@ -135,13 +135,15 @@ export default function About() {
             <p className="text-lg text-muted-foreground">
               Whether you're a patient, caregiver, healthcare professional, or organisation, Andy would be pleased to hear from you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
-                <Button size="lg">
-                  Contact Andy
-                </Button>
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-lg font-medium text-[oklch(0.55_0.15_195)]">Contact Founder - Andy Squire</p>
+              <a 
+                href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A"
+                className="text-lg text-muted-foreground hover:text-primary underline"
+              >
+                andy@patientcentriccare.ai
               </a>
-              <Link href="/myhealthcanvas">
+              <Link href="/myhealthcanvas" className="mt-4">
                 <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer underline">
                   Explore MyHealthCanvas
                 </span>

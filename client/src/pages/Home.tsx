@@ -278,13 +278,15 @@ export default function Home() {
               Whether you need health forms, AI automation, or expert insights, Andy is
               here to help.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
-                <Button size="lg" className="text-lg px-8">
-                  Contact Andy
-                </Button>
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-lg font-medium text-[oklch(0.55_0.15_195)]">Contact Founder - Andy Squire</p>
+              <a 
+                href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A"
+                className="text-lg text-muted-foreground hover:text-primary underline"
+              >
+                andy@patientcentriccare.ai
               </a>
-              <Link href="/elibrary">
+              <Link href="/elibrary" className="mt-4">
                 <Button size="lg" variant="outline" className="text-lg px-8">
                   Browse eLibrary
                 </Button>
