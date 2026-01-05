@@ -279,7 +279,7 @@ export default function Home() {
               here to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:andy@patientcentriccare.ai">
+              <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
                 <Button size="lg" className="text-lg px-8">
                   Contact Andy
                 </Button>

@@ -16,7 +16,7 @@ export default function Header() {
     { path: "/aaa", label: "AAA - AI Agents", isEmail: false },
     { path: "/elibrary", label: "eLibrary", isEmail: false },
     { path: "/about", label: "About Andy", isEmail: false },
-    { path: "mailto:andy@patientcentriccare.ai", label: "Contact", isEmail: true },
+    { path: "mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A", label: "Contact", isEmail: true },
   ];
 
   return (

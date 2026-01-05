@@ -147,7 +147,7 @@ export default function BlogPost() {
                   The complete article content is being prepared. In the meantime, explore 
                   related articles below or contact Andy for more information on this topic.
                 </p>
-                <a href="mailto:andy@patientcentriccare.ai">
+                <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
                   <Button>Contact Andy</Button>
                 </a>
               </div>

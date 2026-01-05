@@ -61,7 +61,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:andy@patientcentriccare.ai">
+                <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
                     Contact
                   </span>
@@ -98,7 +98,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               Andy would be pleased to hear from you.
             </p>
-            <a href="mailto:andy@patientcentriccare.ai">
+            <a href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A">
               <Button variant="default" size="sm" className="w-full">
                 Contact Andy
               </Button>
