@@ -26,7 +26,7 @@ export default function Header() {
         <Link href="/" onClick={scrollToTop}>
           <div className="flex items-center space-x-3 cursor-pointer">
             <img 
-              src="/logo.png" 
+              src="/images/myhealthcanvas-logo.png" 
               alt="MyHealthCanvas Logo" 
               className="h-12 w-auto"
             />
