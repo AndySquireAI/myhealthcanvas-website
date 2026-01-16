@@ -14,6 +14,13 @@ export default function Home() {
         canonicalPath="/"
       />
       {/* Hero Section */}
+      {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
+      <div className="bg-yellow-50 border-b border-yellow-200 py-3">
+        <div className="container text-center text-sm text-yellow-800 font-medium">
+          This site focuses on AI governance and regulatory safety frameworks. It is not a caregiving service or recruitment site.
+        </div>
+      </div>
+      
       <section className="relative bg-gradient-to-br from-primary/10 via-background to-background py-24 overflow-hidden">
         <div className="container">
           <div className="max-w-5xl mx-auto text-center space-y-8">
@@ -35,18 +42,18 @@ export default function Home() {
               />
             </div>
             
-            {/* CTA Buttons - below the image */}
+            {/* CTA Buttons - Two-Path Routing (Rule 1) */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-              <Link href="/myhealthcanvas">
-                <Button size="lg" className="text-lg px-8">
-                  Explore MyHealthCanvas
+              <Link href="/about">
+                <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
+                  Regulators / Academics →
                 </Button>
               </Link>
-              <a href="#mission">
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  Why This Exists
+              <Link href="/myhealthcanvas">
+                <Button size="lg" variant="outline" className="text-lg px-8 border-primary text-primary hover:bg-primary/10">
+                  Care Concepts →
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -32,6 +32,13 @@ export default function AAA() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
+      {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
+      <div className="bg-yellow-50 border-b border-yellow-200 py-3">
+        <div className="container text-center text-sm text-yellow-800 font-medium">
+          This page describes a governed, non-clinical AI concept. It is not a caregiving service or recruitment site. Governed by the Physician-as-Pilot framework →
+        </div>
+      </div>
+      
       <section className="relative bg-gradient-to-br from-[oklch(0.65_0.14_210)]/10 via-background to-background py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
