@@ -225,16 +225,17 @@ export default function Home() {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                     <span>
-                      <strong>Expertise:</strong> AI Healthcare IT, Regulatory Compliance
+                      <strong>Global Reach:</strong> Used by patients and professionals across Asia, Australia, Europe, Latin America and US.
                     </span>
                   </li>
                 </ul>
-                <Link href="/about">
-                  <Button size="lg">
-                    Read Andy's Story
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="pt-4">
+                  <Link href="/about">
+                    <Button variant="outline" size="lg">
+                      Read Andy's Story
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -242,68 +243,18 @@ export default function Home() {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="py-20">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl font-bold">The Mission</h2>
-            <p className="text-xl text-muted-foreground">
-              Put patients over profit by designing evidence-based, human-in-the-loop AI that supports care, not replaces clinicians.
-            </p>
-            <p className="text-base text-muted-foreground/80">
-              Built from lived patient experience and regulatory-grade healthcare expertise.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">50%</div>
-                  <p className="text-muted-foreground">
-                    of MyHealthCanvas profits go to cancer research
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                  <p className="text-muted-foreground">
-                    hours saved per month with AI agents
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="pt-6 text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">22+</div>
-                  <p className="text-muted-foreground">
-                    evidence-based articles published
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-background">
+      <section id="mission" className="py-20 bg-primary text-primary-foreground">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl font-bold">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground">
-              Whether you need health forms, AI automation, or expert insights, Andy is
-              here to help.
+            <h2 className="text-4xl font-bold">The Mission</h2>
+            <p className="text-xl opacity-90 leading-relaxed">
+              "I believe healthcare should be driven by patient needs, not platform
+              profits. MyHealthCanvas is my way of giving back, providing tools that
+              empower patients and insights that challenge the status quo."
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/myhealthcanvas">
-                <Button size="lg" className="text-lg px-8">
-                  Explore MyHealthCanvas
-                </Button>
-              </Link>
-              <a 
-                href="mailto:andy@patientcentriccare.ai?subject=Enquiry%20from%20MyHealthCanvas%20Website&body=Hello%20Andy%2C%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20connect.%0A%0A"
-              >
-                <Button size="lg" className="text-lg px-8 bg-orange-500 hover:bg-orange-600 text-black">
-                  Contact Andy — andy@patientcentriccare.ai
-                </Button>
-              </a>
+            <div className="pt-4">
+              <p className="font-semibold text-2xl">— Andy Squire</p>
+              <p className="opacity-75">Patient Advocate & AI Expert</p>
             </div>
           </div>
         </div>
