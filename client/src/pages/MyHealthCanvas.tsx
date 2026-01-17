@@ -389,23 +389,23 @@ export default function MyHealthCanvas() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Core personal & administrative details</span>
+                    <span>Current Health Overview & My Health Summary</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Health summary, symptoms</span>
+                    <span>Goals, Plans & Priorities (30, 60, 90 days)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Treatments, allergies & warnings</span>
+                    <span>Key Medical Information & Medications</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Questions and concerns</span>
+                    <span>Allergies & Significant Warnings</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Goals, plans and looking ahead</span>
+                    <span>Questions for Your Healthcare Team</span>
                   </li>
                 </ul>
               </CardContent>
@@ -439,19 +439,23 @@ export default function MyHealthCanvas() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Deeper reflection on your experiences</span>
+                    <span>Sources of Comfort & Well-Being</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Insights, resources & communities</span>
+                    <span>Reflections & Insights to Share</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Future care wishes & legal planning</span>
+                    <span>My Wishes for Future Care</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Hope, strength and meaning</span>
+                    <span>Advance Directive & Power of Attorney</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span>Useful Resources & Communities</span>
                   </li>
                 </ul>
               </CardContent>
