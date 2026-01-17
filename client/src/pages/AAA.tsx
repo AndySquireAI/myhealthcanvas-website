@@ -35,7 +35,7 @@ export default function AAA() {
       {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
       <div className="bg-yellow-50 border-b border-yellow-200 py-3">
         <div className="container text-center text-sm text-yellow-800 font-medium">
-          This page describes a governed, non-clinical AI concept. It is not a caregiving service or recruitment site. Governed by the Physician-as-Pilot framework →
+          This site focusses on Patient Empowerment, Agentic AI Automation services, & curated AI in Healthcare content. For Governance, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-yellow-900">https://PatientCentricCare.AI</a>
         </div>
       </div>
       
