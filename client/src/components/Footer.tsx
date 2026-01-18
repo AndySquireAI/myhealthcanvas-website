@@ -121,8 +121,16 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Governance Disclosure (discreet) */}
+        <div className="mt-6 text-center text-xs text-muted-foreground/70">
+          <p>
+            Governance framework and clinical AI documentation available at{" "}
+            <a href="https://andysquire.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">PatientCentricCare.AI</a>
+          </p>
+        </div>
+
         {/* Legal Footer */}
-        <div className="mt-8 pt-6 border-t text-center text-xs text-muted-foreground">
+        <div className="mt-4 pt-6 border-t text-center text-xs text-muted-foreground">
           <p>
             © {new Date().getFullYear()} MyHealthCanvas · {" "}
             <Link href="/privacy" onClick={scrollToTop}>
