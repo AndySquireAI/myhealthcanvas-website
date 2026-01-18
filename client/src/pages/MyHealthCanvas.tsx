@@ -365,6 +365,20 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Patient Advocacy Group CTA */}
+      <section className="py-8">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <a 
+              href="/myhealthcanvas/advocacy" 
+              className="text-[oklch(0.55_0.15_195)] hover:text-[oklch(0.45_0.15_195)] font-medium text-lg underline underline-offset-4 transition-colors"
+            >
+              Are you a Patient Advocacy Group? Learn how MyHealthCanvas can support your community →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Product Tiers */}
       <section className="py-20 bg-muted/30">
         <div className="container">

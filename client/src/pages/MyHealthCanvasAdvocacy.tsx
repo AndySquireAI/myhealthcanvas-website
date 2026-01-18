@@ -2,10 +2,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Shield, Users, Heart, Lock, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import SEO from "@/components/SEO";
 
 export default function MyHealthCanvasAdvocacy() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO
+        title="MyHealthCanvas | Patient Advocacy Group Partnership"
+        description="Partner with MyHealthCanvas to support your patient community. A neutral, non-medical tool designed to amplify patient voice without introducing clinical or legal risk."
+        keywords="patient advocacy group, PAG partnership, patient empowerment, healthcare advocacy, patient communication tool, MyHealthCanvas partnership"
+        canonicalPath="/myhealthcanvas/advocacy"
+      />
       {/* Back Link */}
       <div className="container pt-6">
         <Link href="/myhealthcanvas">
