@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="MyHealthCanvas - AI & Healthcare for Everyone"
+        title="MyHealthCanvas | AI & Healthcare for Everyone"
         description="Patient health forms, safe AI tools, and evidence-based healthcare insights — designed by a patient, not a platform. For patients managing complex, chronic, or long-term health journeys."
         keywords="patient health records, MyHealthCanvas, AI healthcare, patient advocacy, Andy Squire, health forms, medical records, patient-first AI, healthcare insights, digital health, patient-centric care, chronic illness, long-term care"
         canonicalPath="/"

@@ -116,7 +116,7 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
-        title="MyHealthCanvas - Patient Health Record PDF Forms"
+        title="MyHealthCanvas | Patient Health Record PDF Forms"
         description="A calmer way to prepare for medical appointments. Organize your health story at your own pace, in your own words. Downloadable PDF forms designed by a 2× cancer survivor to help patients communicate clearly with doctors."
         keywords="patient health forms, MyHealthCanvas PDF, medical appointment preparation, health record forms, patient advocacy, cancer survivor, doctor appointment forms, medical history organizer, patient communication tool"
         canonicalPath="/myhealthcanvas"
