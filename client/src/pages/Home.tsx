@@ -14,10 +14,10 @@ export default function Home() {
         canonicalPath="/"
       />
       {/* Hero Section */}
-      {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
-      <div className="bg-yellow-50 border-b border-yellow-200 py-3">
-        <div className="container text-center text-sm text-yellow-800 font-medium">
-          This site focusses on Patient Empowerment, Agentic AI Automation services, & curated AI in Healthcare content. For Governance, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-yellow-900">https://PatientCentricCare.AI</a>
+      {/* Clarifying Banner - Governed AI Prototype */}
+      <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-b border-teal-200 py-3">
+        <div className="container text-center text-sm text-teal-800 font-medium">
+          MyHealthCanvas is a governed AI prototype built on the <a href="https://andysquire.ai/clinical-ai-governance" className="underline font-semibold hover:text-teal-900">Physician-as-Pilot (AIITL) framework</a>. For full governance documentation, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-teal-900">PatientCentricCare.AI</a>
         </div>
       </div>
       
