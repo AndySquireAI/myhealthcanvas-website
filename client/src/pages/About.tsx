@@ -46,7 +46,7 @@ export default function About() {
                   These experiences led Andy to focus on the intersection of AI, healthcare IT, and patient advocacy—applying technical expertise to design tools that improve clarity, safety, and patient–clinician communication.
                 </p>
                 <p>
-                  Today, Andy works with patients, small organisations, and healthcare stakeholders to develop evidence-based, human-in-the-loop AI systems that support care delivery while preserving clinical judgment.
+                  Today, Andy works with patients, small organisations, and healthcare stakeholders to develop Safety & Governance based on Physician-as-Pilot AI-in-the-Loop (AIITL) principles (visit: <a href="https://PatientCentricCare.AI/physician-as-pilot" className="text-primary hover:underline">PatientCentricCare.AI/physician-as-pilot</a>) to enable Doctors to free up their time to prioritise the more Human skills needed in patient care like relationships & patient behaviour change that can influence outcomes.
                 </p>
               </div>
             </div>

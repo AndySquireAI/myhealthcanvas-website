@@ -407,6 +407,10 @@ export default function MyHealthCanvas() {
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
                     <span>Questions for Your Healthcare Team</span>
                   </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span>Sources of Comfort & Wellbeing</span>
+                  </li>
                 </ul>
               </CardContent>
               <CardFooter>
@@ -455,7 +459,15 @@ export default function MyHealthCanvas() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Useful Resources & Communities</span>
+                    <span>Useful Resources, Apps & Communities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span>Gifts From My Journey - Positive Learnings</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                    <span>Feedback & Ideas for Patient Support</span>
                   </li>
                 </ul>
               </CardContent>
