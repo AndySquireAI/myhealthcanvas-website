@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Heart, Bot, BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Heart, Bot, BookOpen, ArrowRight, CheckCircle2, Shield } from "lucide-react";
 import SEO from "@/components/SEO";
 
 export default function Home() {
@@ -9,15 +9,15 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <SEO
         title="MyHealthCanvas - AI & Healthcare for Everyone"
-        description="Patient health forms, safe AI tools, and evidence-based healthcare insights — designed by a patient, not a platform. Used by patients and professionals across Asia, Australia, Europe, Latin America and US."
-        keywords="patient health records, MyHealthCanvas, AI healthcare, patient advocacy, Andy Squire, health forms, medical records, patient-first AI, healthcare insights, digital health, patient-centric care"
+        description="Patient health forms, safe AI tools, and evidence-based healthcare insights — designed by a patient, not a platform. For patients managing complex, chronic, or long-term health journeys."
+        keywords="patient health records, MyHealthCanvas, AI healthcare, patient advocacy, Andy Squire, health forms, medical records, patient-first AI, healthcare insights, digital health, patient-centric care, chronic illness, long-term care"
         canonicalPath="/"
       />
       {/* Hero Section */}
-      {/* Clarifying Banner - Governed AI Prototype */}
+      {/* Clarifying Banner - Patient-Facing Tool (ChatGPT Recommendation) */}
       <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-b border-teal-200 py-3">
-        <div className="container text-center text-sm text-teal-800 font-medium">
-          MyHealthCanvas is a governed AI prototype built on the <a href="https://andysquire.ai/clinical-ai-governance" className="underline font-semibold hover:text-teal-900">Physician-as-Pilot (AIITL) framework</a>. For full governance documentation, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-teal-900">PatientCentricCare.AI</a>
+        <div className="container text-center text-sm text-teal-800">
+          <span className="font-semibold">MyHealthCanvas</span> is a patient-facing health planning tool. It is built on a governed clinical AI framework. <a href="https://andysquire.ai/clinical-ai-governance" className="underline font-semibold hover:text-teal-900">Governance documentation →</a>
         </div>
       </div>
       
@@ -30,6 +30,10 @@ export default function Home() {
                 for Everyone
               </span>
             </h1>
+            {/* Clarifying Subline (ChatGPT Recommendation) */}
+            <p className="text-lg md:text-xl text-primary font-medium">
+              For patients managing complex, chronic, or long-term health journeys
+            </p>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               Patient health forms, safe AI tools, and evidence-based healthcare insights — designed by a patient, not a platform. Used by patients and professionals across Asia, Australia, Europe, Latin America and US.
             </p>
@@ -55,6 +59,31 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Safety Block (ChatGPT Recommendation) */}
+      <section className="py-12 bg-gradient-to-r from-slate-50 to-slate-100 border-y border-slate-200">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Shield className="h-6 w-6 text-teal-600" />
+              <h3 className="text-xl font-semibold text-slate-800">How this tool stays safe</h3>
+            </div>
+            <p className="text-slate-600">
+              MyHealthCanvas uses governed AI designed for patient safety, transparency, and human control. The underlying clinical AI governance framework is documented publicly.
+            </p>
+            <a 
+              href="https://andysquire.ai/clinical-ai-governance" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <Button variant="outline" className="border-teal-600 text-teal-700 hover:bg-teal-50">
+                View AI Governance Framework →
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -101,6 +130,7 @@ export default function Home() {
                     <span>50% profits to cancer research</span>
                   </li>
                 </ul>
+                <p className="text-xs text-muted-foreground italic">Priced to remain accessible to patients</p>
                 <Link href="/myhealthcanvas">
                   <Button className="w-full group-hover:bg-[oklch(0.55_0.15_195)] group-hover:text-white">
                     Learn More
