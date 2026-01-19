@@ -52,7 +52,7 @@ export default function Home() {
               for Appointments & Care
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Designed for patients with chronic, complex, or long-term health needs.
+              Designed by patients, for patients — to help you take back control of your chronic, complex, or long-term health story.
             </p>
             
             {/* CTAs */}
@@ -69,9 +69,9 @@ export default function Home() {
               </a>
             </div>
             
-            {/* Microtrust line */}
+            {/* Soft reassurance line */}
             <p className="text-sm text-muted-foreground">
-              Patient-owned • No medical advice • No account required
+              Planning support — not medical advice.
             </p>
           </div>
         </div>
