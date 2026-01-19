@@ -160,6 +160,14 @@ export default function MyHealthCanvas() {
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.15_195)]/10 via-background to-background py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
+            {/* MyHealthCanvas Logo */}
+            <div className="flex justify-center mb-6">
+              <img
+                src="/images/MyHealthCanvasLOGOX2.png"
+                alt="MyHealthCanvas Logo"
+                className="w-full max-w-xs h-auto"
+              />
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
               MyHealthCanvas Patient Health Plans
             </h1>
@@ -318,6 +326,19 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Patient-Doctor Image */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <img
+              src="/images/patient-doctor-myhealthcanvas-final.png"
+              alt="Patient and doctor discussing MyHealthCanvas on phone"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 6 - GOVERNANCE (short, authoritative) */}
       <section className="py-16 bg-muted/30">
         <div className="container">
@@ -448,7 +469,7 @@ export default function MyHealthCanvas() {
               href="/myhealthcanvas/advocacy" 
               className="text-[oklch(0.55_0.15_195)] hover:text-[oklch(0.45_0.15_195)] font-medium text-sm underline underline-offset-4 transition-colors"
             >
-              Are you a patient charity? Learn about partnership opportunities →
+              For Patient Advocacy Group Collaborations →
             </a>
           </div>
         </div>
