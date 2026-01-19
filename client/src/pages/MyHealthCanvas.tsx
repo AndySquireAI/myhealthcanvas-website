@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Download, Heart, Users, FileText } from "lucide-react";
-import { useEffect } from "react";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { CheckCircle2, XCircle, Calendar, Stethoscope, Users, Plane, Shield } from "lucide-react";
+import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
 
 declare global {
@@ -10,8 +10,9 @@ declare global {
   }
 }
 
-// Patient-first redesign - Updated January 5, 2026
 export default function MyHealthCanvas() {
+  const [activeTab, setActiveTab] = useState(0);
+
   useEffect(() => {
     // Load PayPal SDK
     const script = document.createElement("script");
@@ -43,7 +44,6 @@ export default function MyHealthCanvas() {
                 alert(
                   "Thank you for your purchase! Your download link will be sent to your email."
                 );
-                // Track conversion
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
@@ -86,7 +86,6 @@ export default function MyHealthCanvas() {
                 alert(
                   "Thank you for your purchase! Your download link will be sent to your email."
                 );
-                // Track conversion
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
@@ -113,251 +112,183 @@ export default function MyHealthCanvas() {
     };
   }, []);
 
+  const tabs = [
+    { label: "Current Plan Preview", image: "/images/myhealthcanvas-mockup-comparison.png" },
+    { label: "Complete Plan Preview", image: "/images/myhealthcanvas-mockup-comparison.png" },
+    { label: "Side-by-Side Comparison", image: "/images/myhealthcanvas-mockup-comparison.png" }
+  ];
+
+  const useCases = [
+    { icon: Calendar, title: "Before your appointment", description: "Organise your thoughts and questions before seeing your doctor." },
+    { icon: Stethoscope, title: "After a new diagnosis", description: "Process and document what you've learned about your condition." },
+    { icon: Users, title: "Coordinating care with family", description: "Share your health plan with caregivers and loved ones." },
+    { icon: Plane, title: "Travel or emergency readiness", description: "Have your key health information ready when you need it most." }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
         title="MyHealthCanvas | Patient Health Record PDF Forms"
-        description="A calmer way to prepare for medical appointments. Organize your health story at your own pace, in your own words. Downloadable PDF forms designed by a 2× cancer survivor to help patients communicate clearly with doctors."
+        description="Printable PDFs to help you organise, reflect, and share what matters in your care. Patient-owned, no account required, instant download."
         keywords="patient health forms, MyHealthCanvas PDF, medical appointment preparation, health record forms, patient advocacy, cancer survivor, doctor appointment forms, medical history organizer, patient communication tool"
         canonicalPath="/myhealthcanvas"
-        ogImage="https://myhealthcanvas.com/images/patient-doctor-myhealthcanvas-final.png"
+        ogImage="https://myhealthcanvas.com/images/myhealthcanvas-mockup-comparison.png"
       />
-      {/* Hero Section */}
-      {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
-      <div className="bg-yellow-50 border-b border-yellow-200 py-3">
-        <div className="container text-center text-sm text-yellow-800 font-medium">
-          This site focusses on Patient Empowerment, Agentic AI Automation services, & curated AI in Healthcare content. For Governance, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-yellow-900">https://PatientCentricCare.AI</a>
+
+      {/* GLOBAL ELEMENT - STICKY CTA BAR */}
+      <div className="sticky top-0 z-50 bg-white border-b shadow-sm">
+        <div className="container py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-sm font-medium">
+              <span className="text-muted-foreground">Current</span> <span className="font-bold">£9</span>
+              <span className="mx-3 text-muted-foreground">|</span>
+              <span className="text-muted-foreground">Complete</span> <span className="font-bold">£12</span>
+            </div>
+            <div className="flex gap-3">
+              <a href="#buy-current">
+                <Button size="sm" variant="outline">Buy Current</Button>
+              </a>
+              <a href="#buy-complete">
+                <Button size="sm">Buy Complete</Button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <section className="relative bg-gradient-to-br from-[oklch(0.55_0.15_195)]/10 via-background to-background py-20">
+
+      {/* SECTION 1 - PRODUCT HERO */}
+      <section className="relative bg-gradient-to-br from-[oklch(0.55_0.15_195)]/10 via-background to-background py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              Take Control of Your{" "}
-              <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
-                Health Masterpiece
-              </span>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              MyHealthCanvas Patient Health Plans
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto italic">
-              From patient to artist of your own story
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Printable PDFs to help you organise, reflect, and share what matters in your care.
             </p>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-              At your own pace. In your own words.
-            </p>
-            
-            {/* Large MyHealthCanvas Logo */}
-            <div className="flex justify-center my-8">
-              <img
-                src="/images/MyHealthCanvasLOGOX2.png"
-                alt="MyHealthCanvas Logo"
-                className="w-full max-w-md h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 1 - Immediate Reassurance */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              A calmer way to prepare for medical appointments
-            </h2>
-            <div className="text-lg text-muted-foreground space-y-4 max-w-3xl mx-auto text-left">
-              <p>
-                Medical appointments can feel rushed and overwhelming. Important details are easy to forget — especially when you are anxious, tired, or unwell.
-              </p>
-              <p>
-                MyHealthCanvas gives you a quiet, structured place to organise your health story before you meet your care team.
-              </p>
-              <p className="font-medium">
-                You decide what matters. You decide what to share.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2 - What MyHealthCanvas Actually Is */}
-      <section className="py-16">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              What is MyHealthCanvas?
-            </h2>
-            <div className="text-lg text-muted-foreground space-y-4">
-              <p className="font-medium">It helps you:</p>
-              <ul className="space-y-3 ml-6">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                  <span>organise symptoms, treatments, and medical history</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                  <span>reflect on what has changed since your last appointment</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                  <span>prepare questions you don't want to forget</span>
-                </li>
-              </ul>
-              <p className="italic">
-                It is not a test, a diagnosis, or something you need to "get right".
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3 - Why Patients Use It */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Why patients use MyHealthCanvas
-            </h2>
-            <ul className="space-y-4 text-lg text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Appointments can be short & stress makes it hard to remember everything</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Health information is scattered across documents, emails, texts and memory</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] mt-3 flex-shrink-0" />
-                <span>Important concerns get missed or postponed</span>
-              </li>
-            </ul>
-            <p className="text-lg text-muted-foreground text-center pt-4">
-              MyHealthCanvas brings everything together in one calm place — so you don't have to repeat yourself.
+            <p className="text-sm text-muted-foreground">
+              Patient-owned • No account • Instant download
             </p>
           </div>
         </div>
       </section>
 
-      {/* Patient-Doctor Image */}
+      {/* SECTION 2 - WHAT YOU GET (before explanations) */}
+      <section className="py-12 bg-muted/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8">What You Get</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                <span>Downloadable PDF (one or two pages)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                <span>Clear structure for health information</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                <span>Space for goals, questions & preferences</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                <span>Designed for patients and caregivers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 - PREVIEW TABS (engagement driver) */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-5xl mx-auto">
-            <img
-              src="/images/patient-doctor-myhealthcanvas-final.png"
-              alt="Patient and doctor discussing MyHealthCanvas on phone"
-              className="w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4 - How It Works */}
-      <section className="py-16">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              How it works
-            </h2>
-            <div className="space-y-8">
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold">1. Start where you feel comfortable</h3>
-                <p className="text-lg text-muted-foreground">
-                  You can begin with symptoms, medications, questions, or anything that feels important today.
-                </p>
-              </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold">2. Write in your own words</h3>
-                <p className="text-lg text-muted-foreground">
-                  Skip anything that doesn't apply. Check details with your doctor.
-                </p>
-              </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold">3. Bring it with you</h3>
-                <p className="text-lg text-muted-foreground">
-                  Use MyHealthCanvas to support conversations during appointments or care discussions.
-                </p>
-              </div>
+            <h2 className="text-2xl font-bold text-center mb-8">Preview the Plans</h2>
+            
+            {/* Tab buttons */}
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {tabs.map((tab, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    activeTab === index
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted hover:bg-muted/80"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            
+            {/* Tab content */}
+            <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8">
+              <img 
+                src={tabs[activeTab].image}
+                alt={tabs[activeTab].label}
+                className="w-full h-auto cursor-pointer hover:opacity-95 transition-opacity"
+                onClick={() => window.open(tabs[activeTab].image, '_blank')}
+              />
+              <p className="text-center text-sm text-muted-foreground mt-4">Click to enlarge</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 5 - Gentle Boundaries */}
-      <section className="py-12 bg-muted/30">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              What MyHealthCanvas is — and isn't
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[oklch(0.55_0.15_195)]">MyHealthCanvas is:</h3>
-                <ul className="space-y-3 text-lg text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>A preparation and reflection tool</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Designed to support communication</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Created by a patient, for patients</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-destructive">MyHealthCanvas is not:</h3>
-                <ul className="space-y-3 text-lg text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-destructive mt-3 flex-shrink-0" />
-                    <span>A diagnostic tool</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-destructive mt-3 flex-shrink-0" />
-                    <span>Medical advice</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-destructive mt-3 flex-shrink-0" />
-                    <span>A replacement for professional care</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <p className="text-center text-muted-foreground pt-4">
-              You download the form locally and remain in control of your data at all times.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
+      {/* SECTION 4 - WHO IT'S FOR / NOT FOR */}
       <section className="py-16 bg-muted/30">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">The Mission</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Created by a 2× cancer survivor, alongside other patients, to help people organise their health stories and ask the questions that matter most in medical conversations.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Best for */}
               <Card>
-                <CardContent className="pt-6 text-center">
-                  <Heart className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">50%</div>
-                  <p className="text-muted-foreground">
-                    of profits go to cancer research
-                  </p>
+                <CardHeader>
+                  <CardTitle className="text-xl text-[oklch(0.55_0.15_195)]">Best for</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                      <span>Chronic conditions</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                      <span>Complex care journeys</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                      <span>Multiple specialists</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
+                      <span>Caregiver involvement</span>
+                    </li>
+                  </ul>
                 </CardContent>
               </Card>
+
+              {/* Not for */}
               <Card>
-                <CardContent className="pt-6 text-center">
-                  <Users className="h-12 w-12 text-[oklch(0.55_0.15_195)] mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-primary mb-2">Patient First</div>
-                  <p className="text-muted-foreground">
-                    Designed by patients, for patients
-                  </p>
+                <CardHeader>
+                  <CardTitle className="text-xl text-destructive">Not for</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                      <span>Emergencies</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                      <span>Diagnosis or triage</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <XCircle className="h-5 w-5 text-destructive flex-shrink-0 mt-0.5" />
+                      <span>Replacing clinician advice</span>
+                    </li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
@@ -365,65 +296,89 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Patient Advocacy Group CTA */}
-      <section className="py-8">
+      {/* SECTION 5 - USE CASES (visual cards) */}
+      <section className="py-16">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <a 
-              href="/myhealthcanvas/advocacy" 
-              className="text-[oklch(0.55_0.15_195)] hover:text-[oklch(0.45_0.15_195)] font-medium text-lg underline underline-offset-4 transition-colors"
-            >
-              Are you a patient charity? Learn about partnership opportunities for patient empowerment →
-            </a>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8">When to Use MyHealthCanvas</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {useCases.map((useCase, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="pt-6 text-center">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <useCase.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold mb-2">{useCase.title}</h3>
+                    <p className="text-sm text-muted-foreground">{useCase.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Product Tiers */}
-      <section className="py-20 bg-muted/30">
+      {/* SECTION 6 - GOVERNANCE (short, authoritative) */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <Card className="border-2 border-primary/20">
+              <CardHeader className="text-center">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Clinical AI governance - when AI is used</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground mb-6">
+                  MyHealthCanvas is built on a physician-defined governance framework that ensures human authority, deterministic escalation, and auditability when AI components are introduced.
+                </p>
+                <a 
+                  href="https://www.andysquire.ai/clinical-ai-governance" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline text-sm font-medium"
+                >
+                  Read governance framework →
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7 - FINAL CONVERSION BLOCK */}
+      <section id="buy" className="py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Choose Your Plan
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Choose Your Plan</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Current Plan */}
-            <Card className="hover:shadow-xl transition-all duration-300">
+            <Card id="buy-current" className="hover:shadow-xl transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl">Current Plan PDF</CardTitle>
-                <CardDescription>One page summary</CardDescription>
+                <CardTitle className="text-2xl">Current Plan</CardTitle>
+                <CardDescription>One-page snapshot</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£9</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
+                <p className="text-sm font-medium text-primary">Best for appointments & emergencies</p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Current Health Overview & My Health Summary</span>
+                    <span>Medical snapshot & key facts</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Goals, Plans & Priorities (30, 60, 90 days)</span>
+                    <span>Questions for your care team</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Key Medical Information & Medications</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Allergies & Significant Warnings</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Questions for Your Healthcare Team</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Sources of Comfort & Wellbeing</span>
+                    <span>Printable, patient-owned PDF</span>
                   </li>
                 </ul>
               </CardContent>
@@ -438,50 +393,32 @@ export default function MyHealthCanvas() {
             </Card>
 
             {/* Complete Plan */}
-            <Card className="hover:shadow-xl transition-all duration-300 border-2 border-primary/50 relative">
+            <Card id="buy-complete" className="hover:shadow-xl transition-all duration-300 border-2 border-primary/50 relative">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
                 Most Popular
               </div>
               <CardHeader>
-                <CardTitle className="text-2xl">Complete Plan PDF</CardTitle>
-                <CardDescription>Two pages with extra details</CardDescription>
+                <CardTitle className="text-2xl">Complete Plan</CardTitle>
+                <CardDescription>Two-page comprehensive</CardDescription>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">£12</span>
                   <span className="text-muted-foreground ml-2">one-time</span>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm font-semibold text-primary">
-                  The same as in Current, plus:
-                </p>
+                <p className="text-sm font-medium text-primary">Best for complex care & caregiver support</p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Sources of Comfort & Well-Being</span>
+                    <span>Everything in the Current Plan</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Reflections & Insights to Share</span>
+                    <span>Goals, priorities & reflections</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>My Wishes for Future Care</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Advance Directive & Power of Attorney</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Useful Resources, Apps & Communities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Gifts From My Journey - Positive Learnings</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0 mt-0.5" />
-                    <span>Feedback & Ideas for Patient Support</span>
+                    <span>Care preferences & what matters most</span>
                   </li>
                 </ul>
               </CardContent>
@@ -495,9 +432,27 @@ export default function MyHealthCanvas() {
               </CardFooter>
             </Card>
           </div>
+
+          {/* Reassurance line */}
+          <p className="text-center text-muted-foreground mt-8">
+            Need help choosing? <a href="mailto:andy@andysquire.ai" className="text-primary hover:underline">Email us</a> - we'll guide you.
+          </p>
         </div>
       </section>
 
+      {/* Charity Partnership CTA */}
+      <section className="py-8 bg-muted/30 border-t">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <a 
+              href="/myhealthcanvas/advocacy" 
+              className="text-[oklch(0.55_0.15_195)] hover:text-[oklch(0.45_0.15_195)] font-medium text-sm underline underline-offset-4 transition-colors"
+            >
+              Are you a patient charity? Learn about partnership opportunities →
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
