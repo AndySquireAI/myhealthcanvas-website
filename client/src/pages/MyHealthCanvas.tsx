@@ -153,20 +153,24 @@ export default function MyHealthCanvas() {
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.15_195)]/10 via-background to-background py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              Printable{" "}
+              <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
+                Patient Health Record
+              </span>{" "}
+              Templates
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Download, fill, and share with your care team.
+            </p>
             {/* MyHealthCanvas Logo */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mt-8">
               <img
                 src="/images/MyHealthCanvasLOGOX2.png"
                 alt="MyHealthCanvas Logo"
                 className="w-full max-w-xs h-auto"
               />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Printable Patient Health Record Templates
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Download, fill, and share with your care team.
-            </p>
           </div>
         </div>
       </section>
@@ -309,7 +313,7 @@ export default function MyHealthCanvas() {
               href="https://www.andysquire.ai/clinical-ai-governance" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-primary hover:underline text-sm"
+              className="text-primary underline underline-offset-4 hover:text-primary/80 text-sm"
             >
               Read governance framework →
             </a>
