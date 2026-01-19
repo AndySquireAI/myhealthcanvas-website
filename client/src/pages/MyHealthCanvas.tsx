@@ -373,7 +373,7 @@ export default function MyHealthCanvas() {
               href="/myhealthcanvas/advocacy" 
               className="text-[oklch(0.55_0.15_195)] hover:text-[oklch(0.45_0.15_195)] font-medium text-lg underline underline-offset-4 transition-colors"
             >
-              Are you a Patient Advocacy Group? Learn how MyHealthCanvas can support your community →
+              Are you a patient charity? Learn about partnership opportunities for patient empowerment →
             </a>
           </div>
         </div>
