@@ -62,7 +62,7 @@ export default function Home() {
                   See Plans & Prices
                 </Button>
               </a>
-              <a href="/pdfs/MyHealthCanvas-Sample.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="#mockup">
                 <Button size="lg" variant="outline" className="text-lg px-8 border-primary text-primary hover:bg-primary/10 w-full sm:w-auto">
                   View a Sample PDF
                 </Button>
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* PLAN COMPARISON MOCKUP */}
-      <section className="py-16 bg-muted/30">
+      <section id="mockup" className="py-16 bg-muted/30">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8">

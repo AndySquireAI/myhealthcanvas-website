@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { CheckCircle2, XCircle, Shield } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SEO from "@/components/SEO";
 
 declare global {
@@ -11,7 +11,6 @@ declare global {
 }
 
 export default function MyHealthCanvas() {
-  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     // Load PayPal SDK
@@ -112,12 +111,6 @@ export default function MyHealthCanvas() {
     };
   }, []);
 
-  const tabs = [
-    { label: "Current Plan", image: "/images/myhealthcanvas-mockup-comparison.png", caption: "One-page snapshot of essentials" },
-    { label: "Complete Plan", image: "/images/myhealthcanvas-mockup-comparison.png", caption: "Two-page with goals, context, preferences" },
-    { label: "Side-by-Side", image: "/images/myhealthcanvas-mockup-comparison.png", caption: "Compare both plans at a glance" }
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
       <SEO
@@ -198,38 +191,21 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* PREVIEW TABS */}
+      {/* PREVIEW SECTION */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-center mb-8">Preview the Plans</h2>
             
-            {/* Tab buttons */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {tabs.map((tab, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTab === index
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted hover:bg-muted/80"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            
-            {/* Tab content */}
+            {/* Mockup image */}
             <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8">
               <img 
-                src={tabs[activeTab].image}
-                alt={tabs[activeTab].label}
+                src="/images/myhealthcanvas-mockup-comparison.png"
+                alt="Compare at a glance: one-page vs two-page plan"
                 className="w-full h-auto cursor-pointer hover:opacity-95 transition-opacity"
-                onClick={() => window.open(tabs[activeTab].image, '_blank')}
+                onClick={() => window.open('/images/myhealthcanvas-mockup-comparison.png', '_blank')}
               />
-              <p className="text-center text-sm text-muted-foreground mt-4">{tabs[activeTab].caption}</p>
+              <p className="text-center text-sm text-muted-foreground mt-4">Compare at a glance: one-page vs two-page plan.</p>
             </div>
           </div>
         </div>
