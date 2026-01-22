@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { XCircle, Shield, ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
@@ -116,188 +114,137 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="MyHealthCanvas | Printable Health Plan Templates"
-        description="Downloadable PDF templates to organize your health information. Print and fill by hand. Your data stays with you - we don't collect patient information."
-        keywords="health plan template, printable health record, patient organization, medical document template"
+        title="What MyHealthCanvas Does | Printable Health Templates"
+        description="One private place for health documents. You stay in control of your data. Use it as little or as much as you want."
+        keywords="health plan template, printable health record, patient organization"
         canonicalPath="/myhealthcanvas"
       />
 
-      {/* MINIMAL NAVIGATION */}
-      <nav className="py-4 border-b border-slate-100">
-        <div className="container flex justify-between items-center">
-          <Link href="/" className="inline-flex items-center text-slate-400 text-sm hover:text-slate-600">
-            <ArrowLeft className="h-4 w-4 mr-1" />
-            Back
-          </Link>
-          <a href="#what-this-is-not" className="text-slate-400 text-sm hover:text-slate-600">
-            What this is not
-          </a>
+      {/* Section 1 - Headline */}
+      {/* This page should not be patient-emotional. It should be calm and factual. */}
+      <section className="min-h-[50vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16">
+        <div className="max-w-md mx-auto text-center space-y-12">
+          
+          {/* Headline */}
+          <h1 className="text-[28px] md:text-4xl lg:text-5xl font-light text-gray-900 leading-[1.3]">
+            What MyHealthCanvas actually does
+          </h1>
+          
         </div>
-      </nav>
+      </section>
 
-      {/* HERO - CLARIFY WHAT THIS IS */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-slate-50 to-white">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-              Printable Health Plan Templates
-            </h1>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Download, print, and fill in by hand. Your data stays with you - we don't collect or store any patient information.
+      {/* Section 2 - Three short blocks only */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-lg mx-auto space-y-12">
+          
+          <div className="text-center">
+            <p className="text-[19px] text-gray-700 leading-[1.6]">
+              One private place for health documents
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-[19px] text-gray-700 leading-[1.6]">
+              You stay in control of your data
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-[19px] text-gray-700 leading-[1.6]">
+              You can use it as little or as much as you want
+            </p>
+          </div>
+          
+        </div>
+      </section>
+
+      {/* Section 3 - What You Get - MOCKUP */}
+      <section className="py-20 px-6 md:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-[22px] md:text-2xl font-medium text-gray-800 mb-8 text-center">
+            What you get
+          </h2>
+          
+          {/* Clickable mockup showing Current and Complete plans */}
+          <div
+            className="cursor-pointer"
+            onClick={() => setZoomedImage(true)}
+          >
+            <img
+              src="/images/MyHealthCanvasMOCKUPPBD.png"
+              alt="MyHealthCanvas template preview - Current Plan (one page) and Complete Plan (two pages)"
+              className="w-full rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+            />
+            <p className="text-[15px] text-gray-400 text-center mt-4">
+              Current Plan (1 page) · Complete Plan (2 pages) — Click to enlarge
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHAT THIS IS NOT - Above the fold clarification */}
-      <section id="what-this-is-not" className="py-12 bg-slate-50">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold text-slate-800 mb-6 text-center">
-              What this is not
-            </h2>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <XCircle className="h-5 w-5 text-slate-400 flex-shrink-0" />
-                <span className="text-slate-600">Not medical advice</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <XCircle className="h-5 w-5 text-slate-400 flex-shrink-0" />
-                <span className="text-slate-600">Not replacing your doctors</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <XCircle className="h-5 w-5 text-slate-400 flex-shrink-0" />
-                <span className="text-slate-600">Not autonomous AI making decisions</span>
-              </div>
-            </div>
-            <div className="mt-6 pt-6 border-t border-slate-200">
-              <div className="flex items-center gap-3">
-                <Shield className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span className="text-slate-700 font-medium">Just a printable template to help you organize</span>
-              </div>
-            </div>
+      {/* Section 4 - Pricing - No CTAs mid-page, one CTA area at bottom */}
+      <section id="buy" className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Current Plan */}
+            <Card className="border-gray-200 bg-white">
+              <CardHeader>
+                <CardTitle className="text-[20px] font-medium">Current Plan</CardTitle>
+                <CardDescription className="text-[15px]">One-page template</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[32px] font-light text-gray-900 mb-6">£9</p>
+                <ul className="space-y-2 text-[16px] text-gray-600">
+                  <li>Essential health information</li>
+                  <li>Medications & contacts</li>
+                  <li>Print and fill by hand</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <div id="paypal-button-current" className="w-full"></div>
+              </CardFooter>
+            </Card>
+
+            {/* Complete Plan */}
+            <Card className="border-[oklch(0.55_0.15_195)] border-2 bg-white">
+              <CardHeader>
+                <CardTitle className="text-[20px] font-medium">Complete Plan</CardTitle>
+                <CardDescription className="text-[15px]">Two-page template</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[32px] font-light text-gray-900 mb-6">£12</p>
+                <ul className="space-y-2 text-[16px] text-gray-600">
+                  <li>Everything in Current Plan</li>
+                  <li>Goals & priorities</li>
+                  <li>Questions for care team</li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <div id="paypal-button-complete" className="w-full"></div>
+              </CardFooter>
+            </Card>
           </div>
+
+          <p className="text-[14px] text-gray-400 text-center mt-8">
+            Secure payment via PayPal
+          </p>
         </div>
       </section>
 
-      {/* PREVIEW - Clickable mockup */}
-      <section className="py-12">
-        <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
-              See what you get
-            </h2>
-            <div
-              className="cursor-pointer"
-              onClick={() => setZoomedImage(true)}
-            >
-              <img
-                src="/images/MyHealthCanvasMOCKUPPBD.png"
-                alt="MyHealthCanvas template preview - Current Plan (one page) and Complete Plan (two pages)"
-                className="w-full rounded-lg shadow-lg border border-slate-200 hover:shadow-xl transition-shadow"
-              />
-              <p className="text-sm text-slate-500 text-center mt-3">
-                Click to enlarge
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING - Single CTA area */}
-      <section id="buy" className="py-16 bg-slate-50">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-8 text-center">
-              Choose your template
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Current Plan */}
-              <Card className="border-slate-200">
-                <CardHeader>
-                  <CardTitle className="text-xl">Current Plan</CardTitle>
-                  <CardDescription>One-page template</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold text-slate-900 mb-4">£9</p>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Essential health information</li>
-                    <li>• Space for medications & contacts</li>
-                    <li>• Print and fill by hand</li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <div id="paypal-button-current" className="w-full"></div>
-                </CardFooter>
-              </Card>
-
-              {/* Complete Plan */}
-              <Card className="border-[oklch(0.55_0.15_195)] border-2">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl">Complete Plan</CardTitle>
-                    <span className="text-xs bg-[oklch(0.55_0.15_195)] text-white px-2 py-1 rounded">
-                      Most comprehensive
-                    </span>
-                  </div>
-                  <CardDescription>Two-page template</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold text-slate-900 mb-4">£12</p>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>• Everything in Current Plan</li>
-                    <li>• Goals & priorities section</li>
-                    <li>• Questions for your care team</li>
-                    <li>• Reflections & feedback space</li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <div id="paypal-button-complete" className="w-full"></div>
-                </CardFooter>
-              </Card>
-            </div>
-
-            <p className="text-sm text-slate-400 text-center mt-6">
-              Secure payment via PayPal. Download link sent to your email.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* REASSURANCE */}
-      <section className="py-12">
-        <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <p className="text-slate-500 leading-relaxed">
-              No medical advice. No AI decisions.<br />
-              Just structure, clarity, and calm.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECONDARY TEXT LINK - For advocates (not a button) */}
-      <section className="py-8 border-t border-slate-100">
-        <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <Link href="/myhealthcanvas/advocacy" className="text-slate-400 text-sm hover:text-slate-600">
-              Looking for patient advocacy instead?
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-8 border-t border-slate-100">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+      {/* FOOTER - Minimal, advocacy in footer only */}
+      <footer className="py-8 border-t border-gray-100 mt-auto">
+        <div className="container px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <span>© 2025 MyHealthCanvas</span>
             <div className="flex gap-6">
-              <Link href="/" className="hover:text-slate-600">
+              <Link href="/" className="hover:text-gray-600">
                 Home
               </Link>
-              <Link href="/impressum" className="hover:text-slate-600">
+              <Link href="/myhealthcanvas/advocacy" className="hover:text-gray-600">
+                For advocates
+              </Link>
+              <Link href="/impressum" className="hover:text-gray-600">
                 Impressum
               </Link>
             </div>
