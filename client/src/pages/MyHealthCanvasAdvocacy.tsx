@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 
 export default function MyHealthCanvasAdvocacy() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white relative">
       <SEO
         title="Advocacy Partnerships | MyHealthCanvas"
         description="Partnership opportunities for patient advocacy organizations. Revenue sharing. No patient data access."
@@ -14,19 +14,19 @@ export default function MyHealthCanvasAdvocacy() {
       {/* This page is NOT for patients in distress */}
       {/* More formal. Shorter sentences. No emotional language. */}
 
-      {/* Section 1 - Headline with subtle circle of patients background - BOLD like AAA page */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-        {/* Subtle circle of patients background - community support */}
-        <div 
-          className="absolute inset-0 bg-no-repeat bg-center opacity-50 md:opacity-60 pointer-events-none"
-          style={{
-            backgroundImage: 'url(/images/bg-advocacy-circle.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        
-        <div className="max-w-md mx-auto text-center space-y-8 relative z-10">
+      {/* Full-page background - circle of patients finding comfort */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-40 md:opacity-50 pointer-events-none"
+        style={{
+          backgroundImage: 'url(/images/bg-advocacy-circle.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+
+      {/* Section 1 - Headline - BOLD like AAA page */}
+      <section className="py-20 px-6 md:px-12 lg:px-24 min-h-[50vh] flex flex-col justify-center relative z-10">
+        <div className="max-w-md mx-auto text-center space-y-8">
           
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
@@ -43,7 +43,7 @@ export default function MyHealthCanvasAdvocacy() {
       </section>
 
       {/* Section 2 - How it works */}
-      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50 relative z-10">
         <div className="max-w-lg mx-auto space-y-8">
           
           <div className="p-6 bg-white border border-gray-200 rounded-lg">
@@ -71,7 +71,7 @@ export default function MyHealthCanvasAdvocacy() {
       </section>
 
       {/* Section 3 - Contact */}
-      <section className="py-20 px-6 md:px-12 lg:px-24">
+      <section className="py-20 px-6 md:px-12 lg:px-24 relative z-10">
         <div className="max-w-md mx-auto text-center space-y-8">
           
           <p className="text-[17px] text-gray-600">
@@ -89,7 +89,7 @@ export default function MyHealthCanvasAdvocacy() {
       </section>
 
       {/* FOOTER - Minimal */}
-      <footer className="py-8 border-t border-gray-100 mt-auto">
+      <footer className="py-8 border-t border-gray-100 mt-auto relative z-10">
         <div className="container px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <span>© 2025 MyHealthCanvas</span>
