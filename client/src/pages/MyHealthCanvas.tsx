@@ -115,7 +115,7 @@ export default function MyHealthCanvas() {
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
         title="What MyHealthCanvas Does | Printable Health Templates"
-        description="One private place for health documents. You stay in control of your data. Use it as little or as much as you want."
+        description="One private place for your health story. You stay in control of your data. Use it as little or as much as you want."
         keywords="health plan template, printable health record, patient organization"
         canonicalPath="/myhealthcanvas"
       />
@@ -128,7 +128,7 @@ export default function MyHealthCanvas() {
           <img
             src="/images/MyHealthCanvasLOGOX2.png"
             alt="MyHealthCanvas Logo"
-            className="h-24 md:h-32 mx-auto"
+            className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
           {/* Headline */}
@@ -145,7 +145,7 @@ export default function MyHealthCanvas() {
           
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
-              One private place for health documents
+              One private place for your health story
             </p>
           </div>
           
