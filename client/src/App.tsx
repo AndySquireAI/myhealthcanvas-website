@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
 import MyHealthCanvasAdvocacy from "./pages/MyHealthCanvasAdvocacy";
 import Day1AfterDiagnosis from "./pages/Day1AfterDiagnosis";
+import First30Days from "./pages/First30Days";
 import AAA from "./pages/AAA";
 import ELibrary from "./pages/ELibrary";
 import BlogPost from "./pages/BlogPost";
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/day-1-after-diagnosis" component={Day1AfterDiagnosis} />
+        <Route path="/first-30-days" component={First30Days} />
         <Route path="/aaa" component={AAA} />
         <Route path="/elibrary" component={ELibrary} />
         <Route path="/elibrary/:slug" component={BlogPost} />
