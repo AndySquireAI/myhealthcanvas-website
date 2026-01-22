@@ -19,15 +19,7 @@ export default function Header() {
   ];
 
   return (
-    <>
-      {/* Global Governance Banner - Appears on ALL pages */}
-      <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-b border-teal-200 py-2">
-        <div className="container text-center text-sm text-teal-800">
-          <span className="font-semibold">MyHealthCanvas</span> is a patient-facing health planning tool. Built on a governed clinical AI framework. <a href="https://andysquire.ai/clinical-ai-governance" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-teal-900">Governance documentation →</a>
-        </div>
-      </div>
-      
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" onClick={scrollToTop}>
@@ -110,6 +102,5 @@ export default function Header() {
           </div>
         )}
       </header>
-    </>
   );
 }
