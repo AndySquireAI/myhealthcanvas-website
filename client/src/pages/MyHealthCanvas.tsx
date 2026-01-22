@@ -121,23 +121,14 @@ export default function MyHealthCanvas() {
         ogImage="https://myhealthcanvas.com/images/myhealthcanvas-mockup-comparison.png"
       />
 
-      {/* STICKY CTA BAR */}
+      {/* STICKY CTA BAR - Single primary action */}
       <div className="sticky top-0 z-50 bg-white border-b shadow-sm">
         <div className="container py-3">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="text-sm font-medium">
-              <span className="text-muted-foreground">Current</span> <span className="font-bold">£9</span>
-              <span className="mx-3 text-muted-foreground">|</span>
-              <span className="text-muted-foreground">Complete</span> <span className="font-bold">£12</span>
-            </div>
-            <div className="flex gap-3">
-              <a href="#buy-current">
-                <Button size="sm" variant="outline">Buy Current</Button>
-              </a>
-              <a href="#buy-complete">
-                <Button size="sm">Buy Complete</Button>
-              </a>
-            </div>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-muted-foreground">Organize what matters</p>
+            <a href="#buy">
+              <Button size="sm">Get started</Button>
+            </a>
           </div>
         </div>
       </div>
@@ -147,14 +138,13 @@ export default function MyHealthCanvas() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Printable{" "}
+              Capture your documents.{" "}
               <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
-                Patient Health Record
-              </span>{" "}
-              Templates
+                Prepare for your next appointment.
+              </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Download, fill, and share with your care team.
+              Organize what matters — your appointments, questions, and medical information.
             </p>
             {/* MyHealthCanvas Logo */}
             <div className="flex justify-center mt-8">
@@ -176,15 +166,15 @@ export default function MyHealthCanvas() {
             <div className="space-y-3">
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>Downloadable PDF, yours to keep</span>
+                <span>Capture everything so nothing gets lost</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>Designed for appointments & caregivers</span>
+                <span>Prepare questions for your clinical team</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>One-page or two-page options</span>
+                <span>Track appointments and treatments</span>
               </p>
             </div>
           </div>
