@@ -32,7 +32,7 @@ export default function Home() {
                 </Button>
               </Link>
               <p className="text-sm text-slate-400 mt-4">
-                Free to start · Patient-owned · No medical advice
+                Your data stays with you · No uploads · No medical advice
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-full bg-[oklch(0.55_0.15_195)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-4 w-4 text-[oklch(0.55_0.15_195)]" />
                 </div>
-                <p className="text-slate-600">Capture everything so nothing gets lost</p>
+                <p className="text-slate-600">Tips to capture and organize your documents locally</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 rounded-full bg-[oklch(0.55_0.15_195)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -74,7 +74,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-full bg-[oklch(0.55_0.15_195)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="h-4 w-4 text-[oklch(0.55_0.15_195)]" />
                 </div>
-                <p className="text-slate-600">Track appointments and treatments</p>
+                <p className="text-slate-600">Printable templates for appointments</p>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 rounded-full bg-[oklch(0.55_0.15_195)]/10 flex items-center justify-center flex-shrink-0 mt-0.5">

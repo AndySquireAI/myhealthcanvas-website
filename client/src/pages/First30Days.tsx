@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Check, ArrowLeft } from "lucide-react";
+import { Check, ArrowLeft, Folder } from "lucide-react";
 import { useEffect, useState } from "react";
 import SEO from "@/components/SEO";
 
@@ -45,6 +45,18 @@ export default function First30Days() {
     "Texts about appointments or treatments",
   ];
 
+  const folderSuggestions = [
+    { name: "Disease Information", description: "Diagnosis details, condition info" },
+    { name: "Treatment Information", description: "Treatment plans, protocols" },
+    { name: "Complementary Treatments", description: "Alternative therapies, supplements" },
+    { name: "Nutrition", description: "Diet plans, nutritional advice" },
+    { name: "Blood Tests", description: "Lab results, blood work" },
+    { name: "PET/CT/MRI", description: "Imaging scans and reports" },
+    { name: "Prescriptions", description: "Medication lists, dosages" },
+    { name: "Physician Visits", description: "Consultation summaries, notes" },
+    { name: "Insurance", description: "Coverage, claims, approvals" },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
@@ -75,13 +87,13 @@ export default function First30Days() {
             
             {/* Single Primary CTA */}
             <div className="pt-6">
-              <Link href="/myhealthcanvas">
+              <a href="#organize-tips">
                 <Button size="lg" className="text-lg px-8 py-6 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                  Start organizing my documents
+                  Show me how to get organized
                 </Button>
-              </Link>
+              </a>
               <p className="text-sm text-slate-400 mt-4">
-                You stay in control · No medical advice
+                Practical tips · Your data stays with you · No uploads required
               </p>
             </div>
           </div>
@@ -114,18 +126,22 @@ export default function First30Days() {
         </div>
       </section>
 
-      {/* SECTION 3 - STEP 1: CAPTURE EVERYTHING */}
-      <section className="py-12">
+      {/* SECTION 3 - STEP 1: CAPTURE EVERYTHING (LOCAL STORAGE ADVICE) */}
+      <section id="organize-tips" className="py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-slate-800 mb-4">
               Step 1 — Capture what you already have
             </h2>
-            <p className="text-slate-600 mb-8">
-              Take photos/screenshots of your documents so nothing gets lost. You can organize them later.
+            <p className="text-slate-600 mb-4">
+              <strong>Take photos or screenshots</strong> of your documents so nothing gets lost. Store them on your phone, computer, or cloud storage like Google Drive.
+            </p>
+            <p className="text-sm text-slate-500 italic mb-8">
+              This is just helpful advice — your documents stay with you. We don't collect or store any patient data.
             </p>
 
             {/* Tappable checklist */}
+            <p className="text-sm font-medium text-slate-700 mb-3">Documents to capture:</p>
             <div className="space-y-3 mb-8">
               {checklistItems.map((item) => (
                 <button
@@ -153,22 +169,52 @@ export default function First30Days() {
               ))}
             </div>
 
-            {/* Single Primary CTA */}
-            <Link href="/myhealthcanvas">
-              <Button className="bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)]">
-                Upload and organize now
-              </Button>
-            </Link>
+            {/* No upload button - just advice */}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4 - PRACTICAL DAILY LIFE STEPS (NO CTA) */}
+      {/* SECTION 4 - FOLDER ORGANIZATION SUGGESTIONS */}
       <section className="py-12 bg-slate-50">
         <div className="container">
           <div className="max-w-2xl mx-auto">
+            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
+              Step 2 — Organize into folders
+            </h2>
+            <p className="text-slate-600 mb-4">
+              Create folders on your phone, computer, or Google Drive to keep everything organized. Here are some suggested folder names:
+            </p>
+            <p className="text-sm text-slate-500 italic mb-6">
+              Store at your own risk — we recommend backing up to multiple locations.
+            </p>
+
+            {/* Folder grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {folderSuggestions.map((folder) => (
+                <div
+                  key={folder.name}
+                  className="bg-white border border-slate-200 rounded-lg p-4 hover:border-[oklch(0.55_0.15_195)]/50 transition-colors"
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <Folder className="h-5 w-5 text-[oklch(0.55_0.15_195)]" />
+                    <span className="font-medium text-slate-800 text-sm">{folder.name}</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{folder.description}</p>
+                </div>
+              ))}
+            </div>
+            
+            {/* No CTA here - just guidance */}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 - PRACTICAL DAILY LIFE STEPS (NO CTA) */}
+      <section className="py-12">
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-              Step 2 — Reduce overwhelm in daily life
+              Step 3 — Reduce overwhelm in daily life
             </h2>
             <ul className="space-y-3 text-slate-600">
               <li className="flex items-start gap-3">
@@ -193,12 +239,12 @@ export default function First30Days() {
         </div>
       </section>
 
-      {/* SECTION 5 - UNDERSTAND YOUR MEDICAL TIMELINE */}
-      <section className="py-12">
+      {/* SECTION 6 - UNDERSTAND YOUR MEDICAL TIMELINE */}
+      <section className="py-12 bg-slate-50">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Step 3 — Understand what comes next
+              Step 4 — Understand what comes next
             </h2>
             <p className="text-slate-600 mb-6">
               Your care team will outline next steps. It's common to have a few weeks before major decisions — use that time to prepare.
@@ -214,22 +260,17 @@ export default function First30Days() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-slate-400">•</span>
-                <span>Track appointments in one place</span>
+                <span>Keep your organized folders handy for appointments</span>
               </li>
             </ul>
 
-            {/* Single CTA */}
-            <Link href="/myhealthcanvas">
-              <Button className="bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)]">
-                Prepare for my next appointment
-              </Button>
-            </Link>
+            {/* No CTA - guidance only */}
           </div>
         </div>
       </section>
 
-      {/* SECTION 6 - SECOND PERSPECTIVE */}
-      <section className="py-12 bg-slate-50">
+      {/* SECTION 7 - SECOND PERSPECTIVE */}
+      <section className="py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-slate-800 mb-4">
@@ -241,7 +282,7 @@ export default function First30Days() {
             <ul className="space-y-3 text-slate-600 mb-8">
               <li className="flex items-start gap-3">
                 <span className="text-[oklch(0.55_0.15_195)] font-medium">1.</span>
-                <span>Compile documents</span>
+                <span>Compile your documents from your folders</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[oklch(0.55_0.15_195)] font-medium">2.</span>
@@ -259,14 +300,14 @@ export default function First30Days() {
               className="border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)]"
               onClick={() => setShowSecondOpinionModal(true)}
             >
-              Explore how to get a second opinion
+              Learn more about second opinions
             </Button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7 - E-LIBRARY (NO PRIMARY CTA) */}
-      <section className="py-12">
+      {/* SECTION 8 - E-LIBRARY (NO PRIMARY CTA) */}
+      <section className="py-12 bg-slate-50">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-semibold text-slate-800 mb-4">
@@ -280,16 +321,19 @@ export default function First30Days() {
         </div>
       </section>
 
-      {/* SECTION 8 - FINAL CTA */}
-      <section className="py-16 bg-slate-50">
+      {/* SECTION 9 - PRINTABLE HEALTH PLAN TEMPLATE */}
+      <section className="py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-2xl font-semibold text-slate-800">
-              Ready to start organizing?
+              Want a printable health plan template?
             </h2>
+            <p className="text-slate-600">
+              Our PDF templates help you organize your medical information for appointments and caregivers.
+            </p>
             <Link href="/myhealthcanvas">
-              <Button size="lg" className="text-lg px-10 py-6 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                Start organizing what matters
+              <Button size="lg" className="bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
+                View printable templates
               </Button>
             </Link>
           </div>
@@ -298,11 +342,11 @@ export default function First30Days() {
 
       {/* STICKY MOBILE CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50">
-        <Link href="/myhealthcanvas" className="block">
+        <a href="#organize-tips" className="block">
           <Button className="w-full bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white py-6">
-            Get organized today
+            Show me how to organize
           </Button>
-        </Link>
+        </a>
       </div>
 
       {/* Bottom padding for sticky CTA on mobile */}
@@ -319,7 +363,7 @@ export default function First30Days() {
             <ol className="space-y-3 text-slate-600 text-sm">
               <li className="flex items-start gap-3">
                 <span className="text-[oklch(0.55_0.15_195)] font-medium">1.</span>
-                <span>Gather your medical records, test results, and imaging</span>
+                <span>Gather your medical records, test results, and imaging from your folders</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[oklch(0.55_0.15_195)] font-medium">2.</span>

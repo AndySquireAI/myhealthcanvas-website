@@ -125,7 +125,7 @@ export default function MyHealthCanvas() {
       <div className="sticky top-0 z-50 bg-white border-b shadow-sm">
         <div className="container py-3">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">Organize what matters</p>
+            <p className="text-sm text-muted-foreground">Printable PDF templates</p>
             <a href="#buy">
               <Button size="sm">Get started</Button>
             </a>
@@ -138,13 +138,13 @@ export default function MyHealthCanvas() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Capture your documents.{" "}
+              Printable{" "}
               <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent">
-                Prepare for your next appointment.
+                Health Plan Templates
               </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Organize what matters — your appointments, questions, and medical information.
+              Download, print, and fill in by hand. Your data stays with you - we don't collect or store any patient information.
             </p>
             {/* MyHealthCanvas Logo */}
             <div className="flex justify-center mt-8">
@@ -166,15 +166,15 @@ export default function MyHealthCanvas() {
             <div className="space-y-3">
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>Capture everything so nothing gets lost</span>
+                <span>Downloadable PDF template - print and fill by hand</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>Prepare questions for your clinical team</span>
+                <span>Space to prepare questions for your clinical team</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-[oklch(0.55_0.15_195)] flex-shrink-0" />
-                <span>Track appointments and treatments</span>
+                <span>Your data stays with you - no uploads, no accounts</span>
               </p>
             </div>
           </div>
