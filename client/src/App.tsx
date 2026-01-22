@@ -15,6 +15,7 @@ import ELibrary from "./pages/ELibrary";
 import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import CaregiverHelp from "./pages/CaregiverHelp";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/first-30-days-after-diagnosis" component={First30Days} />
+        <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />
         <Route path="/elibrary" component={ELibrary} />
         <Route path="/elibrary/:slug" component={BlogPost} />

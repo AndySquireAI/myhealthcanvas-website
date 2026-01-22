@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -12,8 +11,8 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
         title="MyHealthCanvas | The First 30 Days After a Diagnosis"
-        description="Recently diagnosed? Feeling overwhelmed? MyHealthCanvas helps you get through the first 30 days with structure, clarity, and calm. No medical advice. No AI decisions."
-        keywords="diagnosis support, overwhelmed after diagnosis, patient organization, first 30 days, health planning"
+        description="Recently diagnosed? Feeling overwhelmed? You don't need to organize anything yet. Just save things in one place. We'll help when you're ready."
+        keywords="diagnosis support, overwhelmed after diagnosis, patient support, first 30 days, caregiver help"
         canonicalPath="/"
       />
 
@@ -27,7 +26,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO - SINGLE CTA ONLY */}
+      {/* HERO - Permission to be messy */}
       <section className="py-20 md:py-28 bg-gradient-to-b from-slate-50 to-white">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center space-y-8">
@@ -35,35 +34,54 @@ export default function Home() {
               Recently diagnosed? Feeling overwhelmed?
             </h1>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-              You don't have to figure this out alone. Take one calm step at a time.
+              You don't have to figure this out alone.
             </p>
             
-            {/* SINGLE PRIMARY CTA - No competing buttons */}
+            {/* SINGLE PRIMARY CTA - Pressure-free language */}
             <div className="pt-4">
-              <Link href="/first-30-days-after-diagnosis">
-                <Button size="lg" className="text-lg px-10 py-7 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                  Start with the first 30 days
-                </Button>
+              <Link 
+                href="/first-30-days-after-diagnosis"
+                className="inline-block text-lg px-10 py-5 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white rounded-lg font-medium transition-colors"
+              >
+                Give me one safe place to put everything
               </Link>
             </div>
+            
+            {/* Reassurance under CTA */}
+            <p className="text-slate-400 text-sm">
+              Just save it. Organize later — or never.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* REASSURANCE BLOCK - No buttons */}
+      {/* REASSURANCE BLOCK - Not actions */}
       <section className="py-12 bg-white">
         <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <p className="text-slate-500 leading-relaxed">
-              No medical advice. No AI decisions.<br />
-              Just structure, clarity, and calm.
+          <div className="max-w-xl mx-auto text-center space-y-4">
+            <p className="text-lg text-slate-700">You're not behind.</p>
+            <p className="text-lg text-slate-700">This can wait.</p>
+            <p className="text-lg text-slate-700">Nothing here expires.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CAREGIVER PATH - Secondary, not competing */}
+      <section className="py-12 bg-slate-50">
+        <div className="container">
+          <div className="max-w-xl mx-auto text-center space-y-4">
+            <p className="text-slate-600">
+              If you're overwhelmed, a caregiver can handle this for you.
             </p>
+            <Link href="/caregiver-help" className="text-[oklch(0.55_0.15_195)] hover:underline text-sm">
+              How a caregiver can help →
+            </Link>
           </div>
         </div>
       </section>
 
       {/* WHY THIS EXISTS - Collapsed sections, no buttons */}
-      <section id="why-exists" className="py-16 bg-slate-50">
+      <section id="why-exists" className="py-16 bg-white">
         <div className="container">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-slate-800 text-center mb-10">
@@ -114,7 +132,7 @@ export default function Home() {
                     We don't collect your health data. We don't make medical decisions. We don't use AI to diagnose or recommend treatments.
                   </p>
                   <p>
-                    MyHealthCanvas provides printable templates and organizational guidance. Your information stays with you - on your phone, your computer, your Google Drive. We never see it.
+                    Your information stays with you - on your phone, your computer, your Google Drive. We never see it.
                   </p>
                 </div>
               )}
@@ -130,15 +148,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA - Same primary CTA repeated once */}
-      <section className="py-16 bg-white">
+      {/* FINAL REASSURANCE - Not a CTA */}
+      <section className="py-16 bg-slate-50">
         <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <Link href="/first-30-days-after-diagnosis">
-              <Button size="lg" className="text-lg px-10 py-7 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                Start with the first 30 days
-              </Button>
-            </Link>
+          <div className="max-w-xl mx-auto text-center space-y-6">
+            <p className="text-xl text-slate-700 leading-relaxed">
+              This is enough for today.
+            </p>
+            <p className="text-slate-500">
+              You can come back to this later.
+            </p>
           </div>
         </div>
       </section>
@@ -149,6 +168,9 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
             <span>© 2025 MyHealthCanvas</span>
             <div className="flex gap-6">
+              <Link href="/myhealthcanvas" className="hover:text-slate-600">
+                Templates
+              </Link>
               <Link href="/myhealthcanvas/advocacy" className="hover:text-slate-600">
                 For advocates
               </Link>
