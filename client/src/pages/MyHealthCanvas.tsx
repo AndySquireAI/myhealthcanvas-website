@@ -131,9 +131,13 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline */}
-          <h1 className="text-[28px] md:text-4xl lg:text-5xl font-light text-gray-900 leading-[1.3]">
-            What MyHealthCanvas actually does
+          {/* Headline - BOLD like AAA page + gradient on "MyHealthCanvas" */}
+          <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
+            What{" "}
+            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+              MyHealthCanvas
+            </span>
+            {" "}actually does
           </h1>
           
         </div>
@@ -167,7 +171,7 @@ export default function MyHealthCanvas() {
       {/* Section 3 - What You Get - MOCKUP */}
       <section className="py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-[22px] md:text-2xl font-medium text-gray-800 mb-8 text-center">
+          <h2 className="text-[24px] md:text-3xl font-bold text-gray-800 mb-8 text-center">
             What you get
           </h2>
           
@@ -205,6 +209,18 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Patient Advocacy Group Link */}
+      <section className="py-8 px-6 md:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto text-center">
+          <Link 
+            href="/myhealthcanvas/advocacy"
+            className="text-[oklch(0.55_0.15_195)] hover:underline text-[16px]"
+          >
+            Are you a Patient Advocacy Group? →
+          </Link>
+        </div>
+      </section>
+
       {/* Section 5 - Pricing */}
       <section id="buy" className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-3xl mx-auto">
@@ -213,11 +229,11 @@ export default function MyHealthCanvas() {
             {/* Current Plan */}
             <Card className="border-gray-200 bg-white">
               <CardHeader>
-                <CardTitle className="text-[20px] font-medium">Current Plan</CardTitle>
+                <CardTitle className="text-[20px] font-bold">Current Plan</CardTitle>
                 <CardDescription className="text-[15px]">One-page template</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-light text-gray-900 mb-6">£9</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£9</p>
                 <ul className="space-y-2 text-[16px] text-gray-600">
                   <li>Essential health information</li>
                   <li>Medications & contacts</li>
@@ -232,11 +248,11 @@ export default function MyHealthCanvas() {
             {/* Complete Plan */}
             <Card className="border-[oklch(0.55_0.15_195)] border-2 bg-white">
               <CardHeader>
-                <CardTitle className="text-[20px] font-medium">Complete Plan</CardTitle>
+                <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
                 <CardDescription className="text-[15px]">Two-page template</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-light text-gray-900 mb-6">£12</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£12</p>
                 <ul className="space-y-2 text-[16px] text-gray-600">
                   <li>Everything in Current Plan</li>
                   <li>Goals & priorities</li>
@@ -272,6 +288,9 @@ export default function MyHealthCanvas() {
             <div className="flex gap-6">
               <Link href="/" className="hover:text-gray-600">
                 Home
+              </Link>
+              <Link href="/myhealthcanvas/advocacy" className="hover:text-gray-600">
+                For Patient Advocacy Groups
               </Link>
               <Link href="/impressum" className="hover:text-gray-600">
                 Impressum

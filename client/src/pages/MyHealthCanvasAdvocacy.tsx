@@ -14,12 +14,15 @@ export default function MyHealthCanvasAdvocacy() {
       {/* This page is NOT for patients in distress */}
       {/* More formal. Shorter sentences. No emotional language. */}
 
-      {/* Section 1 - Headline */}
+      {/* Section 1 - Headline - BOLD like AAA page */}
       <section className="py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-md mx-auto text-center space-y-8">
           
-          <h1 className="text-[28px] md:text-3xl font-light text-gray-900 leading-[1.3]">
-            Advocacy Partnerships
+          <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
+            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+              Advocacy
+            </span>
+            {" "}Partnerships
           </h1>
           
           <p className="text-[17px] text-gray-600 leading-[1.6]">
@@ -34,21 +37,21 @@ export default function MyHealthCanvasAdvocacy() {
         <div className="max-w-lg mx-auto space-y-8">
           
           <div className="p-6 bg-white border border-gray-200 rounded-lg">
-            <h3 className="text-[17px] font-medium text-gray-800 mb-2">Revenue sharing</h3>
+            <h3 className="text-[18px] font-bold text-gray-800 mb-2">Revenue sharing</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               50% of referral sales. Unrestricted use.
             </p>
           </div>
           
           <div className="p-6 bg-white border border-gray-200 rounded-lg">
-            <h3 className="text-[17px] font-medium text-gray-800 mb-2">No data access</h3>
+            <h3 className="text-[18px] font-bold text-gray-800 mb-2">No data access</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               We do not collect patient data. Templates are printable.
             </p>
           </div>
           
           <div className="p-6 bg-white border border-gray-200 rounded-lg">
-            <h3 className="text-[17px] font-medium text-gray-800 mb-2">Non-clinical</h3>
+            <h3 className="text-[18px] font-bold text-gray-800 mb-2">Non-clinical</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               Planning tool only. Not medical advice.
             </p>

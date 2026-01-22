@@ -15,8 +15,8 @@ export default function Home() {
       <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
         <div className="max-w-lg mx-auto text-center space-y-12">
           
-          {/* Headline with gradient on key emotional words */}
-          <h1 className="text-[28px] md:text-4xl lg:text-5xl font-light text-gray-900 leading-[1.3] tracking-tight">
+          {/* Headline with BOLD font like AAA page + gradient on key emotional words */}
+          <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2] tracking-tight">
             Recently{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
               diagnosed
@@ -70,6 +70,9 @@ export default function Home() {
             <div className="flex gap-6">
               <Link href="/myhealthcanvas" className="hover:text-gray-600">
                 Templates
+              </Link>
+              <Link href="/myhealthcanvas/advocacy" className="hover:text-gray-600">
+                For Patient Advocacy Groups
               </Link>
               <Link href="/impressum" className="hover:text-gray-600">
                 Impressum
