@@ -11,9 +11,19 @@ export default function First30Days() {
         canonicalPath="/first-30-days-after-diagnosis"
       />
 
-      {/* Section 1 - Above the fold */}
-      <section className="min-h-[70vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
-        <div className="max-w-md mx-auto text-center space-y-12">
+      {/* Section 1 - Above the fold with subtle home office background */}
+      <section className="min-h-[70vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        {/* Subtle home office background - warm, hopeful sunlight */}
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center opacity-60 md:opacity-70 pointer-events-none"
+          style={{
+            backgroundImage: 'url(/images/bg-first30days-office-v2.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        
+        <div className="max-w-md mx-auto text-center space-y-12 relative z-10">
           
           {/* Headline - BOLD like AAA page + gradient on "surviving" */}
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">

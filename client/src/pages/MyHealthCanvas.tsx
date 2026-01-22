@@ -120,9 +120,19 @@ export default function MyHealthCanvas() {
         canonicalPath="/myhealthcanvas"
       />
 
-      {/* Section 1 - Logo and Headline */}
-      <section className="py-16 px-6 md:px-12 lg:px-24">
-        <div className="max-w-md mx-auto text-center space-y-8">
+      {/* Section 1 - Logo and Headline with subtle blank canvas background */}
+      <section className="py-16 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        {/* Subtle blank canvas gallery background */}
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center opacity-70 md:opacity-80 pointer-events-none"
+          style={{
+            backgroundImage: 'url(/images/bg-product-canvas-v2.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        
+        <div className="max-w-md mx-auto text-center space-y-8 relative z-10">
           
           {/* Large Logo at top */}
           <img

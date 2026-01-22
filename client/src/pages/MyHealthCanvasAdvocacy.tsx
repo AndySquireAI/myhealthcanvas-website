@@ -14,9 +14,19 @@ export default function MyHealthCanvasAdvocacy() {
       {/* This page is NOT for patients in distress */}
       {/* More formal. Shorter sentences. No emotional language. */}
 
-      {/* Section 1 - Headline - BOLD like AAA page */}
-      <section className="py-20 px-6 md:px-12 lg:px-24">
-        <div className="max-w-md mx-auto text-center space-y-8">
+      {/* Section 1 - Headline with subtle circle of patients background - BOLD like AAA page */}
+      <section className="py-20 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        {/* Subtle circle of patients background - community support */}
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center opacity-50 md:opacity-60 pointer-events-none"
+          style={{
+            backgroundImage: 'url(/images/bg-advocacy-circle.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        
+        <div className="max-w-md mx-auto text-center space-y-8 relative z-10">
           
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">

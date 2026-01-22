@@ -11,9 +11,19 @@ export default function Home() {
         canonicalPath="/"
       />
 
-      {/* HERO - Ultra sparse, mobile-first */}
-      <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
-        <div className="max-w-lg mx-auto text-center space-y-12">
+      {/* HERO - Ultra sparse, mobile-first with subtle background */}
+      <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        {/* Subtle hands background - positioned to not clash with headline */}
+        <div 
+          className="absolute inset-0 bg-no-repeat bg-center md:bg-bottom opacity-40 md:opacity-50 pointer-events-none"
+          style={{
+            backgroundImage: 'url(/images/bg-homepage-hands.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 70%',
+          }}
+        />
+        
+        <div className="max-w-lg mx-auto text-center space-y-12 relative z-10">
           
           {/* Headline with BOLD font like AAA page + gradient on key emotional words */}
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2] tracking-tight">
