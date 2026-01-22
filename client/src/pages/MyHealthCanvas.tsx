@@ -120,10 +120,16 @@ export default function MyHealthCanvas() {
         canonicalPath="/myhealthcanvas"
       />
 
-      {/* Section 1 - Headline */}
-      {/* This page should not be patient-emotional. It should be calm and factual. */}
-      <section className="min-h-[50vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 py-16">
-        <div className="max-w-md mx-auto text-center space-y-12">
+      {/* Section 1 - Logo and Headline */}
+      <section className="py-16 px-6 md:px-12 lg:px-24">
+        <div className="max-w-md mx-auto text-center space-y-8">
+          
+          {/* Large Logo at top */}
+          <img
+            src="/images/MyHealthCanvasLOGOX2.png"
+            alt="MyHealthCanvas Logo"
+            className="h-24 md:h-32 mx-auto"
+          />
           
           {/* Headline */}
           <h1 className="text-[28px] md:text-4xl lg:text-5xl font-light text-gray-900 leading-[1.3]">
@@ -182,7 +188,18 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Section 4 - Pricing - No CTAs mid-page, one CTA area at bottom */}
+      {/* Section 4 - Patient Picture */}
+      <section className="py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto">
+          <img
+            src="/images/patient-doctor-myhealthcanvas-final.png"
+            alt="Patient receiving care"
+            className="w-full rounded-lg"
+          />
+        </div>
+      </section>
+
+      {/* Section 5 - Pricing */}
       <section id="buy" className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-3xl mx-auto">
           
