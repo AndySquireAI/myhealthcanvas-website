@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Check, ArrowLeft, Folder } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowLeft, Folder } from "lucide-react";
+import { useEffect } from "react";
 import SEO from "@/components/SEO";
 
 export default function First30Days() {
-  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
-  const [showSecondOpinionModal, setShowSecondOpinionModal] = useState(false);
-
   // GA4 scroll depth tracking
   useEffect(() => {
     const trackScrollDepth = () => {
@@ -33,159 +30,102 @@ export default function First30Days() {
     return () => window.removeEventListener("scroll", trackScrollDepth);
   }, []);
 
-  const toggleCheck = (item: string) => {
-    setCheckedItems((prev) => ({ ...prev, [item]: !prev[item] }));
-  };
-
-  const checklistItems = [
-    "Appointment letters",
-    "Lab results",
-    "Test reports",
-    "Emails with care instructions",
-    "Texts about appointments or treatments",
-  ];
-
   const folderSuggestions = [
-    { name: "Disease Information", description: "Diagnosis details, condition info" },
-    { name: "Treatment Information", description: "Treatment plans, protocols" },
-    { name: "Complementary Treatments", description: "Alternative therapies, supplements" },
-    { name: "Nutrition", description: "Diet plans, nutritional advice" },
-    { name: "Blood Tests", description: "Lab results, blood work" },
-    { name: "PET/CT/MRI", description: "Imaging scans and reports" },
-    { name: "Prescriptions", description: "Medication lists, dosages" },
-    { name: "Physician Visits", description: "Consultation summaries, notes" },
-    { name: "Insurance", description: "Coverage, claims, approvals" },
+    { name: "Disease Information", description: "Diagnosis details" },
+    { name: "Treatment Information", description: "Treatment plans" },
+    { name: "Complementary Treatments", description: "Alternative therapies" },
+    { name: "Nutrition", description: "Diet advice" },
+    { name: "Blood Tests", description: "Lab results" },
+    { name: "PET/CT/MRI", description: "Imaging scans" },
+    { name: "Prescriptions", description: "Medications" },
+    { name: "Physician Visits", description: "Consultation notes" },
+    { name: "Insurance", description: "Coverage info" },
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
         title="The First 30 Days After a Diagnosis | MyHealthCanvas"
-        description="Understand why you feel overwhelmed after a diagnosis — and what you can do right now to get control. Practical steps for patients and caregivers."
-        keywords="first 30 days diagnosis, overwhelmed after diagnosis, organize medical documents, patient support, caregiver help"
+        description="Get through the first 30 days after a diagnosis. Create a private space to organize what matters. No medical advice. Private by design."
+        keywords="first 30 days diagnosis, overwhelmed after diagnosis, organize medical documents, patient support"
         canonicalPath="/first-30-days-after-diagnosis"
       />
 
-      {/* BACK LINK */}
-      <div className="container pt-6">
-        <Link href="/" className="inline-flex items-center text-sm text-slate-500 hover:text-slate-700">
-          <ArrowLeft className="h-4 w-4 mr-1" />
-          Back to home
-        </Link>
-      </div>
+      {/* MINIMAL NAVIGATION */}
+      <nav className="py-4 border-b border-slate-100">
+        <div className="container flex justify-between items-center">
+          <Link href="/" className="inline-flex items-center text-slate-400 text-sm hover:text-slate-600">
+            <ArrowLeft className="h-4 w-4 mr-1" />
+            Back
+          </Link>
+          <a href="#why-folders" className="text-slate-400 text-sm hover:text-slate-600">
+            Why this helps
+          </a>
+        </div>
+      </nav>
 
       {/* SECTION 1 - HERO */}
-      <section className="py-12 md:py-16">
+      <section className="py-16 md:py-20">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               The First 30 Days After a Diagnosis
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Understand why you feel overwhelmed — and what you can do right now to get control.
+              You don't need to solve everything right now. Start by creating a private space to organize what matters.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2 - TWO THINGS THAT MATTER (No buttons) */}
+      <section className="py-12 bg-slate-50">
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-2xl font-semibold text-slate-800 mb-8 text-center">
+              Two things that matter right now
+            </h2>
             
-            {/* Single Primary CTA */}
-            <div className="pt-6">
-              <a href="#organize-tips">
-                <Button size="lg" className="text-lg px-8 py-6 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                  Show me how to get organized
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
+                <h3 className="font-semibold text-slate-800 mb-2">1. Capture what you already have</h3>
+                <p className="text-slate-600">
+                  Take photos or screenshots of appointment letters, test results, and emails. Store them on your phone or Google Drive. Nothing fancy - just don't lose them.
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
+                <h3 className="font-semibold text-slate-800 mb-2">2. Create simple folders</h3>
+                <p className="text-slate-600">
+                  Organize your photos into folders so you can find things when you need them. We suggest some folder names below.
+                </p>
+              </div>
+            </div>
+
+            {/* PRIMARY CTA - After Section 2 */}
+            <div className="mt-10 text-center">
+              <Link href="/myhealthcanvas">
+                <Button size="lg" className="text-lg px-10 py-7 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
+                  Create my private health folder
                 </Button>
-              </a>
-              <p className="text-sm text-slate-400 mt-4">
-                Practical tips · Your data stays with you · No uploads required
+              </Link>
+              <p className="text-sm text-slate-400 mt-3">
+                Takes ~2 minutes. Private by design.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 - EMOTIONAL SUPPORT (NO CTAs) */}
-      <section className="py-12 bg-slate-50">
+      {/* SECTION 3 - SUGGESTED FOLDERS (No buttons) */}
+      <section id="why-folders" className="py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-              Feelings are real. You're not alone.
+            <h2 className="text-2xl font-semibold text-slate-800 mb-4 text-center">
+              Suggested folder names
             </h2>
-            <ul className="space-y-3 text-slate-600">
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Shock, confusion, fear are normal</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>This is a lot to absorb</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>You don't have to solve everything today</span>
-              </li>
-            </ul>
-            {/* No buttons here - pause point */}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3 - STEP 1: CAPTURE EVERYTHING (LOCAL STORAGE ADVICE) */}
-      <section id="organize-tips" className="py-12">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Step 1 — Capture what you already have
-            </h2>
-            <p className="text-slate-600 mb-4">
-              <strong>Take photos or screenshots</strong> of your documents so nothing gets lost. Store them on your phone, computer, or cloud storage like Google Drive.
-            </p>
-            <p className="text-sm text-slate-500 italic mb-8">
-              This is just helpful advice — your documents stay with you. We don't collect or store any patient data.
-            </p>
-
-            {/* Tappable checklist */}
-            <p className="text-sm font-medium text-slate-700 mb-3">Documents to capture:</p>
-            <div className="space-y-3 mb-8">
-              {checklistItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => toggleCheck(item)}
-                  className={`w-full flex items-center gap-4 p-4 rounded-lg border text-left transition-colors ${
-                    checkedItems[item]
-                      ? "bg-[oklch(0.55_0.15_195)]/10 border-[oklch(0.55_0.15_195)]"
-                      : "bg-white border-slate-200 hover:border-slate-300"
-                  }`}
-                >
-                  <div
-                    className={`w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 ${
-                      checkedItems[item]
-                        ? "bg-[oklch(0.55_0.15_195)] text-white"
-                        : "border-2 border-slate-300"
-                    }`}
-                  >
-                    {checkedItems[item] && <Check className="h-4 w-4" />}
-                  </div>
-                  <span className={checkedItems[item] ? "text-slate-700" : "text-slate-600"}>
-                    {item}
-                  </span>
-                </button>
-              ))}
-            </div>
-
-            {/* No upload button - just advice */}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 - FOLDER ORGANIZATION SUGGESTIONS */}
-      <section className="py-12 bg-slate-50">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Step 2 — Organize into folders
-            </h2>
-            <p className="text-slate-600 mb-4">
-              Create folders on your phone, computer, or Google Drive to keep everything organized. Here are some suggested folder names:
-            </p>
-            <p className="text-sm text-slate-500 italic mb-6">
-              Store at your own risk — we recommend backing up to multiple locations.
+            <p className="text-slate-600 text-center mb-8">
+              Create these on your phone, computer, or Google Drive. Your data stays with you - we never see it.
             </p>
 
             {/* Folder grid */}
@@ -193,7 +133,7 @@ export default function First30Days() {
               {folderSuggestions.map((folder) => (
                 <div
                   key={folder.name}
-                  className="bg-white border border-slate-200 rounded-lg p-4 hover:border-[oklch(0.55_0.15_195)]/50 transition-colors"
+                  className="bg-slate-50 border border-slate-200 rounded-lg p-4"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <Folder className="h-5 w-5 text-[oklch(0.55_0.15_195)]" />
@@ -203,194 +143,76 @@ export default function First30Days() {
                 </div>
               ))}
             </div>
-            
-            {/* No CTA here - just guidance */}
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 - PRACTICAL DAILY LIFE STEPS (NO CTA) */}
-      <section className="py-12">
-        <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-6">
-              Step 3 — Reduce overwhelm in daily life
-            </h2>
-            <ul className="space-y-3 text-slate-600">
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Keep a simple routine</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Ask for help with meals and errands</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Rest when you can</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Prioritize sleep & nutrition</span>
-              </li>
-            </ul>
-            {/* No CTA here - guidance only */}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 - UNDERSTAND YOUR MEDICAL TIMELINE */}
+      {/* SECTION 4 - WHAT TO EXPECT (No buttons) */}
       <section className="py-12 bg-slate-50">
         <div className="container">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Step 4 — Understand what comes next
+            <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
+              What to expect in the first month
             </h2>
-            <p className="text-slate-600 mb-6">
-              Your care team will outline next steps. It's common to have a few weeks before major decisions — use that time to prepare.
-            </p>
-            <ul className="space-y-3 text-slate-600 mb-8">
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Talk with your clinician about timelines</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Write down your questions</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-slate-400">•</span>
-                <span>Keep your organized folders handy for appointments</span>
-              </li>
-            </ul>
-
-            {/* No CTA - guidance only */}
+            <div className="space-y-4 text-slate-600">
+              <p>
+                <strong>Shock is normal.</strong> You may feel numb, confused, or unable to process information. This is your brain protecting you.
+              </p>
+              <p>
+                <strong>You don't need all the answers.</strong> Your care team will guide you. Your job right now is to show up and ask questions.
+              </p>
+              <p>
+                <strong>Small steps matter.</strong> Organizing your documents is a small step that gives you a sense of control when everything feels uncertain.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7 - SECOND PERSPECTIVE */}
+      {/* SECTION 5 - REASSURANCE (No buttons) */}
       <section className="py-12">
         <div className="container">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Optional: Getting a second opinion
-            </h2>
-            <p className="text-slate-600 mb-6">
-              A second perspective can help you feel confident — not replace your team.
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-slate-500 leading-relaxed">
+              No medical advice. No AI decisions.<br />
+              Just structure, clarity, and calm.
             </p>
-            <ul className="space-y-3 text-slate-600 mb-8">
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">1.</span>
-                <span>Compile your documents from your folders</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">2.</span>
-                <span>Share with a specialist covered by insurance</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">3.</span>
-                <span>Review together on a remote call</span>
-              </li>
-            </ul>
-
-            {/* Modal trigger button */}
-            <Button 
-              variant="outline" 
-              className="border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)]"
-              onClick={() => setShowSecondOpinionModal(true)}
-            >
-              Learn more about second opinions
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 8 - E-LIBRARY (NO PRIMARY CTA) */}
-      <section className="py-12 bg-slate-50">
+      {/* FINAL CTA - Same primary CTA repeated once */}
+      <section className="py-16 bg-slate-50">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">
-              Helpful Resources for Patients & Caregivers
-            </h2>
-            <Link href="/elibrary" className="text-[oklch(0.55_0.15_195)] hover:underline underline-offset-4">
-              Read articles and practical guides →
-            </Link>
-            {/* No buttons here - informational only */}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9 - PRINTABLE HEALTH PLAN TEMPLATE */}
-      <section className="py-12">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl font-semibold text-slate-800">
-              Want a printable health plan template?
-            </h2>
-            <p className="text-slate-600">
-              Our PDF templates help you organize your medical information for appointments and caregivers.
-            </p>
+          <div className="max-w-xl mx-auto text-center">
             <Link href="/myhealthcanvas">
-              <Button size="lg" className="bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
-                View printable templates
+              <Button size="lg" className="text-lg px-10 py-7 bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white">
+                Create my private health folder
               </Button>
             </Link>
+            <p className="text-sm text-slate-400 mt-3">
+              Takes ~2 minutes. Private by design.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* STICKY MOBILE CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 md:hidden z-50">
-        <a href="#organize-tips" className="block">
-          <Button className="w-full bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white py-6">
-            Show me how to organize
-          </Button>
-        </a>
-      </div>
-
-      {/* Bottom padding for sticky CTA on mobile */}
-      <div className="h-20 md:hidden" />
-
-      {/* SECOND OPINION MODAL */}
-      {showSecondOpinionModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowSecondOpinionModal(false)}>
-          <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-xl font-semibold text-slate-800">Getting a Second Opinion</h3>
-            <p className="text-slate-600 text-sm">
-              A second opinion can help confirm your treatment plan or explore alternatives. Here's how:
-            </p>
-            <ol className="space-y-3 text-slate-600 text-sm">
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">1.</span>
-                <span>Gather your medical records, test results, and imaging from your folders</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">2.</span>
-                <span>Contact a specialist — many offer remote consultations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">3.</span>
-                <span>Check if your insurance covers second opinions</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[oklch(0.55_0.15_195)] font-medium">4.</span>
-                <span>Share insights with your primary care team</span>
-              </li>
-            </ol>
-            <p className="text-xs text-slate-400">
-              This is not medical advice. Always consult with your healthcare provider.
-            </p>
-            <Button 
-              variant="outline" 
-              className="w-full"
-              onClick={() => setShowSecondOpinionModal(false)}
-            >
-              Close
-            </Button>
+      {/* FOOTER - Minimal */}
+      <footer className="py-8 border-t border-slate-100">
+        <div className="container">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+            <span>© 2025 MyHealthCanvas</span>
+            <div className="flex gap-6">
+              <Link href="/" className="hover:text-slate-600">
+                Home
+              </Link>
+              <Link href="/impressum" className="hover:text-slate-600">
+                Impressum
+              </Link>
+            </div>
           </div>
         </div>
-      )}
+      </footer>
     </div>
   );
 }
