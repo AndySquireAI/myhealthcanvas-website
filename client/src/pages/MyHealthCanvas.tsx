@@ -171,19 +171,25 @@ export default function MyHealthCanvas() {
             What you get
           </h2>
           
-          {/* Clickable mockup showing Current and Complete plans */}
-          <div
-            className="cursor-pointer"
-            onClick={() => setZoomedImage(true)}
-          >
+          {/* Mockup image */}
+          <div className="space-y-4">
             <img
               src="/images/MyHealthCanvasMOCKUPPBD.png"
               alt="MyHealthCanvas template preview - Current Plan (one page) and Complete Plan (two pages)"
-              className="w-full rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+              className="w-full rounded-lg shadow-lg border border-gray-200"
             />
-            <p className="text-[15px] text-gray-400 text-center mt-4">
-              Current Plan (1 page) · Complete Plan (2 pages) — Click to enlarge
-            </p>
+            <div className="text-center space-y-2">
+              <p className="text-[15px] text-gray-500">
+                Current Plan (1 page) · Complete Plan (2 pages)
+              </p>
+              {/* Explicit button for click to enlarge - works on desktop */}
+              <button
+                onClick={() => setZoomedImage(true)}
+                className="text-[14px] text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer"
+              >
+                Click to view larger
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -246,20 +252,26 @@ export default function MyHealthCanvas() {
           <p className="text-[14px] text-gray-400 text-center mt-8">
             Secure payment via PayPal
           </p>
+          
+          {/* Felt safety - not governance */}
+          <p className="text-[15px] text-gray-400 text-center mt-4">
+            Private. Supportive. Never replaces your doctors.
+          </p>
         </div>
       </section>
 
-      {/* FOOTER - Minimal, advocacy in footer only */}
+      {/* TRUST FOOTER */}
       <footer className="py-8 border-t border-gray-100 mt-auto">
         <div className="container px-6">
+          <p className="text-[13px] text-gray-400 text-center mb-6 max-w-xl mx-auto">
+            MyHealthCanvas does not provide medical advice. It helps you organize information, prepare questions, and communicate more clearly with your care team.
+          </p>
+          
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <span>© 2025 MyHealthCanvas</span>
             <div className="flex gap-6">
               <Link href="/" className="hover:text-gray-600">
                 Home
-              </Link>
-              <Link href="/myhealthcanvas/advocacy" className="hover:text-gray-600">
-                For advocates
               </Link>
               <Link href="/impressum" className="hover:text-gray-600">
                 Impressum
@@ -275,11 +287,19 @@ export default function MyHealthCanvas() {
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 cursor-pointer"
           onClick={() => setZoomedImage(false)}
         >
-          <img
-            src="/images/MyHealthCanvasMOCKUPPBD.png"
-            alt="MyHealthCanvas template preview"
-            className="max-w-full max-h-full object-contain"
-          />
+          <div className="relative">
+            <img
+              src="/images/MyHealthCanvasMOCKUPPBD.png"
+              alt="MyHealthCanvas template preview"
+              className="max-w-full max-h-[90vh] object-contain"
+            />
+            <button
+              onClick={() => setZoomedImage(false)}
+              className="absolute top-4 right-4 text-white text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70"
+            >
+              ×
+            </button>
+          </div>
         </div>
       )}
     </div>

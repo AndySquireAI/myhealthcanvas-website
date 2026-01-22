@@ -12,7 +12,6 @@ export default function First30Days() {
       />
 
       {/* Section 1 - Above the fold */}
-      {/* One idea per screen. This page should feel empty on purpose. */}
       <section className="min-h-[70vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
         <div className="max-w-md mx-auto text-center space-y-12">
           
@@ -33,12 +32,10 @@ export default function First30Days() {
       <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-md mx-auto text-center space-y-8">
           
-          {/* Subhead */}
           <h2 className="text-[22px] md:text-2xl font-medium text-gray-800">
             Do one thing only
           </h2>
           
-          {/* Single instruction - no bullets, no elaboration */}
           <p className="text-[19px] text-gray-600 leading-[1.6]">
             Put every letter, scan, photo, or email in one place.
           </p>
@@ -46,13 +43,11 @@ export default function First30Days() {
         </div>
       </section>
 
-      {/* Section 3 - Dump vs Delegate - ultra concise */}
-      {/* Two cards, no buttons */}
+      {/* Section 3 - Dump vs Delegate */}
       <section className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-2xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             
-            {/* Card 1 - Dump */}
             <div className="p-8 bg-white border border-gray-200 rounded-lg">
               <h3 className="text-[18px] font-medium text-gray-800 mb-4">Dump</h3>
               <p className="text-[17px] text-gray-600 leading-[1.6] mb-2">
@@ -63,7 +58,6 @@ export default function First30Days() {
               </p>
             </div>
             
-            {/* Card 2 - Delegate */}
             <div className="p-8 bg-white border border-gray-200 rounded-lg">
               <h3 className="text-[18px] font-medium text-gray-800 mb-4">Delegate</h3>
               <p className="text-[17px] text-gray-600 leading-[1.6] mb-2">
@@ -79,7 +73,6 @@ export default function First30Days() {
       </section>
 
       {/* Section 4 - Permission */}
-      {/* One line, smaller text. This line is powerful. Don't dilute it. */}
       <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-md mx-auto text-center">
           <p className="text-[16px] text-gray-500 leading-[1.6]">
@@ -88,20 +81,29 @@ export default function First30Days() {
         </div>
       </section>
 
-      {/* Single CTA at bottom - quiet */}
+      {/* Single CTA at bottom */}
       <section className="py-24 px-6 md:px-12 lg:px-24">
-        <div className="max-w-md mx-auto text-center">
+        <div className="max-w-md mx-auto text-center space-y-6">
           <Link href="/myhealthcanvas">
             <button className="px-12 py-5 bg-[oklch(0.55_0.15_195)] text-white text-[18px] font-medium rounded-lg hover:bg-[oklch(0.50_0.15_195)] transition-colors">
               Start with one folder
             </button>
           </Link>
+          
+          {/* Felt safety - not governance */}
+          <p className="text-[15px] text-gray-400">
+            Private. Supportive. Never replaces your doctors.
+          </p>
         </div>
       </section>
 
-      {/* FOOTER - Minimal */}
+      {/* TRUST FOOTER */}
       <footer className="py-8 border-t border-gray-100 mt-auto">
         <div className="container px-6">
+          <p className="text-[13px] text-gray-400 text-center mb-6 max-w-xl mx-auto">
+            MyHealthCanvas does not provide medical advice. It helps you organize information, prepare questions, and communicate more clearly with your care team.
+          </p>
+          
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <span>© 2025 MyHealthCanvas</span>
             <div className="flex gap-6">
