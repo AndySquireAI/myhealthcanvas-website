@@ -3,9 +3,18 @@ import { Link } from "wouter";
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Subtle background - office to hospital gradient */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-50 md:opacity-60 pointer-events-none"
+        style={{
+          backgroundImage: 'url(/images/bg-about-andy.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-background py-20">
+      <section className="relative z-10 bg-gradient-to-br from-primary/10 via-background to-background py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -33,7 +42,7 @@ export default function About() {
       </section>
 
       {/* Story Section - Cut by ~50%, Increased Authority */}
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="space-y-4">
@@ -55,7 +64,7 @@ export default function About() {
       </section>
 
       {/* Credentials Section - Compressed to Two Columns */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 relative z-10">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
@@ -89,7 +98,7 @@ export default function About() {
       </section>
 
       {/* Selected Engagements & Contributions */}
-      <section className="py-16">
+      <section className="py-16 relative z-10">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
@@ -105,7 +114,7 @@ export default function About() {
       </section>
 
       {/* Recognition & Impact - Below Credentials, De-emotionalised */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-muted/30 relative z-10">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl font-bold">Recognition & Impact</h2>
@@ -128,7 +137,7 @@ export default function About() {
       </section>
 
       {/* Contact CTA - One Primary, One Secondary Only */}
-      <section className="py-20">
+      <section className="py-20 relative z-10">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <h2 className="text-3xl font-bold">Let's Connect</h2>
