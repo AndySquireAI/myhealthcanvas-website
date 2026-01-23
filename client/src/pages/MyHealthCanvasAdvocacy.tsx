@@ -16,7 +16,7 @@ export default function MyHealthCanvasAdvocacy() {
 
       {/* Full-page background - circle of patients finding comfort */}
       <div 
-        className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-30 md:opacity-35 pointer-events-none"
+        className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-45 md:opacity-50 pointer-events-none"
         style={{
           backgroundImage: 'url(/images/bg-advocacy-circle.png)',
           backgroundSize: 'cover',
