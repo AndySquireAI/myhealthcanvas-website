@@ -225,6 +225,7 @@ export default function MyHealthCanvas() {
           <Link 
             href="/myhealthcanvas/advocacy"
             className="text-[oklch(0.55_0.15_195)] hover:underline text-[16px]"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             Are you a Patient Advocacy Group? →
           </Link>
