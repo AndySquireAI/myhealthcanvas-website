@@ -14,7 +14,7 @@ export default function About() {
         }}
       />
       {/* Hero Section */}
-      <section className="relative z-10 bg-gradient-to-br from-primary/10 via-background to-background py-20">
+      <section className="relative z-10 py-20">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
