@@ -96,7 +96,7 @@ export default function First30Days() {
 
       {/* Single CTA at bottom */}
       <section className="py-24 px-6 md:px-12 lg:px-24 relative z-10">
-        <div className="max-w-md mx-auto text-center space-y-6">
+        <div className="max-w-md mx-auto text-center">
           <Link href="/myhealthcanvas">
             <button className="px-12 py-5 bg-[oklch(0.55_0.15_195)] text-white text-[18px] font-medium rounded-lg hover:bg-[oklch(0.50_0.15_195)] transition-colors">
               Start with one folder
@@ -104,8 +104,8 @@ export default function First30Days() {
           </Link>
           
           {/* Felt safety - not governance */}
-          <p className="text-[15px] text-gray-400">
-            Private. Supportive. Never replaces your doctors.
+          <p className="text-[15px] text-gray-400 mt-10">
+            Privately prepare for better conversations with your doctors.
           </p>
         </div>
       </section>
