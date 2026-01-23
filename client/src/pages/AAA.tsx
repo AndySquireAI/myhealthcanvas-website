@@ -35,7 +35,7 @@ export default function AAA() {
       {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
       <div className="bg-yellow-50 border-b border-yellow-200 py-3">
         <div className="container text-center text-sm text-yellow-800 font-medium">
-          This site focusses on Patient Empowerment, Agentic AI Automation services, & curated AI in Healthcare content. For Governance, visit: <a href="https://PatientCentricCare.AI" className="underline font-semibold hover:text-yellow-900">https://PatientCentricCare.AI</a>
+          AI Automation Agency is for ALL small to medium-sized businesses, not limited to healthcare
         </div>
       </div>
       

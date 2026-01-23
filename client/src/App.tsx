@@ -16,6 +16,9 @@ import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CaregiverHelp from "./pages/CaregiverHelp";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Impressum from "./pages/Impressum";
 
 function Router() {
   return (
@@ -32,6 +35,9 @@ function Router() {
         <Route path="/elibrary/:slug" component={BlogPost} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/impressum" component={Impressum} />
         <Route path="/404" component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
