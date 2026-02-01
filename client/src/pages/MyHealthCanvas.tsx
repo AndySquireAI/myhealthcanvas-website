@@ -39,10 +39,8 @@ export default function MyHealthCanvas() {
               });
             },
             onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function () {
-                alert(
-                  "Thank you for your purchase! Your download link will be sent to your email."
-                );
+              return actions.order.capture().then(function (details: any) {
+                // Track purchase in Google Analytics
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
@@ -57,7 +55,13 @@ export default function MyHealthCanvas() {
                     ],
                   });
                 }
+                // Redirect to Thank You page with product info
+                window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
               });
+            },
+            onError: function (err: any) {
+              console.error("PayPal error:", err);
+              alert("There was an error processing your payment. Please try again.");
             },
           })
           .render("#paypal-button-current");
@@ -81,10 +85,8 @@ export default function MyHealthCanvas() {
               });
             },
             onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function () {
-                alert(
-                  "Thank you for your purchase! Your download link will be sent to your email."
-                );
+              return actions.order.capture().then(function (details: any) {
+                // Track purchase in Google Analytics
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
@@ -99,7 +101,13 @@ export default function MyHealthCanvas() {
                     ],
                   });
                 }
+                // Redirect to Thank You page with product info
+                window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
               });
+            },
+            onError: function (err: any) {
+              console.error("PayPal error:", err);
+              alert("There was an error processing your payment. Please try again.");
             },
           })
           .render("#paypal-button-complete");

@@ -19,6 +19,7 @@ import CaregiverHelp from "./pages/CaregiverHelp";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
+import ThankYou from "./pages/ThankYou";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
+        <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
         <Route path="/first-30-days-after-diagnosis" component={First30Days} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />
