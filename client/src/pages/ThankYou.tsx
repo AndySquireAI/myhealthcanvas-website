@@ -169,10 +169,12 @@ export default function ThankYou() {
           <div className="bg-gray-50 rounded-lg p-6 text-left mb-8">
             <h2 className="font-semibold text-gray-900 mb-3">Next Steps:</h2>
             <ol className="list-decimal list-inside space-y-2 text-gray-600">
-              <li>Download and save your PDF template</li>
-              <li>Print it out (works best on A4 paper)</li>
-              <li>Fill it out by hand at your own pace</li>
-              <li>Bring it to your next doctor's appointment</li>
+              <li>Download and save your PDF template (locally or to your Cloud)</li>
+              <li>On your Phone, open it in free Adobe Acrobat PDF Reader - Fill & Sign (for best results)</li>
+              <li>Fill the form in at your own pace. Update it like a Journal. Prepare for doctors' appointments</li>
+              <li>Refer to it on your Phone when speaking with your Doctor</li>
+              <li>Never forget a medication name or question to your doctor again</li>
+              <li>Share it. Check it. Print it. You're in control.</li>
             </ol>
           </div>
 
