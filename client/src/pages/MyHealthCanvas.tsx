@@ -122,9 +122,9 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
-        title="What MyHealthCanvas Does | Printable Health Templates"
-        description="One private place for your health story. You stay in control of your data. Use it as little or as much as you want."
-        keywords="health plan template, printable health record, patient organization"
+        title="Personal Healthcare Software | Organize Your Health Records at Home"
+        description="Simple healthcare software to organize your personal health records. Track medications, prepare for appointments, and manage your care at home. No complex systems—just what you need."
+        keywords="healthcare software, personal health records, home care software, patient health records, care at home, health record organizer, medical appointment preparation"
         canonicalPath="/myhealthcanvas"
       />
 
@@ -140,7 +140,7 @@ export default function MyHealthCanvas() {
           }}
         />
         
-        <div className="max-w-md mx-auto text-center space-y-8 relative z-10">
+        <div className="max-w-xl mx-auto text-center space-y-8 relative z-10">
           
           {/* Large Logo at top */}
           <img
@@ -149,40 +149,56 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - BOLD like AAA page + gradient on "MyHealthCanvas" */}
+          {/* Headline - Keyword optimized */}
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
-            What{" "}
+            Simple{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              MyHealthCanvas
+              Healthcare Software
             </span>
-            {" "}actually does
+            {" "}for Everyone
           </h1>
+          
+          {/* Subheadline - bridges keyword to product */}
+          <p className="text-[18px] md:text-[20px] text-gray-600 leading-[1.6]">
+            Organize your personal health records. Prepare for appointments. Manage your care at home.
+          </p>
           
         </div>
       </section>
 
-      {/* Section 2 - Three short blocks only */}
+      {/* Section 2 - Value props with keywords */}
       <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-lg mx-auto space-y-12">
           
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
-              One private place for your health story
+              <strong>Your personal health records</strong> — one private place for your health story
             </p>
           </div>
           
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
-              You stay in control of your data
+              <strong>Care at home, on your terms</strong> — you stay in control of your data
             </p>
           </div>
           
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
-              You can use it as little or as much as you want
+              <strong>No complex software to learn</strong> — use it as little or as much as you want
             </p>
           </div>
           
+        </div>
+      </section>
+
+      {/* Section 2.5 - Why this works (keyword bridge) */}
+      <section className="py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-[17px] text-gray-500 leading-[1.7]">
+            Most healthcare software is built for hospitals, not patients. MyHealthCanvas is different: 
+            a simple way to organize your health information, track medications, and prepare questions 
+            for your care team — without the complexity of electronic health record systems.
+          </p>
         </div>
       </section>
 
@@ -197,7 +213,7 @@ export default function MyHealthCanvas() {
           <div className="space-y-4">
             <img
               src="/images/MyHealthCanvasMOCKUPPBD.png"
-              alt="MyHealthCanvas template preview - Current Plan (one page) and Complete Plan (two pages)"
+              alt="MyHealthCanvas healthcare software template preview - organize your personal health records"
               className="w-full rounded-lg shadow-lg border border-gray-200"
             />
             <div className="text-center space-y-2">
@@ -221,7 +237,7 @@ export default function MyHealthCanvas() {
         <div className="max-w-3xl mx-auto">
           <img
             src="/images/patient-doctor-myhealthcanvas-final.png"
-            alt="Patient receiving care"
+            alt="Patient using healthcare software to communicate with doctor"
             className="w-full rounded-lg"
           />
         </div>
@@ -249,7 +265,7 @@ export default function MyHealthCanvas() {
             <Card className="border-gray-200 bg-white">
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Current Plan</CardTitle>
-                <CardDescription className="text-[15px]">One-page template</CardDescription>
+                <CardDescription className="text-[15px]">One-page health record template</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-6">£9</p>
@@ -268,7 +284,7 @@ export default function MyHealthCanvas() {
             <Card className="border-[oklch(0.55_0.15_195)] border-2 bg-white">
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
-                <CardDescription className="text-[15px]">Two-page template</CardDescription>
+                <CardDescription className="text-[15px]">Two-page health record template</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-6">£12</p>
