@@ -25,9 +25,9 @@ export default function Header() {
           <Link href="/" onClick={scrollToTop}>
             <div className="flex items-center space-x-3 cursor-pointer">
               <img 
-                src="/images/myhealthcanvas-logo.png" 
+                src="/images/myhealthcanvas-icon.png" 
                 alt="MyHealthCanvas Logo" 
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
               <span className="text-xl font-bold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.55_0.18_270)] bg-clip-text text-transparent hidden sm:inline">
                 MyHealthCanvas
