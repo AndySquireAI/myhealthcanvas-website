@@ -123,7 +123,7 @@ export default function MyHealthCanvas() {
     <div className="min-h-screen flex flex-col bg-white">
       <SEO
         title="Personal Healthcare Software | Organize Your Health Records at Home"
-        description="Simple healthcare software to organize your personal health records. Track medications, prepare for appointments, and manage your care at home. No complex systems—just what you need."
+        description="Take control of your health story. Organize your personal health records, prepare for appointments, and manage your care at home. Simple healthcare software built for patients, not hospitals."
         keywords="healthcare software, personal health records, home care software, patient health records, care at home, health record organizer, medical appointment preparation"
         canonicalPath="/myhealthcanvas"
       />
@@ -149,13 +149,12 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - Keyword optimized */}
+          {/* Headline - Empowering, patient-first */}
           <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
-            Simple{" "}
+            Take Control of Your{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              Healthcare Software
+              Health Story
             </span>
-            {" "}for Everyone
           </h1>
           
           {/* Subheadline - bridges keyword to product */}
