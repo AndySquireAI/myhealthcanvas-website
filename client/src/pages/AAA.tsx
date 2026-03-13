@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CheckCircle2, Bot, Clock, TrendingUp, DollarSign, Download } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { toast } from "sonner";
 
 export default function AAA() {
@@ -21,6 +21,12 @@ export default function AAA() {
     businessType: "",
     challenge: "",
   });
+
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
+  const handlePlayVideo = useCallback(() => {
+    setVideoPlaying(true);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,12 +58,46 @@ export default function AAA() {
               Save 50+ hours per month with AI agents that actually work for your
               business. Custom-built, affordable, and proven to deliver ROI.
             </p>
-            <div className="mt-8">
-              <img 
-                src="/images/hero-aaa-new.png" 
-                alt="AI Automation Agency - 24/7 Agent Co-Workers with 90% Cost Savings" 
-                className="rounded-xl shadow-2xl max-w-3xl mx-auto w-full"
-              />
+            <div className="mt-8 max-w-3xl mx-auto w-full">
+              {videoPlaying ? (
+                <div className="relative w-full rounded-xl shadow-2xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/5_CTHc4rRyE?autoplay=1&rel=0"
+                    title="AI Agents for Business: The AI Agent Revolution | 90% Cost Savings"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              ) : (
+                <button
+                  onClick={handlePlayVideo}
+                  className="relative w-full rounded-xl shadow-2xl overflow-hidden group cursor-pointer block"
+                  aria-label="Play video: AI Agents for Business"
+                >
+                  <img 
+                    src="/images/hero-aaa-new.png" 
+                    alt="AI Automation Agency - 24/7 Agent Co-Workers with 90% Cost Savings" 
+                    className="w-full block"
+                  />
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-all duration-300" />
+                  {/* Big play button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xl">
+                      <svg className="w-10 h-10 md:w-12 md:h-12 text-red-600 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  {/* Watch video label */}
+                  <div className="absolute bottom-4 left-0 right-0 text-center">
+                    <span className="bg-black/60 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full">
+                      ▶ Watch the 42-second intro
+                    </span>
+                  </div>
+                </button>
+              )}
             </div>
           </div>
         </div>
