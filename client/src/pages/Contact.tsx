@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,6 +32,12 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="Contact Andy Squire | MyHealthCanvas & AI Automation"
+        description="Get in touch with Andy Squire for patient advocacy inquiries, AI automation consultations, partnership opportunities, or general questions about MyHealthCanvas."
+        keywords="contact Andy Squire, MyHealthCanvas contact, patient advocacy contact, AI automation consultation, healthcare technology inquiry"
+        canonicalPath="/contact"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/10 via-background to-background py-20">
         <div className="container">

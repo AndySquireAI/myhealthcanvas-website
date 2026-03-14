@@ -1,6 +1,14 @@
+import SEO from "@/components/SEO";
+
 export default function Privacy() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="Privacy Policy | MyHealthCanvas"
+        description="MyHealthCanvas privacy policy. We respect your privacy and are committed to protecting your personal data. Learn how we collect, use, and safeguard your information."
+        keywords="MyHealthCanvas privacy policy, patient data privacy, health data protection"
+        canonicalPath="/privacy"
+      />
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
         <p className="text-muted-foreground mb-8">Last updated: January 2025</p>

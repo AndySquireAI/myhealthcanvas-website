@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
 import { Card, CardContent } from "@/components/ui/card";
+import SEO from "@/components/SEO";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -59,6 +60,16 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title={`${post.title} | MyHealthCanvas eLibrary`}
+        description={post.excerpt}
+        keywords={`${post.category}, AI healthcare, ${post.title.split(' ').slice(0, 3).join(' ')}`}
+        ogImage={post.thumbnail}
+        canonicalPath={`/elibrary/${post.slug}`}
+        ogType="article"
+        articlePublishedTime={post.date}
+        articleAuthor="Andy Squire"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.18_270)]/10 via-background to-background py-12">
         <div className="container">

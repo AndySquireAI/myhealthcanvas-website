@@ -1,6 +1,14 @@
+import SEO from "@/components/SEO";
+
 export default function Terms() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="Terms of Service | MyHealthCanvas"
+        description="Terms of service for MyHealthCanvas. Read our terms and conditions for using our patient health record tools and services."
+        keywords="MyHealthCanvas terms of service, terms and conditions, patient health records terms"
+        canonicalPath="/terms"
+      />
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
         <p className="text-muted-foreground mb-8">Last updated: January 2025</p>

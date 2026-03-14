@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,12 @@ export default function ELibrary() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="eLibrary | AI & Healthcare Insights | MyHealthCanvas"
+        description="Curated articles on AI in healthcare, patient advocacy, and business automation. Evidence-based analysis featuring Andy's AAA Assessment Framework. For patients, businesses, and thought leaders."
+        keywords="AI healthcare articles, patient advocacy insights, AI business automation blog, healthcare AI research, cancer patient resources, AI agents articles, digital health insights"
+        canonicalPath="/elibrary"
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.18_270)]/10 via-background to-background py-20">
         <div className="container">

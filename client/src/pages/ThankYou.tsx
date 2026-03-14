@@ -46,6 +46,7 @@ export default function ThankYou() {
         title="Thank You for Your Purchase | MyHealthCanvas"
         description="Download your MyHealthCanvas template"
         canonicalPath="/thank-you"
+        noindex={true}
       />
 
       <section className="py-20 px-6 md:px-12 lg:px-24 flex-grow">

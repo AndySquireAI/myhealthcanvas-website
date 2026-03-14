@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -37,6 +38,12 @@ export default function AAA() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="AI Automation Agency | Custom AI Agents for Small Business | Andy Squire"
+        description="Save 50+ hours per month with custom AI agents built for your business. Restaurants, e-commerce, service businesses. 3-6 month ROI payback. Free consultation with Andy Squire."
+        keywords="AI agents for small business, AI automation agency, custom AI solutions, AI for restaurants, AI for ecommerce, business automation, AI coworker, save time with AI, affordable AI agents, AI ROI"
+        canonicalPath="/aaa"
+      />
       {/* Hero Section */}
       {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
       <div className="bg-yellow-50 border-b border-yellow-200 py-3">

@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://myhealthcanvas.com/</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- MyHealthCanvas Product Page -->
   <url>
     <loc>https://myhealthcanvas.com/myhealthcanvas</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -25,7 +25,7 @@
   <!-- MyHealthCanvas Advocacy Page -->
   <url>
     <loc>https://myhealthcanvas.com/myhealthcanvas/advocacy</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -33,7 +33,7 @@
   <!-- AAA - AI Agents Page -->
   <url>
     <loc>https://myhealthcanvas.com/aaa</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -41,7 +41,7 @@
   <!-- eLibrary Main Page -->
   <url>
     <loc>https://myhealthcanvas.com/elibrary</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -180,10 +180,42 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Questions / E-Library Questions -->
+  <url>
+    <loc>https://myhealthcanvas.com/questions</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- First 30 Days After Diagnosis -->
+  <url>
+    <loc>https://myhealthcanvas.com/first-30-days-after-diagnosis</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Caregivers -->
+  <url>
+    <loc>https://myhealthcanvas.com/caregivers</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Caregiver Help -->
+  <url>
+    <loc>https://myhealthcanvas.com/caregiver-help</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
   <!-- About Page -->
   <url>
     <loc>https://myhealthcanvas.com/about</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -191,9 +223,33 @@
   <!-- Contact Page -->
   <url>
     <loc>https://myhealthcanvas.com/contact</loc>
-    <lastmod>2025-12-29</lastmod>
+    <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://myhealthcanvas.com/privacy</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://myhealthcanvas.com/terms</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Impressum -->
+  <url>
+    <loc>https://myhealthcanvas.com/impressum</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   
 </urlset>

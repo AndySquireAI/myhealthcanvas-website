@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import SEO from "@/components/SEO";
 
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col relative" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="About Andy Squire | 2x Cancer Survivor, Patient Advocate & AI Expert"
+        description="Meet Andy Squire — a 2x cancer survivor who turned his experience into MyHealthCanvas, helping patients organize their health story. From corporate tech to patient advocacy."
+        keywords="Andy Squire, cancer survivor story, patient advocate, MyHealthCanvas founder, cancer patient empowerment, health technology advocate, 2x cancer survivor"
+        canonicalPath="/about"
+      />
       {/* Subtle background - office to hospital gradient */}
       <div 
         className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-50 md:opacity-60 pointer-events-none"

@@ -1,6 +1,14 @@
+import SEO from "@/components/SEO";
+
 export default function Impressum() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
+      <SEO
+        title="Impressum (Legal Notice) | MyHealthCanvas"
+        description="Legal notice and company information for MyHealthCanvas. Required legal disclosure under German and EU law."
+        keywords="MyHealthCanvas impressum, legal notice, company information"
+        canonicalPath="/impressum"
+      />
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Impressum (Legal Notice)</h1>
         

@@ -7,9 +7,23 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   canonicalPath?: string;
+  ogType?: 'website' | 'article';
+  articlePublishedTime?: string;
+  articleAuthor?: string;
+  noindex?: boolean;
 }
 
-export default function SEO({ title, description, keywords, ogImage, canonicalPath }: SEOProps) {
+export default function SEO({ 
+  title, 
+  description, 
+  keywords, 
+  ogImage, 
+  canonicalPath,
+  ogType = 'website',
+  articlePublishedTime,
+  articleAuthor = 'Andy Squire',
+  noindex = false
+}: SEOProps) {
   const [location] = useLocation();
   const fullUrl = `https://myhealthcanvas.com${canonicalPath || location}`;
   const defaultOgImage = 'https://myhealthcanvas.com/images/MyHealthCanvasLOGO.png';
@@ -43,6 +57,9 @@ export default function SEO({ title, description, keywords, ogImage, canonicalPa
       updateMetaTag('keywords', keywords);
     }
 
+    // Robots directive
+    updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
+
     // Prevent Google Translate from changing the title
     updateMetaTag('google', 'notranslate');
 
@@ -52,12 +69,23 @@ export default function SEO({ title, description, keywords, ogImage, canonicalPa
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:image', imageUrl, true);
     updateMetaTag('og:locale', 'en_US', true);
+    updateMetaTag('og:type', ogType, true);
+    updateMetaTag('og:site_name', 'MyHealthCanvas', true);
+
+    // Article-specific Open Graph tags
+    if (ogType === 'article') {
+      if (articlePublishedTime) {
+        updateMetaTag('article:published_time', articlePublishedTime, true);
+      }
+      updateMetaTag('article:author', articleAuthor, true);
+    }
 
     // Twitter
     updateMetaTag('twitter:url', fullUrl);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', imageUrl);
+    updateMetaTag('twitter:card', 'summary_large_image');
 
     // Update canonical link
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -88,7 +116,48 @@ export default function SEO({ title, description, keywords, ogImage, canonicalPa
     }
     hreflangEn.setAttribute('href', fullUrl);
 
-  }, [title, description, keywords, fullUrl, imageUrl]);
+    // Inject Article structured data for blog posts
+    if (ogType === 'article') {
+      const existingScript = document.querySelector('script[data-seo-article]');
+      if (existingScript) existingScript.remove();
+      
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-article', 'true');
+      script.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title.replace(' | MyHealthCanvas eLibrary', ''),
+        "description": description,
+        "image": imageUrl,
+        "author": {
+          "@type": "Person",
+          "name": articleAuthor,
+          "url": "https://myhealthcanvas.com/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MyHealthCanvas",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://myhealthcanvas.com/images/MyHealthCanvasLOGO.png"
+          }
+        },
+        "datePublished": articlePublishedTime,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": fullUrl
+        }
+      });
+      document.head.appendChild(script);
+      
+      return () => {
+        const scriptToRemove = document.querySelector('script[data-seo-article]');
+        if (scriptToRemove) scriptToRemove.remove();
+      };
+    }
+
+  }, [title, description, keywords, fullUrl, imageUrl, ogType, articlePublishedTime, articleAuthor, noindex]);
 
   return null;
 }
