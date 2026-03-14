@@ -55,9 +55,9 @@
   --radius: 0.65rem;
   --background: oklch(0.993 0.003 90); /* Warm White #FDFCF8 */
   --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
+  --card: oklch(0.993 0.003 90); /* Warm White */
   --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.993 0.003 90); /* Warm White */
   --popover-foreground: oklch(0.235 0.015 65);
   --secondary: oklch(0.98 0.001 286.375);
   --secondary-foreground: oklch(0.4 0.015 65);

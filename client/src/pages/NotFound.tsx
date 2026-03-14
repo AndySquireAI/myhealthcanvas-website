@@ -11,8 +11,8 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <div className="min-h-screen w-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FFFCFA, #F8F6F2)' }}>
+      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 backdrop-blur-sm" style={{ backgroundColor: 'rgba(255, 252, 250, 0.85)' }}>
         <CardContent className="pt-8 pb-8 text-center">
           <div className="flex justify-center mb-6">
             <div className="relative">

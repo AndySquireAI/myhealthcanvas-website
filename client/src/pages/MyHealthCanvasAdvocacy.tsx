@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 
 export default function MyHealthCanvasAdvocacy() {
   return (
-    <div className="min-h-screen flex flex-col bg-white relative">
+    <div className="min-h-screen flex flex-col relative" style={{ backgroundColor: '#FFFCFA' }}>
       <SEO
         title="Advocacy Partnerships | MyHealthCanvas"
         description="Partnership opportunities for patient advocacy organizations. Revenue sharing. No patient data access."
@@ -43,24 +43,24 @@ export default function MyHealthCanvasAdvocacy() {
       </section>
 
       {/* Section 2 - How it works */}
-      <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50 relative z-10">
+      <section className="py-16 px-6 md:px-12 lg:px-24 relative z-10" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="max-w-lg mx-auto space-y-8">
           
-          <div className="p-6 bg-white border border-gray-200 rounded-lg">
+          <div className="p-6 border border-gray-200 rounded-lg" style={{ backgroundColor: '#FFFCFA' }}>
             <h3 className="text-[18px] font-bold text-gray-800 mb-2">Revenue sharing</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               50% of referral sales. Unrestricted use.
             </p>
           </div>
           
-          <div className="p-6 bg-white border border-gray-200 rounded-lg">
+          <div className="p-6 border border-gray-200 rounded-lg" style={{ backgroundColor: '#FFFCFA' }}>
             <h3 className="text-[18px] font-bold text-gray-800 mb-2">No data access</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               We do not collect patient data. Templates are printable.
             </p>
           </div>
           
-          <div className="p-6 bg-white border border-gray-200 rounded-lg">
+          <div className="p-6 border border-gray-200 rounded-lg" style={{ backgroundColor: '#FFFCFA' }}>
             <h3 className="text-[18px] font-bold text-gray-800 mb-2">Non-clinical</h3>
             <p className="text-[15px] text-gray-600 leading-[1.6]">
               Planning tool only. Not medical advice.
