@@ -108,6 +108,7 @@ export default function Home() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [showSensitive, setShowSensitive] = useState<Record<string, boolean>>({});
   const [safetyDialogOpen, setSafetyDialogOpen] = useState(false);
+  const [showTreatmentRef, setShowTreatmentRef] = useState(false);
 
   const handleCardClick = (cardId: string) => {
     const card = journeyCards.find(c => c.id === cardId);
@@ -300,6 +301,69 @@ export default function Home() {
                   {/* Expanded questions */}
                   {isExpanded && (
                     <div className="mt-4 p-6 md:p-8 rounded-2xl border border-gray-100" style={{ backgroundColor: '#FFFCFA' }}>
+
+                      {/* Treatment Categories Reference - only for Understand card */}
+                      {card.id === 'understand' && (
+                        <div className="mb-6">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setShowTreatmentRef(!showTreatmentRef);
+                            }}
+                            className="flex items-center gap-2 text-[14px] font-medium cursor-pointer transition-colors"
+                            style={{ color: '#19878C' }}
+                          >
+                            <svg
+                              className="w-4 h-4 transition-transform duration-200"
+                              style={{ transform: showTreatmentRef ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                            {showTreatmentRef ? 'Hide treatment categories reference' : 'View standard treatment categories (reference)'}
+                          </button>
+                          {showTreatmentRef && (
+                            <div className="mt-4 p-5 rounded-xl" style={{ backgroundColor: 'rgba(25, 135, 140, 0.04)', border: '1px solid rgba(25, 135, 140, 0.12)' }}>
+                              <p className="text-[13px] uppercase tracking-[0.15em] font-medium mb-4" style={{ color: '#19878C' }}>
+                                Main systemic drug categories
+                              </p>
+                              <ul className="space-y-3 mb-6">
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Cytotoxic chemotherapy</strong> — Non-specific drugs that kill rapidly dividing cells, both cancerous and some normal tissues.
+                                </li>
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Hormone (endocrine) therapy</strong> — Drugs that block or modulate hormones that drive certain cancers (e.g., breast, prostate).
+                                </li>
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Targeted therapies</strong> — Small molecules and biologics (e.g., Tyrosine Kinase Inhibitors (TKIs), monoclonal antibodies, Antibody-Drug Conjugates (ADCs)) that act on specific molecular targets in cancer cells or their microenvironment.
+                                </li>
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Immunotherapies</strong> — Agents that harness the immune system, including checkpoint inhibitors, cytokines, CAR-T and other cellular therapies, and cancer vaccines.
+                                </li>
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Other biologic/gene-directed approaches</strong> — Gene therapies, oncolytic viruses, and some radioligand/radionuclide therapies that deliver cytotoxic payloads in a targeted way.
+                                </li>
+                              </ul>
+                              <p className="text-[13px] uppercase tracking-[0.15em] font-medium mb-4" style={{ color: '#643296' }}>
+                                Local (non-drug) main categories
+                              </p>
+                              <ul className="space-y-3">
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Surgery</strong> — Physical removal of tumour tissue.
+                                </li>
+                                <li className="text-[14px] text-gray-700 leading-[1.6]">
+                                  <strong className="text-gray-800">Radiation therapy</strong> — External beam, brachytherapy, stereotactic radiosurgery, proton therapy, etc.
+                                </li>
+                              </ul>
+                              <p className="text-[12px] text-gray-400 mt-4 italic">
+                                This is a general reference only. Your oncologist will explain which categories apply to your specific diagnosis.
+                              </p>
+                            </div>
+                          )}
+                          <div className="mt-4 mb-2 h-px" style={{ background: 'linear-gradient(to right, transparent, #E1D7EB, transparent)' }} />
+                        </div>
+                      )}
+
                       <ul className="space-y-3">
                         {card.questions.map((q, i) => (
                           <li key={i} className="text-[16px] text-gray-700 leading-[1.6]">
