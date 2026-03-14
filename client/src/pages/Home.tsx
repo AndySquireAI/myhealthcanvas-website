@@ -129,7 +129,7 @@ export default function Home() {
         title="20+ Questions to Ask Your Oncologist | MyHealthCanvas UK"
         description="The most comprehensive curated list of questions to ask your oncologist — drawn from Macmillan, NHS, Cancer Research UK, MSK and more. Organized by diagnosis stage. Created by a 2× cancer survivor."
         keywords="questions to ask oncologist, questions to ask oncologist UK, what to ask oncologist first appointment, cancer diagnosis questions, questions for cancer doctor, 20 questions to ask your oncologist, oncologist appointment questions, cancer treatment questions UK, newly diagnosed cancer what to ask"
-        canonicalPath="/"
+        canonicalPath="/questions"
       />
 
       {/* HERO - Emotional resonance + immediate value proposition */}
@@ -191,29 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EMOTIONAL HANDSHAKE - Macmillan video in a soft frame */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f9' }}>
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <p className="text-[15px] text-gray-400 font-light">
-            Created by a 2× cancer survivor
-          </p>
-          <p className="text-[18px] md:text-[20px] text-gray-500 italic leading-[1.7]">
-            A moment for you before we begin...
-          </p>
-          <div className="max-w-[700px] mx-auto rounded-xl overflow-hidden shadow-md" style={{ boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/XWQtsYgrVa0?rel=0"
-                title="Macmillan Emotional Support"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* BREATHE - First thing users see after hero */}
       <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFCFA' }}>

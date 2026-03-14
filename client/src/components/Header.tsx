@@ -12,6 +12,7 @@ export default function Header() {
 
   const navItems = [
     { path: "/", label: "Home", isEmail: false },
+    { path: "/questions", label: "Questions", isEmail: false },
     { path: "/myhealthcanvas", label: "MyHealthCanvas", isEmail: false },
     { path: "/aaa", label: "AAA - AI Agents", isEmail: false },
     { path: "/elibrary", label: "eLibrary", isEmail: false },

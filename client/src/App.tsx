@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
 import MyHealthCanvasAdvocacy from "./pages/MyHealthCanvasAdvocacy";
@@ -26,7 +27,8 @@ function Router() {
     <>
       <Header />
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={Welcome} />
+        <Route path="/questions" component={Home} />
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
