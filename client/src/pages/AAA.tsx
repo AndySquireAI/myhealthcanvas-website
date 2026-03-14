@@ -389,9 +389,9 @@ export default function AAA() {
                       in your business. 29.8 MB PDF with real examples and frameworks.
                     </p>
                     <Button asChild>
-                      <a href="/pdfs/Mastering_AI_Agents_Guide.pdf" download>
+                      <a href="#get-started">
                         <Download className="mr-2 h-4 w-4" />
-                        Download Free Guide
+                        Request Free Guide
                       </a>
                     </Button>
                   </div>

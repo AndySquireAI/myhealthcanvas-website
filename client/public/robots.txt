@@ -3,6 +3,10 @@
 
 User-agent: *
 Allow: /
+Disallow: /pdfs/
+Disallow: /downloads/
+Disallow: /thank-you
+Disallow: /$
 
 # Sitemaps
 Sitemap: https://myhealthcanvas.com/sitemap.xml
@@ -13,6 +17,10 @@ Crawl-delay: 1
 # Allow all major search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /pdfs/
+Disallow: /downloads/
+Disallow: /thank-you
+Disallow: /$
 
 User-agent: Bingbot
 Allow: /

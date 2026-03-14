@@ -100,7 +100,10 @@
       "description": "Patient health records, AI agents for small businesses, and curated healthcare insights",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://myhealthcanvas.com/elibrary?q={search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://myhealthcanvas.com/elibrary?q={search_term_string}"
+        },
         "query-input": "required name=search_term_string"
       }
     }
