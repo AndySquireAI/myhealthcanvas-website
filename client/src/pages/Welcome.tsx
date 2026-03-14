@@ -11,26 +11,25 @@ export default function Welcome() {
         canonicalPath="/"
       />
 
-      {/* HERO - Safe Harbor image with just the heading overlaid */}
-      <section className="relative w-full" style={{ minHeight: '70vh' }}>
-        {/* Background image - mobile centers on doorway */}
-        <div 
-          className="absolute inset-0 bg-cover bg-no-repeat"
-          style={{
-            backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png)',
-            backgroundPosition: 'center 30%',
-          }}
+      {/* HERO - Safe Harbor image with heading overlaid */}
+      <section className="relative w-full">
+        {/* Full image - no cropping on any device */}
+        <img 
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png"
+          alt="A warm cottage scene - a patient arriving home to a welcoming family, district nurse, and comfort"
+          className="w-full h-auto block"
+          style={{ minHeight: '50vh', objectFit: 'cover', objectPosition: 'center 30%' }}
         />
         {/* Subtle bottom gradient only - keep the image visible */}
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0.6) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.55) 100%)',
           }}
         />
 
         {/* Just the heading - positioned at the bottom of the image */}
-        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 z-10 px-6 text-center">
+        <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-10 px-6 text-center">
           <h1 className="text-[26px] md:text-[40px] lg:text-[48px] font-bold text-white leading-[1.2] tracking-tight drop-shadow-lg">
             "You don't have to carry this alone"
           </h1>
