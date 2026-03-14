@@ -87,7 +87,7 @@ export default function Welcome() {
           {/* Card 1 - Patient */}
           <Link href="/first-30-days-after-diagnosis">
             <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-lg border border-[#E1D7EB]/40" style={{ backgroundColor: 'rgba(253, 252, 248, 0.95)' }}>
-              <div className="text-4xl">💛</div>
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-patient-eXQQP5Wq7PFqpmQg342FJV.png" alt="Heart in hands" className="w-16 h-16 mx-auto object-contain" />
               <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
                 I'm the Patient
               </h3>
@@ -103,7 +103,7 @@ export default function Welcome() {
           {/* Card 2 - Caregiver */}
           <Link href="/myhealthcanvas/advocacy">
             <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-lg border border-[#E1D7EB]/40" style={{ backgroundColor: 'rgba(253, 252, 248, 0.95)' }}>
-              <div className="text-4xl">🤝</div>
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-caregiver-Af6MngKWcDvEDEM8k4VTB8.png" alt="Hands reaching" className="w-16 h-16 mx-auto object-contain" />
               <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
                 I'm the Caregiver
               </h3>
@@ -119,7 +119,7 @@ export default function Welcome() {
           {/* Card 3 - E-Library */}
           <Link href="/questions">
             <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-lg border border-[#E1D7EB]/40" style={{ backgroundColor: 'rgba(253, 252, 248, 0.95)' }}>
-              <div className="text-4xl">📚</div>
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
               <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
                 I need the E-Library
               </h3>
