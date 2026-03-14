@@ -11,9 +11,9 @@ export default function Welcome() {
         canonicalPath="/"
       />
 
-      {/* HERO - Safe Harbor with approved cottage homecoming image */}
-      <section className="relative min-h-screen flex flex-col justify-end items-center pb-8 md:pb-12">
-        {/* Background image - mobile centers on doorway, desktop covers full */}
+      {/* HERO - Safe Harbor image with just the heading overlaid */}
+      <section className="relative w-full" style={{ minHeight: '70vh' }}>
+        {/* Background image - mobile centers on doorway */}
         <div 
           className="absolute inset-0 bg-cover bg-no-repeat"
           style={{
@@ -21,44 +21,45 @@ export default function Welcome() {
             backgroundPosition: 'center 30%',
           }}
         />
-        {/* Subtle vignette + bottom gradient for text/button legibility */}
+        {/* Subtle bottom gradient only - keep the image visible */}
         <div 
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.65) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0.6) 100%)',
           }}
         />
 
-        {/* Content overlay - positioned at bottom */}
-        <div className="relative z-10 w-full max-w-3xl mx-auto px-6 text-center space-y-5">
-          
-          {/* Main heading */}
-          <h1 className="text-[28px] md:text-[40px] lg:text-[48px] font-bold text-white leading-[1.2] tracking-tight drop-shadow-lg">
+        {/* Just the heading - positioned at the bottom of the image */}
+        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 z-10 px-6 text-center">
+          <h1 className="text-[26px] md:text-[40px] lg:text-[48px] font-bold text-white leading-[1.2] tracking-tight drop-shadow-lg">
             "You don't have to carry this alone"
           </h1>
+        </div>
+      </section>
 
-          {/* Survivor's Welcome copy - semi-transparent warm panel */}
-          <div 
-            className="max-w-xl mx-auto rounded-xl px-6 py-5 md:px-8 md:py-6"
-            style={{ backgroundColor: 'rgba(253, 252, 248, 0.88)', backdropFilter: 'blur(8px)' }}
-          >
-            <p className="text-[15px] md:text-[16px] text-gray-700 leading-[1.8]">
+      {/* SURVIVOR'S WELCOME - Copy card and video BELOW the image */}
+      <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+
+          {/* Survivor's Welcome copy */}
+          <div className="space-y-4">
+            <p className="text-[16px] md:text-[17px] text-gray-700 leading-[1.8]">
               A cancer diagnosis feels like a storm. We created MyHealthCanvas to be the shelter.
             </p>
-            <p className="text-[15px] md:text-[16px] text-gray-700 leading-[1.8] mt-3">
+            <p className="text-[16px] md:text-[17px] text-gray-700 leading-[1.8]">
               Whether you are the one holding the diagnosis or the one holding the hand of a loved one, you are now part of a team. From the first 30 days of shock to the complexities of treatment, we provide the questions, the resources, and the community to help you find your way back to yourself.
             </p>
-            <p className="text-[16px] md:text-[17px] text-gray-800 font-medium leading-[1.8] mt-3 italic">
+            <p className="text-[17px] md:text-[18px] text-gray-800 font-medium leading-[1.8] italic">
               Take a breath. Let us help with the rest.
             </p>
           </div>
 
           {/* Macmillan Video - soft frame */}
-          <div className="pt-2">
-            <p className="text-[15px] text-white/80 italic mb-3 drop-shadow-md">
+          <div>
+            <p className="text-[15px] text-gray-500 italic mb-4">
               A moment for you before we begin...
             </p>
-            <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+            <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
               <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
@@ -73,7 +74,7 @@ export default function Welcome() {
           </div>
 
           {/* Transition text */}
-          <p className="text-[18px] md:text-[22px] text-white font-medium pt-4 drop-shadow-md">
+          <p className="text-[20px] md:text-[24px] text-gray-800 font-medium pt-4">
             When you are ready, how can we help today?
           </p>
 
@@ -81,7 +82,7 @@ export default function Welcome() {
       </section>
 
       {/* THREE NAVIGATION CARDS */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+      <section className="pb-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Card 1 - Patient */}
