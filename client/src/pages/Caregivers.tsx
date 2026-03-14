@@ -340,7 +340,7 @@ export default function Caregivers() {
         </div>
       </section>
 
-      {/* 2. The Access Card with Region Toggle */}
+      {/* 2. The Funding with Region Toggle */}
       <section className="px-6 pb-8" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto">
           <div
@@ -360,7 +360,7 @@ export default function Caregivers() {
                 </div>
                 <div>
                   <h3 className="text-[18px] md:text-[20px] font-bold text-gray-800 mb-1">
-                    The Access Card: Manufacturer Support
+                    The Funding: Manufacturer or Foundation Support
                   </h3>
                   <p className="text-[14px] text-gray-500 leading-[1.5]">
                     Search for the drug name + "Patient Support Program" to find financial assistance.
