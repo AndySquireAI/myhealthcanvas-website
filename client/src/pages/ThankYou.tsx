@@ -41,7 +41,7 @@ export default function ThankYou() {
   const selectedProduct = product ? downloadLinks[product] : null;
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FFFCFA' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
         title="Thank You for Your Purchase | MyHealthCanvas"
         description="Download your MyHealthCanvas template"
@@ -86,7 +86,7 @@ export default function ThankYou() {
 
           {/* Download Card */}
           {selectedProduct ? (
-            <Card className="border-[oklch(0.55_0.15_195)] border-2 mb-8" style={{ backgroundColor: '#FFFCFA' }}>
+            <Card className="border-[oklch(0.55_0.15_195)] border-2 mb-8" style={{ backgroundColor: '#FFFFFF' }}>
               <CardHeader>
                 <CardTitle className="text-xl font-bold">
                   {selectedProduct.name}
@@ -134,7 +134,7 @@ export default function ThankYou() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-4">
-                <Card className="border-gray-200" style={{ backgroundColor: '#FFFCFA' }}>
+                <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
                   <CardHeader>
                     <CardTitle className="text-lg">Current Plan</CardTitle>
                     <p className="text-sm text-gray-500">One-page template (£9)</p>
@@ -148,7 +148,7 @@ export default function ThankYou() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-gray-200" style={{ backgroundColor: '#FFFCFA' }}>
+                <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
                   <CardHeader>
                     <CardTitle className="text-lg">Complete Plan</CardTitle>
                     <p className="text-sm text-gray-500">Two-page template (£12)</p>
@@ -166,7 +166,7 @@ export default function ThankYou() {
           )}
 
           {/* Next Steps */}
-          <div className="rounded-lg p-6 text-left mb-8" style={{ backgroundColor: '#F8F6F2' }}>
+          <div className="rounded-lg p-6 text-left mb-8" style={{ backgroundColor: '#FFFFFF' }}>
             <h2 className="font-semibold text-gray-900 mb-3">Next Steps:</h2>
             <ol className="list-decimal list-inside space-y-2 text-gray-600">
               <li>Download and save your PDF template (locally or to your Cloud)</li>

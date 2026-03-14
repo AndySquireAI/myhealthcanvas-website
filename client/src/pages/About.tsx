@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative" style={{ backgroundColor: '#FDFCF8' }}>
       {/* Subtle background - office to hospital gradient */}
       <div 
         className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-50 md:opacity-60 pointer-events-none"

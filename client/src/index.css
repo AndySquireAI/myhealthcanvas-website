@@ -55,15 +55,15 @@
   --radius: 0.65rem;
   --background: oklch(0.993 0.003 90); /* Warm White #FDFCF8 */
   --foreground: oklch(0.235 0.015 65);
-  --card: oklch(0.993 0.003 90); /* Warm White */
+  --card: oklch(1 0 0); /* Bright White - pops against cream bg */
   --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(0.993 0.003 90); /* Warm White */
+  --popover: oklch(1 0 0); /* Bright White - pops against cream bg */
   --popover-foreground: oklch(0.235 0.015 65);
   --secondary: oklch(0.98 0.001 286.375);
   --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
+  --muted: oklch(0.985 0.005 90); /* Warm cream muted - matches #FDFCF8 */
+  --muted-foreground: oklch(0.45 0.015 65);
+  --accent: oklch(0.985 0.005 90); /* Warm cream accent */
   --accent-foreground: oklch(0.141 0.005 285.823);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);

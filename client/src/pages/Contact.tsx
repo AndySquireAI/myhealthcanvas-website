@@ -30,7 +30,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/10 via-background to-background py-20">
         <div className="container">

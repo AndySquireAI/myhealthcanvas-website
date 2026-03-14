@@ -120,7 +120,7 @@ export default function MyHealthCanvas() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FFFCFA' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
         title="Personal Healthcare Software | Organize Your Health Records at Home"
         description="Take control of your health story. Organize your personal health records, prepare for appointments, and manage your care at home. Simple healthcare software built for patients, not hospitals."
@@ -166,7 +166,7 @@ export default function MyHealthCanvas() {
       </section>
 
       {/* Section 2 - Value props with keywords */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#F8F6F2' }}>
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-lg mx-auto space-y-12">
           
           <div className="text-center">
@@ -256,12 +256,12 @@ export default function MyHealthCanvas() {
       </section>
 
       {/* Section 5 - Pricing */}
-      <section id="buy" className="py-20 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#F8F6F2' }}>
+      <section id="buy" className="py-20 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           
           <div className="grid md:grid-cols-2 gap-8">
             {/* Current Plan */}
-            <Card className="border-gray-200" style={{ backgroundColor: '#FFFCFA' }}>
+            <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Current Plan</CardTitle>
                 <CardDescription className="text-[15px]">One-page health record template</CardDescription>
@@ -280,7 +280,7 @@ export default function MyHealthCanvas() {
             </Card>
 
             {/* Complete Plan */}
-            <Card className="border-[oklch(0.55_0.15_195)] border-2" style={{ backgroundColor: '#FFFCFA' }}>
+            <Card className="border-[oklch(0.55_0.15_195)] border-2" style={{ backgroundColor: '#FFFFFF' }}>
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
                 <CardDescription className="text-[15px]">Two-page health record template</CardDescription>

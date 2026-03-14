@@ -125,7 +125,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FFFCFA' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
         title="20+ Questions to Ask Your Oncologist | MyHealthCanvas UK"
         description="The most comprehensive curated list of questions to ask your oncologist — drawn from Macmillan, NHS, Cancer Research UK, MSK and more. Organized by diagnosis stage. Created by a 2× cancer survivor."
@@ -195,7 +195,7 @@ export default function Home() {
 
 
       {/* BREATHE - First thing users see after hero */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFCFA' }}>
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-medium">
             Week 1
@@ -233,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* JOURNEY CARDS - Progressive disclosure */}
-      <section id="journey" className="py-20 px-6 md:px-12 lg:px-24 scroll-mt-20" style={{ backgroundColor: '#FFFCFA' }}>
+      <section id="journey" className="py-20 px-6 md:px-12 lg:px-24 scroll-mt-20" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[26px] md:text-4xl font-bold text-gray-800 mb-4 text-center">
             Where are you in your{" "}
@@ -265,7 +265,7 @@ export default function Home() {
                     onClick={() => handleCardClick(card.id)}
                     className="w-full text-left p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 cursor-pointer group"
                     style={{
-                      backgroundColor: isExpanded ? '#E1D7EB' : '#FFFCFA',
+                      backgroundColor: isExpanded ? '#E1D7EB' : '#FFFFFF',
                       borderColor: isExpanded ? '#643296' : '#E1D7EB',
                     }}
                     onMouseEnter={(e) => {
@@ -276,7 +276,7 @@ export default function Home() {
                     }}
                     onMouseLeave={(e) => {
                       if (!isExpanded) {
-                        e.currentTarget.style.backgroundColor = '#FFFCFA';
+                        e.currentTarget.style.backgroundColor = '#FFFFFF';
                         e.currentTarget.style.borderColor = '#E1D7EB';
                       }
                     }}
@@ -300,7 +300,7 @@ export default function Home() {
 
                   {/* Expanded questions */}
                   {isExpanded && (
-                    <div className="mt-4 p-6 md:p-8 rounded-2xl border border-gray-100" style={{ backgroundColor: '#FFFCFA' }}>
+                    <div className="mt-4 p-6 md:p-8 rounded-2xl border border-gray-100" style={{ backgroundColor: '#FFFFFF' }}>
 
                       {/* Treatment Categories Reference - only for Understand card */}
                       {card.id === 'understand' && (
@@ -570,7 +570,7 @@ export default function Home() {
 
 
       {/* CREATED BY A SURVIVOR - trust + credibility */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FFFCFA' }}>
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 mb-6">
             Created by someone who's been there
@@ -588,7 +588,7 @@ export default function Home() {
 
       {/* Safety Confirmation Dialog for "Looking Ahead" */}
       <AlertDialog open={safetyDialogOpen} onOpenChange={setSafetyDialogOpen}>
-        <AlertDialogContent className="max-w-md" style={{ backgroundColor: '#FFFCFA' }}>
+        <AlertDialogContent className="max-w-md" style={{ backgroundColor: '#FFFFFF' }}>
           <AlertDialogHeader>
             <AlertDialogTitle className="text-[20px] text-gray-800">
               Before you continue

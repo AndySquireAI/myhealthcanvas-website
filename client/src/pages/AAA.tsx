@@ -36,7 +36,7 @@ export default function AAA() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       {/* Hero Section */}
       {/* Clarifying Banner - Filters wrong audience (Bucket B & C) */}
       <div className="bg-yellow-50 border-b border-yellow-200 py-3">

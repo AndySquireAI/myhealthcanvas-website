@@ -1,6 +1,6 @@
 export default function Impressum() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Impressum (Legal Notice)</h1>
         

@@ -109,7 +109,7 @@ export default function First30Days() {
                 </ul>
               </div>
 
-              <div className="p-5 rounded-lg border border-gray-100" style={{ backgroundColor: '#FFFCFA' }}>
+              <div className="p-5 rounded-lg border border-gray-100" style={{ backgroundColor: '#FFFFFF' }}>
                 <p className="text-[15px] text-gray-500 italic">
                   "I spent the first week in a fog. I couldn't eat. I couldn't think. And that was OK. The only thing I did was write down my next appointment date on a Post-it note. That was enough." - Andy
                 </p>
@@ -213,7 +213,7 @@ export default function First30Days() {
                 </ul>
               </div>
 
-              <div className="p-5 rounded-lg border border-gray-100" style={{ backgroundColor: '#FFFCFA' }}>
+              <div className="p-5 rounded-lg border border-gray-100" style={{ backgroundColor: '#FFFFFF' }}>
                 <p className="text-[15px] text-gray-500 italic">
                   "I walked into my first oncology appointment with 23 questions on my phone. I asked 8 of them. But those 8 were the right ones, and I didn't forget a single one. That list changed everything." - Andy
                 </p>

@@ -11,7 +11,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: '#FDFCF8' }}>
         <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
         <p className="text-muted-foreground mb-8">
           The article you're looking for doesn't exist.
@@ -58,7 +58,7 @@ export default function BlogPost() {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[oklch(0.55_0.18_270)]/10 via-background to-background py-12">
         <div className="container">

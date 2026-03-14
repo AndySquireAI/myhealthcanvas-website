@@ -1,6 +1,6 @@
 export default function Terms() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
         <p className="text-muted-foreground mb-8">Last updated: January 2025</p>

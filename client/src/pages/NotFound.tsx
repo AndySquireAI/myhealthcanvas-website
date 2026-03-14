@@ -11,8 +11,8 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FFFCFA, #F8F6F2)' }}>
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 backdrop-blur-sm" style={{ backgroundColor: 'rgba(255, 252, 250, 0.85)' }}>
+    <div className="min-h-screen w-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FDFCF8, #FDFCF8)' }}>
+      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 backdrop-blur-sm" style={{ backgroundColor: '#FFFFFF' }}>
         <CardContent className="pt-8 pb-8 text-center">
           <div className="flex justify-center mb-6">
             <div className="relative">
@@ -36,7 +36,7 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+              className="bg-[oklch(0.55_0.15_195)] hover:bg-[oklch(0.50_0.15_195)] text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Home className="w-4 h-4 mr-2" />
               Go Home
