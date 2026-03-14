@@ -17,6 +17,7 @@ import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CaregiverHelp from "./pages/CaregiverHelp";
+import Caregivers from "./pages/Caregivers";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
         <Route path="/first-30-days-after-diagnosis" component={First30Days} />
+        <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />
         <Route path="/elibrary" component={ELibrary} />
