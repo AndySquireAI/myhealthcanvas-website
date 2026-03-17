@@ -15,7 +15,7 @@ export default function About() {
       <div 
         className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-50 md:opacity-60 pointer-events-none"
         style={{
-          backgroundImage: 'url(/images/bg-about-andy.png)',
+          backgroundImage: 'url(/images/bg-about-andy.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -27,7 +27,7 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src="/images/AndyAIPhoto.jpg"
+                  src="/images/AndyAIPhoto.webp"
                   alt="Andy Squire"
                   className="rounded-2xl shadow-2xl w-full"
                 />

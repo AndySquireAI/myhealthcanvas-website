@@ -134,7 +134,7 @@ export default function MyHealthCanvas() {
         <div 
           className="absolute inset-0 bg-no-repeat bg-center opacity-70 md:opacity-80 pointer-events-none"
           style={{
-            backgroundImage: 'url(/images/bg-product-canvas-v2.png)',
+            backgroundImage: 'url(/images/bg-product-canvas-v2.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -144,7 +144,7 @@ export default function MyHealthCanvas() {
           
           {/* Large Logo at top */}
           <img
-            src="/images/MyHealthCanvasLOGOX2.png"
+            src="/images/MyHealthCanvasLOGOX2.webp"
             alt="MyHealthCanvas Logo"
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
@@ -165,28 +165,60 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Section 2 - Value props with keywords */}
+      {/* Trust Strip - Physician-as-Pilot governance */}
+      <section className="py-6 px-6 md:px-12 lg:px-24" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.12 270))' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-white text-[14px] md:text-[15px] font-medium">
+            <span className="flex items-center gap-2"><span className="text-[18px]">&#128737;</span> Physician-governed design</span>
+            <span className="flex items-center gap-2"><span className="text-[18px]">&#128274;</span> Your data stays private</span>
+            <span className="flex items-center gap-2"><span className="text-[18px]">&#9825;</span> Built by a 2× cancer survivor</span>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works - 3 simple steps */}
       <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center mb-3">How It Works</h2>
+          <p className="text-[16px] text-gray-500 text-center mb-12">Three simple steps. No complex software to learn.</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center space-y-4">
+              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>1</div>
+              <h3 className="text-[18px] font-bold text-gray-800">Choose Your Plan</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Pick the Current Plan (1 page) or Complete Plan (2 pages) — both are simple, printable templates.</p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>2</div>
+              <h3 className="text-[18px] font-bold text-gray-800">Fill In Your Details</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Write down your health information, medications, and questions at your own pace. No rush, no pressure.</p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>3</div>
+              <h3 className="text-[18px] font-bold text-gray-800">Take It to Your Appointment</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas to your next appointment. Better questions lead to better conversations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value props */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-lg mx-auto space-y-12">
-          
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
               <strong>Your personal health records</strong> — one private place for your health story
             </p>
           </div>
-          
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
               <strong>Care at home, on your terms</strong> — you stay in control of your data
             </p>
           </div>
-          
           <div className="text-center">
             <p className="text-[19px] text-gray-700 leading-[1.6]">
               <strong>No complex software to learn</strong> — use it as little or as much as you want
             </p>
           </div>
-          
         </div>
       </section>
 
@@ -211,7 +243,7 @@ export default function MyHealthCanvas() {
           {/* Mockup image */}
           <div className="space-y-4">
             <img
-              src="/images/MyHealthCanvasMOCKUPPBD.png"
+              src="/images/MyHealthCanvasMOCKUPPBD.webp"
               alt="MyHealthCanvas healthcare software template preview - organize your personal health records"
               className="w-full rounded-lg shadow-lg border border-gray-200"
             />
@@ -235,7 +267,7 @@ export default function MyHealthCanvas() {
       <section className="py-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
           <img
-            src="/images/patient-doctor-myhealthcanvas-final.png"
+            src="/images/patient-doctor-myhealthcanvas-final.webp"
             alt="Patient using healthcare software to communicate with doctor"
             className="w-full rounded-lg"
           />
@@ -310,6 +342,61 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* How We Protect You - Governance trust section */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <h2 className="text-[22px] md:text-[26px] font-bold text-gray-800">How We Protect You</h2>
+          <p className="text-[16px] text-gray-500 leading-[1.7]">
+            MyHealthCanvas is built on <strong>Physician-as-Pilot</strong> governance principles — the same framework used in clinical AI safety. This means your health data is never processed by AI alone. Human oversight is built into every layer.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 pt-4">
+            <div className="p-4 bg-white rounded-lg border border-gray-100">
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">No autonomous decisions</p>
+              <p className="text-[14px] text-gray-500">We help you organize — your doctors make the decisions.</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg border border-gray-100">
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Your data, your control</p>
+              <p className="text-[14px] text-gray-500">Nothing is shared without your explicit consent.</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg border border-gray-100">
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Evidence-based content</p>
+              <p className="text-[14px] text-gray-500">Every question sourced from trusted medical organisations.</p>
+            </div>
+          </div>
+          <p className="text-[13px] text-gray-400 pt-2">
+            Governance framework: <a href="https://www.patientcentriccare.ai/physician-as-pilot" target="_blank" rel="noopener noreferrer" className="text-[oklch(0.55_0.15_195)] hover:underline">PatientCentricCare.AI</a>
+          </p>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-lg mx-auto text-center space-y-4">
+          <h3 className="text-[20px] font-bold text-gray-800">Stay Informed</h3>
+          <p className="text-[15px] text-gray-500">Get weekly health tips and new resources. One email a week, no spam.</p>
+          <form
+            action="mailto:andy@patientcentriccare.ai?subject=Newsletter%20Signup%20-%20MyHealthCanvas"
+            method="GET"
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2"
+          >
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="flex-1 px-4 py-3 border border-gray-200 rounded-lg text-[15px] focus:outline-none focus:border-[oklch(0.55_0.15_195)]"
+              style={{ backgroundColor: '#FFFFFF' }}
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 text-white text-[15px] font-medium rounded-lg transition-colors"
+              style={{ background: 'oklch(0.55 0.15 195)' }}
+            >
+              Subscribe
+            </button>
+          </form>
+          <p className="text-[12px] text-gray-400">Unsubscribe anytime. We respect your privacy.</p>
+        </div>
+      </section>
+
       {/* TRUST FOOTER */}
       <footer className="py-8 border-t border-gray-100 mt-auto">
         <div className="container px-6">
@@ -342,7 +429,7 @@ export default function MyHealthCanvas() {
         >
           <div className="relative">
             <img
-              src="/images/MyHealthCanvasMOCKUPPBD.png"
+              src="/images/MyHealthCanvasMOCKUPPBD.webp"
               alt="MyHealthCanvas template preview"
               className="max-w-full max-h-[90vh] object-contain"
             />

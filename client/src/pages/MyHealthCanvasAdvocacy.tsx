@@ -18,7 +18,7 @@ export default function MyHealthCanvasAdvocacy() {
       <div 
         className="absolute top-0 left-0 right-0 h-screen bg-no-repeat opacity-45 md:opacity-50 pointer-events-none"
         style={{
-          backgroundImage: 'url(/images/bg-advocacy-circle.png)',
+          backgroundImage: 'url(/images/bg-advocacy-circle.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

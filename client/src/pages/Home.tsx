@@ -139,7 +139,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-no-repeat bg-center md:bg-bottom opacity-40 md:opacity-50 pointer-events-none"
           style={{
-            backgroundImage: 'url(/images/bg-homepage-hands.png)',
+            backgroundImage: 'url(/images/bg-homepage-hands.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 70%',
           }}

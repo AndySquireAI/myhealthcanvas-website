@@ -77,7 +77,7 @@ export default function ELibrary() {
             {/* Hero Image */}
             <div className="mt-10 max-w-5xl mx-auto">
               <img 
-                src="/images/woman-tablet-ai.png" 
+                src="/images/woman-tablet-ai.webp" 
                 alt="Person reading curated AI healthcare knowledge on tablet in coffee shop - evidence-based guidelines, patient outcomes data, trusted AI assistance" 
                 className="w-full rounded-2xl shadow-xl"
               />

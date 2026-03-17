@@ -83,7 +83,7 @@ export default function AAA() {
                   aria-label="Play video: AI Agents for Business"
                 >
                   <img 
-                    src="/images/hero-aaa-new.png" 
+                    src="/images/hero-aaa-new.webp" 
                     alt="AI Automation Agency - 24/7 Agent Co-Workers with 90% Cost Savings" 
                     className="w-full block"
                   />
