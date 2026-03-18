@@ -336,6 +336,8 @@ export default function MyHealthCanvas() {
       <section id="buy" className="py-20 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           
+          <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* Current Plan */}
             <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
