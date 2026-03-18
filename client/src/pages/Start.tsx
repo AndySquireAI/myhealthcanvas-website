@@ -119,6 +119,7 @@ export default function Start() {
         description="Prepare for every cancer appointment with confidence. Curated questions from Macmillan, NHS & Cancer Research UK. Built by a 2× cancer survivor. Instant download."
         keywords="questions to ask oncologist, cancer appointment preparation, health toolkit cancer, patient health form, MyHealthCanvas"
         canonicalPath="/start"
+        noindex={true}
       />
 
       {/* Minimal header - logo only, no nav */}
