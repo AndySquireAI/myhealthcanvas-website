@@ -21,10 +21,10 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Empowering patients and caregivers through patient-first design, evidence-based AI, and responsible governance.
+              Helping cancer patients arrive prepared, ask better questions, and get the most from every appointment.
             </p>
             <p className="text-xs text-muted-foreground/80">
-              Built by patient advocate and AI healthcare expert Andy Squire.
+              Built by Andy Squire — 2× cancer survivor, patient advocate, and founder of PatientCentricCare.AI.
             </p>
           </div>
 

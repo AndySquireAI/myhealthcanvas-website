@@ -11,6 +11,24 @@ declare global {
 
 export default function MyHealthCanvas() {
   const [zoomedImage, setZoomedImage] = useState(false);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  // Sticky mobile CTA bar logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const buySection = document.getElementById('buy');
+      if (buySection) {
+        const buyTop = buySection.getBoundingClientRect().top;
+        // Show after 400px scroll, hide when pricing section is visible
+        setShowStickyBar(scrollY > 400 && buyTop > 200);
+      } else {
+        setShowStickyBar(scrollY > 400);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // Load PayPal SDK
@@ -30,7 +48,7 @@ export default function MyHealthCanvas() {
                 purchase_units: [
                   {
                     amount: {
-                      value: "9.00",
+                      value: "19.00",
                       currency_code: "GBP",
                     },
                     description: "MyHealthCanvas - Current Plan",
@@ -44,12 +62,12 @@ export default function MyHealthCanvas() {
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
-                    value: 9.0,
+                    value: 19.0,
                     currency: "GBP",
                     items: [
                       {
                         item_name: "MyHealthCanvas Current Plan",
-                        price: 9.0,
+                        price: 19.0,
                         quantity: 1,
                       },
                     ],
@@ -76,7 +94,7 @@ export default function MyHealthCanvas() {
                 purchase_units: [
                   {
                     amount: {
-                      value: "12.00",
+                      value: "27.00",
                       currency_code: "GBP",
                     },
                     description: "MyHealthCanvas - Complete Plan",
@@ -90,12 +108,12 @@ export default function MyHealthCanvas() {
                 if (typeof window !== "undefined" && (window as any).gtag) {
                   (window as any).gtag("event", "purchase", {
                     transaction_id: _data.orderID,
-                    value: 12.0,
+                    value: 27.0,
                     currency: "GBP",
                     items: [
                       {
                         item_name: "MyHealthCanvas Complete Plan",
-                        price: 12.0,
+                        price: 27.0,
                         quantity: 1,
                       },
                     ],
@@ -122,9 +140,9 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="Personal Healthcare Software | Organize Your Health Records at Home"
-        description="Take control of your health story. Organize your personal health records, prepare for appointments, and manage your care at home. Simple healthcare software built for patients, not hospitals."
-        keywords="healthcare software, personal health records, home care software, patient health records, care at home, health record organizer, medical appointment preparation"
+        title="Questions to Ask Your Oncologist | MyHealthCanvas — Built by a Cancer Survivor"
+        description="Prepare for every cancer appointment with confidence. Curated questions from Macmillan, NHS & Cancer Research UK. Built by a 2× cancer survivor. From £19."
+        keywords="questions to ask oncologist, cancer appointment preparation, health toolkit cancer, patient health form, MyHealthCanvas, cancer questions, oncologist questions UK"
         canonicalPath="/myhealthcanvas"
       />
 
@@ -149,17 +167,19 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - Empowering, patient-first */}
-          <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2]">
-            Take Control of Your{" "}
+          {/* Headline - Patient-first, action-oriented */}
+          <h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2]">
+            Take back control.{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              Health Story
+              Ask better questions.
             </span>
+            <br className="hidden md:block" />
+            Give yourself every chance.
           </h1>
           
           {/* Subheadline - bridges keyword to product */}
           <p className="text-[18px] md:text-[20px] text-gray-600 leading-[1.6]">
-            Organize your personal health records. Prepare for appointments. Manage your care at home.
+            The structured health toolkit for cancer patients — built by someone who has been there.
           </p>
           
         </div>
@@ -171,7 +191,7 @@ export default function MyHealthCanvas() {
           <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-white text-[14px] md:text-[15px] font-medium">
             <span className="flex items-center gap-2"><span className="text-[18px]">&#128737;</span> Physician-governed design</span>
             <span className="flex items-center gap-2"><span className="text-[18px]">&#128274;</span> Your data stays private</span>
-            <span className="flex items-center gap-2"><span className="text-[18px]">&#9825;</span> Built by a 2× cancer survivor</span>
+            <span className="flex items-center gap-2"><span className="text-[18px]">&#9825;</span> <span className="hidden md:inline">Built by Andy Squire — 2× cancer survivor, Harvard Medical School (Best Overall Capstone, AI in Healthcare 2026)</span><span className="md:hidden">Built by Andy Squire — 2× cancer survivor & Harvard Medical School recognised</span></span>
           </div>
         </div>
       </section>
@@ -185,7 +205,7 @@ export default function MyHealthCanvas() {
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>1</div>
               <h3 className="text-[18px] font-bold text-gray-800">Choose Your Plan</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Pick the Current Plan (1 page) or Complete Plan (2 pages) — both are simple, printable templates.</p>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Pick the Current Plan (1 page) or Complete Plan (2 pages). Fill it on your phone, tablet, or computer — or print it out. Your choice, every time.</p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>2</div>
@@ -195,7 +215,7 @@ export default function MyHealthCanvas() {
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>3</div>
               <h3 className="text-[18px] font-bold text-gray-800">Take It to Your Appointment</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas to your next appointment. Better questions lead to better conversations.</p>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas — on your phone or printed out. Better questions lead to better care.</p>
             </div>
           </div>
         </div>
@@ -287,6 +307,31 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Social Proof / Science Stats */}
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-center mb-3" style={{ color: '#0D3349' }}>The research backs it up</h2>
+          <p className="text-[16px] md:text-[17px] text-gray-500 text-center mb-10">Patients who arrive prepared get measurably better care.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#E8F5F5' }}>
+              <p className="text-[36px] md:text-[42px] font-bold mb-2" style={{ color: '#0D3349' }}>30%</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">reduction in patient anxiety when patients journal symptoms and questions before appointments</p>
+            </div>
+            <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#FDF6EC' }}>
+              <p className="text-[36px] md:text-[42px] font-bold mb-2" style={{ color: '#0D3349' }}>75%</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">improvement in care satisfaction among patients who arrived to appointments with prepared questions</p>
+            </div>
+            <div className="p-6 rounded-lg text-center" style={{ backgroundColor: '#E8F5F5' }}>
+              <p className="text-[36px] md:text-[42px] font-bold mb-2" style={{ color: '#0D3349' }}>2×</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">more questions asked by patients using structured preparation tools vs unprepared patients</p>
+            </div>
+          </div>
+          
+          <p className="text-[12px] text-gray-400 text-center mt-6" style={{ fontStyle: 'italic' }}>Statistics drawn from published clinical communication and patient engagement research. MyHealthCanvas does not make medical claims.</p>
+        </div>
+      </section>
+
       {/* Section 5 - Pricing */}
       <section id="buy" className="py-20 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
@@ -296,14 +341,17 @@ export default function MyHealthCanvas() {
             <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Current Plan</CardTitle>
-                <CardDescription className="text-[15px]">One-page health record template</CardDescription>
+                <CardDescription className="text-[15px]">Your Health Story, Always at Hand</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£9</p>
-                <ul className="space-y-2 text-[16px] text-gray-600">
-                  <li>Essential health information</li>
-                  <li>Medications & contacts</li>
-                  <li>Print and fill by hand</li>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£19</p>
+                <ul className="space-y-3 text-[15px] text-gray-600">
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> All your key health information in one place — never lose it again</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Curated questions from Macmillan, NHS & Cancer Research UK</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Fill on your phone, tablet or computer — or print it out</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Track symptoms, medications & appointments between visits</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Use it for every appointment — as many times as you need</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private & encrypted on your device — we never see your data</li>
                 </ul>
               </CardContent>
               <CardFooter>
@@ -312,17 +360,22 @@ export default function MyHealthCanvas() {
             </Card>
 
             {/* Complete Plan */}
-            <Card className="border-[oklch(0.55_0.15_195)] border-2" style={{ backgroundColor: '#FFFFFF' }}>
+            <Card className="border-[oklch(0.55_0.15_195)] border-2 relative" style={{ backgroundColor: '#FFFFFF' }}>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-[12px] font-bold text-white rounded-full" style={{ background: 'oklch(0.55 0.15 195)' }}>MOST POPULAR</div>
               <CardHeader>
                 <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
-                <CardDescription className="text-[15px]">Two-page health record template</CardDescription>
+                <CardDescription className="text-[15px]">Your Complete Cancer Journey, Organised</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£12</p>
-                <ul className="space-y-2 text-[16px] text-gray-600">
-                  <li>Everything in Current Plan</li>
-                  <li>Goals & priorities</li>
-                  <li>Questions for care team</li>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£27</p>
+                <ul className="space-y-3 text-[15px] text-gray-600">
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Current Plan</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Advance care planning & your wishes for the road ahead</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Goals, priorities & what matters most to you right now</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Reflections & emotional wellbeing journal prompts</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Caregiver coordination section — keep your loved ones informed</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Questions structured for every stage of treatment</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private & encrypted on your device — we never see your data</li>
                 </ul>
               </CardContent>
               <CardFooter>
@@ -331,8 +384,8 @@ export default function MyHealthCanvas() {
             </Card>
           </div>
 
-          <p className="text-[14px] text-gray-400 text-center mt-8">
-            Secure payment via PayPal
+          <p className="text-[13px] text-center mt-8" style={{ color: '#888888', fontStyle: 'italic' }}>
+            Secure checkout via PayPal (no account needed) · All major cards accepted · Instant access after payment
           </p>
           
           {/* Felt safety - not governance */}
@@ -342,17 +395,20 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* How We Protect You - Governance trust section */}
+      {/* How We Protect You - Patient trust section */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[26px] font-bold text-gray-800">How We Protect You</h2>
           <p className="text-[16px] text-gray-500 leading-[1.7]">
-            MyHealthCanvas is built on <strong>Physician-as-Pilot</strong> governance principles — the same framework used in clinical AI safety. This means your health data is never processed by AI alone. Human oversight is built into every layer.
+            MyHealthCanvas was built on one simple rule: your health information belongs to you, and only you.
+          </p>
+          <p className="text-[16px] text-gray-500 leading-[1.7]">
+            We never store, share, or process your personal data. Your forms are downloaded directly to your device — we have no access to what you write. Your doctors make your decisions. We just help you arrive prepared.
           </p>
           <div className="grid md:grid-cols-3 gap-6 pt-4">
             <div className="p-4 bg-white rounded-lg border border-gray-100">
               <p className="text-[15px] font-semibold text-gray-800 mb-1">No autonomous decisions</p>
-              <p className="text-[14px] text-gray-500">We help you organize — your doctors make the decisions.</p>
+              <p className="text-[14px] text-gray-500">We help you organise — your doctors make every decision.</p>
             </div>
             <div className="p-4 bg-white rounded-lg border border-gray-100">
               <p className="text-[15px] font-semibold text-gray-800 mb-1">Your data, your control</p>
@@ -360,12 +416,9 @@ export default function MyHealthCanvas() {
             </div>
             <div className="p-4 bg-white rounded-lg border border-gray-100">
               <p className="text-[15px] font-semibold text-gray-800 mb-1">Evidence-based content</p>
-              <p className="text-[14px] text-gray-500">Every question sourced from trusted medical organisations.</p>
+              <p className="text-[14px] text-gray-500">Every question curated from Macmillan, NHS & Cancer Research UK.</p>
             </div>
           </div>
-          <p className="text-[13px] text-gray-400 pt-2">
-            Governance framework: <a href="https://www.patientcentriccare.ai/physician-as-pilot" target="_blank" rel="noopener noreferrer" className="text-[oklch(0.55_0.15_195)] hover:underline">PatientCentricCare.AI</a>
-          </p>
         </div>
       </section>
 
@@ -420,6 +473,40 @@ export default function MyHealthCanvas() {
           </div>
         </div>
       </footer>
+
+      {/* STICKY MOBILE CTA BAR */}
+      {showStickyBar && (
+        <div
+          className="fixed bottom-0 left-0 right-0 z-[999] md:hidden"
+          style={{
+            background: '#0D3349',
+            padding: '16px 20px',
+            boxShadow: '0 -4px 20px rgba(0,0,0,0.3)',
+          }}
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-white font-bold text-[15px] leading-tight">From £19</p>
+              <p className="text-[12px] leading-tight" style={{ color: '#AACCCC' }}>Instant download · Yours forever</p>
+            </div>
+            <a
+              href="#buy"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-white font-bold text-[14px] no-underline"
+              style={{
+                background: '#C8933A',
+                padding: '12px 20px',
+                borderRadius: '6px',
+              }}
+            >
+              Get Yours
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* ZOOMED IMAGE MODAL */}
       {zoomedImage && (
