@@ -84,7 +84,7 @@ export default function Caregivers() {
           <head>
             <title>Caregiver Toolkit - MyHealthCanvas</title>
             <style>
-              body { font-family: Georgia, serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #1a2332; line-height: 1.8; }
+              body { font-family: system-ui, -apple-system, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #1a2332; line-height: 1.8; }
               h1 { font-size: 24px; color: #19878C; margin-bottom: 8px; }
               h2 { font-size: 18px; color: #643296; margin-top: 32px; margin-bottom: 12px; }
               h3 { font-size: 16px; color: #19878C; margin-top: 28px; margin-bottom: 10px; }

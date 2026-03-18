@@ -40,26 +40,26 @@ export default function Welcome() {
       <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-2xl mx-auto text-center space-y-8">
 
-          {/* Survivor's Welcome copy */}
-          <div className="space-y-4">
-            <p className="text-[16px] md:text-[17px] text-gray-700 leading-[1.8]">
+          {/* Survivor's Welcome copy - harmonised font family and sizing */}
+          <div className="space-y-6">
+            <p className="text-[17px] md:text-[19px] text-gray-700 leading-[1.8] font-light">
               A cancer diagnosis feels like a storm. We created MyHealthCanvas to be the shelter.
             </p>
-            <p className="text-[16px] md:text-[17px] text-gray-700 leading-[1.8]">
+            <p className="text-[17px] md:text-[19px] text-gray-700 leading-[1.8] font-light">
               Whether you are the one holding the diagnosis or the one holding the hand of a loved one, you are now part of a team. From the first 30 days of shock to the complexities of treatment, we provide the questions, the resources, and the community to help you find your way back to yourself.
             </p>
-            <p className="text-[17px] md:text-[18px] text-gray-800 font-medium leading-[1.8] italic">
+            <p className="text-[17px] md:text-[19px] text-gray-800 leading-[1.8] font-medium italic">
               Take a breath. Let us help with the rest.
             </p>
           </div>
 
-          {/* "A moment for you" - made larger with more breathing room */}
-          <p className="text-[18px] md:text-[22px] text-gray-500 italic py-4">
+          {/* "A moment for you" - same font family, slightly lighter weight for contrast */}
+          <p className="text-[18px] md:text-[21px] text-gray-500 italic font-light py-6">
             A moment for you before we begin...
           </p>
 
-          {/* Transition text */}
-          <p className="text-[20px] md:text-[24px] text-gray-800 font-medium pt-2">
+          {/* Transition text - same font family, medium weight for emphasis */}
+          <p className="text-[19px] md:text-[22px] text-gray-800 font-medium pt-2">
             When you are ready, how can we help today?
           </p>
 
@@ -135,29 +135,7 @@ export default function Welcome() {
         </p>
       </section>
 
-      {/* MACMILLAN VIDEO - moved BELOW journey cards (emotional support, not conversion blocker) */}
-      <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#f9f9f7' }}>
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <p className="text-[16px] md:text-[18px] text-gray-600 italic">
-            When you need a moment of comfort...
-          </p>
-          <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/XWQtsYgrVa0?rel=0"
-                title="Macmillan Emotional Support"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-          <p className="text-[13px] text-gray-400">
-            Video by Macmillan Cancer Support
-          </p>
-        </div>
-      </section>
+
 
     </div>
   );

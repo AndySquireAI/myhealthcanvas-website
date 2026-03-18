@@ -569,6 +569,30 @@ export default function Home() {
 
 
 
+      {/* MACMILLAN VIDEO - emotional support content */}
+      <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <p className="text-[17px] md:text-[19px] text-gray-600 italic font-light">
+            When you need a moment of comfort...
+          </p>
+          <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/XWQtsYgrVa0?rel=0"
+                title="Macmillan Emotional Support"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+          <p className="text-[13px] text-gray-400 font-light">
+            Video by Macmillan Cancer Support
+          </p>
+        </div>
+      </section>
+
       {/* CREATED BY A SURVIVOR - trust + credibility */}
       <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-xl mx-auto text-center">

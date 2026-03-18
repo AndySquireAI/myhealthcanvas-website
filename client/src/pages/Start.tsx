@@ -128,7 +128,7 @@ export default function Start() {
           <img
             src="/images/MyHealthCanvasLOGOX2.webp"
             alt="MyHealthCanvas Logo"
-            className="h-14 md:h-16"
+            className="h-32 md:h-40 lg:h-48"
           />
         </div>
       </header>
