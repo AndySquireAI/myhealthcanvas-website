@@ -36,7 +36,7 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* SURVIVOR'S WELCOME - Copy card and video BELOW the image */}
+      {/* SURVIVOR'S WELCOME - Copy card BELOW the image (video moved lower) */}
       <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-2xl mx-auto text-center space-y-8">
 
@@ -53,27 +53,13 @@ export default function Welcome() {
             </p>
           </div>
 
-          {/* Macmillan Video - soft frame */}
-          <div>
-            <p className="text-[15px] text-gray-500 italic mb-4">
-              A moment for you before we begin...
-            </p>
-            <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
-              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/XWQtsYgrVa0?rel=0"
-                  title="Macmillan Emotional Support"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
+          {/* "A moment for you" - made larger with more breathing room */}
+          <p className="text-[18px] md:text-[22px] text-gray-500 italic py-4">
+            A moment for you before we begin...
+          </p>
 
           {/* Transition text */}
-          <p className="text-[20px] md:text-[24px] text-gray-800 font-medium pt-4">
+          <p className="text-[20px] md:text-[24px] text-gray-800 font-medium pt-2">
             When you are ready, how can we help today?
           </p>
 
@@ -81,7 +67,7 @@ export default function Welcome() {
       </section>
 
       {/* THREE NAVIGATION CARDS */}
-      <section className="pb-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+      <section className="pb-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Card 1 - Patient */}
@@ -116,12 +102,12 @@ export default function Welcome() {
             </div>
           </Link>
 
-          {/* Card 3 - E-Library */}
+          {/* Card 3 - E-Library (reframed: removed "Free", reframed as bonus) */}
           <Link href="/questions">
             <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-lg border border-[#E1D7EB]/40" style={{ backgroundColor: '#FFFFFF' }}>
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
               <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                I need the E-Library
+                Questions & Resources
               </h3>
               <p className="text-[15px] text-gray-500 leading-[1.6]">
                 20+ curated questions from the world's top cancer centres.
@@ -134,10 +120,43 @@ export default function Welcome() {
 
         </div>
 
+        {/* Soft CTA - plants the seed before they go deeper */}
+        <div className="text-center mt-10">
+          <Link href="/myhealthcanvas">
+            <span className="text-[16px] md:text-[17px] text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
+              Ready to prepare for your next appointment? → Get your form from £19
+            </span>
+          </Link>
+        </div>
+
         {/* Trust signal */}
-        <p className="text-center text-[14px] text-gray-400 mt-10">
-          Created by a 2x cancer survivor. Private. Free. Never replaces your doctors.
+        <p className="text-center text-[14px] text-gray-400 mt-8">
+          Created by a 2× cancer survivor. Private. Never replaces your doctors.
         </p>
+      </section>
+
+      {/* MACMILLAN VIDEO - moved BELOW journey cards (emotional support, not conversion blocker) */}
+      <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 italic">
+            When you need a moment of comfort...
+          </p>
+          <div className="max-w-[560px] mx-auto rounded-xl overflow-hidden" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/XWQtsYgrVa0?rel=0"
+                title="Macmillan Emotional Support"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+          <p className="text-[13px] text-gray-400">
+            Video by Macmillan Cancer Support
+          </p>
+        </div>
       </section>
 
     </div>

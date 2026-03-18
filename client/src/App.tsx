@@ -22,34 +22,41 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
 import ThankYou from "./pages/ThankYou";
+import Start from "./pages/Start";
 
 function Router() {
   return (
-    <>
-      <Header />
-      <Switch>
-        <Route path="/" component={Welcome} />
-        <Route path="/questions" component={Home} />
-        <Route path="/myhealthcanvas" component={MyHealthCanvas} />
-        <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
-        <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
-        <Route path="/first-30-days-after-diagnosis" component={First30Days} />
-        <Route path="/caregivers" component={Caregivers} />
-        <Route path="/caregiver-help" component={CaregiverHelp} />
-        <Route path="/aaa" component={AAA} />
-        <Route path="/elibrary" component={ELibrary} />
-        <Route path="/elibrary/:slug" component={BlogPost} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/privacy" component={Privacy} />
-        <Route path="/terms" component={Terms} />
-        <Route path="/impressum" component={Impressum} />
-        <Route path="/404" component={NotFound} />
-        {/* Final fallback route */}
-        <Route component={NotFound} />
-      </Switch>
-      <Footer />
-    </>
+    <Switch>
+      {/* /start has its own minimal header/footer - no global nav */}
+      <Route path="/start" component={Start} />
+
+      {/* All other routes get the global Header + Footer */}
+      <Route>
+        <Header />
+        <Switch>
+          <Route path="/" component={Welcome} />
+          <Route path="/questions" component={Home} />
+          <Route path="/myhealthcanvas" component={MyHealthCanvas} />
+          <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
+          <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
+          <Route path="/first-30-days-after-diagnosis" component={First30Days} />
+          <Route path="/caregivers" component={Caregivers} />
+          <Route path="/caregiver-help" component={CaregiverHelp} />
+          <Route path="/aaa" component={AAA} />
+          <Route path="/elibrary" component={ELibrary} />
+          <Route path="/elibrary/:slug" component={BlogPost} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/terms" component={Terms} />
+          <Route path="/impressum" component={Impressum} />
+          <Route path="/404" component={NotFound} />
+          {/* Final fallback route */}
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </Route>
+    </Switch>
   );
 }
 

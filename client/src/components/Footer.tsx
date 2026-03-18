@@ -39,13 +39,7 @@ export default function Footer() {
                   </span>
                 </Link>
               </li>
-              <li>
-                <Link href="/aaa" onClick={scrollToTop}>
-                  <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
-                    AAA – AI Agents
-                  </span>
-                </Link>
-              </li>
+
               <li>
                 <Link href="/elibrary" onClick={scrollToTop}>
                   <span className="text-sm text-muted-foreground hover:text-primary cursor-pointer">
@@ -76,7 +70,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>Patients & caregivers</li>
               <li>Patient advocacy groups</li>
-              <li>Small businesses</li>
               <li>Healthcare professionals & researchers</li>
             </ul>
           </div>
@@ -87,8 +80,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>Harvard Medical School – AI in Healthcare (Capstone)</li>
               <li>University of Oxford – Artificial Intelligence</li>
-              <li>ISO 13485 / SaMD-aligned expertise</li>
-              <li>UN AI for Good – Safety OS submission</li>
+
             </ul>
           </div>
 
