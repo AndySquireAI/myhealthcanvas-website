@@ -140,9 +140,9 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="Questions to Ask Your Oncologist | MyHealthCanvas — Built by a Cancer Survivor"
-        description="Prepare for every cancer appointment with confidence. Curated questions from Macmillan, NHS & Cancer Research UK. Built by a 2× cancer survivor. From £19."
-        keywords="questions to ask oncologist, cancer appointment preparation, health toolkit cancer, patient health form, MyHealthCanvas, cancer questions, oncologist questions UK"
+        title="Simple Health Software (PDF Form) for Your Patient Health Record | MyHealthCanvas"
+        description="Simple health software for your patient health record. Prepare for every cancer appointment with confidence. Built by a 2× cancer survivor. From £19"
+        keywords="health software, patient health records, electronic health records, questions to ask oncologist, cancer appointment preparation, health toolkit cancer, MyHealthCanvas, simple health record"
         canonicalPath="/myhealthcanvas"
       />
 
