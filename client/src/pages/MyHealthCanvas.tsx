@@ -167,20 +167,25 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - Patient-first, action-oriented */}
-          <h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2]">
-            Take back control.{" "}
-            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              Ask better questions.
-            </span>
-            <br className="hidden md:block" />
-            Give yourself every chance.
-          </h1>
-          
-          {/* Subheadline - bridges keyword to product */}
-          <p className="text-[18px] md:text-[20px] text-gray-600 leading-[1.6]">
-            The structured health toolkit for cancer patients — built by someone who has been there.
-          </p>
+          {/* Headline - Keyword-optimised for top Google Ads terms */}
+<h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2]">
+Simple{" "}
+<span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+Health Software
+</span>
+<br className="hidden md:block" />
+for Your Patient Health Record.
+</h1>
+
+{/* Subheadline - Preserved original emotional headline */}
+<p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4]">
+Take back control. Ask better questions. Give yourself every chance.
+</p>
+
+{/* Supporting line */}
+<p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6]">
+The structured health toolkit for cancer patients — built by someone who has been there.
+</p>
           
         </div>
       </section>
