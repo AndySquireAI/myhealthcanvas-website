@@ -184,7 +184,7 @@ Take back control. Ask better questions. Give yourself every chance.
 
 {/* Supporting line */}
 <p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6]">
-The structured health toolkit for cancer patients — built by someone who has been there.
+Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader (Fill & Sign) on your Phone
 </p>
           
         </div>
