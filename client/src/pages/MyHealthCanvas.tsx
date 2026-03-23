@@ -168,7 +168,7 @@ export default function MyHealthCanvas() {
           />
           
           {/* Headline - Keyword-optimised for top Google Ads terms */}
-<h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2]">
+<h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2] text-center">
 Simple{" "}
 <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
 Health Software
@@ -178,12 +178,12 @@ for Your Patient Health Record.
 </h1>
 
 {/* Subheadline - Preserved original emotional headline */}
-<p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4]">
+<p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
 Take back control. Ask better questions. Give yourself every chance.
 </p>
 
 {/* Supporting line */}
-<p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6]">
+<p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6] text-center">
 Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader (Fill & Sign) on your Phone
 </p>
           
