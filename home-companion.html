@@ -33,6 +33,9 @@
     <meta name="twitter:description" content="Phase I of a governance-first AI deployment model. Built on Safety OS with auditable authority, consent enforcement, and regulatory inheritance.">
     <meta name="twitter:image" content="https://www.patientcentriccare.ai/images/logo_full_with_taglines.png">
 
+    <!-- Google Fonts for Sponsorship Architecture -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=5">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4">
@@ -1114,6 +1117,361 @@
             transform: translateY(-2px);
         }
 
+        /* ===== SPONSORSHIP ARCHITECTURE ===== */
+        .sponsorship-arch {
+            background: #E0E6EF;
+            padding: 3rem 1rem;
+        }
+        .sponsorship-arch .sa-page {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 48px rgba(15,35,64,0.16);
+        }
+        .sponsorship-arch .sa-mono {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+        .sponsorship-arch .sa-serif { font-family: 'Playfair Display', serif; }
+        .sponsorship-arch .sa-sec-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0A6B73;
+            margin-bottom: 18px;
+        }
+        .sponsorship-arch .sa-divider {
+            height: 1px;
+            background: #DDE4EE;
+            margin: 0;
+        }
+        .sponsorship-arch .sa-hero {
+            background: #0F2340;
+            padding: 40px 28px 36px;
+            position: relative;
+            overflow: hidden;
+        }
+        .sponsorship-arch .sa-hero::after {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 1px solid rgba(14,154,165,0.12);
+            pointer-events: none;
+        }
+        .sponsorship-arch .sa-hero-tag {
+            color: #0E9AA5;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .sponsorship-arch .sa-hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .sponsorship-arch .sa-hero h2 span { color: #E8943A; }
+        .sponsorship-arch .sa-hero-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        .sponsorship-arch .sa-thesis-wrap {
+            background: #0F2340;
+            padding: 0 28px 32px;
+        }
+        .sponsorship-arch .sa-thesis {
+            background: rgba(10,107,115,0.22);
+            border-left: 3px solid #0E9AA5;
+            padding: 16px 18px;
+            border-radius: 0 4px 4px 0;
+        }
+        .sponsorship-arch .sa-thesis-line1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #E8943A;
+            margin-bottom: 4px;
+            line-height: 1.35;
+        }
+        .sponsorship-arch .sa-thesis-line2 {
+            font-size: 13px;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.55;
+            margin-bottom: 10px;
+        }
+        .sponsorship-arch .sa-thesis-line3 {
+            font-size: 12px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.5;
+            font-style: italic;
+        }
+        .sponsorship-arch .sa-what {
+            padding: 28px 28px;
+            background: #EEF2F7;
+        }
+        .sponsorship-arch .sa-engine-pill {
+            background: #0F2340;
+            border-radius: 6px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .sponsorship-arch .sa-engine-icon-wrap {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1E3A5F, #0F2340);
+            box-shadow: 0 0 0 5px rgba(14,154,165,0.15);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .sponsorship-arch .sa-engine-text { flex: 1; min-width: 0; }
+        .sponsorship-arch .sa-engine-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 3px;
+        }
+        .sponsorship-arch .sa-engine-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #0E9AA5;
+            margin-bottom: 10px;
+        }
+        .sponsorship-arch .sa-engine-bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; padding: 0; }
+        .sponsorship-arch .sa-engine-bullets li {
+            font-size: 11.5px;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.4;
+            display: flex; align-items: flex-start; gap: 7px;
+        }
+        .sponsorship-arch .sa-engine-bullets li::before {
+            content: '\2192';
+            color: #0E9AA5;
+            flex-shrink: 0;
+            font-size: 10px;
+            margin-top: 1px;
+        }
+        .sponsorship-arch .sa-eco {
+            padding: 28px 28px;
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .sponsorship-arch .sa-s-card {
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #DDE4EE;
+        }
+        .sponsorship-arch .sa-s-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 16px;
+        }
+        .sponsorship-arch .sa-s-ico {
+            font-size: 20px;
+            flex-shrink: 0;
+            width: 36px;
+            text-align: center;
+        }
+        .sponsorship-arch .sa-s-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .sponsorship-arch .sa-s-role {
+            font-family: 'DM Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.65;
+        }
+        .sponsorship-arch .sa-s-body { display: flex; flex-direction: column; }
+        .sponsorship-arch .sa-s-row {
+            display: flex;
+            border-top: 1px solid #DDE4EE;
+        }
+        .sponsorship-arch .sa-s-row-lbl {
+            width: 76px;
+            flex-shrink: 0;
+            padding: 10px 10px;
+            font-family: 'DM Mono', monospace;
+            font-size: 7.5px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #5A6E85;
+            border-right: 1px solid #DDE4EE;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 12px;
+        }
+        .sponsorship-arch .sa-s-row-val {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 13px;
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: #0F2340;
+        }
+        .sponsorship-arch .sa-s-row-val.sa-insight {
+            font-style: italic;
+            color: #5A6E85;
+            font-size: 11px;
+        }
+        .sponsorship-arch .sa-nhs .sa-s-head { background: rgba(10,107,115,0.07); border-bottom: 2px solid #0A6B73; }
+        .sponsorship-arch .sa-nhs .sa-s-name { color: #0A6B73; }
+        .sponsorship-arch .sa-nhs .sa-s-role { color: #0A6B73; }
+        .sponsorship-arch .sa-pharma .sa-s-head { background: rgba(201,106,0,0.07); border-bottom: 2px solid #C96A00; }
+        .sponsorship-arch .sa-pharma .sa-s-name { color: #C96A00; }
+        .sponsorship-arch .sa-pharma .sa-s-role { color: #C96A00; }
+        .sponsorship-arch .sa-pag .sa-s-head { background: rgba(26,122,58,0.07); border-bottom: 2px solid #1A7A3A; }
+        .sponsorship-arch .sa-pag .sa-s-name { color: #1A7A3A; }
+        .sponsorship-arch .sa-pag .sa-s-role { color: #1A7A3A; }
+        .sponsorship-arch .sa-inv .sa-s-head { background: rgba(45,74,107,0.07); border-bottom: 2px solid #2D4A6B; }
+        .sponsorship-arch .sa-inv .sa-s-name { color: #2D4A6B; }
+        .sponsorship-arch .sa-inv .sa-s-role { color: #2D4A6B; }
+        .sponsorship-arch .sa-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0;
+            margin: -4px 0;
+        }
+        .sponsorship-arch .sa-conn-line { flex: 1; height: 1px; background: #DDE4EE; max-width: 60px; }
+        .sponsorship-arch .sa-conn-txt {
+            font-family: 'DM Mono', monospace;
+            font-size: 8px;
+            color: #5A6E85;
+            letter-spacing: 0.3px;
+        }
+        .sponsorship-arch .sa-flywheel {
+            padding: 28px 28px;
+            background: #EEF2F7;
+        }
+        .sponsorship-arch .sa-fw-subtitle {
+            font-size: 12px;
+            color: #5A6E85;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .sponsorship-arch .sa-fw-steps { display: flex; flex-direction: column; gap: 0; border: 1px solid #DDE4EE; border-radius: 5px; overflow: hidden; }
+        .sponsorship-arch .sa-fw-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 13px 16px;
+            border-bottom: 1px solid #DDE4EE;
+            background: #FFFFFF;
+        }
+        .sponsorship-arch .sa-fw-step:last-child { border-bottom: none; }
+        .sponsorship-arch .sa-fw-step:nth-child(even) { background: rgba(238,242,247,0.6); }
+        .sponsorship-arch .sa-fw-n {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0F2340;
+            opacity: 0.15;
+            flex-shrink: 0;
+            width: 20px;
+            line-height: 1;
+            padding-top: 1px;
+        }
+        .sponsorship-arch .sa-fw-ico { font-size: 17px; flex-shrink: 0; line-height: 1.2; }
+        .sponsorship-arch .sa-fw-txt { flex: 1; min-width: 0; font-size: 12px; line-height: 1.5; color: #0F2340; }
+        .sponsorship-arch .sa-compound {
+            padding: 28px 28px;
+            background: #FFFFFF;
+        }
+        .sponsorship-arch .sa-compound-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .sponsorship-arch .sa-compound-item {
+            background: #EEF2F7;
+            border-radius: 4px;
+            padding: 11px 13px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .sponsorship-arch .sa-compound-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #0A6B73;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .sponsorship-arch .sa-compound-txt { font-size: 11.5px; line-height: 1.4; color: #0F2340; }
+        .sponsorship-arch .sa-moat-box {
+            background: #0F2340;
+            border-radius: 5px;
+            padding: 16px 18px;
+        }
+        .sponsorship-arch .sa-moat-lbl {
+            font-family: 'DM Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #0E9AA5;
+            margin-bottom: 7px;
+        }
+        .sponsorship-arch .sa-moat-txt {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.6;
+        }
+        .sponsorship-arch .sa-moat-txt em {
+            color: #E8943A;
+            font-style: normal;
+            font-weight: 600;
+        }
+        .sponsorship-arch .sa-ftr {
+            background: #0F2340;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .sponsorship-arch .sa-ftr-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .sponsorship-arch .sa-ftr-brand span { color: #0E9AA5; }
+        .sponsorship-arch .sa-ftr-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.25);
+        }
+
         /* ===== DOWNLOADS ===== */
         .downloads-section {
             background: linear-gradient(135deg, #f0f7f0 0%, #e8f5e8 100%);
@@ -1428,9 +1786,9 @@
     <header class="hero">
         <div class="hero-content">
             <img src="/images/logo_full_with_taglines.png" alt="Home Companion - Independence, dignity, and peace of mind" class="hero-logo">
-            <h1>Governance-First AI Infrastructure for the Home</h1>
-            <p class="subtitle">AI will enter sensitive home environments at scale. Most deployments today are governance-naive. We are building the safety, authority, consent, and audit architecture first.</p>
-            <div class="phase-label">Phase I Implementation: Home Companion</div>
+            <h1>Home Companion&trade;</h1>
+            <p class="subtitle">Sponsorship Architecture &mdash; Safe AI pilots. Real-world evidence. Scalable deployment.</p>
+            <div class="phase-label">Phase I Implementation: Governance-First AI Infrastructure for the Home</div>
             
             <div class="hero-ctas">
                 <a href="#downloads" class="cta-primary">Download Executive Overview</a>
@@ -1758,49 +2116,198 @@
             <p class="hook-sub">We are building the safety template others will eventually be required to follow.</p>
         </div>
 
-        <!-- ===== SPONSOR OPPORTUNITY ===== -->
-        <div class="sponsor-section">
-            <div class="sponsor-inner">
-                <h2>Sponsor Positioning</h2>
-                <p class="section-subtitle">Phase I is the governance foundation. Sponsors participate before audit and consent standards become industry defaults.<br>This is structured participation &mdash; not symbolic alignment.</p>
-                
-                <div class="sponsor-grid">
-                    <div class="sponsor-item">
-                        <h4>Early Architecture Visibility</h4>
-                        <p>Engage while governance logic, audit standards, and escalation rules are still being defined - not after they are locked. Sponsors observe and influence how safe AI in the home is structured from the ground up.</p>
-                    </div>
-                    <div class="sponsor-item">
-                        <h4>Influence Governance Standards Before They Become Industry Defaults</h4>
-                        <p>Phase I defines practical authority boundaries, consent enforcement, and audit design in real deployments. Sponsors contribute perspective while the category is still being shaped - not after regulators formalize expectations.</p>
-                    </div>
-                    <div class="sponsor-item">
-                        <h4>Access to Real-World Governance Evidence</h4>
-                        <p>Receive structured outputs from Phase I deployments: boundary event analytics, escalation pathway validation, consent enforcement metrics, and audit trail performance data. This evidence base becomes the prerequisite for every regulated expansion phase.</p>
-                    </div>
-                    <div class="sponsor-item">
-                        <h4>Structured Optionality into Clinical Expansion</h4>
-                        <p>Participation in Phase I creates early positioning as the architecture progresses toward physician-supervised workflows, SaMD-ready modules, and regulated pathways (FDA / EU MDR). Clinical capability is introduced only after governance maturity is demonstrated.</p>
+        <!-- ===== SPONSORSHIP ARCHITECTURE v4 ===== -->
+        <div class="sponsorship-arch">
+            <div class="sa-page">
+
+                <!-- SA HERO -->
+                <div class="sa-hero">
+                    <span class="sa-mono sa-hero-tag">PatientCentricCare.AI &mdash; Investor Overview</span>
+                    <h2>Home Companion:<br><span>Sponsorship Architecture</span></h2>
+                    <div class="sa-hero-sub">Safe AI pilots. Real-world evidence. Scalable deployment.</div>
+                </div>
+
+                <!-- SA THESIS -->
+                <div class="sa-thesis-wrap">
+                    <div class="sa-thesis">
+                        <div class="sa-thesis-line1">PCC.AI is not a product company.</div>
+                        <div class="sa-thesis-line2">It is the runtime governance infrastructure this ecosystem needs.</div>
+                        <div class="sa-thesis-line3">Home Companion is the first live deployment &mdash; generating real-world evidence in home-based senior care.</div>
                     </div>
                 </div>
 
-                <div class="sponsor-engagement">
-                    <h4>Defined Engagement</h4>
-                    <ul>
-                        <li>Documented architecture updates</li>
-                        <li>Governance validation summaries</li>
-                        <li>Structured review sessions</li>
-                        <li>Clear boundaries on scope and claims</li>
-                    </ul>
-                    <p class="sponsor-closing">This is not speculative AI experimentation. It is staged governance development with measurable checkpoints.</p>
+                <div class="sa-divider"></div>
+
+                <!-- SA WHAT IT DOES -->
+                <div class="sa-what">
+                    <div class="sa-sec-label">What Home Companion Does</div>
+                    <div class="sa-engine-pill">
+                        <div class="sa-engine-icon-wrap">&#127968;</div>
+                        <div class="sa-engine-text">
+                            <div class="sa-engine-name">Home Companion</div>
+                            <div class="sa-engine-tag">Safety OS&trade; Control Plane</div>
+                            <ul class="sa-engine-bullets">
+                                <li>Governs every AI interaction</li>
+                                <li>Enforces escalation and boundaries</li>
+                                <li>Logs full audit trail</li>
+                                <li>Generates real-world evidence (RWD)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="sponsor-precedent">
-                    <p>We are establishing the governance template for AI in the home.</p>
+                <div class="sa-divider"></div>
+
+                <!-- SA STAKEHOLDERS -->
+                <div class="sa-eco">
+                    <div class="sa-sec-label">Ecosystem Logic &mdash; Each Stakeholder Unlocks the Next</div>
+
+                    <!-- NHS -->
+                    <div class="sa-s-card sa-nhs">
+                        <div class="sa-s-head">
+                            <div class="sa-s-ico">&#127973;</div>
+                            <div>
+                                <div class="sa-s-name">NHS / Care Systems</div>
+                                <div class="sa-s-role">Access + Pilot Environments</div>
+                            </div>
+                        </div>
+                        <div class="sa-s-body">
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Give</div>
+                                <div class="sa-s-row-val">Access &bull; Patient cohorts &bull; Pilot sites &bull; Protocols</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Get</div>
+                                <div class="sa-s-row-val">Safe AI deployment &bull; No integration burden &bull; Audit trail &bull; EU AI Act pathway</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">Urgency</div>
+                                <div class="sa-s-row-val sa-insight">Runtime enforcement will be required. Policy documents alone will not be enough.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sa-connector"><div class="sa-conn-line"></div><div class="sa-conn-txt">&darr; enables evidence generation</div><div class="sa-conn-line"></div></div>
+
+                    <!-- Pharma -->
+                    <div class="sa-s-card sa-pharma">
+                        <div class="sa-s-head">
+                            <div class="sa-s-ico">&#128138;</div>
+                            <div>
+                                <div class="sa-s-name">Pharma Sponsors</div>
+                                <div class="sa-s-role">The RWE Funding Layer</div>
+                            </div>
+                        </div>
+                        <div class="sa-s-body">
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Give</div>
+                                <div class="sa-s-row-val">Sponsorship capital &bull; RWE programme budget &bull; Strategic input</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Get</div>
+                                <div class="sa-s-row-val">Behavioural RWD in early cognitive decline + adherence &mdash; outside the clinic, at scale</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">Insight</div>
+                                <div class="sa-s-row-val sa-insight">No clinical trial can generate this data.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sa-connector"><div class="sa-conn-line"></div><div class="sa-conn-txt">&darr; funds and validates</div><div class="sa-conn-line"></div></div>
+
+                    <!-- PAGs -->
+                    <div class="sa-s-card sa-pag">
+                        <div class="sa-s-head">
+                            <div class="sa-s-ico">&#129309;</div>
+                            <div>
+                                <div class="sa-s-name">Patient Advocacy Groups</div>
+                                <div class="sa-s-role">Trust + Distribution Layer</div>
+                            </div>
+                        </div>
+                        <div class="sa-s-body">
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Give</div>
+                                <div class="sa-s-row-val">Credibility &bull; Endorsement &bull; Patient trust &bull; Distribution reach</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Get</div>
+                                <div class="sa-s-row-val">Governed AI that preserves patient autonomy in the home &bull; Ethical deployment &bull; Policy influence</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">Urgency</div>
+                                <div class="sa-s-row-val sa-insight">AI is entering home care without governance. Patient protection must lead.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sa-connector"><div class="sa-conn-line"></div><div class="sa-conn-txt">&darr; de-risks and amplifies</div><div class="sa-conn-line"></div></div>
+
+                    <!-- Investors -->
+                    <div class="sa-s-card sa-inv">
+                        <div class="sa-s-head">
+                            <div class="sa-s-ico">&#128200;</div>
+                            <div>
+                                <div class="sa-s-name">Investors</div>
+                                <div class="sa-s-role">Capital + Category Acceleration</div>
+                            </div>
+                        </div>
+                        <div class="sa-s-body">
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Give</div>
+                                <div class="sa-s-row-val">Growth capital &bull; Strategic network &bull; Category conviction</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">They Get</div>
+                                <div class="sa-s-row-val">Defensible infrastructure moat &bull; First-mover RWD dataset &bull; Regulatory defensibility</div>
+                            </div>
+                            <div class="sa-s-row">
+                                <div class="sa-s-row-lbl">Urgency</div>
+                                <div class="sa-s-row-val sa-insight">Category window closes as EU AI Act enforcement begins (Aug 2026).</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="sponsor-cta">
-                    <a href="mailto:andy@patientcentriccare.ai?subject=Phase%20I%20Sponsor%20Inquiry&body=Hello%20Andy%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20Phase%20I%20sponsor%20positioning.%0A%0A">Request Sponsor Documentation</a>
+                <div class="sa-divider"></div>
+
+                <!-- SA FLYWHEEL -->
+                <div class="sa-flywheel">
+                    <div class="sa-sec-label">The Flywheel</div>
+                    <div class="sa-fw-subtitle">Each step compounds the next</div>
+                    <div class="sa-fw-steps">
+                        <div class="sa-fw-step"><div class="sa-fw-n">1</div><div class="sa-fw-ico">&#127973;</div><div class="sa-fw-txt">NHS enables safe pilot environments</div></div>
+                        <div class="sa-fw-step"><div class="sa-fw-n">2</div><div class="sa-fw-ico">&#128202;</div><div class="sa-fw-txt">Real-world evidence is generated</div></div>
+                        <div class="sa-fw-step"><div class="sa-fw-n">3</div><div class="sa-fw-ico">&#128138;</div><div class="sa-fw-txt">Pharma funds RWE programmes</div></div>
+                        <div class="sa-fw-step"><div class="sa-fw-n">4</div><div class="sa-fw-ico">&#129309;</div><div class="sa-fw-txt">PAGs validate and distribute</div></div>
+                        <div class="sa-fw-step"><div class="sa-fw-n">5</div><div class="sa-fw-ico">&#128260;</div><div class="sa-fw-txt">Capital scales deployment</div></div>
+                    </div>
                 </div>
+
+                <div class="sa-divider"></div>
+
+                <!-- SA WHY IT COMPOUNDS -->
+                <div class="sa-compound">
+                    <div class="sa-sec-label">Why the Model Compounds</div>
+                    <div class="sa-compound-grid">
+                        <div class="sa-compound-item"><div class="sa-compound-dot"></div><div class="sa-compound-txt">Real-world evidence (RWD)</div></div>
+                        <div class="sa-compound-item"><div class="sa-compound-dot"></div><div class="sa-compound-txt">Repeatable pilot model</div></div>
+                        <div class="sa-compound-item"><div class="sa-compound-dot"></div><div class="sa-compound-txt">Regulatory pathway data</div></div>
+                        <div class="sa-compound-item"><div class="sa-compound-dot"></div><div class="sa-compound-txt">Multi-stakeholder alignment</div></div>
+                    </div>
+                    <div class="sa-moat-box">
+                        <div class="sa-moat-lbl">Moat</div>
+                        <div class="sa-moat-txt">The <em>first governed AI interaction dataset</em> in home-based senior care &mdash; impossible to replicate without running the pilots</div>
+                    </div>
+                </div>
+
+                <!-- SA FOOTER -->
+                <div class="sa-ftr">
+                    <div class="sa-ftr-brand"><span>PatientCentricCare.AI</span> &mdash; Runtime Governance Infrastructure</div>
+                    <div class="sa-ftr-tag">Confidential &middot; 2026</div>
+                </div>
+
             </div>
         </div>
 
