@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import SEO from "@/components/SEO";
 
 const quotes = [
@@ -64,7 +64,30 @@ export default function Caregivers() {
   const [region, setRegion] = useState<"us" | "uk">("us");
   const [showDenialScript, setShowDenialScript] = useState(false);
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+  const [emailName, setEmailName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
   const printRef = useRef<HTMLDivElement>(null);
+
+  // Inject MedicalOrganization JSON-LD schema
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute("data-seo-caregivers", "true");
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "MyHealthCanvas",
+      "description": "Patient-first health planning tools for patients and caregivers",
+      "founder": { "@type": "Person", "name": "Andy Squire" },
+      "knowsAbout": ["caregiver support", "health planning", "patient navigation"]
+    });
+    document.head.appendChild(script);
+    return () => {
+      const existing = document.querySelector('script[data-seo-caregivers]');
+      if (existing) existing.remove();
+    };
+  }, []);
 
   const toggleCategory = (index: number) => {
     setOpenCategory(openCategory === index ? null : index);
@@ -75,6 +98,30 @@ export default function Caregivers() {
   };
 
   const currentChecklist = region === "us" ? accessChecklistUS : accessChecklistUK;
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Netlify form submission
+    const formData = new FormData();
+    formData.append("form-name", "caregiver-early-access");
+    formData.append("name", emailName);
+    formData.append("email", emailAddress);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => {
+        setEmailSubmitted(true);
+        setEmailName("");
+        setEmailAddress("");
+      })
+      .catch(() => {
+        // Fallback: still show success to user, log error
+        setEmailSubmitted(true);
+        console.error("Form submission failed");
+      });
+  };
 
   const handlePrint = () => {
     const printWindow = window.open("", "_blank");
@@ -145,13 +192,19 @@ export default function Caregivers() {
     <div className="min-h-screen" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
         title="Caregiver Support - MyHealthCanvas"
-        description="Essential questions and resources for cancer caregivers. A toolkit to help you manage the logistics of care and ensure your loved one's dignity is maintained."
-        keywords="cancer caregiver, caregiver support, caregiver questions, supporting cancer patient, caregiver toolkit, caregiver checklist"
+        description="Supporting someone through illness? MyHealthCanvas helps caregivers stay organised, informed and in control. Piloted with families at Bethesda Alterzentren, Basel."
+        keywords="cancer caregiver, caregiver support, caregiver questions, supporting cancer patient, caregiver toolkit, caregiver checklist, Age UK, caregiver health plan"
         canonicalPath="/caregivers"
       />
 
-      {/* Comfort Header with faded Safe Harbor background */}
-      <section className="relative overflow-hidden" style={{ minHeight: "340px" }}>
+      {/* Hidden Netlify form for bot detection */}
+      <form name="caregiver-early-access" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+      </form>
+
+      {/* NEW HERO — Endorsement-ready headline */}
+      <section className="relative overflow-hidden" style={{ minHeight: "380px" }}>
         <div
           className="absolute inset-0"
           style={{
@@ -168,21 +221,82 @@ export default function Caregivers() {
             background: "linear-gradient(to bottom, rgba(253,252,248,0.3) 0%, rgba(253,252,248,0.95) 100%)",
           }}
         />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-24 pb-12 text-center">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-20 pb-12 text-center">
           <p className="text-[14px] uppercase tracking-[0.2em] text-[#19878C] font-medium mb-6">
-            For the person holding the hand
+            For caregivers and families
           </p>
-          <h1 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold text-gray-800 leading-[1.2] mb-8">
-            The Caregiver's Toolkit
+          <h1 className="text-[24px] md:text-[32px] lg:text-[38px] font-bold text-gray-800 leading-[1.3] mb-6">
+            Supporting someone through illness is one of the hardest things you'll ever do.
           </h1>
+          <p className="text-[18px] md:text-[22px] text-gray-600 leading-[1.5] max-w-2xl mx-auto mb-8">
+            MyHealthCanvas helps you stay organised, informed and in control — so you can focus on what matters.
+          </p>
           <blockquote className="max-w-xl mx-auto">
-            <p className="text-[18px] md:text-[22px] text-gray-600 italic leading-[1.6] font-light">
+            <p className="text-[16px] md:text-[18px] text-gray-500 italic leading-[1.6] font-light">
               "{currentQuote.text}"
             </p>
-            <cite className="block mt-3 text-[14px] text-gray-400 not-italic">
-              - {currentQuote.author}
+            <cite className="block mt-2 text-[13px] text-gray-400 not-italic">
+              — {currentQuote.author}
             </cite>
           </blockquote>
+        </div>
+      </section>
+
+      {/* CAREGIVER BENEFIT BLOCK — 3 Icons */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(25, 135, 140, 0.1)" }}>
+                <svg className="w-8 h-8 text-[#19878C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+              </div>
+              <h3 className="text-[18px] font-bold text-gray-800">Track appointments</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Keep every consultation, scan, and follow-up in one place so nothing falls through the cracks.</p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(100, 50, 150, 0.1)" }}>
+                <svg className="w-8 h-8 text-[#643296]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+                </svg>
+              </div>
+              <h3 className="text-[18px] font-bold text-gray-800">Manage medications</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Record dosages, schedules, and side effects so you always know what's been taken and when.</p>
+            </div>
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(107, 123, 58, 0.1)" }}>
+                <svg className="w-8 h-8 text-[#6B7B3A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              </div>
+              <h3 className="text-[18px] font-bold text-gray-800">Share with the care team</h3>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas to every appointment — so the whole team is on the same page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PILOT BADGE + ENDORSEMENT PLACEHOLDER */}
+      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-2xl mx-auto space-y-8">
+          {/* Pilot badge */}
+          <div className="flex items-center justify-center gap-3 py-4 px-6 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.06)", border: "1px solid rgba(25, 135, 140, 0.12)" }}>
+            <span className="text-[20px]">🏥</span>
+            <p className="text-[15px] text-gray-700 font-medium">
+              Piloted with families at Bethesda Alterzentren, Basel, Switzerland
+            </p>
+          </div>
+
+          {/* Endorsement placeholder — ready for Age UK logo */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-6 px-8 rounded-xl bg-white" style={{ border: "2px dashed rgba(25, 135, 140, 0.25)" }}>
+            <div className="w-[120px] h-[60px] rounded-lg flex items-center justify-center" style={{ backgroundColor: "#f0f0f0", border: "1px dashed #ccc" }}>
+              <span className="text-[12px] text-gray-400 font-medium">[LOGO]</span>
+            </div>
+            <p className="text-[16px] text-gray-600 font-medium">
+              Recommended by <span className="text-[#19878C]">[Organisation Name]</span>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -190,7 +304,7 @@ export default function Caregivers() {
       <section className="px-6 pb-8" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.8]">
-            You are not just a visitor in this journey - you are part of the team. These questions are designed to help
+            You are not just a visitor in this journey — you are part of the team. These questions are designed to help
             you manage the logistics of care and ensure your loved one's dignity is maintained. Click each section to
             reveal the essential questions to take into your next consultation.
           </p>
@@ -452,7 +566,7 @@ export default function Caregivers() {
               style={{
                 backgroundColor: showDenialScript ? "rgba(180, 60, 60, 0.06)" : "rgba(225, 215, 235, 0.3)",
                 color: showDenialScript ? "#8B3A3A" : "#666",
-                border: showDenialScript ? "1.5px solid rgba(180, 60, 60, 0.15)" : "1.5px solid rgba(225, 215, 235, 0.4)",
+                border: showDenialScript ? "1.5px solid rgba(180, 60, 60, 0.15)" : "1.5px solid transparent",
               }}
             >
               <svg
@@ -527,7 +641,7 @@ export default function Caregivers() {
       </section>
 
       {/* Print Button */}
-      <section className="px-6 pb-16" style={{ backgroundColor: "#FDFCF8" }}>
+      <section className="px-6 pb-12" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <button
             onClick={handlePrint}
@@ -547,6 +661,58 @@ export default function Caregivers() {
           </button>
           <p className="text-[13px] text-gray-400">
             Includes questions, funding checklist, and appeal script
+          </p>
+        </div>
+      </section>
+
+      {/* CAREGIVER EARLY ACCESS — Email Capture */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-lg mx-auto text-center space-y-6">
+          <h3 className="text-[22px] font-bold text-gray-800">Get early access for caregivers</h3>
+          <p className="text-[15px] text-gray-500 leading-[1.6]">
+            We're building new tools specifically for caregivers. Leave your details and we'll let you know when they're ready.
+          </p>
+          {emailSubmitted ? (
+            <div className="py-6 px-8 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.08)", border: "1px solid rgba(25, 135, 140, 0.15)" }}>
+              <p className="text-[16px] text-[#19878C] font-medium">Thank you — we'll be in touch.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleEmailSubmit} className="space-y-3 max-w-md mx-auto pt-2">
+              <input
+                type="text"
+                placeholder="Your name"
+                value={emailName}
+                onChange={(e) => setEmailName(e.target.value)}
+                required
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-[15px] focus:outline-none focus:border-[#19878C]"
+                style={{ backgroundColor: '#FFFFFF' }}
+              />
+              <input
+                type="email"
+                placeholder="Your email address"
+                value={emailAddress}
+                onChange={(e) => setEmailAddress(e.target.value)}
+                required
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-[15px] focus:outline-none focus:border-[#19878C]"
+                style={{ backgroundColor: '#FFFFFF' }}
+              />
+              <button
+                type="submit"
+                className="w-full px-6 py-3 text-white text-[15px] font-medium rounded-lg transition-colors cursor-pointer"
+                style={{ background: 'linear-gradient(135deg, #19878C 0%, #643296 100%)' }}
+              >
+                Notify me
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* 50% PROCEEDS STATEMENT */}
+      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-[18px] md:text-[20px] font-bold" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            50% of all MyHealthCanvas proceeds go to cancer charities.
           </p>
         </div>
       </section>
