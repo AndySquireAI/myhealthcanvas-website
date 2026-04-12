@@ -5,9 +5,9 @@ export default function Welcome() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="MyHealthCanvas - You Don't Have to Carry This Alone"
-        description="A cancer diagnosis feels like a storm. We created MyHealthCanvas to be the shelter. Whether you are the one holding the diagnosis or the one holding the hand of a loved one, we provide the questions, resources, and community to help you find your way back to yourself."
-        keywords="cancer support, cancer diagnosis help, questions to ask oncologist, cancer patient resources, caregiver support cancer, cancer family support"
+        title="MyHealthCanvas - Your Personal Health Plan"
+        description="When you or someone you love gets a diagnosis, MyHealthCanvas gives you a clear, organised health plan you can actually use. Created by patients. Backed by clinical expertise. Yours in minutes."
+        keywords="cancer support, cancer diagnosis help, health plan, patient health canvas, caregiver support cancer, cancer family support, personalised health plan"
         canonicalPath="/"
       />
 
@@ -24,50 +24,94 @@ export default function Welcome() {
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.55) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 75%, rgba(0,0,0,0.7) 100%)',
           }}
         />
 
-        {/* Just the heading - positioned at the bottom of the image */}
+        {/* Hero copy overlaid at the bottom of the image */}
         <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-10 px-6 text-center">
-          <h1 className="text-[26px] md:text-[40px] lg:text-[48px] font-bold text-white leading-[1.2] tracking-tight drop-shadow-lg">
-            "You don't have to carry this alone"
+          <h1 className="text-[22px] md:text-[36px] lg:text-[42px] font-bold text-white leading-[1.3] tracking-tight drop-shadow-lg max-w-3xl mx-auto">
+            When you or someone you love gets a diagnosis — the paperwork, questions and decisions feel overwhelming.
           </h1>
         </div>
       </section>
 
-      {/* SURVIVOR'S WELCOME - Copy card BELOW the image (video moved lower) */}
-      <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-2xl mx-auto text-center space-y-8">
+      {/* VALUE PROPOSITION + PURCHASE CTAs */}
+      <section className="py-10 md:py-14 px-6" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
 
-          {/* Survivor's Welcome copy - harmonised font family and sizing */}
-          <div className="space-y-6">
-            <p className="text-[17px] md:text-[19px] text-gray-700 leading-[1.8] font-light">
-              A cancer diagnosis feels like a storm. We created MyHealthCanvas to be the shelter.
-            </p>
-            <p className="text-[17px] md:text-[19px] text-gray-700 leading-[1.8] font-light">
-              Whether you are the one holding the diagnosis or the one holding the hand of a loved one, you are now part of a team. From the first 30 days of shock to the complexities of treatment, we provide the questions, the resources, and the community to help you find your way back to yourself.
-            </p>
-            <p className="text-[17px] md:text-[19px] text-gray-800 leading-[1.8] font-medium italic">
-              Take a breath. Let us help with the rest.
-            </p>
+          <p className="text-[18px] md:text-[21px] text-gray-800 leading-[1.7] font-medium">
+            MyHealthCanvas gives you a clear, organised health plan you can actually use.
+          </p>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] font-light">
+            Created by patients. Backed by clinical expertise. Yours in minutes.
+          </p>
+
+          {/* Sub-headline */}
+          <p className="text-[15px] md:text-[17px] text-gray-500 leading-[1.6] italic pt-2">
+            Choose your plan — one page or two — and get your personalised health canvas delivered instantly.
+          </p>
+
+          {/* CTA Buttons - both above fold, stacked on mobile */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Link href="/checkout?plan=essential">
+              <button
+                data-gtag-purchase
+                data-plan="essential"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-[16px] font-semibold transition-all duration-300 hover:shadow-lg border-2"
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  color: 'oklch(0.45 0.15 195)',
+                  borderColor: 'oklch(0.55 0.15 195)',
+                }}
+              >
+                Get my 1-page health plan — £19
+              </button>
+            </Link>
+            <Link href="/checkout?plan=complete">
+              <button
+                data-gtag-purchase
+                data-plan="complete"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))',
+                }}
+              >
+                Get the complete 2-page plan — £27
+              </button>
+            </Link>
           </div>
 
-          {/* "A moment for you" - same font family, slightly lighter weight for contrast */}
-          <p className="text-[18px] md:text-[21px] text-gray-500 italic font-light py-6">
-            A moment for you before we begin...
-          </p>
-
-          {/* Transition text - same font family, medium weight for emphasis */}
-          <p className="text-[19px] md:text-[22px] text-gray-800 font-medium pt-2">
-            When you are ready, how can we help today?
-          </p>
+          {/* Trust Micro-Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-8 max-w-xl mx-auto">
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
+              <span className="text-[18px]">🎓</span>
+              <span className="text-[13px] text-gray-600 leading-tight text-left">Harvard Medical School — Best Overall Capstone 2026</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
+              <span className="text-[18px]">🏛️</span>
+              <span className="text-[13px] text-gray-600 leading-tight text-left">Oxford Saïd Business School — AI Programme Distinction</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
+              <span className="text-[18px]">🏥</span>
+              <span className="text-[13px] text-gray-600 leading-tight text-left">Bethesda Alterzentren Basel — Home Companion Pilot Partner</span>
+            </div>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
+              <span className="text-[18px]">🔒</span>
+              <span className="text-[13px] text-gray-600 leading-tight text-left">Zero data stored on our servers — your health data stays on your device</span>
+            </div>
+          </div>
 
         </div>
       </section>
 
       {/* THREE NAVIGATION CARDS */}
       <section className="pb-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        {/* Transition text */}
+        <p className="text-[19px] md:text-[22px] text-gray-800 font-medium text-center mb-8">
+          When you are ready, how can we help today?
+        </p>
+
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Card 1 - Patient */}
@@ -97,12 +141,12 @@ export default function Welcome() {
                 Practical tools and guidance for caregivers and family.
               </p>
               <p className="text-[14px] font-medium text-[oklch(0.55_0.15_195)] opacity-0 group-hover:opacity-100 transition-opacity">
-                Go to Advocacy →
+                Go to Caregivers →
               </p>
             </div>
           </Link>
 
-          {/* Card 3 - E-Library (reframed: removed "Free", reframed as bonus) */}
+          {/* Card 3 - E-Library */}
           <Link href="/questions">
             <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-lg border border-[#E1D7EB]/40" style={{ backgroundColor: '#FFFFFF' }}>
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
@@ -120,22 +164,11 @@ export default function Welcome() {
 
         </div>
 
-        {/* Soft CTA - plants the seed before they go deeper */}
-        <div className="text-center mt-10">
-          <Link href="/myhealthcanvas">
-            <span className="text-[16px] md:text-[17px] text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
-              Ready to prepare for your next appointment? → Get your form from £19
-            </span>
-          </Link>
-        </div>
-
         {/* Trust signal */}
         <p className="text-center text-[14px] text-gray-400 mt-8">
           Created by a 2× cancer survivor. Private. Never replaces your doctors.
         </p>
       </section>
-
-
 
     </div>
   );
