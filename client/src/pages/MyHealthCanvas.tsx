@@ -39,7 +39,7 @@ export default function MyHealthCanvas() {
     document.body.appendChild(script);
 
     script.onload = () => {
-      // Render Current Plan button
+      // Render Essential Plan button
       if (window.paypal && document.getElementById("paypal-button-current")) {
         window.paypal
           .Buttons({
@@ -51,7 +51,7 @@ export default function MyHealthCanvas() {
                       value: "19.00",
                       currency_code: "GBP",
                     },
-                    description: "MyHealthCanvas - Current Plan",
+                    description: "MyHealthCanvas - Essential Plan",
                   },
                 ],
               });
@@ -66,7 +66,7 @@ export default function MyHealthCanvas() {
                     currency: "GBP",
                     items: [
                       {
-                        item_name: "MyHealthCanvas Current Plan",
+                        item_name: "MyHealthCanvas Essential Plan",
                         price: 19.0,
                         quantity: 1,
                       },
@@ -140,13 +140,13 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="Simple Health Software (PDF Form) for Your Patient Health Record | MyHealthCanvas"
-        description="Simple health software for your patient health record. Prepare for every cancer appointment with confidence. Built by a 2× cancer survivor. From £19"
-        keywords="health software, patient health records, electronic health records, questions to ask oncologist, cancer appointment preparation, health toolkit cancer, MyHealthCanvas, simple health record"
+        title="Your Personal Health Plan — Clear, Organised, Yours | MyHealthCanvas"
+        description="Your personal health plan — clear, organised, yours. Prepare for every cancer appointment with confidence. Built by a 2× cancer survivor. From £19."
+        keywords="health plan, patient health records, cancer appointment preparation, health toolkit cancer, MyHealthCanvas, personalised health plan, caregiver health plan"
         canonicalPath="/myhealthcanvas"
       />
 
-      {/* Section 1 - Logo and Headline with subtle blank canvas background */}
+      {/* Section 1 - Hero with headline matching Google Ad copy */}
       <section className="py-16 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         {/* Subtle blank canvas gallery background */}
         <div 
@@ -167,30 +167,28 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - Keyword-optimised for top Google Ads terms */}
-<h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2] text-center">
-Simple{" "}
-<span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-Health Software
-</span>
-<br className="hidden md:block" />
-for Your Patient Health Record.
-</h1>
+          {/* Headline - Must match Google Ad copy exactly */}
+          <h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2] text-center">
+            Your personal health plan —{" "}
+            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+              clear, organised, yours.
+            </span>
+          </h1>
 
-{/* Subheadline - Preserved original emotional headline */}
-<p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
-Take back control. Ask better questions. Give yourself every chance.
-</p>
+          {/* Subheadline */}
+          <p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
+            Take back control. Ask better questions. Give yourself every chance.
+          </p>
 
-{/* Supporting line */}
-<p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6] text-center">
-Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader (Fill & Sign) on your Phone
-</p>
+          {/* Supporting line */}
+          <p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6] text-center">
+            Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader (Fill & Sign) on your Phone
+          </p>
           
         </div>
       </section>
 
-      {/* Trust Strip - Physician-as-Pilot governance */}
+      {/* Trust Strip */}
       <section className="py-6 px-6 md:px-12 lg:px-24" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.12 270))' }}>
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-white text-[14px] md:text-[15px] font-medium">
@@ -198,6 +196,132 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
             <span className="flex items-center gap-2"><span className="text-[18px]">&#128274;</span> Your data stays private</span>
             <span className="flex items-center gap-2"><span className="text-[18px]">&#9825;</span> <span className="hidden md:inline">Built by Andy Squire — 2× cancer survivor, Harvard Medical School (Best Overall Capstone, AI in Healthcare 2026)</span><span className="md:hidden">Built by Andy Squire — 2× cancer survivor & Harvard Medical School recognised</span></span>
           </div>
+        </div>
+      </section>
+
+      {/* PRICING SECTION - Both plans side by side, above fold on desktop */}
+      <section id="buy" className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto">
+          
+          <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Essential Plan */}
+            <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
+              <CardHeader>
+                <CardTitle className="text-[20px] font-bold">Essential Plan</CardTitle>
+                <CardDescription className="text-[15px]">1-page summary</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£19</p>
+                <ul className="space-y-3 text-[15px] text-gray-600">
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Diagnosis summary</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Key questions list</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Next steps checklist</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Fill on your phone, tablet or computer</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private — we never see your data</li>
+                </ul>
+              </CardContent>
+              <CardFooter className="flex flex-col gap-3">
+                <button
+                  data-gtag-purchase
+                  data-plan="essential"
+                  className="w-full py-3 rounded-lg text-[16px] font-semibold transition-all duration-300 hover:shadow-lg border-2 cursor-pointer"
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    color: 'oklch(0.45 0.15 195)',
+                    borderColor: 'oklch(0.55 0.15 195)',
+                  }}
+                  onClick={() => document.getElementById('paypal-button-current')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get this plan →
+                </button>
+                <div id="paypal-button-current" className="w-full"></div>
+              </CardFooter>
+            </Card>
+
+            {/* Complete Plan - Best Value */}
+            <Card className="border-[oklch(0.55_0.15_195)] border-2 relative" style={{ backgroundColor: '#FFFFFF' }}>
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-[12px] font-bold text-white rounded-full" style={{ background: 'oklch(0.55 0.15 195)' }}>★ BEST VALUE</div>
+              <CardHeader>
+                <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
+                <CardDescription className="text-[15px]">2-page full plan</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">£27</p>
+                <ul className="space-y-3 text-[15px] text-gray-600">
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in Essential</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Medication tracker</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Appointment log</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Caregiver section</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Advance care planning & reflections</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private — we never see your data</li>
+                </ul>
+              </CardContent>
+              <CardFooter className="flex flex-col gap-3">
+                <button
+                  data-gtag-purchase
+                  data-plan="complete"
+                  className="w-full py-3 rounded-lg text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg cursor-pointer"
+                  style={{
+                    background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))',
+                  }}
+                  onClick={() => document.getElementById('paypal-button-complete')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get this plan →
+                </button>
+                <div id="paypal-button-complete" className="w-full"></div>
+              </CardFooter>
+            </Card>
+          </div>
+
+          <p className="text-[13px] text-center mt-8" style={{ color: '#888888', fontStyle: 'italic' }}>
+            Secure checkout via PayPal (no account needed) · All major cards accepted · Instant access after payment
+          </p>
+          
+          {/* Felt safety */}
+          <p className="text-[15px] text-gray-400 text-center mt-4">
+            Private. Supportive. Never replaces your doctors.
+          </p>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF BLOCK */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-3xl mx-auto space-y-10">
+
+          {/* Testimonials */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3">
+              <p className="text-[15px] text-gray-600 leading-[1.7] italic">
+                "[TESTIMONIAL] — I felt so much more in control walking into my appointment. Having everything written down meant I didn't forget a single question."
+              </p>
+              <p className="text-[13px] text-gray-400 font-medium">— [Patient name, to be added]</p>
+            </div>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3">
+              <p className="text-[15px] text-gray-600 leading-[1.7] italic">
+                "[TESTIMONIAL] — As a caregiver, this gave me a way to stay organised and support my mum without feeling overwhelmed."
+              </p>
+              <p className="text-[13px] text-gray-400 font-medium">— [Caregiver name, to be added]</p>
+            </div>
+          </div>
+
+          {/* Pilot badge */}
+          <div className="flex items-center justify-center gap-3 py-4">
+            <span className="text-[20px]">🏥</span>
+            <p className="text-[15px] text-gray-600 font-medium">
+              Used by families supported by Bethesda Alterzentren Basel
+            </p>
+          </div>
+
+          {/* Privacy statement */}
+          <div className="text-center py-4 px-6 bg-white rounded-xl border border-gray-100">
+            <p className="text-[15px] text-gray-600 flex items-center justify-center gap-2">
+              <span className="text-[18px]">🔒</span>
+              We never store your health data. Everything stays on your device.
+            </p>
+          </div>
+
         </div>
       </section>
 
@@ -210,7 +334,7 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>1</div>
               <h3 className="text-[18px] font-bold text-gray-800">Choose Your Plan</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Pick the Current Plan (1 page) or Complete Plan (2 pages). Fill it on your phone, tablet, or computer — or print it out. Your choice, every time.</p>
+              <p className="text-[15px] text-gray-500 leading-[1.6]">Pick the Essential Plan (1 page) or Complete Plan (2 pages). Fill it on your phone, tablet, or computer — or print it out. Your choice, every time.</p>
             </div>
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>2</div>
@@ -223,38 +347,6 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
               <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas — on your phone or printed out. Better questions lead to better care.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Value props */}
-      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-lg mx-auto space-y-12">
-          <div className="text-center">
-            <p className="text-[19px] text-gray-700 leading-[1.6]">
-              <strong>Your personal health records</strong> — one private place for your health story
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-[19px] text-gray-700 leading-[1.6]">
-              <strong>Care at home, on your terms</strong> — you stay in control of your data
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-[19px] text-gray-700 leading-[1.6]">
-              <strong>No complex software to learn</strong> — use it as little or as much as you want
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2.5 - Why this works (keyword bridge) */}
-      <section className="py-12 px-6 md:px-12 lg:px-24">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-[17px] text-gray-500 leading-[1.7]">
-            Most healthcare software is built for hospitals, not patients. MyHealthCanvas is different: 
-            a simple way to organize your health information, track medications, and prepare questions 
-            for your care team — without the complexity of electronic health record systems.
-          </p>
         </div>
       </section>
 
@@ -274,9 +366,9 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
             />
             <div className="text-center space-y-2">
               <p className="text-[15px] text-gray-500">
-                Current Plan (1 page) · Complete Plan (2 pages)
+                Essential Plan (1 page) · Complete Plan (2 pages)
               </p>
-              {/* Explicit button for click to enlarge - works on desktop */}
+              {/* Explicit button for click to enlarge */}
               <button
                 onClick={() => setZoomedImage(true)}
                 className="text-[14px] text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer"
@@ -337,71 +429,6 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
         </div>
       </section>
 
-      {/* Section 5 - Pricing */}
-      <section id="buy" className="py-20 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-3xl mx-auto">
-          
-          <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Current Plan */}
-            <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
-              <CardHeader>
-                <CardTitle className="text-[20px] font-bold">Current Plan</CardTitle>
-                <CardDescription className="text-[15px]">Your Health Story, Always at Hand</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£19</p>
-                <ul className="space-y-3 text-[15px] text-gray-600">
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> All your key health information in one place — never lose it again</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Curated questions from Macmillan, NHS & Cancer Research UK</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Fill on your phone, tablet or computer — or print it out</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Track symptoms, medications & appointments between visits</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Use it for every appointment — as many times as you need</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private & encrypted on your device — we never see your data</li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <div id="paypal-button-current" className="w-full"></div>
-              </CardFooter>
-            </Card>
-
-            {/* Complete Plan */}
-            <Card className="border-[oklch(0.55_0.15_195)] border-2 relative" style={{ backgroundColor: '#FFFFFF' }}>
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-[12px] font-bold text-white rounded-full" style={{ background: 'oklch(0.55 0.15 195)' }}>MOST POPULAR</div>
-              <CardHeader>
-                <CardTitle className="text-[20px] font-bold">Complete Plan</CardTitle>
-                <CardDescription className="text-[15px]">Your Complete Cancer Journey, Organised</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£27</p>
-                <ul className="space-y-3 text-[15px] text-gray-600">
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Current Plan</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Advance care planning & your wishes for the road ahead</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Goals, priorities & what matters most to you right now</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Reflections & emotional wellbeing journal prompts</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Caregiver coordination section — keep your loved ones informed</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Questions structured for every stage of treatment</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private & encrypted on your device — we never see your data</li>
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <div id="paypal-button-complete" className="w-full"></div>
-              </CardFooter>
-            </Card>
-          </div>
-
-          <p className="text-[13px] text-center mt-8" style={{ color: '#888888', fontStyle: 'italic' }}>
-            Secure checkout via PayPal (no account needed) · All major cards accepted · Instant access after payment
-          </p>
-          
-          {/* Felt safety - not governance */}
-          <p className="text-[15px] text-gray-400 text-center mt-4">
-            Private. Supportive. Never replaces your doctors.
-          </p>
-        </div>
-      </section>
-
       {/* How We Protect You - Patient trust section */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
@@ -422,7 +449,7 @@ Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader
               <p className="text-[14px] text-gray-500">Nothing is shared without your explicit consent.</p>
             </div>
             <div className="p-4 bg-white rounded-lg border border-gray-100">
-              <p className="text-[15px] font-semibold text-gray-800 mb-1">Evidence-based content</p>
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Clinically informed</p>
               <p className="text-[14px] text-gray-500">Every question curated from Macmillan, NHS & Cancer Research UK.</p>
             </div>
           </div>
