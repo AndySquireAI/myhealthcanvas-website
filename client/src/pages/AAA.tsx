@@ -1,16 +1,23 @@
 import SEO from "@/components/SEO";
+import { useState, useCallback } from "react";
 
 export default function AAA() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
+  const handlePlayVideo = useCallback(() => {
+    setVideoPlaying(true);
+  }, []);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
-        title="AI Automation for Healthcare Organisations | AndySquire.AI"
-        description="We help healthcare teams implement AI workflows that are governed, auditable and safe. Workflow automation, AI governance audits, and Physician-as-Pilot training — from CHF 2,000/month."
-        keywords="AI automation healthcare, AI governance audit, EU AI Act compliance, healthcare AI workflows, Physician-as-Pilot, clinical AI governance, HAT Model, healthcare automation agency"
+        title="AI Agents for Your Organisation | AndySquire.AI"
+        description="We build AI agent teams that work alongside your people — governed, auditable and safe. From workflow automation to full governance infrastructure. From CHF 2,000/month."
+        keywords="AI agents, AI automation, AI agent team, human-agent teaming, AI governance, EU AI Act compliance, healthcare AI, Safety OS, Physician-as-Pilot, HAT Model"
         canonicalPath="/aaa"
       />
 
-      {/* Hero */}
+      {/* HERO — BROAD AGENT HOOK */}
       <section className="relative overflow-hidden" style={{ minHeight: "420px" }}>
         <div
           className="absolute inset-0"
@@ -18,24 +25,23 @@ export default function AAA() {
             background: "linear-gradient(135deg, rgba(25,135,140,0.08) 0%, rgba(100,50,150,0.06) 100%)",
           }}
         />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-20 pb-14 text-center">
-          {/* Pricing anchor — visible above fold */}
+        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-20 pb-10 text-center">
           <p className="inline-block text-[13px] font-semibold text-[#19878C] uppercase tracking-[0.15em] mb-6 px-4 py-1.5 rounded-full" style={{ backgroundColor: "rgba(25,135,140,0.08)" }}>
             From CHF 2,000/month — retainer-based, no lock-in
           </p>
           <h1 className="text-[28px] md:text-[40px] lg:text-[46px] font-bold text-gray-800 leading-[1.2] mb-5">
-            AI Automation for Healthcare Organisations
+            AI Agents That Work Alongside Your Team
           </h1>
           <p className="text-[18px] md:text-[22px] text-gray-500 leading-[1.5] max-w-2xl mx-auto mb-4" style={{ fontStyle: "italic" }}>
             Delivered by practitioners, not theorists.
           </p>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.6] max-w-2xl mx-auto mb-10">
-            We help healthcare teams implement AI workflows that are governed, auditable and safe — from CHF 2,000/month.
+            We design, build and govern AI agent teams for organisations — so your people can focus on what matters.
           </p>
 
           {/* CTA */}
           <a
-            href="mailto:andy@patientcentriccare.ai?subject=Discovery%20call%20request%20%E2%80%94%20AI%20Automation&body=Hi%20Andy%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20discovery%20call%20to%20discuss%20AI%20automation%20for%20our%20organisation.%0A%0AOrganisation%3A%20%0ARole%3A%20%0ABest%20time%20to%20talk%3A%20%0A%0AThanks"
+            href="mailto:andy@patientcentriccare.ai?subject=Discovery%20call%20request%20%E2%80%94%20AI%20Agents&body=Hi%20Andy%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20discovery%20call%20to%20discuss%20AI%20agents%20for%20our%20organisation.%0A%0AOrganisation%3A%20%0ARole%3A%20%0ABest%20time%20to%20talk%3A%20%0A%0AThanks"
             className="inline-flex items-center gap-2 px-8 py-4 text-white text-[16px] font-semibold rounded-full transition-all duration-300 hover:shadow-lg"
             style={{ background: "linear-gradient(135deg, #19878C 0%, #643296 100%)" }}
           >
@@ -44,6 +50,61 @@ export default function AAA() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </a>
+        </div>
+      </section>
+
+      {/* HAT TEAM VIDEO */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-center text-[13px] uppercase tracking-[0.2em] text-[#643296] font-medium mb-3">
+            See it in action
+          </p>
+          <h2 className="text-center text-[22px] md:text-[28px] font-bold text-gray-800 mb-8">
+            Meet a Human-Agent Team
+          </h2>
+
+          <div className="w-full">
+            {videoPlaying ? (
+              <div className="relative w-full rounded-xl shadow-2xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/5_CTHc4rRyE?autoplay=1&rel=0"
+                  title="Human-Agent Teaming: AI Agents Working Alongside Your Team"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <button
+                onClick={handlePlayVideo}
+                className="relative w-full rounded-xl shadow-2xl overflow-hidden group cursor-pointer block"
+                aria-label="Play video: Human-Agent Teaming"
+              >
+                <img
+                  src="/images/hero-aaa-new.webp"
+                  alt="Human-Agent Teaming — AI Agents Working Alongside Your Team"
+                  className="w-full block"
+                  loading="lazy"
+                />
+                {/* Dark overlay on hover */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-all duration-300" />
+                {/* Big play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xl">
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-red-600 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                {/* Watch video label */}
+                <div className="absolute bottom-4 left-0 right-0 text-center">
+                  <span className="bg-black/60 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full">
+                    ▶ Watch the 42-second intro
+                  </span>
+                </div>
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
@@ -67,7 +128,7 @@ export default function AAA() {
               </div>
               <h3 className="text-[20px] font-bold text-gray-800 mb-3">Workflow Automation</h3>
               <p className="text-[15px] text-gray-500 leading-[1.7]">
-                Map, automate and govern clinical admin workflows using the HAT Model. Reduce manual burden while maintaining full auditability.
+                Map, automate and govern admin workflows using the Human-Agent Teaming model. Reduce manual burden while maintaining full auditability.
               </p>
             </div>
 
@@ -100,6 +161,73 @@ export default function AAA() {
         </div>
       </section>
 
+      {/* WHY HEALTHCARE AI IS DIFFERENT — SAFETY OS */}
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#0D1B2A" }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-center text-[13px] uppercase tracking-[0.2em] font-medium mb-3" style={{ color: "#2B9E9E" }}>
+            Why healthcare AI is different
+          </p>
+          <h2 className="text-center text-[26px] md:text-[34px] font-bold text-white leading-[1.2] mb-4">
+            AI Should Not Act in Care Without a Governance Control Plane
+          </h2>
+          <p className="text-center text-[16px] md:text-[18px] leading-[1.6] max-w-2xl mx-auto mb-4" style={{ color: "#8A9BB0" }}>
+            Like Kubernetes orchestrates compute, Safety OS™ orchestrates AI behaviour — enforcing human authority, bounded autonomy, and full auditability at runtime.
+          </p>
+          <p className="text-center text-[15px] leading-[1.6] max-w-2xl mx-auto mb-10" style={{ color: "#6B7F99" }}>
+            Every AI agent in healthcare needs a governance layer between intent and execution. Safety OS is that layer — not a policy document, but an enforceable control plane.
+          </p>
+
+          {/* Architecture diagram */}
+          <div className="max-w-3xl mx-auto rounded-xl overflow-hidden shadow-2xl" style={{ border: "1px solid #1E3A4A" }}>
+            <img
+              src="/images/safety-os-architecture.png"
+              alt="Safety OS Runtime Governance Control Plane — 4-layer architecture showing Human Authority Layer, Runtime Governance Control Plane (Safety OS), Untrusted AI Layer, and Healthcare Infrastructure"
+              className="w-full block"
+              loading="lazy"
+              style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </div>
+
+          {/* Key points below diagram */}
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 justify-center mt-10 max-w-3xl mx-auto">
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[15px] font-semibold text-white mb-1">Human Authority Layer</p>
+              <p className="text-[13px] leading-[1.6]" style={{ color: "#8A9BB0" }}>
+                Clinicians, caregivers and patients retain defined roles, permissions and liability. Authority is never delegated to AI.
+              </p>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[15px] font-semibold mb-1" style={{ color: "#2B9E9E" }}>Safety OS™ Control Plane</p>
+              <p className="text-[13px] leading-[1.6]" style={{ color: "#8A9BB0" }}>
+                Policy-as-code. Versioned. Auditable. Enforced at runtime. No execution without enforcement.
+              </p>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[15px] font-semibold text-white mb-1">Governance Data Moat</p>
+              <p className="text-[13px] leading-[1.6]" style={{ color: "#8A9BB0" }}>
+                Every deployment generates telemetry. Every signal improves enforcement. The system gets stronger with scale.
+              </p>
+            </div>
+          </div>
+
+          {/* Link to full architecture */}
+          <div className="text-center mt-10">
+            <a
+              href="https://www.patientcentriccare.ai/standards/hybrid-human-agent-operating-standard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[14px] font-medium transition-colors hover:text-white"
+              style={{ color: "#2B9E9E" }}
+            >
+              Read the full Safety OS architecture
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* SOCIAL PROOF */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-3xl mx-auto">
@@ -118,6 +246,19 @@ export default function AAA() {
               <div>
                 <p className="text-[16px] font-semibold text-gray-800">Harvard Medical School</p>
                 <p className="text-[14px] text-gray-500">Best Overall Capstone — "AI in Healthcare," February 2026</p>
+              </div>
+            </div>
+
+            {/* Oxford */}
+            <div className="flex items-center gap-4 py-4 px-6 rounded-xl bg-white" style={{ border: "1px solid rgba(100,50,150,0.12)" }}>
+              <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "rgba(100,50,150,0.08)" }}>
+                <svg className="w-6 h-6 text-[#643296]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[16px] font-semibold text-gray-800">University of Oxford</p>
+                <p className="text-[14px] text-gray-500">Saïd Business School — AI Programme Distinction</p>
               </div>
             </div>
 
