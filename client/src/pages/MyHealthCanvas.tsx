@@ -17,7 +17,7 @@ export default function MyHealthCanvas() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const buySection = document.getElementById('buy');
+      const buySection = document.getElementById('pricing');
       if (buySection) {
         const buyTop = buySection.getBoundingClientRect().top;
         // Show after 400px scroll, hide when pricing section is visible
@@ -200,7 +200,7 @@ export default function MyHealthCanvas() {
       </section>
 
       {/* PRICING SECTION - Both plans side by side, above fold on desktop */}
-      <section id="buy" className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+      <section id="pricing" className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           
           <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
@@ -524,10 +524,10 @@ export default function MyHealthCanvas() {
               <p className="text-[12px] leading-tight" style={{ color: '#AACCCC' }}>Instant download · Yours forever</p>
             </div>
             <a
-              href="#buy"
+              href="#pricing"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('buy')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="text-white font-bold text-[14px] no-underline"
               style={{

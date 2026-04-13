@@ -23,6 +23,7 @@ import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
 import ThankYou from "./pages/ThankYou";
 import Start from "./pages/Start";
+import { Redirect } from "wouter";
 
 // Routes that should NOT show the global Header/Footer
 const noLayoutRoutes = ["/start"];
@@ -52,6 +53,8 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/impressum" component={Impressum} />
+        <Route path="/checkout">{() => <Redirect to="/myhealthcanvas" />}</Route>
+        <Route path="/checkout/:rest*">{() => <Redirect to="/myhealthcanvas" />}</Route>
         <Route path="/404" component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

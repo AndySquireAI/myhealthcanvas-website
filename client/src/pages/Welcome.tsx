@@ -54,7 +54,7 @@ export default function Welcome() {
 
           {/* CTA Buttons - both above fold, stacked on mobile */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/checkout?plan=essential">
+            <Link href="/myhealthcanvas#pricing">
               <button
                 data-gtag-purchase
                 data-plan="essential"
@@ -68,7 +68,7 @@ export default function Welcome() {
                 Get my 1-page health plan — £19
               </button>
             </Link>
-            <Link href="/checkout?plan=complete">
+            <Link href="/myhealthcanvas#pricing">
               <button
                 data-gtag-purchase
                 data-plan="complete"
