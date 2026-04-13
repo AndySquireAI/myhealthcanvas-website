@@ -94,7 +94,7 @@ export default function Welcome() {
             </div>
             <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
               <span className="text-[18px]">🏥</span>
-              <span className="text-[13px] text-gray-600 leading-tight text-left">Bethesda Alterzentren Basel — Home Companion Pilot Partner</span>
+              <span className="text-[13px] text-gray-600 leading-tight text-left">Bethesda Alterszentren Basel — Home Companion Pilot Partner</span>
             </div>
             <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
               <span className="text-[18px]">🔒</span>
