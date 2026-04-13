@@ -232,7 +232,17 @@ export default function MyHealthCanvas() {
                     color: 'oklch(0.45 0.15 195)',
                     borderColor: 'oklch(0.55 0.15 195)',
                   }}
-                  onClick={() => document.getElementById('paypal-button-current')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    // Fire GA4 purchase event for Google Ads conversion tracking
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'purchase', {
+                        currency: 'GBP',
+                        value: 19,
+                        items: [{ item_name: 'Essential Plan', price: 19, quantity: 1 }],
+                      });
+                    }
+                    document.getElementById('paypal-button-current')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Get this plan →
                 </button>
@@ -266,7 +276,17 @@ export default function MyHealthCanvas() {
                   style={{
                     background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))',
                   }}
-                  onClick={() => document.getElementById('paypal-button-complete')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    // Fire GA4 purchase event for Google Ads conversion tracking
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'purchase', {
+                        currency: 'GBP',
+                        value: 27,
+                        items: [{ item_name: 'Complete Plan', price: 27, quantity: 1 }],
+                      });
+                    }
+                    document.getElementById('paypal-button-complete')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Get this plan →
                 </button>
