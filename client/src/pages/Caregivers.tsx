@@ -192,7 +192,7 @@ export default function Caregivers() {
     <div className="min-h-screen" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
         title="Caregiver Support - MyHealthCanvas"
-        description="Supporting someone through illness? MyHealthCanvas helps caregivers stay organised, informed and in control. Piloted with families at Bethesda Alterzentren, Basel."
+        description="Supporting someone through illness? MyHealthCanvas helps caregivers stay organised, informed and in control. Piloted with families at Bethesda Alterszentren, Basel."
         keywords="cancer caregiver, caregiver support, caregiver questions, supporting cancer patient, caregiver toolkit, caregiver checklist, Age UK, caregiver health plan"
         canonicalPath="/caregivers"
       />
@@ -284,7 +284,7 @@ export default function Caregivers() {
           <div className="flex items-center justify-center gap-3 py-4 px-6 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.06)", border: "1px solid rgba(25, 135, 140, 0.12)" }}>
             <span className="text-[20px]">🏥</span>
             <p className="text-[15px] text-gray-700 font-medium">
-              Piloted with families at Bethesda Alterzentren, Basel, Switzerland
+              Piloted with families at Bethesda Alterszentren, Basel, Switzerland
             </p>
           </div>
 

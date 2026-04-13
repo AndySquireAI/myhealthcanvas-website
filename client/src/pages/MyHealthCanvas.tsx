@@ -294,15 +294,15 @@ export default function MyHealthCanvas() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3">
               <p className="text-[15px] text-gray-600 leading-[1.7] italic">
-                "[TESTIMONIAL] — I felt so much more in control walking into my appointment. Having everything written down meant I didn't forget a single question."
+                "I felt so much more in control walking into my appointment. Having everything written down meant I didn't forget a single question."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">— [Patient name, to be added]</p>
+              <p className="text-[13px] text-gray-400 font-medium">— Yolanda G, Switzerland · Patient</p>
             </div>
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3">
               <p className="text-[15px] text-gray-600 leading-[1.7] italic">
-                "[TESTIMONIAL] — As a caregiver, this gave me a way to stay organised and support my mum without feeling overwhelmed."
+                "As a caregiver, at first, I helped my mum fill it in — she was too overwhelmed by her diagnosis. But then after a while, she found keeping it updated on her phone helped her take back some control and feel organised."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">— [Caregiver name, to be added]</p>
+              <p className="text-[13px] text-gray-400 font-medium">— Armin G, Switzerland · Caregiver</p>
             </div>
           </div>
 
@@ -310,7 +310,7 @@ export default function MyHealthCanvas() {
           <div className="flex items-center justify-center gap-3 py-4">
             <span className="text-[20px]">🏥</span>
             <p className="text-[15px] text-gray-600 font-medium">
-              Used by families supported by Bethesda Alterzentren Basel
+              Used by families supported by Bethesda Alterszentren Basel
             </p>
           </div>
 
