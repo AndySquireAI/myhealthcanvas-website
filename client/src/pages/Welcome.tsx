@@ -5,9 +5,9 @@ export default function Welcome() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="MyHealthCanvas - Your Personal Health Plan"
-        description="When you or someone you love gets a diagnosis, MyHealthCanvas gives you a clear, organised health plan you can actually use. Created by patients. Backed by clinical expertise. Yours in minutes."
-        keywords="cancer support, cancer diagnosis help, health plan, patient health canvas, caregiver support cancer, cancer family support, personalised health plan"
+        title="MyHealthCanvas - Questions to ask my oncologist | Cancer diagnosis and treatment notes"
+        description="Newly diagnosed with breast, lung, bowel or prostate cancer? MyHealthCanvas helps you collect questions for your oncologist, track symptoms and prepare for every appointment. From £19."
+        keywords="newly diagnosed cancer, questions to ask oncologist, cancer diagnosis checklist, breast cancer questions, lung cancer questions, bowel cancer questions, prostate cancer questions, cancer treatment notes, cancer patient planner, caregiver cancer support"
         canonicalPath="/"
       />
 
@@ -16,7 +16,7 @@ export default function Welcome() {
         {/* Full image - no cropping on any device */}
         <img 
           src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png"
-          alt="A warm cottage scene - a patient arriving home to a welcoming family, district nurse, and comfort"
+          alt="Cancer patient and caregiver preparing questions for oncologist appointment with MyHealthCanvas"
           className="w-full h-auto block"
           style={{ minHeight: '50vh', objectFit: 'cover', objectPosition: 'center 30%' }}
         />
@@ -31,7 +31,7 @@ export default function Welcome() {
         {/* Hero copy overlaid at the bottom of the image */}
         <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-10 px-6 text-center">
           <h1 className="text-[22px] md:text-[36px] lg:text-[42px] font-bold text-white leading-[1.3] tracking-tight drop-shadow-lg max-w-3xl mx-auto">
-            When you or someone you love gets a diagnosis — the paperwork, questions and decisions feel overwhelming.
+            When you or someone you love gets a cancer diagnosis - the questions, treatment options and decisions feel overwhelming.
           </h1>
         </div>
       </section>
@@ -41,15 +41,15 @@ export default function Welcome() {
         <div className="max-w-2xl mx-auto text-center space-y-6">
 
           <p className="text-[18px] md:text-[21px] text-gray-800 leading-[1.7] font-medium">
-            MyHealthCanvas gives you a clear, organised health plan you can actually use.
+            MyHealthCanvas helps you collect your cancer questions, track symptoms and prepare for every oncologist appointment.
           </p>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] font-light">
-            Created by patients. Backed by clinical expertise. Yours in minutes.
+            Whether you're facing breast, lung, bowel, prostate cancer or lymphoma - get organised in minutes.
           </p>
 
           {/* Sub-headline */}
           <p className="text-[15px] md:text-[17px] text-gray-500 leading-[1.6] italic pt-2">
-            Choose your plan — one page or two — and get your personalised health canvas delivered instantly.
+            Choose your plan - one page or two - and start writing down your questions and treatment notes instantly.
           </p>
 
           {/* CTA Buttons - both above fold, stacked on mobile */}
@@ -65,7 +65,7 @@ export default function Welcome() {
                   borderColor: 'oklch(0.55 0.15 195)',
                 }}
               >
-                Get my 1-page health plan — £19
+                Get my 1-page cancer plan - £19
               </button>
             </Link>
             <Link href="/myhealthcanvas#pricing">
@@ -77,7 +77,7 @@ export default function Welcome() {
                   background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))',
                 }}
               >
-                Get the complete 2-page plan — £27
+                Get the complete 2-page cancer plan - £27
               </button>
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function Welcome() {
                 I'm the Patient
               </h3>
               <p className="text-[15px] text-gray-500 leading-[1.6]">
-                Your first 30 days - one step at a time, at your own pace.
+                Your first 30 days after cancer diagnosis - one step at a time, at your own pace.
               </p>
               <p className="text-[14px] font-medium text-[oklch(0.55_0.15_195)] opacity-0 group-hover:opacity-100 transition-opacity">
                 Go to First 30 Days →
@@ -138,7 +138,7 @@ export default function Welcome() {
                 I'm the Caregiver
               </h3>
               <p className="text-[15px] text-gray-500 leading-[1.6]">
-                Practical tools and guidance for caregivers and family.
+                Practical tools for cancer caregivers and family.
               </p>
               <p className="text-[14px] font-medium text-[oklch(0.55_0.15_195)] opacity-0 group-hover:opacity-100 transition-opacity">
                 Go to Caregivers →
@@ -154,7 +154,7 @@ export default function Welcome() {
                 Questions & Resources
               </h3>
               <p className="text-[15px] text-gray-500 leading-[1.6]">
-                20+ curated questions from the world's top cancer centres.
+                20+ questions to ask your oncologist - curated from the world's top cancer centres.
               </p>
               <p className="text-[14px] font-medium text-[oklch(0.55_0.15_195)] opacity-0 group-hover:opacity-100 transition-opacity">
                 Go to Resources →

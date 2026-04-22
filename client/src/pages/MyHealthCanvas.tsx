@@ -140,9 +140,9 @@ export default function MyHealthCanvas() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="Your Personal Health Plan — Clear, Organised, Yours | MyHealthCanvas"
-        description="Your personal health plan — clear, organised, yours. Prepare for every cancer appointment with confidence. Built by a 2× cancer survivor. From £19."
-        keywords="health plan, patient health records, cancer appointment preparation, health toolkit cancer, MyHealthCanvas, personalised health plan, caregiver health plan"
+        title="MyHealthCanvas - Questions to ask my oncologist | Cancer diagnosis and treatment notes"
+        description="MyHealthCanvas is a private space for people with breast, lung, bowel, prostate cancer and more to collect questions, track symptoms and prepare for oncologist appointments. From £19."
+        keywords="questions to ask oncologist, cancer diagnosis checklist, cancer treatment planner, questions to ask before chemotherapy, cancer patient organizer, breast cancer questions, lung cancer questions, caregiver cancer support, MyHealthCanvas"
         canonicalPath="/myhealthcanvas"
       />
 
@@ -167,20 +167,25 @@ export default function MyHealthCanvas() {
             className="h-40 md:h-48 lg:h-56 mx-auto"
           />
           
-          {/* Headline - Must match Google Ad copy exactly */}
+          {/* Headline - patient-first keyword optimized */}
           <h1 className="text-[28px] md:text-5xl lg:text-[52px] font-bold text-gray-900 leading-[1.2] text-center">
-            Your personal health plan —{" "}
+            A safe place to collect your cancer questions{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              clear, organised, yours.
+              before you see your doctor.
             </span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline - PRESERVED per user request */}
           <p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
             Take back control. Ask better questions. Give yourself every chance.
           </p>
 
-          {/* Supporting line */}
+          {/* Patient-first supporting copy */}
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.6] text-center">
+            Whether you're facing breast, lung, bowel, prostate or another cancer, MyHealthCanvas helps you write down questions, track symptoms and bring clearer conversations to every appointment.
+          </p>
+
+          {/* Supporting line - PRESERVED per user request */}
           <p className="text-[16px] md:text-[18px] text-gray-500 leading-[1.6] text-center">
             Downloadable PDF Form - Easily fill in your data using free Adobe Acrobat Reader (Fill & Sign) on your Phone
           </p>
@@ -199,8 +204,72 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* PRICING SECTION - Both plans side by side, above fold on desktop */}
-      <section id="pricing" className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+      {/* NEW SECTION - Just diagnosed with cancer? */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center">Just diagnosed with cancer?</h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            If you've just heard the words lung cancer, breast cancer, bowel cancer, prostate cancer or lymphoma, it's normal to feel overwhelmed.
+          </p>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            MyHealthCanvas helps you collect the basic questions almost every patient asks:
+          </p>
+          <ul className="max-w-lg mx-auto space-y-3 text-[15px] text-gray-600">
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5 font-bold">?</span> What stage is my cancer?</li>
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5 font-bold">?</span> What are my treatment options - surgery, chemotherapy, radiotherapy, immunotherapy or targeted therapy?</li>
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5 font-bold">?</span> What are the side effects?</li>
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5 font-bold">?</span> What does this mean for my work and family?</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* NEW SECTION - During chemotherapy, immunotherapy or radiotherapy */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center">Going through chemotherapy, immunotherapy or radiotherapy?</h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            Use MyHealthCanvas to track side effects and questions between visits - from nausea, fatigue and pain to hair loss, skin changes or neuropathy.
+          </p>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            You can note exactly when symptoms started, how bad they are, and what you want to ask your oncologist or cancer nurse at your next appointment.
+          </p>
+          <ul className="max-w-lg mx-auto space-y-3 text-[15px] text-gray-600">
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Questions to ask before chemotherapy starts</li>
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Questions to ask about radiotherapy</li>
+            <li className="flex items-start gap-2"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Questions to ask about hormone therapy for breast or prostate cancer</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* NEW SECTION - For caregivers, partners and family */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center">For caregivers, partners and family</h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            If you're caring for someone with breast cancer, lung cancer, bowel cancer, prostate cancer, lymphoma or leukemia, MyHealthCanvas helps you remember what you see at home and what you want to ask the doctor.
+          </p>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.7] text-center">
+            You can keep a shared list of questions about medicines, side effects, pain, sleep, mood, work, and when to call the cancer team or go to the emergency department.
+          </p>
+        </div>
+      </section>
+
+      {/* NEW SECTION - What you can use it for */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center">What you can use it for</h2>
+          <ul className="max-w-xl mx-auto space-y-4 text-[15px] text-gray-600">
+            <li className="flex items-start gap-3"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Prepare a list of questions to ask your oncologist before your first cancer appointment.</li>
+            <li className="flex items-start gap-3"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Write down questions about diagnosis, staging, scans and blood tests so you don't forget them in the clinic.</li>
+            <li className="flex items-start gap-3"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Track chemotherapy, radiotherapy or immunotherapy cycles and how you feel each day.</li>
+            <li className="flex items-start gap-3"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Record symptoms like pain, breathlessness, bleeding, nausea, diarrhoea or constipation to discuss with your cancer team.</li>
+            <li className="flex items-start gap-3"><span style={{ color: 'oklch(0.55 0.15 195)' }} className="mt-0.5">✓</span> Keep all your cancer notes together so you don't lose bits of paper or forget important details.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* PRICING SECTION - Both plans side by side */}
+      <section id="pricing" className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
         <div className="max-w-3xl mx-auto">
           
           <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
@@ -349,7 +418,7 @@ export default function MyHealthCanvas() {
       <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-[24px] md:text-[30px] font-bold text-gray-800 text-center mb-3">How It Works</h2>
-          <p className="text-[16px] text-gray-500 text-center mb-12">Three simple steps. No complex software to learn.</p>
+          <p className="text-[16px] text-gray-500 text-center mb-12">Three simple steps. Ready in minutes.</p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center space-y-4">
               <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center text-[24px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>1</div>
@@ -381,7 +450,7 @@ export default function MyHealthCanvas() {
           <div className="space-y-4">
             <img
               src="/images/MyHealthCanvasMOCKUPPBD.webp"
-              alt="MyHealthCanvas healthcare software template preview - organize your personal health records"
+              alt="MyHealthCanvas cancer diagnosis and treatment notes template - questions to ask your oncologist"
               className="w-full rounded-lg shadow-lg border border-gray-200"
             />
             <div className="text-center space-y-2">
@@ -405,7 +474,7 @@ export default function MyHealthCanvas() {
         <div className="max-w-3xl mx-auto">
           <img
             src="/images/patient-doctor-myhealthcanvas-final.webp"
-            alt="Patient using healthcare software to communicate with doctor"
+              alt="Cancer patient using MyHealthCanvas to prepare questions for oncologist appointment"
             className="w-full rounded-lg"
           />
         </div>
