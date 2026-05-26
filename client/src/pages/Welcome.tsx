@@ -1,56 +1,117 @@
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
+import { useState, useEffect } from "react";
 
 export default function Welcome() {
+  const [email, setEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  // Analytics: scroll depth tracking
+  useEffect(() => {
+    let maxScroll = 0;
+    const thresholds = [25, 50, 75, 90];
+    const fired = new Set<number>();
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      const percent = Math.round((scrollTop / docHeight) * 100);
+      if (percent > maxScroll) {
+        maxScroll = percent;
+        thresholds.forEach((t) => {
+          if (percent >= t && !fired.has(t)) {
+            fired.add(t);
+            if (typeof window !== "undefined" && (window as any).gtag) {
+              (window as any).gtag("event", "scroll_depth", {
+                event_category: "engagement",
+                event_label: `${t}%`,
+                value: t,
+              });
+            }
+          }
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Analytics: track CTA clicks
+  const trackClick = (label: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "cta_click", {
+        event_category: "homepage",
+        event_label: label,
+      });
+    }
+  };
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      // Track email capture
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "email_capture", {
+          event_category: "lead_generation",
+          event_label: "homepage_checklist",
+        });
+      }
+      // Open mailto with pre-filled subject
+      window.location.href = `mailto:andy@patientcentriccare.ai?subject=Oncology%20Appointment%20Checklist%20Request&body=Please%20send%20me%20the%2021%20Questions%20checklist.%20My%20email%3A%20${encodeURIComponent(email)}`;
+      setEmailSubmitted(true);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="MyHealthCanvas - Questions to ask my oncologist | Cancer diagnosis and treatment notes"
-        description="Newly diagnosed with breast, lung, bowel or prostate cancer? MyHealthCanvas helps you collect questions for your oncologist, track symptoms and prepare for every appointment. From £19."
-        keywords="newly diagnosed cancer, questions to ask oncologist, cancer diagnosis checklist, breast cancer questions, lung cancer questions, bowel cancer questions, prostate cancer questions, cancer treatment notes, cancer patient planner, caregiver cancer support"
+        title="MyHealthCanvas - Questions to ask my oncologist | Cancer appointment preparation"
+        description="Newly diagnosed with breast, lung, bowel or prostate cancer? MyHealthCanvas helps you prepare for oncology appointments with curated questions, symptom tracking and communication support. Free checklist available."
+        keywords="newly diagnosed cancer, questions to ask oncologist, cancer diagnosis checklist, breast cancer questions, lung cancer questions, bowel cancer questions, prostate cancer questions, cancer treatment notes, cancer patient planner, caregiver cancer support, oncology appointment preparation"
         canonicalPath="/"
       />
 
-      {/* HERO - Focused on the immediate need based on keywords */}
+      {/* HERO - Emotional support first, not purchase */}
       <section className="relative w-full overflow-hidden">
-        {/* Full image - subtle background */}
         <img 
           src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png"
-          alt="Cancer patient and caregiver preparing questions for oncologist appointment with MyHealthCanvas"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none"
+          alt="Cancer patient and caregiver preparing questions for oncologist appointment"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-25 pointer-events-none"
         />
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, #FDFCF8 0%, rgba(253, 252, 248, 0.8) 50%, #FDFCF8 100%)',
+            background: 'linear-gradient(to bottom, #FDFCF8 0%, rgba(253, 252, 248, 0.85) 50%, #FDFCF8 100%)',
           }}
         />
 
-        {/* Hero copy centered and highly visible */}
         <div className="relative z-10 pt-20 pb-12 md:pt-32 md:pb-20 px-6 text-center max-w-4xl mx-auto space-y-8">
           <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-bold">
-            Just Diagnosed? Start Here.
+            Oncology Appointment Preparation
           </p>
           <h1 className="text-[32px] md:text-[48px] lg:text-[56px] font-bold text-gray-900 leading-[1.2] tracking-tight">
-            The questions you need to ask your{" "}
+            You don't have to face your{" "}
             <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              oncologist.
-            </span>
+              next appointment
+            </span>{" "}
+            unprepared.
           </h1>
           <p className="text-[18px] md:text-[22px] text-gray-600 leading-[1.6] max-w-2xl mx-auto font-light">
-            Don't let the first 30 days overwhelm you. We've curated the most important questions from the world's top cancer centres so you can arrive prepared.
+            We've gathered the most important questions from the world's top cancer centres — so you can walk in feeling calm, clear and ready.
           </p>
           
-          {/* Immediate Hooks to deeper content */}
+          {/* Primary CTAs - Support first */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-            <Link href="/questions">
+            <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
               <button className="w-full sm:w-auto px-8 py-4 bg-[oklch(0.55_0.15_195)] text-white text-[16px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
-                View the 20+ Questions
+                Questions for Your Oncologist
               </button>
             </Link>
-            <Link href="/first-30-days-after-diagnosis">
+            <Link href="/first-30-days-after-diagnosis" onClick={() => trackClick("hero_first30days_cta")}>
               <button className="w-full sm:w-auto px-8 py-4 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[16px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-                Guide: The First 30 Days
+                First 30 Days After Diagnosis
               </button>
             </Link>
           </div>
@@ -61,121 +122,238 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* THREE NAVIGATION CARDS - Moved up to capture attention fast */}
-      <section className="py-12 px-6 md:px-12 lg:px-24 relative z-20" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Card 1 - Patient */}
-          <Link href="/first-30-days-after-diagnosis">
-            <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-patient-eXQQP5Wq7PFqpmQg342FJV.png" alt="Heart in hands" className="w-16 h-16 mx-auto object-contain" />
-              <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                I'm the Patient
-              </h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">
-                Your first 30 days after cancer diagnosis - one step at a time, at your own pace.
-              </p>
-              <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                Read the Guide →
-              </p>
-            </div>
-          </Link>
+      {/* REAL VOICES - Trust section immediately after hero */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Real voices</h2>
+            <p className="text-[16px] text-gray-500 leading-[1.6]">From patients, caregivers and clinicians using MyHealthCanvas in real cancer care.</p>
+          </div>
 
-          {/* Card 2 - Caregiver */}
-          <Link href="/caregivers">
-            <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-caregiver-Af6MngKWcDvEDEM8k4VTB8.png" alt="Hands reaching" className="w-16 h-16 mx-auto object-contain" />
-              <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                I'm the Caregiver
-              </h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">
-                Practical tools and advice for cancer caregivers, partners, and family members.
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Patient voice */}
+            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-4 shadow-sm">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.03 195)' }}>
+                <span aria-hidden="true">💙</span>
+              </div>
+              <p className="text-[15px] text-gray-600 leading-[1.8] italic">
+                "After diagnosis, it's an avalanche of emails, letters, phone calls. MyHealthCanvas helps me organise my key information — especially the questions for my oncologist — so I never forget anything."
               </p>
-              <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                Caregiver Tools →
-              </p>
+              <p className="text-[13px] text-gray-400 font-medium">Cancer patient, 58 · Switzerland</p>
             </div>
-          </Link>
 
-          {/* Card 3 - Product */}
-          <Link href="/myhealthcanvas">
-            <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
-              <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                MyHealthCanvas
-              </h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">
-                Get our printable 1-page or 2-page cancer plan to organize your treatment notes.
+            {/* Caregiver voice */}
+            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-4 shadow-sm">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.03 300)' }}>
+                <span aria-hidden="true">🤝</span>
+              </div>
+              <p className="text-[15px] text-gray-600 leading-[1.8] italic">
+                "My wife was in pain before treatment started. I had to take care of a mountain of admin. MyHealthCanvas helped us think through our priorities and start to plan for a better future."
               </p>
-              <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                View Plans →
-              </p>
+              <p className="text-[13px] text-gray-400 font-medium">Caregiver, 64 · UK</p>
             </div>
-          </Link>
 
+            {/* Clinician voice */}
+            <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)]/30 space-y-4 shadow-sm">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.05 195)' }}>
+                <span aria-hidden="true">🩺</span>
+              </div>
+              <p className="text-[15px] text-gray-600 leading-[1.8] italic">
+                "Some of my patients bring their MyHealthCanvas to appointments so they don't forget questions. Having a standard template is much easier for me to scan than fragmented records."
+              </p>
+              <p className="text-[13px] text-gray-400 font-medium">Oncologist, 38 · Switzerland</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* VALUE PROPOSITION + PURCHASE CTAs (Moved down) */}
-      <section className="py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-3xl mx-auto text-center space-y-8">
-          <h2 className="text-[28px] md:text-[36px] font-bold text-gray-900 leading-[1.3]">
-            Organise your health story.
+      {/* THREE NAVIGATION CARDS - Support pathways */}
+      <section className="py-12 px-6 md:px-12 lg:px-24 relative z-20" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">How can we help you today?</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Card 1 - Patient */}
+            <Link href="/first-30-days-after-diagnosis" onClick={() => trackClick("card_patient")}>
+              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-patient-eXQQP5Wq7PFqpmQg342FJV.png" alt="Heart in hands" className="w-16 h-16 mx-auto object-contain" />
+                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  I'm the Patient
+                </h3>
+                <p className="text-[15px] text-gray-500 leading-[1.6]">
+                  Your first 30 days after cancer diagnosis — one step at a time, at your own pace.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  Read the Guide →
+                </p>
+              </div>
+            </Link>
+
+            {/* Card 2 - Caregiver */}
+            <Link href="/caregivers" onClick={() => trackClick("card_caregiver")}>
+              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-caregiver-Af6MngKWcDvEDEM8k4VTB8.png" alt="Hands reaching" className="w-16 h-16 mx-auto object-contain" />
+                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  I'm the Caregiver
+                </h3>
+                <p className="text-[15px] text-gray-500 leading-[1.6]">
+                  Practical tools and advice for cancer caregivers, partners, and family members.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  Caregiver Tools →
+                </p>
+              </div>
+            </Link>
+
+            {/* Card 3 - Questions */}
+            <Link href="/questions" onClick={() => trackClick("card_questions")}>
+              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
+                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  Questions to Ask
+                </h3>
+                <p className="text-[15px] text-gray-500 leading-[1.6]">
+                  20+ curated questions from top cancer centres to bring to your next appointment.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  View Questions →
+                </p>
+              </div>
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* LEAD MAGNET - 21 Questions Checklist */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">
+            21 Questions to Ask at Your Next Oncology Appointment
           </h2>
-          <p className="text-[18px] md:text-[20px] text-gray-600 leading-[1.7] font-light max-w-2xl mx-auto">
-            Whether you're facing breast, lung, bowel, prostate cancer or lymphoma — choose your plan and start writing down your questions and treatment notes instantly.
+          <p className="text-[16px] text-gray-600 leading-[1.7] max-w-xl mx-auto">
+            A calm, practical checklist you can take with you. Covers diagnosis, treatment, side effects, and what to expect next.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-            <Link href="/myhealthcanvas#pricing">
+          {!emailSubmitted ? (
+            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 max-w-md mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                required
+                className="w-full sm:flex-1 px-5 py-3 rounded-xl border border-gray-200 text-[15px] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.15_195)]/30 focus:border-[oklch(0.55_0.15_195)]"
+              />
               <button
-                data-gtag-purchase
-                data-plan="essential"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl text-[16px] font-semibold transition-all duration-300 hover:shadow-lg border-2"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: 'oklch(0.45 0.15 195)',
-                  borderColor: 'oklch(0.55 0.15 195)',
-                }}
+                type="submit"
+                className="w-full sm:w-auto px-6 py-3 text-white text-[15px] font-semibold rounded-xl transition-all hover:shadow-md"
+                style={{ background: 'oklch(0.55 0.15 195)' }}
               >
-                Get my 1-page cancer plan - £19
+                Send me the checklist
               </button>
-            </Link>
-            <Link href="/myhealthcanvas#pricing">
+            </form>
+          ) : (
+            <div className="py-4 px-6 rounded-xl border border-green-200 bg-green-50 max-w-md mx-auto">
+              <p className="text-[15px] text-green-700 font-medium">
+                Thank you. Check your email — we'll send the checklist shortly.
+              </p>
+            </div>
+          )}
+
+          <p className="text-[13px] text-gray-400">
+            Free. No spam. Just a helpful checklist for your next appointment.
+          </p>
+        </div>
+      </section>
+
+      {/* PRODUCT SECTION - Moved lower, compassionate framing */}
+      <section className="py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto text-center space-y-8">
+          <p className="text-[14px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold">
+            When you're ready for more
+          </p>
+          <h2 className="text-[26px] md:text-[34px] font-bold text-gray-900 leading-[1.3]">
+            A companion for your cancer care journey
+          </h2>
+          <p className="text-[17px] md:text-[19px] text-gray-600 leading-[1.7] font-light max-w-2xl mx-auto">
+            MyHealthCanvas is a printable appointment companion that helps you organise questions, symptoms, medicines and priorities — so nothing gets forgotten.
+          </p>
+
+          {/* Two versions explained compassionately */}
+          <div className="grid md:grid-cols-2 gap-6 pt-6 text-left">
+            <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-3 shadow-sm">
+              <p className="text-[13px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold">For first appointments</p>
+              <h3 className="text-[20px] font-bold text-gray-900">Essential Appointment Companion</h3>
+              <p className="text-[15px] text-gray-600 leading-[1.7]">
+                A one-page version focusing on what matters first: diagnosis details, medicines, symptoms, and questions for your team.
+              </p>
+              <p className="text-[14px] text-gray-500 italic">
+                Many newly diagnosed patients prefer to start here.
+              </p>
+              <p className="text-[15px] font-semibold text-gray-800 pt-2">£19</p>
+            </div>
+
+            <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)]/40 p-6 space-y-3 shadow-sm relative">
+              <div className="absolute -top-3 left-6 px-3 py-1 text-[11px] font-bold text-white rounded-full" style={{ background: 'oklch(0.55 0.15 195)' }}>When you're ready</div>
+              <p className="text-[13px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold pt-2">For reflection & future care</p>
+              <h3 className="text-[20px] font-bold text-gray-900">Complete Care & Future Planning Companion</h3>
+              <p className="text-[15px] text-gray-600 leading-[1.7]">
+                Everything in Essential, plus space for comfort, reflections, future wishes, advance directives and healthcare power of attorney.
+              </p>
+              <p className="text-[14px] text-gray-500 italic">
+                Use this only when these questions feel helpful.
+              </p>
+              <p className="text-[15px] font-semibold text-gray-800 pt-2">£27</p>
+            </div>
+          </div>
+
+          {/* Soft CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+            <Link href="/myhealthcanvas" onClick={() => trackClick("homepage_view_plans")}>
               <button
-                data-gtag-purchase
-                data-plan="complete"
                 className="w-full sm:w-auto px-8 py-4 rounded-xl text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg"
                 style={{
                   background: 'linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))',
                 }}
               >
-                Get the complete 2-page cancer plan - £27
+                Learn more about MyHealthCanvas
               </button>
             </Link>
           </div>
 
-          {/* Trust Micro-Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-10 max-w-2xl mx-auto">
+          <p className="text-[14px] text-gray-400 italic">
+            50% of all proceeds are donated to cancer charities.
+          </p>
+        </div>
+      </section>
+
+      {/* TRUST BADGES - Credentials section */}
+      <section className="py-12 px-6" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-[14px] uppercase tracking-[0.15em] text-gray-500 font-medium">Built with care and clinical understanding</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-3 px-5 py-4 rounded-xl shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
-              <span className="text-[20px]">🎓</span>
+              <span className="text-[20px]" aria-hidden="true">🎓</span>
               <span className="text-[14px] text-gray-700 leading-tight text-left font-medium">Harvard Medical School<br/><span className="font-light text-gray-500">Best Overall Capstone 2026</span></span>
             </div>
             <div className="flex items-center gap-3 px-5 py-4 rounded-xl shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
-              <span className="text-[20px]">🏛️</span>
+              <span className="text-[20px]" aria-hidden="true">🏛️</span>
               <span className="text-[14px] text-gray-700 leading-tight text-left font-medium">Oxford Saïd Business School<br/><span className="font-light text-gray-500">AI Programme Distinction</span></span>
             </div>
             <div className="flex items-center gap-3 px-5 py-4 rounded-xl shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
-              <span className="text-[20px]">🏥</span>
-              <span className="text-[14px] text-gray-700 leading-tight text-left font-medium">Bethesda Alterszentren Basel<br/><span className="font-light text-gray-500">Home Companion Pilot Partner</span></span>
+              <span className="text-[20px]" aria-hidden="true">🎗️</span>
+              <span className="text-[14px] text-gray-700 leading-tight text-left font-medium">2× cancer survivor<br/><span className="font-light text-gray-500">Patient-first design philosophy</span></span>
             </div>
             <div className="flex items-center gap-3 px-5 py-4 rounded-xl shadow-sm" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E1D7EB40' }}>
-              <span className="text-[20px]">🔒</span>
+              <span className="text-[20px]" aria-hidden="true">🔒</span>
               <span className="text-[14px] text-gray-700 leading-tight text-left font-medium">Zero data stored on servers<br/><span className="font-light text-gray-500">Your health data stays on your device</span></span>
             </div>
           </div>
-
         </div>
       </section>
 
