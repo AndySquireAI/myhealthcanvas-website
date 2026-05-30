@@ -31,10 +31,15 @@ import QuestionsBeforeImmunotherapy from "./pages/QuestionsBeforeImmunotherapy";
 import QuestionsAboutClinicalTrials from "./pages/QuestionsAboutClinicalTrials";
 import CaregiverOncologyQuestions from "./pages/CaregiverOncologyQuestions";
 import PrepareForAppointment from "./pages/PrepareForAppointment";
+import PatientOutcomes from "./pages/PatientOutcomes";
+import WhyPreparationMatters from "./pages/WhyPreparationMatters";
+import ShareExperience from "./pages/ShareExperience";
+import ClinicianFeedback from "./pages/ClinicianFeedback";
+import EvidenceDashboard from "./pages/EvidenceDashboard";
 import { Redirect } from "wouter";
 
 // Routes that should NOT show the global Header/Footer
-const noLayoutRoutes = ["/start"];
+const noLayoutRoutes = ["/start", "/evidence-dashboard"];
 
 function Router() {
   const [location] = useLocation();
@@ -59,6 +64,11 @@ function Router() {
         <Route path="/questions-about-clinical-trials" component={QuestionsAboutClinicalTrials} />
         <Route path="/caregiver-oncology-questions" component={CaregiverOncologyQuestions} />
         <Route path="/prepare-for-your-oncology-appointment" component={PrepareForAppointment} />
+        <Route path="/patient-outcomes" component={PatientOutcomes} />
+        <Route path="/why-appointment-preparation-matters" component={WhyPreparationMatters} />
+        <Route path="/share-your-experience" component={ShareExperience} />
+        <Route path="/clinician-feedback" component={ClinicianFeedback} />
+        <Route path="/evidence-dashboard" component={EvidenceDashboard} />
         <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />

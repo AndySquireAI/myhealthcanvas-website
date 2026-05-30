@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
+import MicroSurvey from "@/components/MicroSurvey";
 
 export default function OncologyChecklist() {
   const [email, setEmail] = useState("");
@@ -208,6 +209,11 @@ function ChecklistThankYou() {
             If the download did not start, <a href="/pdfs/21-questions-oncology-checklist.pdf" download className="text-[oklch(0.55_0.15_195)] underline">click here to download it</a>.
           </p>
         </div>
+      </section>
+
+      {/* Micro Survey */}
+      <section className="py-6 px-6 md:px-12 lg:px-24">
+        <MicroSurvey context="checklist_download" />
       </section>
 
       {/* MyHealthCanvas bridge */}
