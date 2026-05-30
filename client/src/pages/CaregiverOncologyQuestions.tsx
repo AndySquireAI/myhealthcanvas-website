@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import ClinicianPerspective from "@/components/ClinicianPerspective";
 import ResourceRecommendations from "@/components/ResourceRecommendations";
+import SaveForAppointment from "@/components/SaveForAppointment";
 import { CheckCircle, Heart, ClipboardList, AlertCircle, Clock, Shield, BookOpen, Stethoscope } from "lucide-react";
 
 export default function CaregiverOncologyQuestions() {
@@ -280,7 +281,8 @@ export default function CaregiverOncologyQuestions() {
       {/* Reusable Components */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-12 mt-12">
         <ClinicianPerspective />
-        <ResourceRecommendations exclude={["/caregiver-oncology-questions"]} />
+        <SaveForAppointment pageTitle="Oncology Questions" />
+      <ResourceRecommendations exclude={["/caregiver-oncology-questions"]} />
       </div>
     </div>
   );

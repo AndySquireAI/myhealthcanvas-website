@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import OncologyFAQ from "@/components/OncologyFAQ";
 import ResourceRecommendations from "@/components/ResourceRecommendations";
+import SaveForAppointment from "@/components/SaveForAppointment";
 import { useEffect } from "react";
 
 const topicCards = [
@@ -136,6 +137,7 @@ export default function OncologyQuestions() {
       </section>
 
       <OncologyFAQ />
+      <SaveForAppointment pageTitle="Oncology Questions" />
       <ResourceRecommendations exclude={["/oncology-questions"]} />
     </div>
   );

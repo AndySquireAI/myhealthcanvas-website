@@ -30,6 +30,7 @@ import QuestionsBeforeChemotherapy from "./pages/QuestionsBeforeChemotherapy";
 import QuestionsBeforeImmunotherapy from "./pages/QuestionsBeforeImmunotherapy";
 import QuestionsAboutClinicalTrials from "./pages/QuestionsAboutClinicalTrials";
 import CaregiverOncologyQuestions from "./pages/CaregiverOncologyQuestions";
+import PrepareForAppointment from "./pages/PrepareForAppointment";
 import { Redirect } from "wouter";
 
 // Routes that should NOT show the global Header/Footer
@@ -57,6 +58,7 @@ function Router() {
         <Route path="/questions-before-immunotherapy" component={QuestionsBeforeImmunotherapy} />
         <Route path="/questions-about-clinical-trials" component={QuestionsAboutClinicalTrials} />
         <Route path="/caregiver-oncology-questions" component={CaregiverOncologyQuestions} />
+        <Route path="/prepare-for-your-oncology-appointment" component={PrepareForAppointment} />
         <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />

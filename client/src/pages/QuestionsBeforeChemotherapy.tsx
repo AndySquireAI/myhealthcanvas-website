@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import ClinicianPerspective from "@/components/ClinicianPerspective";
 import ResourceRecommendations from "@/components/ResourceRecommendations";
+import SaveForAppointment from "@/components/SaveForAppointment";
 
 export default function QuestionsBeforeChemotherapy() {
   return (
@@ -232,7 +233,8 @@ export default function QuestionsBeforeChemotherapy() {
       {/* Reusable Components */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-12">
         <ClinicianPerspective />
-        <ResourceRecommendations exclude={["/questions-before-chemotherapy"]} />
+        <SaveForAppointment pageTitle="Oncology Questions" />
+      <ResourceRecommendations exclude={["/questions-before-chemotherapy"]} />
       </div>
     </div>
   );

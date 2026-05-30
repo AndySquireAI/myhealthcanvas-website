@@ -2,6 +2,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
+import PatientStories from "@/components/PatientStories";
+import CaregiverCompanion from "@/components/CaregiverCompanion";
 
 declare global {
   interface Window {
@@ -218,6 +220,42 @@ export default function MyHealthCanvas() {
               </p>
             </div>
           </div>
+
+          {/* Visual Comparison Table */}
+          <div className="mt-10">
+            <h3 className="text-[20px] md:text-[24px] font-bold text-gray-900 text-center mb-6">What's included in each version</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b-2 border-gray-200">
+                    <th className="py-3 px-4 text-[14px] font-semibold text-gray-600">Feature</th>
+                    <th className="py-3 px-4 text-[14px] font-semibold text-center text-gray-800">Essential</th>
+                    <th className="py-3 px-4 text-[14px] font-semibold text-center" style={{ color: 'oklch(0.55 0.15 195)' }}>Complete</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[15px] text-gray-700">
+                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Diagnosis information</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Questions for your team</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Symptoms and priorities</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Medicines and allergies</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Caregiver notes</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Future wishes</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Advance directives</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Healthcare power of attorney</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-6">
+              <div className="text-center p-3 rounded-lg bg-white border border-gray-100">
+                <p className="text-[13px] text-gray-500">Recommended if newly diagnosed</p>
+                <p className="text-[15px] font-bold text-gray-800 mt-1">Essential Appointment Companion</p>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-white border border-[oklch(0.55_0.15_195)]/30">
+                <p className="text-[13px] text-gray-500">Recommended when ready for broader planning</p>
+                <p className="text-[15px] font-bold text-gray-800 mt-1">Complete Care & Future Planning Companion</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -392,6 +430,9 @@ export default function MyHealthCanvas() {
           </div>
         </div>
       </section>
+
+      <PatientStories />
+      <CaregiverCompanion />
 
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">

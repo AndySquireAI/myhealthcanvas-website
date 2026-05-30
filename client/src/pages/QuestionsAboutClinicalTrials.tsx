@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import ClinicianPerspective from "@/components/ClinicianPerspective";
 import ResourceRecommendations from "@/components/ResourceRecommendations";
+import SaveForAppointment from "@/components/SaveForAppointment";
 
 export default function QuestionsAboutClinicalTrials() {
   return (
@@ -241,7 +242,8 @@ export default function QuestionsAboutClinicalTrials() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <ClinicianPerspective />
         <div className="mt-12">
-          <ResourceRecommendations exclude={["/questions-about-clinical-trials"]} />
+          <SaveForAppointment pageTitle="Oncology Questions" />
+      <ResourceRecommendations exclude={["/questions-about-clinical-trials"]} />
         </div>
       </div>
     </div>

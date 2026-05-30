@@ -200,6 +200,112 @@ export default function Welcome() {
         </div>
       </section>
 
+      {/* HOW PATIENTS ACTUALLY USE MYHEALTHCANVAS - Habit loop visualization */}
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-4xl mx-auto space-y-10">
+          <div className="text-center space-y-3">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">How patients actually use MyHealthCanvas</h2>
+            <p className="text-[16px] text-gray-500 leading-[1.6]">Many patients use MyHealthCanvas throughout treatment — not just once.</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-5">
+            {/* Before */}
+            <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm space-y-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold text-white" style={{ background: 'oklch(0.55 0.15 195)' }}>1</div>
+              <h3 className="text-[17px] font-bold text-gray-800">Before Appointment</h3>
+              <p className="text-[14px] text-gray-500 leading-[1.6]">Write down:</p>
+              <ul className="text-[14px] text-gray-600 space-y-1">
+                <li>· symptoms</li>
+                <li>· concerns</li>
+                <li>· questions</li>
+              </ul>
+            </div>
+
+            {/* During */}
+            <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm space-y-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold text-white" style={{ background: 'oklch(0.50 0.12 260)' }}>2</div>
+              <h3 className="text-[17px] font-bold text-gray-800">During Appointment</h3>
+              <p className="text-[14px] text-gray-500 leading-[1.6]">Bring:</p>
+              <ul className="text-[14px] text-gray-600 space-y-1">
+                <li>· questions</li>
+                <li>· medicines</li>
+                <li>· priorities</li>
+              </ul>
+            </div>
+
+            {/* After */}
+            <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm space-y-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold text-white" style={{ background: 'oklch(0.50 0.12 160)' }}>3</div>
+              <h3 className="text-[17px] font-bold text-gray-800">After Appointment</h3>
+              <p className="text-[14px] text-gray-500 leading-[1.6]">Record:</p>
+              <ul className="text-[14px] text-gray-600 space-y-1">
+                <li>· decisions</li>
+                <li>· next steps</li>
+                <li>· follow-up questions</li>
+              </ul>
+            </div>
+
+            {/* Between */}
+            <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm space-y-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[14px] font-bold text-white" style={{ background: 'oklch(0.50 0.12 40)' }}>4</div>
+              <h3 className="text-[17px] font-bold text-gray-800">Between Appointments</h3>
+              <p className="text-[14px] text-gray-500 leading-[1.6]">Track:</p>
+              <ul className="text-[14px] text-gray-600 space-y-1">
+                <li>· symptoms</li>
+                <li>· side effects</li>
+                <li>· changes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center pt-2">
+            <Link href="/prepare-for-your-oncology-appointment" onClick={() => trackClick("homepage_prepare_workflow")}>
+              <span className="text-[15px] font-bold text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
+                See the full appointment preparation workflow →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* IS MYHEALTHCANVAS RIGHT FOR ME? */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">Is MyHealthCanvas right for me?</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Newly Diagnosed</p>
+              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Starting Treatment</p>
+              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Caregiver</p>
+              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Long-Term Survivor</p>
+              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Looking for Medical Advice</p>
+              <p className="text-[20px] font-bold text-gray-400">No</p>
+              <p className="text-[13px] text-gray-500">Talk to your clinicians.</p>
+            </div>
+            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
+              <p className="text-[15px] font-semibold text-gray-800">Looking for Emergency Help</p>
+              <p className="text-[20px] font-bold text-gray-400">No</p>
+              <p className="text-[13px] text-gray-500">Contact emergency services.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* THREE NAVIGATION CARDS - Support pathways */}
       <section className="py-12 px-6 md:px-12 lg:px-24 relative z-20" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto">
