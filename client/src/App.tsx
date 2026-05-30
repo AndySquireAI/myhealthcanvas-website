@@ -24,6 +24,12 @@ import Impressum from "./pages/Impressum";
 import ThankYou from "./pages/ThankYou";
 import Start from "./pages/Start";
 import OncologyChecklist from "./pages/OncologyChecklist";
+import OncologyQuestions from "./pages/OncologyQuestions";
+import QuestionsAfterDiagnosis from "./pages/QuestionsAfterDiagnosis";
+import QuestionsBeforeChemotherapy from "./pages/QuestionsBeforeChemotherapy";
+import QuestionsBeforeImmunotherapy from "./pages/QuestionsBeforeImmunotherapy";
+import QuestionsAboutClinicalTrials from "./pages/QuestionsAboutClinicalTrials";
+import CaregiverOncologyQuestions from "./pages/CaregiverOncologyQuestions";
 import { Redirect } from "wouter";
 
 // Routes that should NOT show the global Header/Footer
@@ -45,6 +51,12 @@ function Router() {
         <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
         <Route path="/first-30-days-after-diagnosis" component={First30Days} />
         <Route path="/oncology-appointment-checklist" component={OncologyChecklist} />
+        <Route path="/oncology-questions" component={OncologyQuestions} />
+        <Route path="/questions-after-cancer-diagnosis" component={QuestionsAfterDiagnosis} />
+        <Route path="/questions-before-chemotherapy" component={QuestionsBeforeChemotherapy} />
+        <Route path="/questions-before-immunotherapy" component={QuestionsBeforeImmunotherapy} />
+        <Route path="/questions-about-clinical-trials" component={QuestionsAboutClinicalTrials} />
+        <Route path="/caregiver-oncology-questions" component={CaregiverOncologyQuestions} />
         <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />
