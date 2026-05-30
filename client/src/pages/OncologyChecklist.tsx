@@ -16,18 +16,7 @@ export default function OncologyChecklist() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-
-    // Analytics: email signup
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "checklist_signup", {
-        event_category: "funnel",
-        event_label: "email_captured",
-      });
-    }
-
+  const handleDownload = () => {
     // Trigger download
     const link = document.createElement("a");
     link.href = "/pdfs/21-questions-oncology-checklist.pdf";
@@ -43,15 +32,21 @@ export default function OncologyChecklist() {
         event_label: "pdf_downloaded",
       });
     }
+  };
 
-    // Send email to Andy for follow-up (mailto fallback)
-    const mailtoLink = `mailto:andy@patientcentriccare.ai?subject=Checklist%20Download%20-%20New%20Signup&body=New%20checklist%20signup%3A%20${encodeURIComponent(email)}`;
-    const iframe = document.createElement("iframe");
-    iframe.style.display = "none";
-    iframe.src = mailtoLink;
-    document.body.appendChild(iframe);
-    setTimeout(() => document.body.removeChild(iframe), 2000);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
+    // Track signup attempt if email provided
+    if (email.trim() && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "checklist_signup_attempt", {
+        event_category: "funnel",
+        event_label: "email_provided",
+      });
+    }
+
+    // Download the PDF
+    handleDownload();
     setSubmitted(true);
   };
 
@@ -118,14 +113,14 @@ export default function OncologyChecklist() {
         </div>
       </section>
 
-      {/* Email Capture */}
+      {/* Download Section — honest copy */}
       <section className="py-16 px-6 md:px-12 lg:px-24">
         <div className="max-w-md mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[26px] font-bold text-gray-900">
             Download the free checklist
           </h2>
           <p className="text-[15px] text-gray-600 leading-[1.6]">
-            Enter your email and we'll send you the checklist. You can also download it immediately.
+            Enter your email if you would like future patient-support resources. The checklist will download immediately.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -133,8 +128,7 @@ export default function OncologyChecklist() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              required
+              placeholder="Your email address (optional)"
               className="w-full px-5 py-4 rounded-xl border border-gray-200 text-[16px] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.15_195)]/30 focus:border-[oklch(0.55_0.15_195)]"
             />
             <button
@@ -142,13 +136,27 @@ export default function OncologyChecklist() {
               className="w-full px-6 py-4 text-white text-[16px] font-semibold rounded-xl transition-all hover:shadow-lg"
               style={{ background: "oklch(0.55 0.15 195)" }}
             >
-              Send Me The Checklist
+              Download Checklist
             </button>
           </form>
 
           <p className="text-[13px] text-gray-400">
-            Free. No spam. Just a helpful checklist for your next appointment.
+            Email optional — download works either way. Free. No spam.
           </p>
+        </div>
+      </section>
+
+      {/* MyHealthCanvas bridge */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <p className="text-[15px] text-gray-600 leading-[1.7]">
+            This checklist is a free starter resource from <strong>MyHealthCanvas</strong>, a patient-designed appointment companion that helps you organise questions, symptoms, medicines and priorities before oncology appointments.
+          </p>
+          <Link href="/myhealthcanvas">
+            <span className="text-[15px] font-bold text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
+              Explore MyHealthCanvas →
+            </span>
+          </Link>
         </div>
       </section>
 
@@ -183,7 +191,7 @@ function ChecklistThankYou() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
-        title="Your checklist is on its way | MyHealthCanvas"
+        title="Your checklist has downloaded | MyHealthCanvas"
         description="Thank you for downloading the oncology appointment checklist. Explore more resources for cancer patients and caregivers."
         canonicalPath="/oncology-appointment-checklist"
       />
@@ -194,11 +202,25 @@ function ChecklistThankYou() {
             <span className="text-[28px]" aria-hidden="true">✓</span>
           </div>
           <h1 className="text-[28px] md:text-[36px] font-bold text-gray-900">
-            Your checklist is on its way.
+            Your checklist has downloaded.
           </h1>
           <p className="text-[17px] text-gray-600 leading-[1.7]">
-            The PDF should have downloaded automatically. If not, <a href="/pdfs/21-questions-oncology-checklist.pdf" download className="text-[oklch(0.55_0.15_195)] underline">click here to download it</a>.
+            If the download did not start, <a href="/pdfs/21-questions-oncology-checklist.pdf" download className="text-[oklch(0.55_0.15_195)] underline">click here to download it</a>.
           </p>
+        </div>
+      </section>
+
+      {/* MyHealthCanvas bridge */}
+      <section className="py-10 px-6 md:px-12 lg:px-24">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <p className="text-[15px] text-gray-600 leading-[1.7]">
+            This checklist is a free starter resource from <strong>MyHealthCanvas</strong>, a patient-designed appointment companion that helps you organise questions, symptoms, medicines and priorities before oncology appointments.
+          </p>
+          <Link href="/myhealthcanvas" onClick={() => trackResourceClick("/myhealthcanvas")}>
+            <span className="text-[15px] font-bold text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
+              Explore MyHealthCanvas →
+            </span>
+          </Link>
         </div>
       </section>
 

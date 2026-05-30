@@ -146,7 +146,11 @@ export default function MyHealthCanvas() {
           </p>
 
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] text-center">
-            MyHealthCanvas helps patients and caregivers organise the avalanche of emails, letters, calls, symptoms and appointment questions that can follow a cancer diagnosis.
+            MyHealthCanvas is a downloadable, fillable PDF appointment companion. Use it on your phone, tablet, computer or printed out — no account required.
+          </p>
+
+          <p className="text-[15px] text-gray-500 leading-[1.6] text-center">
+            It helps patients and caregivers organise the avalanche of emails, letters, calls, symptoms and appointment questions that can follow a cancer diagnosis.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">

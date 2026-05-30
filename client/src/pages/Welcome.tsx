@@ -105,12 +105,62 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* REAL VOICES - Trust section immediately after hero */}
+      {/* WHAT IS MYHEALTHCANVAS - Product clarity before testimonials */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div className="text-center space-y-3">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">What is MyHealthCanvas?</h2>
+            <p className="text-[16px] text-gray-600 leading-[1.7] max-w-2xl mx-auto">
+              A private, fillable PDF appointment companion for cancer patients and caregivers. Use it on your phone, tablet, computer or printed out to keep questions, symptoms, medicines, priorities and care notes together before appointments.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Questions for your oncologist</p>
+            </div>
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Symptoms and side effects</p>
+            </div>
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Medicines and allergies</p>
+            </div>
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Diagnosis and key medical information</p>
+            </div>
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Priorities for your next appointment</p>
+            </div>
+            <div className="flex items-start gap-3 p-3">
+              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
+              <p className="text-[15px] text-gray-700">Caregiver notes and future planning</p>
+            </div>
+          </div>
+
+          <div className="text-center space-y-4 pt-2">
+            <p className="text-[14px] text-gray-500">
+              No account required. No medical advice. You choose what to write and who to share it with.
+            </p>
+            <Link href="/myhealthcanvas" onClick={() => trackClick("homepage_what_is_mhc")}>
+              <span className="text-[15px] font-bold text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
+                See how MyHealthCanvas works →
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* REAL VOICES - Trust section with product context */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Real voices</h2>
-            <p className="text-[16px] text-gray-500 leading-[1.6]">From patients, caregivers and clinicians using MyHealthCanvas in real cancer care.</p>
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Real voices from people using MyHealthCanvas</h2>
+            <p className="text-[16px] text-gray-500 leading-[1.6]">Patients, caregivers and clinicians describe how the appointment companion helps organise questions, symptoms and priorities before cancer care appointments.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
