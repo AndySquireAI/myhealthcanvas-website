@@ -393,16 +393,17 @@ export default function MyHealthCanvas() {
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800">Download the free oncology appointment checklist</h2>
           <p className="text-[16px] text-gray-600 leading-[1.7]">
-            Not ready to buy yet? Start with a simple checklist of questions to bring to your next oncology appointment.
+            Not ready to buy yet? Start with a simple checklist of 21 questions to bring to your next oncology appointment.
           </p>
-          <a
-            href="mailto:andy@patientcentriccare.ai?subject=Free%20Oncology%20Appointment%20Checklist"
-            className="inline-block px-8 py-4 text-white text-[16px] font-semibold rounded-xl shadow-md hover:shadow-lg transition-all no-underline"
-            style={{ background: "oklch(0.55 0.15 195)" }}
-          >
-            Request free checklist
-          </a>
-          <p className="text-[12px] text-gray-400">This currently opens your email client. A full email capture flow can be added in the next PR.</p>
+          <Link href="/oncology-appointment-checklist">
+            <button
+              className="inline-block px-8 py-4 text-white text-[16px] font-semibold rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer"
+              style={{ background: "oklch(0.55 0.15 195)" }}
+            >
+              Get the free checklist
+            </button>
+          </Link>
+          <p className="text-[13px] text-gray-400">Free. No spam. Printable PDF you can take to your next appointment.</p>
         </div>
       </section>
 

@@ -1,10 +1,8 @@
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Welcome() {
-  const [email, setEmail] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   // Analytics: scroll depth tracking
   useEffect(() => {
@@ -48,21 +46,6 @@ export default function Welcome() {
     }
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      // Track email capture
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "email_capture", {
-          event_category: "lead_generation",
-          event_label: "homepage_checklist",
-        });
-      }
-      // Open mailto with pre-filled subject
-      window.location.href = `mailto:andy@patientcentriccare.ai?subject=Oncology%20Appointment%20Checklist%20Request&body=Please%20send%20me%20the%2021%20Questions%20checklist.%20My%20email%3A%20${encodeURIComponent(email)}`;
-      setEmailSubmitted(true);
-    }
-  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
@@ -237,31 +220,16 @@ export default function Welcome() {
             A calm, practical checklist you can take with you. Covers diagnosis, treatment, side effects, and what to expect next.
           </p>
 
-          {!emailSubmitted ? (
-            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                className="w-full sm:flex-1 px-5 py-3 rounded-xl border border-gray-200 text-[15px] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.15_195)]/30 focus:border-[oklch(0.55_0.15_195)]"
-              />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+            <Link href="/oncology-appointment-checklist" onClick={() => trackClick("homepage_checklist_cta")}>
               <button
-                type="submit"
-                className="w-full sm:w-auto px-6 py-3 text-white text-[15px] font-semibold rounded-xl transition-all hover:shadow-md"
+                className="w-full sm:w-auto px-8 py-4 text-white text-[15px] font-semibold rounded-xl transition-all hover:shadow-md"
                 style={{ background: 'oklch(0.55 0.15 195)' }}
               >
-                Send me the checklist
+                Download Free Checklist
               </button>
-            </form>
-          ) : (
-            <div className="py-4 px-6 rounded-xl border border-green-200 bg-green-50 max-w-md mx-auto">
-              <p className="text-[15px] text-green-700 font-medium">
-                Thank you. Check your email — we'll send the checklist shortly.
-              </p>
-            </div>
-          )}
+            </Link>
+          </div>
 
           <p className="text-[13px] text-gray-400">
             Free. No spam. Just a helpful checklist for your next appointment.

@@ -23,6 +23,7 @@ import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
 import ThankYou from "./pages/ThankYou";
 import Start from "./pages/Start";
+import OncologyChecklist from "./pages/OncologyChecklist";
 import { Redirect } from "wouter";
 
 // Routes that should NOT show the global Header/Footer
@@ -43,6 +44,7 @@ function Router() {
         <Route path="/myhealthcanvas/advocacy" component={MyHealthCanvasAdvocacy} />
         <Route path="/myhealthcanvas/thank-you" component={ThankYou} />
         <Route path="/first-30-days-after-diagnosis" component={First30Days} />
+        <Route path="/oncology-appointment-checklist" component={OncologyChecklist} />
         <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
         <Route path="/aaa" component={AAA} />

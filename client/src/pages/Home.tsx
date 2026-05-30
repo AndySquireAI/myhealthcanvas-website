@@ -610,6 +610,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NEXT STEPS - Resource recommendations to reduce dead ends */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center">
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">Next steps</h2>
+            <p className="text-[15px] text-gray-500 mt-2">Continue preparing for your cancer care journey.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/oncology-appointment-checklist">
+              <div className="group cursor-pointer bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all space-y-3 h-full">
+                <h3 className="text-[17px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  Free Checklist
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  Download 21 printable questions to bring to your next oncology appointment.
+                </p>
+                <p className="text-[13px] font-bold text-[oklch(0.55_0.15_195)]">Get the checklist →</p>
+              </div>
+            </Link>
+
+            <Link href="/first-30-days-after-diagnosis">
+              <div className="group cursor-pointer bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all space-y-3 h-full">
+                <h3 className="text-[17px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  First 30 Days After Diagnosis
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  A week-by-week guide to navigating the first month after a cancer diagnosis.
+                </p>
+                <p className="text-[13px] font-bold text-[oklch(0.55_0.15_195)]">Read the guide →</p>
+              </div>
+            </Link>
+
+            <Link href="/myhealthcanvas">
+              <div className="group cursor-pointer bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all space-y-3 h-full">
+                <h3 className="text-[17px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  MyHealthCanvas
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  A printable appointment companion to organise your questions, symptoms and priorities.
+                </p>
+                <p className="text-[13px] font-bold text-[oklch(0.55_0.15_195)]">Learn more →</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Safety Confirmation Dialog for "Looking Ahead" */}
       <AlertDialog open={safetyDialogOpen} onOpenChange={setSafetyDialogOpen}>
         <AlertDialogContent className="max-w-md" style={{ backgroundColor: '#FFFFFF' }}>
