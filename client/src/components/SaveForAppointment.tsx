@@ -6,10 +6,11 @@ interface SaveForAppointmentProps {
 export default function SaveForAppointment({ pageTitle = "MyHealthCanvas Resource" }: SaveForAppointmentProps) {
   const trackClick = (action: string) => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", `${action}_click`, {
+      (window as any).gtag("event", "cta_click", {
         event_category: "return_visit",
-        event_label: pageTitle,
+        event_label: action,
         page: window.location.pathname,
+        location: "save_for_appointment",
       });
     }
   };

@@ -50,9 +50,9 @@ export default function ELibrary() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="eLibrary | AI & Healthcare Insights | MyHealthCanvas"
-        description="Curated articles on AI in healthcare, patient advocacy, and business automation. Evidence-based analysis featuring Andy's AAA Assessment Framework. For patients, businesses, and thought leaders."
-        keywords="AI healthcare articles, patient advocacy insights, AI business automation blog, healthcare AI research, cancer patient resources, AI agents articles, digital health insights"
+        title="eLibrary | Cancer Support, Patient Advocacy & Healthcare Resources | MyHealthCanvas"
+        description="Curated articles on cancer support, patient advocacy, and healthcare communication. Evidence-based resources for patients, caregivers and healthcare professionals."
+        keywords="cancer support articles, patient advocacy resources, oncology patient resources, caregiver support articles, healthcare communication, cancer patient education"
         canonicalPath="/elibrary"
       />
       {/* Hero Section */}

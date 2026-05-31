@@ -119,6 +119,13 @@ export default function ClinicianFeedback() {
               />
             </div>
 
+            {/* Privacy notice */}
+            <div className="bg-gray-50 rounded-lg p-3">
+              <p className="text-[12px] text-gray-500 leading-[1.5]">
+                Please do not include patient-identifiable details in your response.
+              </p>
+            </div>
+
             {/* Benefits */}
             <div className="space-y-2">
               <label className="text-[14px] font-semibold text-gray-700">
@@ -160,6 +167,9 @@ export default function ClinicianFeedback() {
 
             <p className="text-[13px] text-gray-400 text-center">
               Your feedback helps us improve MyHealthCanvas and support more patients and caregivers.
+            </p>
+            <p className="text-[12px] text-gray-300 text-center italic">
+              Prototype note: this response is stored locally only and will not reach the MyHealthCanvas team yet.
             </p>
           </form>
         </div>

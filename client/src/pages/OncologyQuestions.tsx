@@ -59,7 +59,7 @@ const topicCards = [
 export default function OncologyQuestions() {
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "hub_page_view", {
+      (window as any).gtag("event", "page_view", {
         event_category: "authority",
         event_label: "oncology_questions_hub",
       });

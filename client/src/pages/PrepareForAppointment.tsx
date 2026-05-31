@@ -7,7 +7,7 @@ import SaveForAppointment from "@/components/SaveForAppointment";
 export default function PrepareForAppointment() {
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "appointment_workflow_page_view", {
+      (window as any).gtag("event", "page_view", {
         event_category: "engagement",
         event_label: "prepare_for_appointment",
       });

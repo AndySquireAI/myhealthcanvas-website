@@ -7,7 +7,7 @@ import SaveForAppointment from "@/components/SaveForAppointment";
 export default function PatientOutcomes() {
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "outcomes_page_view", {
+      (window as any).gtag("event", "page_view", {
         event_category: "evidence",
         event_label: "patient_outcomes",
       });
@@ -17,9 +17,9 @@ export default function PatientOutcomes() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
-        title="Patient Outcomes - How MyHealthCanvas Helps | MyHealthCanvas"
-        description="MyHealthCanvas helps cancer patients and caregivers prepare for appointments, communicate more clearly, and feel less overwhelmed. See how structured preparation supports better conversations with your care team."
-        keywords="cancer patient preparation outcomes, oncology appointment preparation benefits, patient communication support, caregiver support outcomes, MyHealthCanvas results"
+        title="Preparation & Communication Support | MyHealthCanvas"
+        description="MyHealthCanvas helps cancer patients and caregivers prepare for appointments, communicate more clearly, and feel less overwhelmed. Patient-reported feedback about preparation, communication and confidence."
+        keywords="cancer patient preparation support, oncology appointment preparation benefits, patient communication support, caregiver support, MyHealthCanvas"
         canonicalPath="/patient-outcomes"
       />
 
@@ -27,13 +27,16 @@ export default function PatientOutcomes() {
       <section className="py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-bold">
-            Patient Outcomes
+            Preparation & Communication Support
           </p>
           <h1 className="text-[30px] md:text-[42px] lg:text-[48px] font-bold text-gray-900 leading-[1.2]">
-            Better prepared. Better conversations. Less overwhelm.
+            Better prepared. Clearer conversations. Less appointment overwhelm.
           </h1>
           <p className="text-[18px] md:text-[20px] text-gray-600 leading-[1.7] font-light max-w-2xl mx-auto">
-            MyHealthCanvas is designed to improve preparation, communication and confidence for cancer patients and caregivers. Here is what we are trying to help with.
+            MyHealthCanvas is designed to support preparation, communication and confidence for cancer patients and caregivers. Here is what we are trying to help with.
+          </p>
+          <p className="text-[13px] text-gray-400 leading-[1.6] max-w-xl mx-auto italic">
+            MyHealthCanvas does not measure or claim clinical outcomes. We collect patient-reported feedback about preparation, communication, confidence and organisation.
           </p>
         </div>
       </section>

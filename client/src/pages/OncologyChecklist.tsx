@@ -10,7 +10,7 @@ export default function OncologyChecklist() {
   // Analytics: page view
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "checklist_page_view", {
+      (window as any).gtag("event", "page_view", {
         event_category: "funnel",
         event_label: "oncology_checklist_landing",
       });

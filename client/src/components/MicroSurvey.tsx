@@ -162,7 +162,7 @@ export default function MicroSurvey({ context }: MicroSurveyProps) {
         <div className="space-y-4">
           <p className="text-[15px] font-semibold text-gray-800">What would help you most?</p>
           <div className="space-y-2">
-            {["Questions", "Symptom tracking", "Organisation", "Caregiver support", "Future planning"].map((area) => (
+            {["Better Question Preparation", "Clearer Symptom Tracking", "Reduced Caregiver Admin Burden", "Improved Appointment Communication", "Greater Sense of Control", "Future Planning When Ready"].map((area) => (
               <button
                 key={area}
                 onClick={() => setHelpArea(area)}

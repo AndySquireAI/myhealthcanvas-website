@@ -178,7 +178,7 @@ export default function Welcome() {
 
             {/* Caregiver voice */}
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-4 shadow-sm">
-              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Reduced Caregiver Stress</p>
+              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Reduced Caregiver Admin Burden</p>
               <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.03 300)' }}>
                 <span aria-hidden="true">🤝</span>
               </div>
@@ -190,7 +190,7 @@ export default function Welcome() {
 
             {/* Clinician voice */}
             <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)]/30 space-y-4 shadow-sm">
-              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Improved Communication</p>
+              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Improved Appointment Communication</p>
               <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.05 195)' }}>
                 <span aria-hidden="true">🩺</span>
               </div>

@@ -26,9 +26,11 @@ export default function CaregiverCompanion() {
 
   const trackClick = () => {
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "caregiver_resource_click", {
+      (window as any).gtag("event", "resource_click", {
         event_category: "engagement",
-        event_label: "caregiver_companion_section",
+        event_label: "caregiver_companion",
+        page: typeof window !== "undefined" ? window.location.pathname : "",
+        location: "caregiver_companion_section",
       });
     }
   };
