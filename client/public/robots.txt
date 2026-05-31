@@ -1,26 +1,18 @@
 # robots.txt for MyHealthCanvas.com
 # https://myhealthcanvas.com
+# Note: Cloudflare may prepend its own managed rules above this file.
+# This file should not conflict with those rules.
 
+# Default: allow all crawlers
 User-agent: *
 Allow: /
-Disallow: /pdfs/
-Disallow: /downloads/
-Disallow: /thank-you
-Disallow: /$
 
-# Sitemaps
+# Sitemap
 Sitemap: https://myhealthcanvas.com/sitemap.xml
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Allow all major search engines
+# Allow all major search engines explicitly
 User-agent: Googlebot
 Allow: /
-Disallow: /pdfs/
-Disallow: /downloads/
-Disallow: /thank-you
-Disallow: /$
 
 User-agent: Bingbot
 Allow: /
@@ -47,7 +39,7 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Block common bad bots
+# Block common scraper bots
 User-agent: AhrefsBot
 Disallow: /
 
