@@ -148,12 +148,18 @@ export default function MyHealthCanvas() {
           </p>
 
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] text-center">
-            MyHealthCanvas is a downloadable, fillable PDF appointment companion. Use it on your phone, tablet, computer or printed out — no account required.
+            Downloadable PDF form. Fill it using free Adobe Acrobat Reader Fill & Sign on your phone, tablet or computer.
           </p>
 
           <p className="text-[15px] text-gray-500 leading-[1.6] text-center">
             It helps patients and caregivers organise the avalanche of emails, letters, calls, symptoms and appointment questions that can follow a cancer diagnosis.
           </p>
+
+          <img
+            src="/images/myhealthcanvas-product-visual.png"
+            alt="MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team"
+            className="w-full max-w-2xl mx-auto rounded-lg"
+          />
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
             <button
@@ -171,9 +177,7 @@ export default function MyHealthCanvas() {
             </a>
           </div>
 
-          <p className="text-[14px] text-gray-500 leading-[1.6]">
-            Downloadable PDF form. Fill it using free Adobe Acrobat Reader Fill & Sign on your phone, tablet or computer.
-          </p>
+
         </div>
       </section>
 
