@@ -434,6 +434,17 @@ export default function MyHealthCanvas() {
       <PatientStories />
       <CaregiverCompanion />
 
+      {/* Patient-Doctor Image */}
+      <section className="py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto">
+          <img
+            src="/images/patient-doctor-myhealthcanvas-final.webp"
+            alt="Cancer patient showing MyHealthCanvas on phone to oncologist during hospital appointment"
+            className="w-full rounded-lg shadow-sm"
+          />
+        </div>
+      </section>
+
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800">Download the free oncology appointment checklist</h2>
