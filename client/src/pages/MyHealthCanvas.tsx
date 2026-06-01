@@ -155,12 +155,6 @@ export default function MyHealthCanvas() {
             It helps patients and caregivers organise the avalanche of emails, letters, calls, symptoms and appointment questions that can follow a cancer diagnosis.
           </p>
 
-          <img
-            src="/images/myhealthcanvas-product-visual.png"
-            alt="MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team"
-            className="w-full max-w-2xl mx-auto rounded-lg"
-          />
-
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
             <button
               onClick={scrollToPricing}
@@ -260,6 +254,17 @@ export default function MyHealthCanvas() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Product Visual */}
+      <section className="py-12 px-6 md:px-12 lg:px-24">
+        <div className="max-w-4xl mx-auto">
+          <img
+            src="/images/myhealthcanvas-product-visual.png"
+            alt="MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team"
+            className="w-full rounded-lg"
+          />
         </div>
       </section>
 
