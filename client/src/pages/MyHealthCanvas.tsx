@@ -12,7 +12,7 @@ declare global {
 }
 
 export default function MyHealthCanvas() {
-  const [zoomedImage, setZoomedImage] = useState(false);
+
   const [showStickyBar, setShowStickyBar] = useState(false);
 
   useEffect(() => {
@@ -410,44 +410,8 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      <section className="py-20 px-6 md:px-12 lg:px-24">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-[24px] md:text-3xl font-bold text-gray-800 mb-4 text-center">See the two versions</h2>
-          <p className="text-[16px] text-gray-500 text-center mb-8">
-            Essential keeps things practical. Complete adds a deeper optional layer for reflection and future care planning.
-          </p>
-          <div className="space-y-4">
-            <img
-              src="/images/MyHealthCanvasMOCKUPPBD.webp"
-              alt="MyHealthCanvas one-page and two-page template previews"
-              className="w-full rounded-lg shadow-lg border border-gray-200"
-            />
-            <div className="text-center space-y-2">
-              <p className="text-[15px] text-gray-500">Essential Appointment Companion · Complete Care & Future Planning Companion</p>
-              <button
-                onClick={() => setZoomedImage(true)}
-                className="text-[14px] text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer"
-              >
-                Click to view larger
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <PatientStories />
       <CaregiverCompanion />
-
-      {/* Patient-Doctor Image */}
-      <section className="py-12 px-6 md:px-12 lg:px-24">
-        <div className="max-w-3xl mx-auto">
-          <img
-            src="/images/patient-doctor-myhealthcanvas-final.webp"
-            alt="Cancer patient showing MyHealthCanvas on phone to oncologist during hospital appointment"
-            className="w-full rounded-lg shadow-sm"
-          />
-        </div>
-      </section>
 
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
@@ -531,26 +495,7 @@ export default function MyHealthCanvas() {
         </div>
       )}
 
-      {zoomedImage && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 cursor-pointer"
-          onClick={() => setZoomedImage(false)}
-        >
-          <div className="relative">
-            <img
-              src="/images/MyHealthCanvasMOCKUPPBD.webp"
-              alt="MyHealthCanvas template preview"
-              className="max-w-full max-h-[90vh] object-contain"
-            />
-            <button
-              onClick={() => setZoomedImage(false)}
-              className="absolute top-4 right-4 text-white text-2xl bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70"
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 }
