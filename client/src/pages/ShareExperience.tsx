@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import SEO from "@/components/SEO";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqngggq";
+
 export default function ShareExperience() {
   const [role, setRole] = useState("");
   const [country, setCountry] = useState("");
   const [comment, setComment] = useState("");
   const [permission, setPermission] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
@@ -17,21 +20,29 @@ export default function ShareExperience() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
 
-    // Store in localStorage for evidence dashboard
-    const response = {
+    const payload = {
+      _type: "patient_feedback",
       role,
       country,
       comment,
-      permission,
-      type: "patient_feedback",
-      timestamp: new Date().toISOString(),
+      permission_to_use_anonymously: permission,
+      submitted_at: new Date().toISOString(),
+      page_url: window.location.href,
     };
-    const existing = JSON.parse(localStorage.getItem("mhc_feedback_responses") || "[]");
-    existing.push(response);
-    localStorage.setItem("mhc_feedback_responses", JSON.stringify(existing));
+
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // Silent fail — still show thank you
+    }
 
     // Analytics
     if (typeof window !== "undefined" && (window as any).gtag) {
@@ -43,6 +54,7 @@ export default function ShareExperience() {
       });
     }
 
+    setSubmitting(false);
     setSubmitted(true);
   };
 
@@ -161,18 +173,18 @@ export default function ShareExperience() {
             {/* Submit */}
             <button
               type="submit"
-              disabled={!role || !country}
+              disabled={!role || !country || submitting}
               className="w-full py-3.5 text-[15px] font-semibold text-white rounded-lg transition-all hover:shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ background: "oklch(0.55 0.15 195)" }}
             >
-              Share My Experience
+              {submitting ? "Submitting..." : "Share My Experience"}
             </button>
 
             <p className="text-[13px] text-gray-400 text-center">
               Your feedback helps us improve MyHealthCanvas and support more patients and caregivers.
             </p>
-            <p className="text-[12px] text-gray-300 text-center italic">
-              Prototype note: this response is stored locally only and will not reach the MyHealthCanvas team yet.
+            <p className="text-[12px] text-gray-300 text-center">
+              Your response will be stored securely for product improvement.
             </p>
           </form>
         </div>

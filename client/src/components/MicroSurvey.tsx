@@ -5,6 +5,8 @@ interface MicroSurveyProps {
   context: "checklist_download" | "product_purchase";
 }
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mpqngggq";
+
 export default function MicroSurvey({ context }: MicroSurveyProps) {
   const [step, setStep] = useState(0); // 0 = not started, 1-3 = questions, 4 = done
   const [preparedness, setPreparedness] = useState<number | null>(null);
@@ -35,6 +37,28 @@ export default function MicroSurvey({ context }: MicroSurveyProps) {
     trackEvent("survey_started");
   };
 
+  const submitToFormspree = async () => {
+    const payload = {
+      _type: "micro_survey",
+      context,
+      preparedness,
+      role,
+      help_area: helpArea,
+      submitted_at: new Date().toISOString(),
+      page_url: window.location.href,
+    };
+
+    try {
+      await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // Silent fail — localStorage backup below
+    }
+  };
+
   const submitAnswer = (questionNum: number) => {
     if (questionNum === 1 && preparedness) {
       trackEvent("survey_q1_preparedness", { value: preparedness });
@@ -48,7 +72,9 @@ export default function MicroSurvey({ context }: MicroSurveyProps) {
         role,
         help_area: helpArea,
       });
-      // Store in localStorage
+      // Submit to Formspree
+      submitToFormspree();
+      // Also store in localStorage as backup
       const response = {
         preparedness,
         role,

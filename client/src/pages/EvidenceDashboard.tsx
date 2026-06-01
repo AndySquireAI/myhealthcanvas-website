@@ -56,24 +56,24 @@ export default function EvidenceDashboard() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
-        title="Local Prototype Evidence Dashboard | MyHealthCanvas"
-        description="Internal prototype evidence dashboard. Data is stored locally in this browser only."
+        title="Evidence Dashboard | MyHealthCanvas"
+        description="Internal evidence dashboard. Submissions are captured via Formspree. This page shows local browser data only."
         canonicalPath="/evidence-dashboard"
         noindex={true}
       />
 
       <section className="py-16 px-6 md:px-12 lg:px-24">
         <div className="max-w-5xl mx-auto space-y-10">
-          {/* Prototype Warning */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
-            <p className="text-[13px] font-semibold text-amber-800">
-              Prototype only. Data is stored locally in this browser and is not aggregated across users.
+          {/* Info Notice */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+            <p className="text-[13px] font-semibold text-blue-800">
+              Submissions are captured via Formspree. This page shows local browser data only. View all submissions at formspree.io.
             </p>
           </div>
 
           <div className="text-center space-y-3">
-            <p className="text-[12px] uppercase tracking-wider font-bold text-gray-400">Internal Prototype</p>
-            <h1 className="text-[28px] md:text-[36px] font-bold text-gray-900">Local Prototype Evidence Dashboard</h1>
+            <p className="text-[12px] uppercase tracking-wider font-bold text-gray-400">Internal</p>
+            <h1 className="text-[28px] md:text-[36px] font-bold text-gray-900">Evidence Dashboard</h1>
             <p className="text-[16px] text-gray-500">
               Patient-reported support feedback. Guides future development and partnership readiness.
             </p>
