@@ -185,68 +185,71 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Product Visual - native HTML with consultation image */}
-      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-5xl mx-auto space-y-12">
-          {/* Panel 1: Patient + Doctor */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
-                Never leave an oncology appointment wishing you had asked something important.
-              </h2>
-              <p className="text-[16px] text-gray-600 leading-[1.7]">
-                MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
-              </p>
-              <div className="flex items-center gap-2 justify-center md:justify-start">
-                <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
-              </div>
-            </div>
-            <div>
-              <img
-                src="/images/patient-doctor-myhealthcanvas-final.png"
-                alt="Patient showing their MyHealthCanvas appointment companion to their oncologist"
-                className="w-full rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
+      {/* Image 1: Man talking to oncologist */}
+      <section className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-5xl mx-auto">
+          <img
+            src="/images/hero-man-oncologist.png"
+            alt="Male cancer patient discussing his MyHealthCanvas appointment companion with his oncologist"
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </section>
 
-          {/* Panel 2: Caregiver preparation */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="order-2 md:order-1">
-              <img
-                src="/images/questions-hero-consultation.png"
-                alt="Patient and caregiver preparing for an oncology appointment together"
-                className="w-full rounded-xl shadow-lg"
-              />
+      {/* Text panel 1: Never leave an oncology appointment... */}
+      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
+            Never leave an oncology appointment wishing you had asked something important.
+          </h2>
+          <p className="text-[16px] text-gray-600 leading-[1.7]">
+            MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
+          </p>
+          <div className="flex items-center gap-2 justify-center">
+            <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Image 2: Wife helping patient husband prepare */}
+      <section className="px-6 md:px-12 lg:px-24 pt-4 pb-4" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-5xl mx-auto">
+          <img
+            src="/images/hero-couple-preparing.png"
+            alt="Wife helping her husband prepare questions and notes for his next oncology appointment"
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </section>
+
+      {/* Text panel 2: Prepare together */}
+      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
+            Prepare together. Feel more in control.
+          </h2>
+          <p className="text-[16px] text-gray-600 leading-[1.7]">
+            Review tomorrow's appointment, add questions, and make sure everything that matters is on your list.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+              <span className="text-[13px] font-medium text-gray-700">Stay organised</span>
             </div>
-            <div className="space-y-4 text-center md:text-left order-1 md:order-2">
-              <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
-                Prepare together. Feel more in control.
-              </h2>
-              <p className="text-[16px] text-gray-600 leading-[1.7]">
-                Review tomorrow's appointment, add questions, and make sure everything that matters is on your list.
-              </p>
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
-                  <span className="text-[13px] font-medium text-gray-700">Stay organised</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                  <span className="text-[13px] font-medium text-gray-700">Work together</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span className="text-[13px] font-medium text-gray-700">Feel confident</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  <span className="text-[13px] font-medium text-gray-700">Save time</span>
-                </div>
-              </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <span className="text-[13px] font-medium text-gray-700">Work together</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span className="text-[13px] font-medium text-gray-700">Feel confident</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span className="text-[13px] font-medium text-gray-700">Save time</span>
             </div>
           </div>
         </div>
@@ -321,6 +324,17 @@ export default function MyHealthCanvas() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Image 3: Hospital patient showing phone to doctor - above oncologist quote */}
+      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-4xl mx-auto">
+          <img
+            src="/images/patient-doctor-myhealthcanvas-final.png"
+            alt="Hospital patient showing his MyHealthCanvas on phone to his doctor during a ward visit"
+            className="w-full rounded-xl shadow-lg"
+          />
         </div>
       </section>
 
