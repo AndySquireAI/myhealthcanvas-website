@@ -133,62 +133,52 @@ export default function Home() {
         canonicalPath="/questions"
       />
 
-      {/* HERO - Emotional resonance + immediate value proposition */}
-      <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 relative overflow-hidden">
-        {/* Subtle hands background - kept */}
-        <div 
-          className="absolute inset-0 bg-no-repeat bg-center md:bg-bottom opacity-40 md:opacity-50 pointer-events-none"
-          style={{
-            backgroundImage: 'url(/images/bg-homepage-hands.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 70%',
-          }}
-        />
-        
-        <div className="max-w-xl mx-auto text-center space-y-10 relative z-10">
-          
-          {/* H1 - SEO optimized for target keyword */}
-          <h1 className="text-[32px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.2] tracking-tight">
-            Questions to Ask Your{" "}
-            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              Oncologist
-            </span>
-          </h1>
-          
-          {/* Core tagline - the value proposition */}
-          <p className="text-[22px] md:text-[28px] font-semibold text-gray-800 leading-[1.4]">
-            One step at a time.{" "}
-            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              Pick the questions you need.
-            </span>
-          </p>
-
-          {/* Reassurance */}
-          <div className="space-y-4">
-            <p className="text-[18px] md:text-xl text-gray-600 font-light leading-[1.6]">
-              Curated from Macmillan, NHS, Cancer Research UK, and the world's top cancer centres. You choose what to read, and when.
-            </p>
+      {/* HERO - 2-column layout with consultation image */}
+      <section className="w-full" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-8 md:pb-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Left: Coded text */}
+            <div className="space-y-6 order-2 md:order-1 text-center">
+              <h1 className="text-[28px] md:text-[38px] lg:text-[46px] font-bold text-gray-900 leading-[1.15] tracking-tight">
+                Questions to Ask Your{" "}
+                <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+                  Oncologist
+                </span>
+              </h1>
+              <p className="text-[18px] md:text-[22px] font-semibold text-gray-800 leading-[1.4]">
+                One step at a time.{" "}
+                <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+                  Pick the questions you need.
+                </span>
+              </p>
+              <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
+                Curated from Macmillan, NHS, Cancer Research UK, and the world's top cancer centres. You choose what to read, and when.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
+                <a href="#journey">
+                  <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
+                    Start your journey
+                  </button>
+                </a>
+                <Link href="/first-30-days-after-diagnosis">
+                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
+                    First 30 days after diagnosis
+                  </button>
+                </Link>
+              </div>
+              <p className="text-[14px] text-gray-400 font-light">
+                Created by a 2× cancer survivor. Private. Never replaces your doctors.
+              </p>
+            </div>
+            {/* Right: Consultation image */}
+            <div className="order-1 md:order-2">
+              <img
+                src="/images/questions-hero-consultation.png"
+                alt="Patient having a conversation with their oncologist during a cancer appointment"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
           </div>
-          
-          {/* Primary CTA */}
-          <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#journey">
-              <button className="w-full sm:w-auto px-10 py-5 bg-[oklch(0.55_0.15_195)] text-white text-[18px] font-medium rounded-lg hover:bg-[oklch(0.50_0.15_195)] transition-colors">
-                Start your journey
-              </button>
-            </a>
-            <Link href="/first-30-days-after-diagnosis">
-              <button className="w-full sm:w-auto px-10 py-5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] text-[18px] font-medium rounded-lg hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-                First 30 days after diagnosis
-              </button>
-            </Link>
-          </div>
-          
-          {/* Trust signal */}
-          <p className="text-[15px] text-gray-400 font-light">
-            Created by a 2× cancer survivor. Private. Never replaces your doctors.
-          </p>
-          
         </div>
       </section>
 
