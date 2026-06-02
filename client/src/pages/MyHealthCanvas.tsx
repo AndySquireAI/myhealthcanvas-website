@@ -185,6 +185,17 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Product Visual - moved to directly under teal banner */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-4xl mx-auto">
+          <img
+            src="/images/myhealthcanvas-product-visual.png"
+            alt="MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team"
+            className="w-full rounded-lg"
+          />
+        </div>
+      </section>
+
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-4">
@@ -257,13 +268,13 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Product Visual */}
+      {/* Patient-doctor consultation image */}
       <section className="py-12 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
           <img
-            src="/images/myhealthcanvas-product-visual.png"
-            alt="MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team"
-            className="w-full rounded-lg"
+            src="/images/patient-doctor-myhealthcanvas-final.png"
+            alt="Patient showing their MyHealthCanvas appointment companion to their oncologist during a consultation"
+            className="w-full rounded-xl shadow-lg"
           />
         </div>
       </section>
