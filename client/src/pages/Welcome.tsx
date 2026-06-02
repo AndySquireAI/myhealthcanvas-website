@@ -61,10 +61,10 @@ export default function Welcome() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-8 md:pb-12">
           <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             {/* Left: All text coded for readability */}
-            <div className="space-y-5 order-2 md:order-1">
+            <div className="space-y-5 order-2 md:order-1 text-center">
               <h1 className="text-[28px] md:text-[38px] lg:text-[46px] font-bold text-gray-900 leading-[1.15] tracking-tight">
                 You don't have to face your{" "}
-                <span className="text-[oklch(0.55_0.15_195)]">
+                <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
                   next appointment
                 </span>{" "}
                 unprepared.
@@ -72,7 +72,7 @@ export default function Welcome() {
               <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
                 MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
                 <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
                   <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
                     Questions for Your Oncologist
@@ -84,7 +84,7 @@ export default function Welcome() {
                   </button>
                 </Link>
               </div>
-              <div className="flex items-center gap-2 pt-1">
+              <div className="flex items-center gap-2 pt-1 justify-center">
                 <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
