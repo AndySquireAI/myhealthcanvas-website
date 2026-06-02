@@ -56,101 +56,105 @@ export default function Welcome() {
         canonicalPath="/"
       />
 
-      {/* HERO - Emotional support first, not purchase */}
-      <section className="relative w-full overflow-hidden">
-        <img 
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png"
-          alt="Cancer patient and caregiver preparing questions for oncologist appointment"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-25 pointer-events-none"
-        />
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, #FDFCF8 0%, rgba(253, 252, 248, 0.85) 50%, #FDFCF8 100%)',
-          }}
-        />
-
-        <div className="relative z-10 pt-20 pb-12 md:pt-32 md:pb-20 px-6 text-center max-w-4xl mx-auto space-y-8">
-          <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-bold">
-            Oncology Appointment Preparation
-          </p>
-          <h1 className="text-[32px] md:text-[48px] lg:text-[56px] font-bold text-gray-900 leading-[1.2] tracking-tight">
-            You don't have to face your{" "}
-            <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-              next appointment
-            </span>{" "}
-            unprepared.
-          </h1>
-          <p className="text-[18px] md:text-[22px] text-gray-600 leading-[1.6] max-w-2xl mx-auto font-light">
-            We've gathered the most important questions from the world's top cancer centres — so you can walk in feeling calm, clear and ready.
-          </p>
-          
-          {/* Primary CTAs - Support first */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-            <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
-              <button className="w-full sm:w-auto px-8 py-4 bg-[oklch(0.55_0.15_195)] text-white text-[16px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
-                Questions for Your Oncologist
-              </button>
-            </Link>
-            <Link href="/first-30-days-after-diagnosis" onClick={() => trackClick("hero_first30days_cta")}>
-              <button className="w-full sm:w-auto px-8 py-4 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[16px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-                First 30 Days After Diagnosis
-              </button>
-            </Link>
+      {/* HERO - Split layout with image */}
+      <section className="w-full" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-12 md:pt-20 pb-8 md:pb-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left: Text content */}
+            <div className="space-y-6">
+              <h1 className="text-[30px] md:text-[40px] lg:text-[48px] font-bold text-gray-900 leading-[1.15] tracking-tight">
+                You don't have to face your{" "}
+                <span className="text-[oklch(0.55_0.15_195)]">
+                  next appointment
+                </span>{" "}
+                unprepared.
+              </h1>
+              <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
+                MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
+                  <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
+                    Questions for Your Oncologist
+                  </button>
+                </Link>
+                <Link href="/oncology-appointment-checklist" onClick={() => trackClick("hero_checklist_cta")}>
+                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
+                    Get free checklist
+                  </button>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2 pt-1">
+                <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
+              </div>
+            </div>
+            {/* Right: Hero image with thought bubbles */}
+            <div className="relative">
+              <img
+                src="/images/homepage-hero-woman.jpg"
+                alt="Woman preparing for her oncology appointment, thinking about what questions to ask"
+                className="w-full rounded-lg"
+              />
+            </div>
           </div>
-          
-          <p className="text-[14px] text-gray-400 font-light pt-4">
-            Created by a 2× cancer survivor. Private. Never replaces your doctors.
-          </p>
         </div>
       </section>
 
-      {/* WHAT IS MYHEALTHCANVAS - Product clarity before testimonials */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
-        <div className="max-w-3xl mx-auto space-y-6">
-          <div className="text-center space-y-3">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">What is MyHealthCanvas?</h2>
-            <p className="text-[16px] text-gray-600 leading-[1.7] max-w-2xl mx-auto">
-              A private, fillable PDF appointment companion for cancer patients and caregivers. Use it on your phone, tablet, computer or printed out to keep questions, symptoms, medicines, priorities and care notes together before appointments.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Questions for your oncologist</p>
+      {/* BENEFITS BAR */}
+      <section className="py-12 px-6 md:px-12 lg:px-16" style={{ backgroundColor: '#ffffff' }}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-[20px] md:text-[26px] font-bold text-gray-900 text-center mb-10">
+            MyHealthCanvas helps you feel more prepared, less overwhelmed.
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
+            <div className="text-center space-y-3">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-[14px] md:text-[15px] font-bold text-gray-800">Capture what matters</h3>
+              <p className="text-[12px] md:text-[13px] text-gray-500 leading-[1.5]">Keep track of your questions, symptoms, medications and care notes in one place.</p>
             </div>
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Symptoms and side effects</p>
+            <div className="text-center space-y-3">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-[14px] md:text-[15px] font-bold text-gray-800">Prepare with confidence</h3>
+              <p className="text-[12px] md:text-[13px] text-gray-500 leading-[1.5]">Walk into appointments knowing you've covered what's important.</p>
             </div>
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Medicines and allergies</p>
+            <div className="text-center space-y-3">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="text-[14px] md:text-[15px] font-bold text-gray-800">Have better conversations</h3>
+              <p className="text-[12px] md:text-[13px] text-gray-500 leading-[1.5]">Stay focused, ask the right questions and understand your care.</p>
             </div>
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Diagnosis and key medical information</p>
+            <div className="text-center space-y-3">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-[14px] md:text-[15px] font-bold text-gray-800">Feel more in control</h3>
+              <p className="text-[12px] md:text-[13px] text-gray-500 leading-[1.5]">Reduce stress and feel empowered in your cancer journey.</p>
             </div>
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Priorities for your next appointment</p>
+            <div className="text-center space-y-3 col-span-2 md:col-span-1">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <h3 className="text-[14px] md:text-[15px] font-bold text-gray-800">Private. Secure. Yours.</h3>
+              <p className="text-[12px] md:text-[13px] text-gray-500 leading-[1.5]">Your information stays private. No one sees your data, unless you share it.</p>
             </div>
-            <div className="flex items-start gap-3 p-3">
-              <span className="text-[oklch(0.55_0.15_195)] font-bold text-[16px]">·</span>
-              <p className="text-[15px] text-gray-700">Caregiver notes and future planning</p>
-            </div>
-          </div>
-
-          <div className="text-center space-y-4 pt-2">
-            <p className="text-[14px] text-gray-500">
-              No account required. No medical advice. You choose what to write and who to share it with.
-            </p>
-            <Link href="/myhealthcanvas" onClick={() => trackClick("homepage_what_is_mhc")}>
-              <span className="text-[15px] font-bold text-[oklch(0.55_0.15_195)] hover:underline cursor-pointer">
-                See how MyHealthCanvas works →
-              </span>
-            </Link>
           </div>
         </div>
       </section>
