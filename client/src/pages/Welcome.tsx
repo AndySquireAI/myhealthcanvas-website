@@ -56,27 +56,106 @@ export default function Welcome() {
         canonicalPath="/"
       />
 
-      {/* HERO - Full image on all devices */}
+      {/* HERO - Mobile-optimised: coded text + cropped image */}
       <section className="w-full" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-7xl mx-auto pt-4 md:pt-8">
-          <img
-            src="/images/homepage-hero-woman.jpg"
-            alt="You don't have to face your next appointment unprepared. MyHealthCanvas helps you organise your questions, symptoms, medications and priorities for clearer conversations with your care team."
-            className="w-full"
-          />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-8 md:pb-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Left: All text coded for readability */}
+            <div className="space-y-5 order-2 md:order-1">
+              <h1 className="text-[28px] md:text-[38px] lg:text-[46px] font-bold text-gray-900 leading-[1.15] tracking-tight">
+                You don't have to face your{" "}
+                <span className="text-[oklch(0.55_0.15_195)]">
+                  next appointment
+                </span>{" "}
+                unprepared.
+              </h1>
+              <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
+                MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
+                  <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
+                    Questions for Your Oncologist
+                  </button>
+                </Link>
+                <Link href="/oncology-appointment-checklist" onClick={() => trackClick("hero_checklist_cta")}>
+                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
+                    Get free checklist
+                  </button>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2 pt-1">
+                <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
+              </div>
+            </div>
+            {/* Right: Cropped woman image (no baked text) */}
+            <div className="order-1 md:order-2">
+              <img
+                src="/images/hero-woman-cropped.jpg"
+                alt="Woman thinking about questions to ask at her next oncology appointment"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
         </div>
-        {/* Mobile-readable CTAs below image */}
-        <div className="max-w-xl mx-auto px-6 py-6 flex flex-col sm:flex-row gap-3 justify-center">
-          <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
-            <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
-              Questions for Your Oncologist
-            </button>
-          </Link>
-          <Link href="/oncology-appointment-checklist" onClick={() => trackClick("hero_checklist_cta")}>
-            <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-              Get free checklist
-            </button>
-          </Link>
+      </section>
+
+      {/* BENEFITS BAR */}
+      <section className="py-10 px-6 md:px-12 lg:px-16 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-[18px] md:text-[24px] font-bold text-gray-900 text-center mb-8">
+            MyHealthCanvas helps you feel more prepared, less overwhelmed.
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
+            <div className="text-center space-y-2">
+              <div className="w-10 h-10 mx-auto flex items-center justify-center">
+                <svg className="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Capture what matters</h3>
+              <p className="text-[12px] text-gray-500 leading-[1.5]">Keep track of your questions, symptoms, medications and care notes in one place.</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-10 h-10 mx-auto flex items-center justify-center">
+                <svg className="w-7 h-7 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Prepare with confidence</h3>
+              <p className="text-[12px] text-gray-500 leading-[1.5]">Walk into appointments knowing you've covered what's important.</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-10 h-10 mx-auto flex items-center justify-center">
+                <svg className="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Have better conversations</h3>
+              <p className="text-[12px] text-gray-500 leading-[1.5]">Stay focused, ask the right questions and understand your care.</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="w-10 h-10 mx-auto flex items-center justify-center">
+                <svg className="w-7 h-7 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Feel more in control</h3>
+              <p className="text-[12px] text-gray-500 leading-[1.5]">Reduce stress and feel empowered in your cancer journey.</p>
+            </div>
+            <div className="text-center space-y-2 col-span-2 md:col-span-1">
+              <div className="w-10 h-10 mx-auto flex items-center justify-center">
+                <svg className="w-7 h-7 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </div>
+              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Private. Secure. Yours.</h3>
+              <p className="text-[12px] text-gray-500 leading-[1.5]">Your information stays private. No one sees your data, unless you share it.</p>
+            </div>
+          </div>
         </div>
       </section>
 
