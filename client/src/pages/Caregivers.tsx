@@ -21,6 +21,14 @@ const categories = [
     ],
   },
   {
+    title: "Considering a Second Opinion",
+    color: "#2E7D8A",
+    bgColor: "rgba(46, 125, 138, 0.06)",
+    borderColor: "rgba(46, 125, 138, 0.2)",
+    questions: [],
+    isSecondOpinion: true,
+  },
+  {
     title: "Daily Life & Logistics",
     color: "#643296",
     bgColor: "rgba(100, 50, 150, 0.06)",
@@ -353,24 +361,138 @@ export default function Caregivers() {
               <div
                 className="overflow-hidden transition-all duration-300"
                 style={{
-                  maxHeight: openCategory === index ? "500px" : "0px",
+                  maxHeight: openCategory === index ? ((category as any).isSecondOpinion ? "3000px" : "500px") : "0px",
                   opacity: openCategory === index ? 1 : 0,
                 }}
               >
                 <div className="px-6 pb-6 pt-1">
-                  <ul className="space-y-4">
-                    {category.questions.map((question, qIndex) => (
-                      <li key={qIndex} className="flex items-start gap-3">
-                        <span
-                          className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: category.color, opacity: 0.5 }}
-                        />
-                        <p className="text-[15px] md:text-[16px] text-gray-700 leading-[1.7]">
-                          "{question}"
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
+                  {(category as any).isSecondOpinion ? (
+                    <div className="space-y-6 text-[15px] md:text-[16px] text-gray-700 leading-[1.7]">
+                      <p>A second opinion is common in cancer care, especially before starting treatment.</p>
+                      <p>Many patients and caregivers worry that asking for another opinion will offend their medical team. In reality, experienced cancer specialists understand that major treatment decisions deserve careful review.</p>
+                      <p className="font-semibold">A second opinion may:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>Confirm the proposed treatment plan</li>
+                        <li>Identify alternative options</li>
+                        <li>Introduce newer treatments or clinical trials</li>
+                        <li>Give the patient and caregiver greater confidence moving forward</li>
+                      </ul>
+                      <p>The goal is not to replace your medical team.</p>
+                      <p className="font-semibold">The goal is to make an important decision with as much information and confidence as possible.</p>
+
+                      <hr className="border-gray-200" />
+
+                      <h3 className="text-[17px] md:text-[18px] font-bold text-gray-900">Questions To Ask Your Current Team</h3>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>"Would you support us obtaining a second opinion before treatment begins?"</li>
+                        <li>"Could you recommend any specialists or centres that focus on this cancer type?"</li>
+                        <li>"Can you securely share the relevant records with another specialist?"</li>
+                        <li>"What records should we obtain before arranging a second opinion?"</li>
+                        <li>"Will obtaining a second opinion affect the timing of treatment?"</li>
+                      </ul>
+
+                      <h3 className="text-[17px] md:text-[18px] font-bold text-gray-900">Questions To Ask The Second Opinion Specialist</h3>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>"Do you agree with the proposed diagnosis and treatment plan?"</li>
+                        <li>"Are there alternative treatment approaches we should consider?"</li>
+                        <li>"Would you recommend any additional testing before treatment begins?"</li>
+                        <li>"Are there newer treatments or clinical trials that may be appropriate?"</li>
+                        <li>"If you were treating a family member with this diagnosis, would you recommend the same approach?"</li>
+                      </ul>
+
+                      <hr className="border-gray-200" />
+
+                      <h3 className="text-[17px] md:text-[18px] font-bold text-gray-900">Step-by-Step Process</h3>
+
+                      <p className="font-semibold">1. Identify an Expert</p>
+                      <p>Search for:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>University cancer centres</li>
+                        <li>Research hospitals</li>
+                        <li>Specialists who focus on your specific cancer type</li>
+                        <li>Recommendations from patient advocacy groups</li>
+                      </ul>
+                      <p>Look for doctors who regularly treat your particular cancer, not just cancer in general.</p>
+
+                      <p className="font-semibold">2. Contact Their Office</p>
+                      <p>Ask:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>Are they willing to provide a second opinion?</li>
+                        <li>Can it be done remotely?</li>
+                        <li>What records are required?</li>
+                        <li>How long is the waiting time?</li>
+                        <li>What are the costs?</li>
+                      </ul>
+
+                      <p className="font-semibold">3. Check Insurance Coverage</p>
+                      <p>Before booking:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>Ask whether a second opinion is covered</li>
+                        <li>Check whether pre-authorisation is required</li>
+                        <li>Ask whether remote consultations are covered</li>
+                      </ul>
+
+                      <p className="font-semibold">4. Request Your Records</p>
+                      <p>Ask your primary team for:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>Clinic notes</li>
+                        <li>Imaging reports</li>
+                        <li>Scan images</li>
+                        <li>Pathology reports</li>
+                        <li>Laboratory results</li>
+                        <li>Proposed treatment plan</li>
+                      </ul>
+                      <p>Most healthcare systems give patients the right to obtain their records.</p>
+
+                      <p className="font-semibold">5. Compare Recommendations</p>
+                      <p>Many second opinions confirm most of the original plan.</p>
+                      <p>Even when recommendations are similar, the reassurance gained can be extremely valuable. Sometimes small adjustments can make a meaningful difference.</p>
+
+                      <hr className="border-gray-200" />
+
+                      <h3 className="text-[17px] md:text-[18px] font-bold text-gray-900">Suggested Script For Patients Or Caregivers</h3>
+                      <blockquote className="border-l-4 border-[#2E7D8A] pl-4 py-2 bg-[rgba(46,125,138,0.04)] rounded-r-lg space-y-3 italic">
+                        <p>"We are very grateful for the care and recommendations provided by the team so far.</p>
+                        <p>Because this is such an important decision, we would like to obtain a second opinion before treatment begins.</p>
+                        <p>We understand that second opinions are a normal part of cancer care and hope this will help us move forward with complete confidence.</p>
+                        <p>Would it be possible to securely share the relevant records, test results and proposed treatment plan with the specialist we have identified?"</p>
+                      </blockquote>
+
+                      <hr className="border-gray-200" />
+
+                      <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                        <p className="font-semibold text-gray-900 mb-2">💡 Remember</p>
+                        <p>Seeking a second opinion is not a sign of distrust.</p>
+                        <p>It is a normal part of making informed decisions about serious illnesses.</p>
+                        <p>Many cancer specialists seek second opinions from colleagues themselves when managing complex cases.</p>
+                      </div>
+
+                      <hr className="border-gray-200" />
+
+                      <div className="space-y-2">
+                        <p className="font-semibold text-gray-900">Further Information</p>
+                        <ul className="list-disc pl-6 space-y-2">
+                          <li><a href="https://www.mskcc.org/news/what-to-know-about-getting-second-opinion-after-cancer-diagnosis" target="_blank" rel="noopener noreferrer" className="text-[#2E7D8A] underline hover:text-[#1a5c66]">Memorial Sloan Kettering Cancer Center</a></li>
+                          <li><a href="https://www.cancerresearchuk.org/about-cancer/treatment/access-to-treatment/different-doctor-second-opinion" target="_blank" rel="noopener noreferrer" className="text-[#2E7D8A] underline hover:text-[#1a5c66]">Cancer Research UK</a></li>
+                          <li><a href="https://www.cancer.gov/about-cancer/managing-care/finding-cancer-care" target="_blank" rel="noopener noreferrer" className="text-[#2E7D8A] underline hover:text-[#1a5c66]">National Cancer Institute (NCI)</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  ) : (
+                    <ul className="space-y-4">
+                      {category.questions.map((question, qIndex) => (
+                        <li key={qIndex} className="flex items-start gap-3">
+                          <span
+                            className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: category.color, opacity: 0.5 }}
+                          />
+                          <p className="text-[15px] md:text-[16px] text-gray-700 leading-[1.7]">
+                            "{question}"
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </div>
