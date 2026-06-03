@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import SiteSearch from "./components/SiteSearch";
 import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
@@ -48,6 +49,7 @@ function Router() {
   return (
     <>
       {!hideLayout && <Header />}
+      {!hideLayout && <SiteSearch />}
       <Switch>
         <Route path="/start" component={Start} />
         <Route path="/" component={Welcome} />
