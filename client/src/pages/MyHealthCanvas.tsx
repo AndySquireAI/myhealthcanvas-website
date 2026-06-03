@@ -140,11 +140,11 @@ export default function MyHealthCanvas() {
           </p>
 
           <h1 className="text-[30px] md:text-5xl lg:text-[54px] font-bold text-gray-900 leading-[1.15] text-center">
-            Keep your questions, symptoms and care story ready for every appointment.
+            Keep your <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">questions, symptoms</span> and <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">care story</span> ready for every appointment.
           </h1>
 
           <p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
-            Take back control. Ask better questions. Give yourself every chance.
+            Take back control. <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">Ask better questions.</span> Give yourself every chance.
           </p>
 
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] text-center">
