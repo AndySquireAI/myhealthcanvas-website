@@ -189,7 +189,7 @@ export default function MyHealthCanvas() {
       <section className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-5xl mx-auto">
           <img
-            src="/images/hero-man-oncologist.png"
+            src="/images/hero-man-oncologist-v2.png"
             alt="Male cancer patient discussing his MyHealthCanvas appointment companion with his oncologist"
             className="w-full rounded-xl shadow-lg"
           />
