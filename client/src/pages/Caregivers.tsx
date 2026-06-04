@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "wouter";
 import SEO from "@/components/SEO";
 
 const quotes = [
@@ -199,9 +200,9 @@ export default function Caregivers() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
-        title="Caregiver Support - MyHealthCanvas"
-        description="Supporting someone through illness? MyHealthCanvas helps caregivers stay organised, informed and in control. Piloted with families at Bethesda Alterszentren, Basel."
-        keywords="cancer caregiver, caregiver support, caregiver questions, supporting cancer patient, caregiver toolkit, caregiver checklist, Age UK, caregiver health plan"
+        title="Caregiver Support for Cancer Appointments | MyHealthCanvas"
+        description="MyHealthCanvas helps cancer caregivers organise questions, symptoms, medicines, priorities, and notes before oncology appointments — so patients and families are better prepared."
+        keywords="cancer caregiver, caregiver oncology appointment, caregiver questions to ask oncologist, supporting cancer patient, appointment preparation, caregiver checklist, family caregiver cancer care"
         canonicalPath="/caregivers"
       />
 
@@ -211,99 +212,135 @@ export default function Caregivers() {
         <input type="email" name="email" />
       </form>
 
-      {/* NEW HERO — Endorsement-ready headline */}
-      <section className="relative overflow-hidden" style={{ minHeight: "380px" }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "url(https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/safe-harbor-v7-1-jJWaWcTRMXV4RKMJSvqHQv.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center 40%",
-            opacity: 0.15,
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, rgba(253,252,248,0.3) 0%, rgba(253,252,248,0.95) 100%)",
-          }}
-        />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 pt-20 pb-12 text-center">
-          <p className="text-[14px] uppercase tracking-[0.2em] text-[#19878C] font-medium mb-6">
-            For caregivers and families
-          </p>
-          <h1 className="text-[24px] md:text-[32px] lg:text-[38px] font-bold text-gray-800 leading-[1.3] mb-6">
-            Supporting someone through illness is one of the hardest things you'll ever do.
-          </h1>
-          <p className="text-[18px] md:text-[22px] text-gray-600 leading-[1.5] max-w-2xl mx-auto mb-8">
-            MyHealthCanvas helps you stay organised, informed and in control — so you can focus on what matters.
-          </p>
-          <blockquote className="max-w-xl mx-auto">
-            <p className="text-[16px] md:text-[18px] text-gray-500 italic leading-[1.6] font-light">
-              "{currentQuote.text}"
-            </p>
-            <cite className="block mt-2 text-[13px] text-gray-400 not-italic">
-              — {currentQuote.author}
-            </cite>
-          </blockquote>
+      {/* HERO — 2-column layout matching Homepage/Questions */}
+      <section className="w-full" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-8 md:pb-12">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Left: Coded text */}
+            <div className="space-y-5 order-2 md:order-1 text-center">
+              <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-bold">
+                For cancer caregivers and families
+              </p>
+              <h1 className="text-[26px] md:text-[36px] lg:text-[42px] font-bold text-gray-900 leading-[1.15] tracking-tight">
+                Help someone you love get more from{" "}
+                <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+                  every appointment
+                </span>
+              </h1>
+              <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
+                MyHealthCanvas helps caregivers organise questions, symptoms, medicines, notes, and priorities before cancer care appointments — so nothing important gets lost in the stress of the moment.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
+                <Link href="/myhealthcanvas">
+                  <button className="w-full sm:w-auto px-7 py-3.5 text-white text-[15px] font-semibold rounded-xl shadow-md hover:shadow-lg transition-all" style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))" }}>
+                    Start preparing for an appointment
+                  </button>
+                </Link>
+                <Link href="/oncology-appointment-checklist">
+                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
+                    Get free checklist
+                  </button>
+                </Link>
+              </div>
+              <p className="text-[14px] text-gray-500 leading-[1.6] pt-1">
+                Built by a cancer survivor. Piloted with families. Designed for patients, caregivers, and clinicians.
+              </p>
+            </div>
+            {/* Right: Hero image */}
+            <div className="order-1 md:order-2">
+              <img
+                src="/images/caregiver-hero-son-mum.png"
+                alt="Adult son helping his mother at home — cancer caregiver support"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CAREGIVER BENEFIT BLOCK — 3 Icons */}
+      {/* PROBLEM SECTION */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(25, 135, 140, 0.1)" }}>
-                <svg className="w-8 h-8 text-[#19878C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                </svg>
-              </div>
-              <h3 className="text-[18px] font-bold text-gray-800">Track appointments</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Keep every consultation, scan, and follow-up in one place so nothing falls through the cracks.</p>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.3]">
+            Caregivers carry more than they can hold in their head
+          </h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.8]">
+            When someone you love is facing cancer, you may be tracking appointments, medicines, symptoms, questions, worries, family updates, and decisions — often while trying to stay calm for everyone else.
+          </p>
+          <ul className="text-left max-w-md mx-auto space-y-3 text-[15px] md:text-[16px] text-gray-700">
+            <li className="flex items-start gap-3"><span className="mt-1.5 w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] flex-shrink-0" />What changed since the last visit?</li>
+            <li className="flex items-start gap-3"><span className="mt-1.5 w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] flex-shrink-0" />Which symptoms matter?</li>
+            <li className="flex items-start gap-3"><span className="mt-1.5 w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] flex-shrink-0" />What questions should we ask?</li>
+            <li className="flex items-start gap-3"><span className="mt-1.5 w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] flex-shrink-0" />What did the clinician say?</li>
+            <li className="flex items-start gap-3"><span className="mt-1.5 w-2 h-2 rounded-full bg-[oklch(0.55_0.15_195)] flex-shrink-0" />What needs to happen next?</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* SOLUTION SECTION */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.3]">
+            A shared canvas before, during, and after care conversations
+          </h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.8]">
+            MyHealthCanvas gives caregivers a simple way to prepare for appointments with the patient, capture what matters, and bring a clearer picture into the room.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4 text-left">
+            <div className="p-5 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.05)", border: "1px solid rgba(25, 135, 140, 0.12)" }}>
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Questions</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">Collect and prioritise what the patient and family want to ask</p>
             </div>
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(100, 50, 150, 0.1)" }}>
-                <svg className="w-8 h-8 text-[#643296]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                </svg>
-              </div>
-              <h3 className="text-[18px] font-bold text-gray-800">Manage medications</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Record dosages, schedules, and side effects so you always know what's been taken and when.</p>
+            <div className="p-5 rounded-xl" style={{ backgroundColor: "rgba(100, 50, 150, 0.04)", border: "1px solid rgba(100, 50, 150, 0.12)" }}>
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Symptoms</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">Track changes before they are forgotten</p>
             </div>
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: "rgba(107, 123, 58, 0.1)" }}>
-                <svg className="w-8 h-8 text-[#6B7B3A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                </svg>
-              </div>
-              <h3 className="text-[18px] font-bold text-gray-800">Share with the care team</h3>
-              <p className="text-[15px] text-gray-500 leading-[1.6]">Bring your completed canvas to every appointment — so the whole team is on the same page.</p>
+            <div className="p-5 rounded-xl" style={{ backgroundColor: "rgba(107, 123, 58, 0.05)", border: "1px solid rgba(107, 123, 58, 0.12)" }}>
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Medicines</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">Keep key treatment and medication notes together</p>
+            </div>
+            <div className="p-5 rounded-xl" style={{ backgroundColor: "rgba(180, 120, 40, 0.05)", border: "1px solid rgba(180, 120, 40, 0.12)" }}>
+              <p className="text-[15px] font-semibold text-gray-800 mb-1">Priorities</p>
+              <p className="text-[14px] text-gray-600 leading-[1.6]">Clarify what matters most to the patient</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PILOT BADGE + ENDORSEMENT PLACEHOLDER */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-2xl mx-auto space-y-8">
-          {/* Pilot badge */}
-          <div className="flex items-center justify-center gap-3 py-4 px-6 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.06)", border: "1px solid rgba(25, 135, 140, 0.12)" }}>
-            <span className="text-[20px]">🏥</span>
-            <p className="text-[15px] text-gray-700 font-medium">
-              Piloted with families at Bethesda Alterszentren, Basel, Switzerland
-            </p>
-          </div>
+      {/* SUPPORT WITHOUT TAKING OVER */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-2xl mx-auto text-center space-y-5">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.3]">
+            Support without taking over
+          </h2>
+          <p className="text-[16px] md:text-[17px] text-gray-600 leading-[1.8]">
+            The best caregivers do not replace the patient's voice. They help protect it. MyHealthCanvas is designed to help caregivers prepare with the patient, not speak over them.
+          </p>
+          <p className="text-[15px] font-semibold bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+            Patient-first. Caregiver-supported. Clinician-useful.
+          </p>
+        </div>
+      </section>
 
-          {/* Endorsement placeholder — ready for Age UK logo */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 py-6 px-8 rounded-xl bg-white" style={{ border: "2px dashed rgba(25, 135, 140, 0.25)" }}>
-            <div className="w-[120px] h-[60px] rounded-lg flex items-center justify-center" style={{ backgroundColor: "#f0f0f0", border: "1px dashed #ccc" }}>
-              <span className="text-[12px] text-gray-400 font-medium">[LOGO]</span>
-            </div>
-            <p className="text-[16px] text-gray-600 font-medium">
-              Recommended by <span className="text-[#19878C]">[Organisation Name]</span>
-            </p>
+      {/* USE CASES */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
+        <div className="max-w-2xl mx-auto space-y-8">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.3] text-center">
+            Useful when you are…
+          </h2>
+          <div className="space-y-3">
+            {[
+              "Preparing for a first oncology appointment",
+              "Helping an older parent remember symptoms or questions",
+              "Coordinating updates across family members",
+              "Tracking side effects between visits",
+              "Supporting someone who feels too overwhelmed to prepare alone",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 p-4 rounded-xl" style={{ backgroundColor: "rgba(25, 135, 140, 0.04)", border: "1px solid rgba(25, 135, 140, 0.08)" }}>
+                <span className="mt-0.5 text-[oklch(0.55_0.15_195)] font-bold">✓</span>
+                <p className="text-[15px] md:text-[16px] text-gray-700">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
