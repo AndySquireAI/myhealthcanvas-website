@@ -1,8 +1,9 @@
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Welcome() {
+  const [journeyStep, setJourneyStep] = useState<string | null>(null);
 
   // Analytics: scroll depth tracking
   useEffect(() => {
@@ -46,6 +47,41 @@ export default function Welcome() {
     }
   };
 
+  // Analytics: track journey selection
+  const trackJourneySelect = (step: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "journey_select", {
+        event_category: "homepage_engagement",
+        event_label: step,
+      });
+    }
+  };
+
+  // Journey step content for the interactive selector
+  const journeyContent: Record<string, { heading: string; description: string; cta: string; link: string; ctaLabel: string }> = {
+    "just-diagnosed": {
+      heading: "You've just been diagnosed",
+      description: "Start with the questions that matter most right now — about your diagnosis, what it means, and what happens next. Take it one step at a time.",
+      cta: "/questions",
+      link: "/first-30-days-after-diagnosis",
+      ctaLabel: "See questions for newly diagnosed →",
+    },
+    "starting-treatment": {
+      heading: "You're starting treatment",
+      description: "Prepare the right questions about your treatment plan, side effects, and daily life. Walk into your next appointment feeling ready.",
+      cta: "/oncology-appointment-checklist",
+      link: "/questions",
+      ctaLabel: "Get your free appointment checklist →",
+    },
+    "supporting-someone": {
+      heading: "You're supporting someone with cancer",
+      description: "Caregivers carry more than they can hold in their head. Get practical tools to help you stay organised, ask the right questions, and support your person.",
+      cta: "/caregivers",
+      link: "/caregiver-oncology-questions",
+      ctaLabel: "Caregiver tools & questions →",
+    },
+  };
+
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
@@ -56,105 +92,237 @@ export default function Welcome() {
         canonicalPath="/"
       />
 
-      {/* HERO - Mobile-optimised: coded text + cropped image */}
+      {/* HERO - Sharper value prop with immediate message match */}
       <section className="w-full" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-16 pb-6 md:pb-10">
           <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-            {/* Left: All text coded for readability */}
-            <div className="space-y-5 order-2 md:order-1 text-center">
+            {/* Left: Tighter copy focused on the action */}
+            <div className="space-y-5 order-2 md:order-1 text-center md:text-left">
               <h1 className="text-[28px] md:text-[38px] lg:text-[46px] font-bold text-gray-900 leading-[1.15] tracking-tight">
-                You don't have to face your{" "}
+                Prepare for your{" "}
                 <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
-                  next appointment
+                  oncology appointment
                 </span>{" "}
-                unprepared.
+                with confidence.
               </h1>
               <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7]">
-                MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
+                Curated questions from Macmillan, NHS, Cancer Research UK and the world's top cancer centres. Organised by where you are in your journey. Free checklist included.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
-                <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center md:justify-start">
+                <Link href="/oncology-appointment-checklist" onClick={() => trackClick("hero_checklist_cta")}>
                   <button className="w-full sm:w-auto px-7 py-3.5 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md hover:shadow-lg">
+                    Get Free Checklist
+                  </button>
+                </Link>
+                <Link href="/questions" onClick={() => trackClick("hero_questions_cta")}>
+                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
                     Questions for Your Oncologist
                   </button>
                 </Link>
-                <Link href="/oncology-appointment-checklist" onClick={() => trackClick("hero_checklist_cta")}>
-                  <button className="w-full sm:w-auto px-7 py-3.5 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-                    Get free checklist
-                  </button>
-                </Link>
               </div>
-              <div className="flex items-center gap-2 pt-1 justify-center">
-                <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
+              {/* Inline trust strip */}
+              <div className="flex flex-wrap items-center gap-4 pt-3 justify-center md:justify-start">
+                <span className="text-[13px] text-gray-500 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  2× cancer survivor
+                </span>
+                <span className="text-[13px] text-gray-500 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Harvard Medical School
+                </span>
+                <span className="text-[13px] text-gray-500 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  100% private
+                </span>
               </div>
             </div>
-            {/* Right: Cropped woman image (no baked text) */}
+            {/* Right: Hero image */}
             <div className="order-1 md:order-2">
               <img
                 src="/images/hero-woman-cropped.jpg"
-                alt="Woman thinking about questions to ask at her next oncology appointment"
+                alt="Woman preparing questions for her next oncology appointment"
                 className="w-full rounded-xl shadow-lg"
+                loading="eager"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* BENEFITS BAR */}
-      <section className="py-10 px-6 md:px-12 lg:px-16 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-[18px] md:text-[24px] font-bold text-gray-900 text-center mb-8">
-            MyHealthCanvas helps you feel more prepared, less overwhelmed.
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
-            <div className="text-center space-y-2">
-              <div className="w-10 h-10 mx-auto flex items-center justify-center">
-                <svg className="w-7 h-7 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+      {/* EVIDENCE STRIP - Immediate social proof */}
+      <section className="py-5 px-6 md:px-12 lg:px-24 bg-gradient-to-r from-[oklch(0.55_0.15_195)]/5 to-[oklch(0.60_0.15_300)]/5 border-y border-[oklch(0.55_0.15_195)]/10">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center">
+          <p className="text-[15px] text-gray-700">
+            <strong>74% of cancer patients</strong> seek information before appointments
+          </p>
+          <span className="hidden md:inline text-gray-300">|</span>
+          <p className="text-[15px] text-gray-700">
+            Patients who prepare questions have <strong>more productive conversations</strong>
+          </p>
+          <span className="hidden md:inline text-gray-300">|</span>
+          <p className="text-[15px] text-gray-700">
+            Sources: <strong>Macmillan · NHS · MSK · NCI</strong>
+          </p>
+        </div>
+      </section>
+
+      {/* WHERE ARE YOU IN YOUR JOURNEY? - Interactive engagement hook */}
+      <section className="py-12 md:py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">
+              Where are you in your{" "}
+              <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">
+                journey?
+              </span>
+            </h2>
+            <p className="text-[16px] text-gray-500">Choose what feels right — we'll show you the most relevant resources.</p>
+          </div>
+
+          {/* Three journey buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button
+              onClick={() => { setJourneyStep("just-diagnosed"); trackJourneySelect("just-diagnosed"); }}
+              className={`p-5 rounded-xl border-2 transition-all duration-300 text-left cursor-pointer group ${
+                journeyStep === "just-diagnosed" 
+                  ? "border-[oklch(0.55_0.15_195)] bg-[oklch(0.55_0.15_195)]/5 shadow-md" 
+                  : "border-gray-200 bg-white hover:border-[oklch(0.55_0.15_195)]/50 hover:shadow-sm"
+              }`}
+            >
+              <div className="text-[24px] mb-2">🫁</div>
+              <h3 className="text-[16px] font-bold text-gray-800">I've just been diagnosed</h3>
+              <p className="text-[13px] text-gray-500 mt-1">First questions & what to expect</p>
+            </button>
+
+            <button
+              onClick={() => { setJourneyStep("starting-treatment"); trackJourneySelect("starting-treatment"); }}
+              className={`p-5 rounded-xl border-2 transition-all duration-300 text-left cursor-pointer group ${
+                journeyStep === "starting-treatment" 
+                  ? "border-[oklch(0.55_0.15_195)] bg-[oklch(0.55_0.15_195)]/5 shadow-md" 
+                  : "border-gray-200 bg-white hover:border-[oklch(0.55_0.15_195)]/50 hover:shadow-sm"
+              }`}
+            >
+              <div className="text-[24px] mb-2">💊</div>
+              <h3 className="text-[16px] font-bold text-gray-800">I'm starting treatment</h3>
+              <p className="text-[13px] text-gray-500 mt-1">Prepare for your next appointment</p>
+            </button>
+
+            <button
+              onClick={() => { setJourneyStep("supporting-someone"); trackJourneySelect("supporting-someone"); }}
+              className={`p-5 rounded-xl border-2 transition-all duration-300 text-left cursor-pointer group ${
+                journeyStep === "supporting-someone" 
+                  ? "border-[oklch(0.55_0.15_195)] bg-[oklch(0.55_0.15_195)]/5 shadow-md" 
+                  : "border-gray-200 bg-white hover:border-[oklch(0.55_0.15_195)]/50 hover:shadow-sm"
+              }`}
+            >
+              <div className="text-[24px] mb-2">🤝</div>
+              <h3 className="text-[16px] font-bold text-gray-800">I'm supporting someone</h3>
+              <p className="text-[13px] text-gray-500 mt-1">Caregiver tools & guidance</p>
+            </button>
+          </div>
+
+          {/* Dynamic content based on selection */}
+          {journeyStep && journeyContent[journeyStep] && (
+            <div className="bg-white rounded-xl border border-[oklch(0.55_0.15_195)]/20 p-6 md:p-8 shadow-sm animate-in fade-in duration-300 space-y-4">
+              <h3 className="text-[20px] md:text-[24px] font-bold text-gray-900">
+                {journeyContent[journeyStep].heading}
+              </h3>
+              <p className="text-[16px] text-gray-600 leading-[1.7]">
+                {journeyContent[journeyStep].description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link href={journeyContent[journeyStep].cta} onClick={() => trackClick(`journey_primary_${journeyStep}`)}>
+                  <button className="w-full sm:w-auto px-6 py-3 bg-[oklch(0.55_0.15_195)] text-white text-[15px] font-semibold rounded-xl hover:bg-[oklch(0.50_0.15_195)] transition-colors shadow-md">
+                    {journeyContent[journeyStep].ctaLabel}
+                  </button>
+                </Link>
+                <Link href={journeyContent[journeyStep].link} onClick={() => trackClick(`journey_secondary_${journeyStep}`)}>
+                  <button className="w-full sm:w-auto px-6 py-3 border-2 border-gray-200 text-gray-700 text-[15px] font-medium rounded-xl hover:border-[oklch(0.55_0.15_195)]/50 transition-colors">
+                    Explore more resources
+                  </button>
+                </Link>
               </div>
-              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Capture what matters</h3>
-              <p className="text-[12px] text-gray-500 leading-[1.5]">Keep track of your questions, symptoms, medications and care notes in one place.</p>
             </div>
-            <div className="text-center space-y-2">
-              <div className="w-10 h-10 mx-auto flex items-center justify-center">
-                <svg className="w-7 h-7 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+          )}
+        </div>
+      </section>
+
+      {/* QUICK-ACCESS RESOURCE CARDS - High-engagement destinations */}
+      <section className="py-12 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">Most helpful resources</h2>
+            <p className="text-[15px] text-gray-500 mt-2">The tools and guides our visitors find most valuable.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Card 1 - Questions (highest traffic) */}
+            <Link href="/questions" onClick={() => trackClick("resource_questions")}>
+              <div className="group cursor-pointer rounded-xl p-6 md:p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm h-full" style={{ backgroundColor: '#FFFFFF' }}>
+                <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(0.95 0.03 195)' }}>
+                  <svg className="w-7 h-7 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-[18px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  20+ Questions to Ask
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  Curated from Macmillan, NHS, MSK and more. Organised by diagnosis stage. Choose what to read, when.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  View Questions →
+                </p>
               </div>
-              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Prepare with confidence</h3>
-              <p className="text-[12px] text-gray-500 leading-[1.5]">Walk into appointments knowing you've covered what's important.</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="w-10 h-10 mx-auto flex items-center justify-center">
-                <svg className="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
+            </Link>
+
+            {/* Card 2 - Free Checklist (high conversion intent) */}
+            <Link href="/oncology-appointment-checklist" onClick={() => trackClick("resource_checklist")}>
+              <div className="group cursor-pointer rounded-xl p-6 md:p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-2 border-[oklch(0.55_0.15_195)]/30 shadow-sm h-full relative" style={{ backgroundColor: '#FFFFFF' }}>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-[11px] font-bold text-white rounded-full" style={{ background: 'oklch(0.55 0.15 195)' }}>Most Popular</div>
+                <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(0.95 0.03 195)' }}>
+                  <svg className="w-7 h-7 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-[18px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  Free Appointment Checklist
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  21 printable questions to bring to your next oncology appointment. Download instantly — no signup required.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  Download Free →
+                </p>
               </div>
-              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Have better conversations</h3>
-              <p className="text-[12px] text-gray-500 leading-[1.5]">Stay focused, ask the right questions and understand your care.</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="w-10 h-10 mx-auto flex items-center justify-center">
-                <svg className="w-7 h-7 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+            </Link>
+
+            {/* Card 3 - Caregivers (highest engagement time) */}
+            <Link href="/caregivers" onClick={() => trackClick("resource_caregivers")}>
+              <div className="group cursor-pointer rounded-xl p-6 md:p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm h-full" style={{ backgroundColor: '#FFFFFF' }}>
+                <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center" style={{ backgroundColor: 'oklch(0.95 0.03 300)' }}>
+                  <svg className="w-7 h-7 text-[oklch(0.55_0.15_300)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-[18px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
+                  Caregiver Support
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-[1.6]">
+                  Practical tools for partners, family members and carers. Questions to ask, checklists, and emotional support.
+                </p>
+                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
+                  Caregiver Tools →
+                </p>
               </div>
-              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Feel more in control</h3>
-              <p className="text-[12px] text-gray-500 leading-[1.5]">Reduce stress and feel empowered in your cancer journey.</p>
-            </div>
-            <div className="text-center space-y-2 col-span-2 md:col-span-1">
-              <div className="w-10 h-10 mx-auto flex items-center justify-center">
-                <svg className="w-7 h-7 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-              </div>
-              <h3 className="text-[13px] md:text-[14px] font-bold text-gray-800">Private. Secure. Yours.</h3>
-              <p className="text-[12px] text-gray-500 leading-[1.5]">Your information stays private. No one sees your data, unless you share it.</p>
-            </div>
+            </Link>
+
           </div>
         </div>
       </section>
@@ -164,16 +332,13 @@ export default function Welcome() {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-3">
             <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Real voices from people using MyHealthCanvas</h2>
-            <p className="text-[16px] text-gray-500 leading-[1.6]">Patients, caregivers and clinicians describe how the appointment companion helps organise questions, symptoms and priorities before cancer care appointments.</p>
+            <p className="text-[16px] text-gray-500 leading-[1.6]">Patients, caregivers and clinicians describe how preparation helps before cancer care appointments.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Patient voice */}
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-4 shadow-sm">
-              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Better Question Preparation</p>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.03 195)' }}>
-                <span aria-hidden="true">💙</span>
-              </div>
+              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Patient</p>
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "After diagnosis, it's an avalanche of emails, letters, phone calls. MyHealthCanvas helps me organise my key information — especially the questions for my oncologist — so I never forget anything."
               </p>
@@ -182,10 +347,7 @@ export default function Welcome() {
 
             {/* Caregiver voice */}
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-4 shadow-sm">
-              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Reduced Caregiver Admin Burden</p>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.03 300)' }}>
-                <span aria-hidden="true">🤝</span>
-              </div>
+              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Caregiver</p>
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "My wife was in pain before treatment started. I had to take care of a mountain of admin. MyHealthCanvas helped us think through our priorities and start to plan for a better future."
               </p>
@@ -194,10 +356,7 @@ export default function Welcome() {
 
             {/* Clinician voice */}
             <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)]/30 space-y-4 shadow-sm">
-              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Outcome: Improved Appointment Communication</p>
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-[18px]" style={{ backgroundColor: 'oklch(0.95 0.05 195)' }}>
-                <span aria-hidden="true">🩺</span>
-              </div>
+              <p className="text-[11px] uppercase tracking-wider font-bold" style={{ color: 'oklch(0.55 0.15 195)' }}>Oncologist</p>
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "Some of my patients bring their MyHealthCanvas to appointments so they don't forget questions. Having a standard template is much easier for me to scan than fragmented records."
               </p>
@@ -207,8 +366,35 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* HOW PATIENTS ACTUALLY USE MYHEALTHCANVAS - Habit loop visualization */}
-      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+      {/* LEAD MAGNET - 21 Questions Checklist (reinforcement) */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
+        <div className="max-w-2xl mx-auto text-center space-y-6">
+          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">
+            21 Questions to Ask at Your Next Oncology Appointment
+          </h2>
+          <p className="text-[16px] text-gray-600 leading-[1.7] max-w-xl mx-auto">
+            A calm, practical checklist you can take with you. Covers diagnosis, treatment, side effects, and what to expect next.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+            <Link href="/oncology-appointment-checklist" onClick={() => trackClick("homepage_checklist_cta_lower")}>
+              <button
+                className="w-full sm:w-auto px-8 py-4 text-white text-[15px] font-semibold rounded-xl transition-all hover:shadow-md"
+                style={{ background: 'oklch(0.55 0.15 195)' }}
+              >
+                Download Free Checklist
+              </button>
+            </Link>
+          </div>
+
+          <p className="text-[13px] text-gray-400">
+            Free. No spam. Just a helpful checklist for your next appointment.
+          </p>
+        </div>
+      </section>
+
+      {/* HOW PATIENTS USE MYHEALTHCANVAS - Habit loop (engagement content) */}
+      <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto space-y-10">
           <div className="text-center space-y-3">
             <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">How patients actually use MyHealthCanvas</h2>
@@ -294,133 +480,8 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* IS MYHEALTHCANVAS RIGHT FOR ME? */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">Is MyHealthCanvas right for me?</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Newly Diagnosed</p>
-              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Starting Treatment</p>
-              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Caregiver</p>
-              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Long-Term Survivor</p>
-              <p className="text-[20px] font-bold text-[oklch(0.55_0.15_195)]">Yes</p>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Looking for Medical Advice</p>
-              <p className="text-[20px] font-bold text-gray-400">No</p>
-              <p className="text-[13px] text-gray-500">Talk to your clinicians.</p>
-            </div>
-            <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm text-center space-y-2">
-              <p className="text-[15px] font-semibold text-gray-800">Looking for Emergency Help</p>
-              <p className="text-[20px] font-bold text-gray-400">No</p>
-              <p className="text-[13px] text-gray-500">Contact emergency services.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* THREE NAVIGATION CARDS - Support pathways */}
-      <section className="py-12 px-6 md:px-12 lg:px-24 relative z-20" style={{ backgroundColor: '#FDFCF8' }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">How can we help you today?</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Card 1 - Patient */}
-            <Link href="/first-30-days-after-diagnosis" onClick={() => trackClick("card_patient")}>
-              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-patient-eXQQP5Wq7PFqpmQg342FJV.png" alt="Heart in hands" className="w-16 h-16 mx-auto object-contain" />
-                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                  I'm the Patient
-                </h3>
-                <p className="text-[15px] text-gray-500 leading-[1.6]">
-                  Your first 30 days after cancer diagnosis — one step at a time, at your own pace.
-                </p>
-                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                  Read the Guide →
-                </p>
-              </div>
-            </Link>
-
-            {/* Card 2 - Caregiver */}
-            <Link href="/caregivers" onClick={() => trackClick("card_caregiver")}>
-              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-caregiver-Af6MngKWcDvEDEM8k4VTB8.png" alt="Hands reaching" className="w-16 h-16 mx-auto object-contain" />
-                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                  I'm the Caregiver
-                </h3>
-                <p className="text-[15px] text-gray-500 leading-[1.6]">
-                  Practical tools and advice for cancer caregivers, partners, and family members.
-                </p>
-                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                  Caregiver Tools →
-                </p>
-              </div>
-            </Link>
-
-            {/* Card 3 - Questions */}
-            <Link href="/questions" onClick={() => trackClick("card_questions")}>
-              <div className="group cursor-pointer rounded-xl p-8 text-center space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-[#E1D7EB]/60 shadow-sm" style={{ backgroundColor: '#FFFFFF' }}>
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028717205/fsNdQYyZYzZATFEcR38JJy/icon-library-NkRX6LRemFrv7eSGRma3aF.png" alt="Open book" className="w-16 h-16 mx-auto object-contain" />
-                <h3 className="text-[20px] font-bold text-gray-800 group-hover:text-[oklch(0.55_0.15_195)] transition-colors">
-                  Questions to Ask
-                </h3>
-                <p className="text-[15px] text-gray-500 leading-[1.6]">
-                  20+ curated questions from top cancer centres to bring to your next appointment.
-                </p>
-                <p className="text-[14px] font-bold text-[oklch(0.55_0.15_195)]">
-                  View Questions →
-                </p>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-      </section>
-
-      {/* LEAD MAGNET - 21 Questions Checklist */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#f9f9f7' }}>
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="text-[22px] md:text-[28px] font-bold text-gray-900">
-            21 Questions to Ask at Your Next Oncology Appointment
-          </h2>
-          <p className="text-[16px] text-gray-600 leading-[1.7] max-w-xl mx-auto">
-            A calm, practical checklist you can take with you. Covers diagnosis, treatment, side effects, and what to expect next.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-            <Link href="/oncology-appointment-checklist" onClick={() => trackClick("homepage_checklist_cta")}>
-              <button
-                className="w-full sm:w-auto px-8 py-4 text-white text-[15px] font-semibold rounded-xl transition-all hover:shadow-md"
-                style={{ background: 'oklch(0.55 0.15 195)' }}
-              >
-                Download Free Checklist
-              </button>
-            </Link>
-          </div>
-
-          <p className="text-[13px] text-gray-400">
-            Free. No spam. Just a helpful checklist for your next appointment.
-          </p>
-        </div>
-      </section>
-
-      {/* PRODUCT SECTION - Moved lower, compassionate framing */}
-      <section className="py-16 px-6" style={{ backgroundColor: '#FDFCF8' }}>
+      {/* PRODUCT SECTION - MyHealthCanvas companion */}
+      <section className="py-16 px-6" style={{ backgroundColor: '#f9f9f7' }}>
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <p className="text-[14px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold">
             When you're ready for more
@@ -481,7 +542,7 @@ export default function Welcome() {
       </section>
 
       {/* TRUST BADGES - Credentials section */}
-      <section className="py-12 px-6" style={{ backgroundColor: '#f9f9f7' }}>
+      <section className="py-12 px-6" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
             <p className="text-[14px] uppercase tracking-[0.15em] text-gray-500 font-medium">Built with care and clinical understanding</p>
