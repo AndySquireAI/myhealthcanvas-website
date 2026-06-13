@@ -7,6 +7,8 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SiteSearch from "./components/SiteSearch";
+import ConsentBanner from "./components/ConsentBanner";
+import { usePageTracking } from "./hooks/usePageTracking";
 import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
@@ -46,6 +48,9 @@ const noLayoutRoutes = ["/start", "/evidence-dashboard"];
 function Router() {
   const [location] = useLocation();
   const hideLayout = noLayoutRoutes.includes(location);
+
+  // Fire a virtual pageview on every SPA route change.
+  usePageTracking();
 
   return (
     <>
@@ -90,6 +95,7 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
       {!hideLayout && <Footer />}
+      <ConsentBanner />
     </>
   );
 }

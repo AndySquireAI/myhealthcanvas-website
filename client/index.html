@@ -2,6 +2,33 @@
 <html lang="en" translate="no" class="notranslate">
 
   <head>
+    <!-- Google Consent Mode v2 — default state (MUST run before GTM) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Read any previously stored choice so returning visitors keep their setting
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem('mhc_consent_v2'); } catch (e) {}
+        var granted = stored === 'granted';
+        gtag('consent', 'default', {
+          'ad_storage':            granted ? 'granted' : 'denied',
+          'ad_user_data':          granted ? 'granted' : 'denied',
+          'ad_personalization':    granted ? 'granted' : 'denied',
+          'analytics_storage':     granted ? 'granted' : 'denied',
+          'functionality_storage': 'granted',
+          'security_storage':      'granted',
+          'wait_for_update': 500
+        });
+        // URL passthrough keeps ad click IDs while consent is pending
+        gtag('set', 'url_passthrough', true);
+        // Redact ads data until consent is granted
+        gtag('set', 'ads_data_redaction', !granted);
+      })();
+    </script>
+    <!-- End Google Consent Mode v2 -->
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
