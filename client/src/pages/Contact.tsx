@@ -16,6 +16,15 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { trackContactFormSubmit } from "@/lib/analytics";
 
+// Read an optional ?subject= query param so deep links (e.g. the advocacy
+// "Become a partner" CTA -> /contact?subject=partnership) pre-select the topic.
+const VALID_SUBJECTS = ["myhealthcanvas", "aaa", "elibrary", "partnership", "media", "other"];
+function getSubjectFromUrl(): string {
+  if (typeof window === "undefined") return "";
+  const s = new URLSearchParams(window.location.search).get("subject") ?? "";
+  return VALID_SUBJECTS.includes(s) ? s : "";
+}
+
 // Web3Forms access key for silent lead delivery to Andy's inbox.
 // Get a free key at https://web3forms.com (tied to the destination email),
 // then set VITE_WEB3FORMS_KEY in the deploy environment. If unset, the form
@@ -28,7 +37,7 @@ export default function Contact() {
     name: "",
     company: "",
     email: "",
-    subject: "",
+    subject: getSubjectFromUrl(),
     message: "",
   });
   const [submitting, setSubmitting] = useState(false);
