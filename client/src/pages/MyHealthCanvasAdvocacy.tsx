@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
+import { trackPagPartnershipClick } from "@/lib/analytics";
 
 export default function MyHealthCanvasAdvocacy() {
   return (
@@ -80,6 +81,7 @@ export default function MyHealthCanvasAdvocacy() {
           
           <a 
             href="mailto:andy@patientcentriccare.ai"
+            onClick={() => trackPagPartnershipClick("advocacy_contact_cta")}
             className="inline-block px-10 py-4 bg-[oklch(0.55_0.15_195)] text-white text-[17px] font-medium rounded-lg hover:bg-[oklch(0.50_0.15_195)] transition-colors"
           >
             Contact us
