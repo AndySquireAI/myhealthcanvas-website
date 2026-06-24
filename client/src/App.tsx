@@ -24,6 +24,7 @@ import Terms from "./pages/Terms";
 import Impressum from "./pages/Impressum";
 import ThankYou from "./pages/ThankYou";
 import Start from "./pages/Start";
+import GetStarted from "./pages/GetStarted";
 import OncologyChecklist from "./pages/OncologyChecklist";
 import OncologyQuestions from "./pages/OncologyQuestions";
 import QuestionsAfterDiagnosis from "./pages/QuestionsAfterDiagnosis";
@@ -52,6 +53,7 @@ function Router() {
       {!hideLayout && <SiteSearch />}
       <Switch>
         <Route path="/start" component={Start} />
+        <Route path="/get-started" component={GetStarted} />
         <Route path="/" component={Welcome} />
         <Route path="/questions" component={Home} />
         <Route path="/myhealthcanvas" component={MyHealthCanvas} />
