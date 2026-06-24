@@ -30,6 +30,19 @@ export default function MyHealthCanvas() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Deep-link support: /myhealthcanvas#pricing (e.g. from the /get-started ad page)
+  // scrolls straight to the pricing/checkout block.
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#pricing") {
+      const scrollToPricingDeepLink = () => {
+        document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+      };
+      // Defer so the section is mounted before we scroll.
+      const t = window.setTimeout(scrollToPricingDeepLink, 300);
+      return () => window.clearTimeout(t);
+    }
+  }, []);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=GBP";
