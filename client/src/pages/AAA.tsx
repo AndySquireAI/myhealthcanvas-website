@@ -1,5 +1,6 @@
 import SEO from "@/components/SEO";
 import { useState, useCallback } from "react";
+import { trackAaaDiscoveryCallClick } from "@/lib/analytics";
 
 export default function AAA() {
   const [videoPlaying, setVideoPlaying] = useState(false);
@@ -42,6 +43,7 @@ export default function AAA() {
           {/* CTA */}
           <a
             href="mailto:andy@patientcentriccare.ai?subject=Discovery%20call%20request%20%E2%80%94%20AI%20Agents&body=Hi%20Andy%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20discovery%20call%20to%20discuss%20AI%20agents%20for%20our%20organisation.%0A%0AOrganisation%3A%20%0ARole%3A%20%0ABest%20time%20to%20talk%3A%20%0A%0AThanks"
+            onClick={() => trackAaaDiscoveryCallClick("aaa_hero")}
             className="inline-flex items-center gap-2 px-8 py-4 text-white text-[16px] font-semibold rounded-full transition-all duration-300 hover:shadow-lg"
             style={{ background: "linear-gradient(135deg, #19878C 0%, #643296 100%)" }}
           >
@@ -376,6 +378,7 @@ export default function AAA() {
             </ul>
             <a
               href="mailto:andy@patientcentriccare.ai?subject=Discovery%20call%20request%20%E2%80%94%20AI%20Automation&body=Hi%20Andy%2C%0A%0AI%E2%80%99d%20like%20to%20book%20a%20discovery%20call%20to%20discuss%20AI%20automation%20for%20our%20organisation.%0A%0AOrganisation%3A%20%0ARole%3A%20%0ABest%20time%20to%20talk%3A%20%0A%0AThanks"
+              onClick={() => trackAaaDiscoveryCallClick("aaa_pricing")}
               className="inline-flex items-center gap-2 px-8 py-4 text-white text-[16px] font-semibold rounded-full transition-all duration-300 hover:shadow-lg"
               style={{ background: "linear-gradient(135deg, #19878C 0%, #643296 100%)" }}
             >

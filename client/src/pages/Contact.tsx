@@ -14,20 +14,89 @@ import {
 import { Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { trackContactFormSubmit } from "@/lib/analytics";
+
+// Read an optional ?subject= query param so deep links (e.g. the advocacy
+// "Become a partner" CTA -> /contact?subject=partnership) pre-select the topic.
+const VALID_SUBJECTS = ["myhealthcanvas", "aaa", "elibrary", "partnership", "media", "other"];
+function getSubjectFromUrl(): string {
+  if (typeof window === "undefined") return "";
+  const s = new URLSearchParams(window.location.search).get("subject") ?? "";
+  return VALID_SUBJECTS.includes(s) ? s : "";
+}
+
+// Web3Forms access key for silent lead delivery to Andy's inbox.
+// Get a free key at https://web3forms.com (tied to the destination email),
+// then set VITE_WEB3FORMS_KEY in the deploy environment. If unset, the form
+// gracefully falls back to opening the visitor's email client (mailto).
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+const LEAD_EMAIL = "andy@andysquire.ai";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
-    subject: "",
+    subject: getSubjectFromUrl(),
     message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Fallback: open the visitor's mail client pre-filled, so a lead is never
+  // silently lost even if the form endpoint is unconfigured or fails.
+  const sendViaMailto = () => {
+    const subject = encodeURIComponent(
+      `[MyHealthCanvas] ${formData.subject || "Enquiry"} \u2014 ${formData.name}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+        `Company: ${formData.company}\n` +
+        `Email: ${formData.email}\n` +
+        `Subject: ${formData.subject}\n\n` +
+        `${formData.message}`
+    );
+    window.location.href = `mailto:${LEAD_EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send to a backend
-    toast.success("Thank you for your message! Andy will respond within 24-48 hours.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setSubmitting(true);
+
+    // Fire the conversion event regardless of delivery channel.
+    trackContactFormSubmit(formData.subject);
+
+    try {
+      if (WEB3FORMS_ACCESS_KEY) {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `[MyHealthCanvas] ${formData.subject || "Enquiry"} \u2014 ${formData.name}`,
+            from_name: formData.name,
+            name: formData.name,
+            company: formData.company,
+            email: formData.email,
+            enquiry_type: formData.subject,
+            message: formData.message,
+          }),
+        });
+        if (!res.ok) throw new Error(`Web3Forms responded ${res.status}`);
+        toast.success("Thank you for your message! Andy will respond within 24-48 hours.");
+        setFormData({ name: "", company: "", email: "", subject: "", message: "" });
+      } else {
+        // No endpoint configured yet \u2014 fall back to mailto.
+        toast.info("Opening your email app to send your message to Andy...");
+        sendViaMailto();
+      }
+    } catch (err) {
+      // Endpoint failed \u2014 don't lose the lead; fall back to mailto.
+      console.warn("Contact form delivery failed, falling back to mailto:", err);
+      toast.info("Opening your email app to send your message to Andy...");
+      sendViaMailto();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -88,18 +157,30 @@ export default function Contact() {
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="email">Email *</Label>
+                          <Label htmlFor="company">Company / Organisation</Label>
                           <Input
-                            id="email"
-                            type="email"
-                            required
-                            value={formData.email}
+                            id="company"
+                            value={formData.company}
                             onChange={(e) =>
-                              setFormData({ ...formData, email: e.target.value })
+                              setFormData({ ...formData, company: e.target.value })
                             }
-                            placeholder="your@email.com"
+                            placeholder="Your organisation"
                           />
                         </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email *</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                          placeholder="your@email.com"
+                        />
                       </div>
 
                       <div className="space-y-2">
@@ -141,8 +222,8 @@ export default function Contact() {
                         />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full">
-                        Send Message
+                      <Button type="submit" size="lg" className="w-full" disabled={submitting}>
+                        {submitting ? "Sending..." : "Send Message"}
                       </Button>
                     </form>
                   </CardContent>
