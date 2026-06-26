@@ -591,6 +591,20 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* COMING SOON: PATIENT MEMORY - emerging direction teaser (vision, not a delivered capability) */}
+      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-8 md:p-10 text-center space-y-4">
+            <span className="inline-block text-[12px] font-bold tracking-[0.08em] uppercase text-[#369994] bg-[oklch(0.95_0.03_195)] rounded-full px-4 py-1.5">Coming soon</span>
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.25]">We're building Patient Memory</h2>
+            <p className="text-[16px] text-gray-600 leading-[1.7]">
+              MyHealthCanvas is the first practical step. Today it helps you prepare, remember and capture what matters for each appointment. Next, we're working towards helping you <strong>carry that information forward</strong> &mdash; across appointments, clinicians and care settings &mdash; so your next appointment can start where the last one finished.
+            </p>
+            <p className="text-[13px] font-semibold text-[#369994]">Our vision for continuity of care &mdash; an emerging capability we're developing, not yet available.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[26px] font-bold text-gray-800">How we protect you</h2>
