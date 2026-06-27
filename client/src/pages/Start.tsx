@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useEffect } from "react";
 import SEO from "@/components/SEO";
+import { trackPurchase } from "@/lib/analytics";
 
 declare global {
   interface Window {
@@ -36,22 +37,18 @@ export default function Start() {
               });
             },
             onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function (details: any) {
-                if (typeof window !== "undefined" && (window as any).gtag) {
-                  (window as any).gtag("event", "purchase", {
-                    transaction_id: _data.orderID,
+              return actions.order.capture().then(function () {
+                trackPurchase(
+                  {
+                    transactionId: _data.orderID,
                     value: 19.0,
                     currency: "GBP",
-                    items: [
-                      {
-                        item_name: "MyHealthCanvas Current Plan",
-                        price: 19.0,
-                        quantity: 1,
-                      },
-                    ],
-                  });
-                }
-                window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
+                    itemName: "MyHealthCanvas Current Plan",
+                  },
+                  () => {
+                    window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
+                  },
+                );
               });
             },
             onError: function (err: any) {
@@ -80,22 +77,18 @@ export default function Start() {
               });
             },
             onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function (details: any) {
-                if (typeof window !== "undefined" && (window as any).gtag) {
-                  (window as any).gtag("event", "purchase", {
-                    transaction_id: _data.orderID,
+              return actions.order.capture().then(function () {
+                trackPurchase(
+                  {
+                    transactionId: _data.orderID,
                     value: 27.0,
                     currency: "GBP",
-                    items: [
-                      {
-                        item_name: "MyHealthCanvas Complete Plan",
-                        price: 27.0,
-                        quantity: 1,
-                      },
-                    ],
-                  });
-                }
-                window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
+                    itemName: "MyHealthCanvas Complete Plan",
+                  },
+                  () => {
+                    window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
+                  },
+                );
               });
             },
             onError: function (err: any) {

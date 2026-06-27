@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import PatientStories from "@/components/PatientStories";
 import CaregiverCompanion from "@/components/CaregiverCompanion";
+import { trackPurchase } from "@/lib/analytics";
 
 declare global {
   interface Window {
@@ -62,15 +63,19 @@ export default function MyHealthCanvas() {
           },
           onApprove: function (_data: any, actions: any) {
             return actions.order.capture().then(function () {
-              if (typeof window !== "undefined" && (window as any).gtag) {
-                (window as any).gtag("event", "purchase", {
-                  transaction_id: _data.orderID,
+              // Fire the purchase event, then redirect only once GA has sent the
+              // beacon (with a timeout fallback so checkout never hangs).
+              trackPurchase(
+                {
+                  transactionId: _data.orderID,
                   value: 19.0,
                   currency: "GBP",
-                  items: [{ item_name: "MyHealthCanvas Essential Appointment Companion", price: 19.0, quantity: 1 }],
-                });
-              }
-              window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
+                  itemName: "MyHealthCanvas Essential Appointment Companion",
+                },
+                () => {
+                  window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
+                },
+              );
             });
           },
           onError: function (err: any) {
@@ -92,15 +97,17 @@ export default function MyHealthCanvas() {
           },
           onApprove: function (_data: any, actions: any) {
             return actions.order.capture().then(function () {
-              if (typeof window !== "undefined" && (window as any).gtag) {
-                (window as any).gtag("event", "purchase", {
-                  transaction_id: _data.orderID,
+              trackPurchase(
+                {
+                  transactionId: _data.orderID,
                   value: 27.0,
                   currency: "GBP",
-                  items: [{ item_name: "MyHealthCanvas Complete Care & Future Planning Companion", price: 27.0, quantity: 1 }],
-                });
-              }
-              window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
+                  itemName: "MyHealthCanvas Complete Care & Future Planning Companion",
+                },
+                () => {
+                  window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
+                },
+              );
             });
           },
           onError: function (err: any) {
@@ -456,13 +463,8 @@ export default function MyHealthCanvas() {
                   className="w-full py-3 rounded-lg text-[16px] font-semibold transition-all duration-300 hover:shadow-lg border-2 cursor-pointer"
                   style={{ backgroundColor: "#FFFFFF", color: "oklch(0.45 0.15 195)", borderColor: "oklch(0.55 0.15 195)" }}
                   onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "purchase", {
-                        currency: "GBP",
-                        value: 19,
-                        items: [{ item_name: "Essential Appointment Companion", price: 19, quantity: 1 }],
-                      });
-                    }
+                    // Intent signal only — NOT a purchase. The real `purchase`
+                    // event fires on PayPal onApprove (payment captured).
                     document.getElementById("paypal-button-current")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
@@ -498,13 +500,8 @@ export default function MyHealthCanvas() {
                   className="w-full py-3 rounded-lg text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg cursor-pointer"
                   style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))" }}
                   onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "purchase", {
-                        currency: "GBP",
-                        value: 27,
-                        items: [{ item_name: "Complete Care & Future Planning Companion", price: 27, quantity: 1 }],
-                      });
-                    }
+                    // Intent signal only — NOT a purchase. The real `purchase`
+                    // event fires on PayPal onApprove (payment captured).
                     document.getElementById("paypal-button-complete")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
