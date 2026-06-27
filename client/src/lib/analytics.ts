@@ -1,8 +1,10 @@
 // Centralised GA4 analytics for MyHealthCanvas.
 //
-// All events flow into the single consolidated GA4 property (G-6CNLJJJ8WQ)
+// All events flow into the "NEW MyHealthCanvas" GA4 web stream (G-YYX090N0HV)
 // via the gtag instance loaded by Google Tag Manager (GTM-TG2F5QL2),
 // working with the dataLayer/gtag stub defined in index.html (before GTM loads).
+// NOTE: the GA4 Measurement ID is configured inside the GTM container's Google
+// Tag, NOT hardcoded here. This comment is documentation only.
 //
 // Three "win paths" are tracked as conversions:
 //   1. Forms revenue        -> "purchase" (already implemented in MyHealthCanvas.tsx)
@@ -88,6 +90,91 @@ export function trackContactFormSubmit(subject: string): void {
     lead_type: contactSubjectToLeadType(subject),
     event_label: subject || "unspecified",
   });
+}
+
+// ---- Purchase (forms revenue) -------------------------------------------
+
+/**
+ * Fires the GA4 `purchase` event reliably, then runs `onComplete` (typically a
+ * redirect to the thank-you page).
+ *
+ * Why this exists: the previous code fired `gtag("event", "purchase", ...)` and
+ * then immediately set `window.location.href`. gtag sends its hit asynchronously
+ * (a beacon), so navigating away in the same tick frequently cancelled the
+ * request before it left the browser. The result: real PayPal sales captured
+ * fine, but the `purchase` event never reached GA4 ("No stream data detected").
+ *
+ * Here we pass `event_callback` so the redirect only runs once the beacon has
+ * been dispatched, with a `setTimeout` safety net so checkout NEVER hangs if
+ * GA is blocked, slow, or consent-denied. We also guard against double-firing.
+ */
+export interface PurchaseDetails {
+  transactionId?: string;
+  value: number;
+  currency?: string;
+  itemName: string;
+}
+
+let purchaseFired = false;
+
+export function trackPurchase(details: PurchaseDetails, onComplete?: () => void): void {
+  const finish = (() => {
+    let done = false;
+    return () => {
+      if (done) return;
+      done = true;
+      if (onComplete) onComplete();
+    };
+  })();
+
+  // Always complete (redirect) even if analytics is unavailable or slow.
+  const safetyTimer = setTimeout(finish, 1200);
+
+  if (typeof window === "undefined") {
+    clearTimeout(safetyTimer);
+    finish();
+    return;
+  }
+
+  // Guard: never log the same purchase twice in one page session.
+  if (purchaseFired) {
+    clearTimeout(safetyTimer);
+    finish();
+    return;
+  }
+  purchaseFired = true;
+
+  const payload: Record<string, unknown> = {
+    value: details.value,
+    currency: details.currency || "GBP",
+    items: [{ item_name: details.itemName, price: details.value, quantity: 1 }],
+    page_path: window.location.pathname,
+    event_callback: () => {
+      clearTimeout(safetyTimer);
+      finish();
+    },
+  };
+  if (details.transactionId) payload.transaction_id = details.transactionId;
+
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "purchase", payload);
+    } else if (Array.isArray(window.dataLayer)) {
+      // No gtag yet: still record for GTM, then complete immediately.
+      window.dataLayer.push({ event: "purchase", ...payload });
+      clearTimeout(safetyTimer);
+      finish();
+    } else {
+      clearTimeout(safetyTimer);
+      finish();
+    }
+  } catch (err) {
+    // Never let analytics break the checkout flow.
+    // eslint-disable-next-line no-console
+    console.warn("trackPurchase failed:", err);
+    clearTimeout(safetyTimer);
+    finish();
+  }
 }
 
 function contactSubjectToLeadType(subject: string): string {
