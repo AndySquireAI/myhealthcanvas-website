@@ -1,12 +1,16 @@
-// Centralised GA4 event tracking for MyHealthCanvas.
+// Centralised GA4 analytics for MyHealthCanvas.
 //
 // All events flow into the single consolidated GA4 property (G-6CNLJJJ8WQ)
-// via the gtag instance loaded by Google Tag Manager (GTM-TG2F5QL2).
+// via the gtag instance loaded by Google Tag Manager (GTM-TG2F5QL2),
+// working with the dataLayer/gtag stub defined in index.html (before GTM loads).
 //
 // Three "win paths" are tracked as conversions:
 //   1. Forms revenue        -> "purchase" (already implemented in MyHealthCanvas.tsx)
 //   2. PAG partnership      -> "pag_partnership_click" / "contact_form_submit" (subject=partnership)
 //   3. AAA agent clients    -> "aaa_discovery_call_click" / "contact_form_submit" (subject=aaa)
+//
+// This file also owns Google Consent Mode v2 signalling and SPA virtual
+// pageviews so analytics stays consistent and EU AI Act / GDPR aligned.
 //
 // Keeping this in one place avoids the ad-hoc, copy-pasted gtag calls that
 // previously made events inconsistent and hard to mark as Key Events in GA4.
@@ -17,6 +21,20 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     dataLayer?: any[];
+  }
+}
+
+export const CONSENT_STORAGE_KEY = "mhc_consent_v2";
+
+// Ensure gtag exists even if the index.html stub somehow didn't run (defensive).
+function gtag(...args: any[]) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  // The index.html stub defines window.gtag; fall back to dataLayer.push.
+  if (typeof window.gtag === "function") {
+    window.gtag(...args);
+  } else {
+    window.dataLayer.push(args);
   }
 }
 
@@ -100,5 +118,69 @@ export function trackScrollDepth(percent: number): void {
     event_category: "engagement",
     value: percent,
     event_label: `${percent}%`,
+  });
+}
+
+// ---- Consent Mode v2 -----------------------------------------------------
+
+/**
+ * Read the stored consent decision. Returns "granted", "denied", or null (undecided).
+ */
+export function getStoredConsent(): "granted" | "denied" | null {
+  try {
+    const v = localStorage.getItem(CONSENT_STORAGE_KEY);
+    if (v === "granted" || v === "denied") return v;
+  } catch {
+    /* storage may be blocked */
+  }
+  return null;
+}
+
+/**
+ * Update Google Consent Mode v2 signals after the user makes a choice,
+ * persist the decision, and push a dataLayer event GTM can trigger on.
+ */
+export function updateConsent(granted: boolean) {
+  const value = granted ? "granted" : "denied";
+  try {
+    localStorage.setItem(CONSENT_STORAGE_KEY, value);
+  } catch {
+    /* ignore */
+  }
+
+  gtag("consent", "update", {
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+    analytics_storage: value,
+  });
+
+  gtag("set", "ads_data_redaction", !granted);
+
+  // Custom event so GTM tags waiting on consent can (re)fire.
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "consent_update",
+      consent_state: value,
+    });
+  }
+}
+
+// ---- SPA pageviews -------------------------------------------------------
+
+/**
+ * Push a virtual pageview for SPA route changes.
+ * GTM should have a Custom Event trigger on `virtual_page_view`
+ * wired to a GA4 event/config tag using {{DLV - page_path}}.
+ */
+export function trackPageView(path: string, title?: string) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "virtual_page_view",
+    page_path: path,
+    page_location: window.location.origin + path,
+    page_title: title || document.title,
   });
 }
