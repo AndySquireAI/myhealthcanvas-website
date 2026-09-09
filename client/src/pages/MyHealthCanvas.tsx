@@ -205,21 +205,31 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Image 1: Man talking to oncologist */}
-      <section className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }}>
+      {/* Illustrative patient journey: replaces the repeated legacy photo sequence. */}
+      <section id="patient-journey" className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }} aria-labelledby="patient-journey-title">
         <div className="max-w-5xl mx-auto">
-          <img
-            src="/images/hero-man-oncologist-v2.png"
-            alt="Male cancer patient discussing his MyHealthCanvas appointment companion with his oncologist"
-            className="w-full rounded-xl shadow-lg"
-          />
+          <figure className="space-y-4">
+            <img
+              src="/images/home-companion-myhealthcanvas-patient-journey.webp"
+              alt="Illustrative patient journey: a patient and caregiver prepare at home, the patient reviews MyHealthCanvas with a nurse in hospital, and the patient discusses it with Dr König."
+              title="Illustrative patient journey: preparation, patient choice and a human-led clinical conversation"
+              width={2048}
+              height={1157}
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-xl shadow-lg"
+            />
+            <figcaption className="max-w-4xl mx-auto text-center text-[13px] text-gray-500 leading-[1.6]">
+              <strong>Illustrative patient journey.</strong> MyHealthCanvas is a private downloadable PDF completed and kept on the patient&apos;s own device. Home Companion and MyHealthCanvas work independently today; a joined patient-controlled pathway is a target research direction.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       {/* Text panel 1: Never leave an oncology appointment... */}
       <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
+          <h2 id="patient-journey-title" className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
             Never leave an oncology appointment wishing you had asked something important.
           </h2>
           <p className="text-[16px] text-gray-600 leading-[1.7]">
@@ -231,17 +241,6 @@ export default function MyHealthCanvas() {
             </svg>
             <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
           </div>
-        </div>
-      </section>
-
-      {/* Image 2: Wife helping patient husband prepare */}
-      <section className="px-6 md:px-12 lg:px-24 pt-4 pb-4" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-5xl mx-auto">
-          <img
-            src="/images/hero-couple-preparing.png"
-            alt="Wife helping her husband prepare questions and notes for his next oncology appointment"
-            className="w-full rounded-xl shadow-lg"
-          />
         </div>
       </section>
 
@@ -344,17 +343,6 @@ export default function MyHealthCanvas() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Image 3: Hospital patient showing phone to doctor - above oncologist quote */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
-        <div className="max-w-4xl mx-auto">
-          <img
-            src="/images/patient-doctor-myhealthcanvas-final.png"
-            alt="Hospital patient showing his MyHealthCanvas on phone to his doctor during a ward visit"
-            className="w-full rounded-xl shadow-lg"
-          />
         </div>
       </section>
 
