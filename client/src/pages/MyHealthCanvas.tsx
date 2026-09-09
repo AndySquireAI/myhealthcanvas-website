@@ -346,8 +346,32 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      {/* Complementary care-conversation visual: retained alongside the patient journey. */}
+      <section className="pt-12 pb-4 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }} aria-labelledby="care-conversation-title">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <img
+            src="/images/myhealthcanvas-hospital-nurse-conversation.png"
+            alt="Illustrative hospital-bed conversation: a patient holds MyHealthCanvas on his phone while speaking with a nurse."
+            title="MyHealthCanvas: patient-held preparation for a care conversation"
+            width={1774}
+            height={984}
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-xl shadow-lg"
+          />
+          <div className="max-w-3xl mx-auto text-center space-y-2">
+            <h2 id="care-conversation-title" className="text-[22px] md:text-[28px] font-bold text-gray-900 leading-[1.25]">
+              Keep what matters ready for the conversation.
+            </h2>
+            <p className="text-[15px] text-gray-600 leading-[1.7]">
+              A patient-held MyHealthCanvas can help people bring their questions, symptoms, medicines and priorities into the next discussion with their care team.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Oncologist quote - moved above pricing for social proof */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
+      <section className="pt-6 pb-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-3xl mx-auto">
           <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)] shadow-sm text-center space-y-3">
             <p className="text-[16px] md:text-[18px] text-gray-700 leading-[1.8] italic">
