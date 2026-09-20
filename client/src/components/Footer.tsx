@@ -105,11 +105,11 @@ export default function Footer() {
         {/* Ethics & Positioning Strip */}
         <div className="mt-10 py-4 bg-[oklch(0.55_0.15_195)]/5 rounded-lg">
           <div className="flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
-            <span>Patients over profit</span>
+            <span>Patient-led preparation</span>
             <span className="hidden sm:inline">•</span>
-            <span>No autonomous diagnosis or treatment</span>
+            <span>No medical advice</span>
             <span className="hidden sm:inline">•</span>
-            <span>Physician-led, evidence-based AI</span>
+            <span>Patient–HCP conversation support</span>
           </div>
         </div>
 

@@ -14,8 +14,8 @@ export default function PatientStories() {
     <section className="py-16 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
       <div className="max-w-4xl mx-auto space-y-10">
         <div className="text-center space-y-3">
-          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-900">How people use MyHealthCanvas</h2>
-          <p className="text-[16px] text-gray-500 leading-[1.6]">Real examples from patients, caregivers and clinicians.</p>
+          <h2 className="text-[24px] md:text-[30px] font-bold text-gray-900">Typical use patterns</h2>
+          <p className="text-[16px] text-gray-500 leading-[1.6]">Illustrative — composite examples, not individual testimonials.</p>
         </div>
 
         <div className="space-y-6">
@@ -41,9 +41,9 @@ export default function PatientStories() {
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">Outcome</p>
+                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">What it is designed to help with</p>
                 <p className="text-[14px] text-gray-600 leading-[1.6]">
-                  Feels more confident and prepared. Never forgets key questions. Oncologist appreciates the structured information and can focus on what matters most.
+                  Capturing questions and priorities before an appointment, then creating a structured summary the patient may choose to share.
                 </p>
               </div>
             </div>
@@ -71,9 +71,9 @@ export default function PatientStories() {
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">Outcome</p>
+                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">What it is designed to help with</p>
                 <p className="text-[14px] text-gray-600 leading-[1.6]">
-                  Reduced stress from trying to remember everything. Better communication with the healthcare team. Both patient and caregiver feel more in control.
+                  Preparing questions, symptoms and priorities together, with a patient-owned summary that may be shared with the care team.
                 </p>
               </div>
             </div>
@@ -101,9 +101,9 @@ export default function PatientStories() {
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">Why it helps</p>
+                <p className="text-[12px] uppercase tracking-wider text-gray-400 font-bold">What it is designed to help with</p>
                 <p className="text-[14px] text-gray-600 leading-[1.6]">
-                  More focused appointments. Less time gathering information, more time discussing care. Patients feel heard. Clinicians can address what matters most.
+                  Providing a patient-owned structured summary that may help focus the appointment conversation.
                 </p>
               </div>
             </div>

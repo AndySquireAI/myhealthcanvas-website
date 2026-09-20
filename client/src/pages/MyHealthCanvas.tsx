@@ -46,7 +46,7 @@ export default function MyHealthCanvas() {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=GBP";
+    script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=CHF";
     script.async = true;
     document.body.appendChild(script);
 
@@ -56,7 +56,7 @@ export default function MyHealthCanvas() {
           createOrder: function (_data: any, actions: any) {
             return actions.order.create({
               purchase_units: [{
-                amount: { value: "19.00", currency_code: "GBP" },
+                amount: { value: "22.00", currency_code: "CHF" },
                 description: "MyHealthCanvas - Essential Appointment Companion",
               }],
             });
@@ -68,8 +68,8 @@ export default function MyHealthCanvas() {
               trackPurchase(
                 {
                   transactionId: _data.orderID,
-                  value: 19.0,
-                  currency: "GBP",
+                  value: 22.0,
+                  currency: "CHF",
                   itemName: "MyHealthCanvas Essential Appointment Companion",
                 },
                 () => {
@@ -90,7 +90,7 @@ export default function MyHealthCanvas() {
           createOrder: function (_data: any, actions: any) {
             return actions.order.create({
               purchase_units: [{
-                amount: { value: "27.00", currency_code: "GBP" },
+                amount: { value: "31.00", currency_code: "CHF" },
                 description: "MyHealthCanvas - Complete Care & Future Planning Companion",
               }],
             });
@@ -100,8 +100,8 @@ export default function MyHealthCanvas() {
               trackPurchase(
                 {
                   transactionId: _data.orderID,
-                  value: 27.0,
-                  currency: "GBP",
+                  value: 31.0,
+                  currency: "CHF",
                   itemName: "MyHealthCanvas Complete Care & Future Planning Companion",
                 },
                 () => {
@@ -230,7 +230,7 @@ export default function MyHealthCanvas() {
       <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <h2 id="patient-journey-title" className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
-            Never leave an oncology appointment wishing you had asked something important.
+            Prepare for an oncology appointment with the questions and priorities that matter to you.
           </h2>
           <p className="text-[16px] text-gray-600 leading-[1.7]">
             MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
@@ -350,10 +350,11 @@ export default function MyHealthCanvas() {
       <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-3xl mx-auto">
           <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)] shadow-sm text-center space-y-3">
+            <p className="text-[13px] text-gray-500">Illustrative — composite example, not an individual testimonial.</p>
             <p className="text-[16px] md:text-[18px] text-gray-700 leading-[1.8] italic">
               "Some of my patients bring their MyHC with them to appointments so they do not forget questions. Having a standard template is much easier for me to scan, and a lot less complex than fragmented EHR records."
             </p>
-            <p className="text-[14px] text-gray-500 font-medium">Oncologist, 38 · Switzerland</p>
+            <p className="text-[14px] text-gray-500 font-medium">Illustrative clinician perspective</p>
           </div>
         </div>
       </section>
@@ -365,7 +366,8 @@ export default function MyHealthCanvas() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 shadow-sm">
               <p className="text-[20px]">❤️</p>
-              <h3 className="text-[18px] font-bold text-gray-900">Essential (£19)</h3>
+              <h3 className="text-[18px] font-bold text-gray-900">Essential (CHF 22)</h3>
+              <p className="text-[13px] text-gray-500">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
               <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
               <ul className="text-[14px] text-gray-600 space-y-2">
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Recently diagnosed</li>
@@ -374,16 +376,17 @@ export default function MyHealthCanvas() {
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Prefer a simple one-page summary</li>
               </ul>
               <div className="pt-2 border-t border-gray-100 space-y-1">
-                <p className="text-[13px] font-semibold text-gray-700">Outcome:</p>
-                <p className="text-[13px] text-gray-600">✔ Never forget important questions</p>
-                <p className="text-[13px] text-gray-600">✔ Arrive more prepared</p>
-                <p className="text-[13px] text-gray-600">✔ Keep everything in one place</p>
+                <p className="text-[13px] font-semibold text-gray-700">What it is designed to help with:</p>
+                <p className="text-[13px] text-gray-600">✔ Capture questions and priorities in one place</p>
+                <p className="text-[13px] text-gray-600">✔ Prepare for an appointment conversation</p>
+                <p className="text-[13px] text-gray-600">✔ Keep a patient-owned summary to share if you choose</p>
               </div>
             </div>
 
             <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)] p-6 space-y-4 shadow-sm">
               <p className="text-[20px]">🤝</p>
-              <h3 className="text-[18px] font-bold text-gray-900">Complete (£27)</h3>
+              <h3 className="text-[18px] font-bold text-gray-900">Complete (CHF 31)</h3>
+              <p className="text-[13px] text-gray-500">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
               <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
               <ul className="text-[14px] text-gray-600 space-y-2">
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Treatment is already underway</li>
@@ -392,10 +395,10 @@ export default function MyHealthCanvas() {
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> You want future planning included</li>
               </ul>
               <div className="pt-2 border-t border-gray-100 space-y-1">
-                <p className="text-[13px] font-semibold text-gray-700">Outcome:</p>
-                <p className="text-[13px] text-gray-600">✔ Better coordination</p>
-                <p className="text-[13px] text-gray-600">✔ Reduced caregiver stress</p>
-                <p className="text-[13px] text-gray-600">✔ More comprehensive picture of your care</p>
+                <p className="text-[13px] font-semibold text-gray-700">What it is designed to help with:</p>
+                <p className="text-[13px] text-gray-600">✔ Prepare questions, symptoms and priorities with a caregiver</p>
+                <p className="text-[13px] text-gray-600">✔ Bring a broader care picture together</p>
+                <p className="text-[13px] text-gray-600">✔ Create space for reflection and future planning</p>
               </div>
             </div>
 
@@ -419,7 +422,7 @@ export default function MyHealthCanvas() {
         <div className="max-w-4xl mx-auto space-y-10">
           <div className="text-center space-y-4">
             <p className="text-[18px] md:text-[20px] font-bold" style={{ background: "linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              50% of all proceeds are donated to cancer charities, to fund research.
+              We commit 50% of net proceeds to cancer research charities; recipients and amounts are published annually.
             </p>
             <h2 className="text-[28px] md:text-[36px] font-bold text-gray-900">Choose the version that fits where you are today</h2>
             <p className="text-[16px] text-gray-600 leading-[1.7] max-w-2xl mx-auto">
@@ -434,14 +437,15 @@ export default function MyHealthCanvas() {
                 <CardDescription className="text-[15px]">1-page practical summary</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-2">£19</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 22</p>
+                <p className="text-[13px] text-gray-500 mb-2">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for first appointments, active treatment and quick sharing.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Diagnosis and key medical information</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Questions and topics for your healthcare team</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Symptoms, current thoughts and priorities</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Medicines, allergies and important warnings</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your data</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your health data</li>
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
@@ -471,14 +475,15 @@ export default function MyHealthCanvas() {
                 <CardDescription className="text-[15px]">2-page deeper support version</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-2">£27</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 31</p>
+                <p className="text-[13px] text-gray-500 mb-2">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for patients and families ready for broader reflection and future care planning.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Essential version</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Sources of comfort and wellbeing</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Reflections, feedback and useful resources</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Future wishes, advance directive location and healthcare power of attorney</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your data</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your health data</li>
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
@@ -511,15 +516,19 @@ export default function MyHealthCanvas() {
             </p>
           </div>
 
-          {/* Outcome quotes beside pricing */}
+          {/* Illustrative perspectives beside pricing */}
+          <div className="text-center space-y-2">
+            <p className="text-[15px] font-semibold text-gray-700">Illustrative perspectives</p>
+            <p className="text-[13px] text-gray-500">Illustrative — composite examples, not individual testimonials.</p>
+          </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="p-4 bg-white rounded-lg border border-gray-100 text-center">
               <p className="text-[14px] text-gray-600 italic leading-[1.6]">"I never forgot my questions again."</p>
-              <p className="text-[12px] text-gray-400 mt-2">Cancer patient · Switzerland</p>
+              <p className="text-[12px] text-gray-400 mt-2">Illustrative patient perspective</p>
             </div>
             <div className="p-4 bg-white rounded-lg border border-gray-100 text-center">
               <p className="text-[14px] text-gray-600 italic leading-[1.6]">"It reduced the amount of information I had to keep in my head."</p>
-              <p className="text-[12px] text-gray-400 mt-2">Caregiver · UK</p>
+              <p className="text-[12px] text-gray-400 mt-2">Illustrative caregiver perspective</p>
             </div>
           </div>
 
@@ -529,12 +538,12 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* Real voices - condensed */}
+      {/* Illustrative perspectives - condensed */}
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-[26px] md:text-[34px] font-bold text-gray-900">Real voices from patients, caregivers and clinicians</h2>
-            <p className="text-[16px] text-gray-500">Concrete examples of how MyHealthCanvas is being used in real cancer care conversations.</p>
+            <h2 className="text-[26px] md:text-[34px] font-bold text-gray-900">Illustrative perspectives</h2>
+            <p className="text-[16px] text-gray-500">Illustrative — composite examples, not individual testimonials.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -542,14 +551,14 @@ export default function MyHealthCanvas() {
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "After diagnosis, it is an avalanche of emails, letters, phone calls, SMS and in-person appointments. MyHC helps me organise my key information — especially the questions for my oncologist — so I never forget anything."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">Cancer patient, 58 · Switzerland</p>
+              <p className="text-[13px] text-gray-400 font-medium">Illustrative patient perspective</p>
             </div>
 
             <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3 shadow-sm">
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "My wife was in pain before treatment started. I had to take care of a mountain of admin. MyHC helped us think through our priorities and start to plan for a better future."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">Caregiver, 64 · UK</p>
+              <p className="text-[13px] text-gray-400 font-medium">Illustrative caregiver perspective</p>
             </div>
           </div>
         </div>
@@ -581,7 +590,7 @@ export default function MyHealthCanvas() {
         <div className="max-w-2xl mx-auto">
           <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-8 md:p-10 text-center space-y-4">
             <span className="inline-block text-[12px] font-bold tracking-[0.08em] uppercase text-[#369994] bg-[oklch(0.95_0.03_195)] rounded-full px-4 py-1.5">Coming soon</span>
-            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.25]">We're building Patient Memory</h2>
+            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.25]">We're building Trusted Health Memory</h2>
             <p className="text-[16px] text-gray-600 leading-[1.7]">
               MyHealthCanvas is the first practical step. Today it helps you prepare, remember and capture what matters for each appointment. Next, we're working towards helping you <strong>carry that information forward</strong> &mdash; across appointments, clinicians and care settings &mdash; so your next appointment can start where the last one finished.
             </p>
@@ -619,7 +628,7 @@ export default function MyHealthCanvas() {
             MyHealthCanvas does not provide medical advice. It helps you organise information, prepare questions, and communicate more clearly with your care team.
           </p>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <span>© 2025 MyHealthCanvas</span>
+            <span>© 2026 MyHealthCanvas</span>
             <div className="flex gap-6">
               <Link href="/" className="hover:text-gray-600">Home</Link>
               <Link href="/myhealthcanvas/advocacy" className="hover:text-gray-600">For Patient Advocacy Groups</Link>
@@ -636,8 +645,8 @@ export default function MyHealthCanvas() {
         >
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-white font-bold text-[15px] leading-tight">Start simple from £19</p>
-              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>Instant download · Private by design</p>
+              <p className="text-white font-bold text-[15px] leading-tight">Start simple from CHF 22</p>
+              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
             </div>
             <a
               href="#pricing"
