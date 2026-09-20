@@ -46,7 +46,7 @@ export default function MyHealthCanvas() {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=GBP";
+    script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=CHF";
     script.async = true;
     document.body.appendChild(script);
 
@@ -56,7 +56,7 @@ export default function MyHealthCanvas() {
           createOrder: function (_data: any, actions: any) {
             return actions.order.create({
               purchase_units: [{
-                amount: { value: "19.00", currency_code: "GBP" },
+                amount: { value: "22.00", currency_code: "CHF" },
                 description: "MyHealthCanvas - Essential Appointment Companion",
               }],
             });
@@ -68,8 +68,8 @@ export default function MyHealthCanvas() {
               trackPurchase(
                 {
                   transactionId: _data.orderID,
-                  value: 19.0,
-                  currency: "GBP",
+                  value: 22.0,
+                  currency: "CHF",
                   itemName: "MyHealthCanvas Essential Appointment Companion",
                 },
                 () => {
@@ -90,7 +90,7 @@ export default function MyHealthCanvas() {
           createOrder: function (_data: any, actions: any) {
             return actions.order.create({
               purchase_units: [{
-                amount: { value: "27.00", currency_code: "GBP" },
+                amount: { value: "31.00", currency_code: "CHF" },
                 description: "MyHealthCanvas - Complete Care & Future Planning Companion",
               }],
             });
@@ -100,8 +100,8 @@ export default function MyHealthCanvas() {
               trackPurchase(
                 {
                   transactionId: _data.orderID,
-                  value: 27.0,
-                  currency: "GBP",
+                  value: 31.0,
+                  currency: "CHF",
                   itemName: "MyHealthCanvas Complete Care & Future Planning Companion",
                 },
                 () => {
@@ -367,7 +367,7 @@ export default function MyHealthCanvas() {
             <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 shadow-sm">
               <p className="text-[20px]">❤️</p>
               <h3 className="text-[18px] font-bold text-gray-900">Essential (CHF 22)</h3>
-              <p className="text-[13px] text-gray-500">Approx. €23 · £19 at PayPal checkout</p>
+              <p className="text-[13px] text-gray-500">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
               <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
               <ul className="text-[14px] text-gray-600 space-y-2">
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Recently diagnosed</li>
@@ -386,7 +386,7 @@ export default function MyHealthCanvas() {
             <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)] p-6 space-y-4 shadow-sm">
               <p className="text-[20px]">🤝</p>
               <h3 className="text-[18px] font-bold text-gray-900">Complete (CHF 31)</h3>
-              <p className="text-[13px] text-gray-500">Approx. €33 · £27 at PayPal checkout</p>
+              <p className="text-[13px] text-gray-500">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
               <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
               <ul className="text-[14px] text-gray-600 space-y-2">
                 <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Treatment is already underway</li>
@@ -438,7 +438,7 @@ export default function MyHealthCanvas() {
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 22</p>
-                <p className="text-[13px] text-gray-500 mb-2">Approx. €23 · £19 at PayPal checkout</p>
+                <p className="text-[13px] text-gray-500 mb-2">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for first appointments, active treatment and quick sharing.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Diagnosis and key medical information</li>
@@ -476,7 +476,7 @@ export default function MyHealthCanvas() {
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 31</p>
-                <p className="text-[13px] text-gray-500 mb-2">Approx. €33 · £27 at PayPal checkout</p>
+                <p className="text-[13px] text-gray-500 mb-2">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for patients and families ready for broader reflection and future care planning.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Essential version</li>
@@ -646,7 +646,7 @@ export default function MyHealthCanvas() {
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-white font-bold text-[15px] leading-tight">Start simple from CHF 22</p>
-              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>Approx. €23 · £19 at PayPal checkout</p>
+              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
             </div>
             <a
               href="#pricing"
