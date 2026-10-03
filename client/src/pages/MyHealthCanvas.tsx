@@ -205,6 +205,35 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
+      <section id="form-preview" className="px-6 md:px-12 lg:px-24 py-10" aria-labelledby="form-preview-title">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 id="form-preview-title" className="text-[26px] md:text-[34px] font-bold text-gray-900 mb-3">
+            A glimpse of your appointment companion
+          </h2>
+          <p className="text-[16px] text-gray-600 mb-6">
+            Essential is one page. Complete adds a second page for reflection and future care planning.
+          </p>
+          <figure>
+            <img
+              src="/images/MyHealthCanvasMOCKUPPBD.webp"
+              alt="Watermarked MyHealthCanvas preview: the one-page Current Plan and overlapping pages of the two-page Complete Plan."
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto rounded-xl border border-gray-200 shadow-sm"
+            />
+            <figcaption className="text-[14px] text-gray-500 mt-4">
+              Watermarked preview with example details. Current Plan is the Essential version;
+              Complete Plan is the Complete version. Your purchased PDF has no preview watermark.
+            </figcaption>
+          </figure>
+          <a href="#pricing" className="inline-block mt-6 text-[oklch(0.55_0.15_195)] font-semibold underline underline-offset-4">
+            Compare versions and prices
+          </a>
+        </div>
+      </section>
+
       {/* Illustrative patient journey: replaces the repeated legacy photo sequence. */}
       <section id="patient-journey" className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }} aria-labelledby="patient-journey-title">
         <div className="max-w-5xl mx-auto">
