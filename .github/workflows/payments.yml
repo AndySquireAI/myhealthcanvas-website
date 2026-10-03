@@ -12,3 +12,4 @@ jobs:
       - run: npm run test:payments
       - run: npm run check
       - run: npm run build
+      - run: npx wrangler pages functions build --compatibility-flags=nodejs_compat --outdir=.netlify/cloudflare-check

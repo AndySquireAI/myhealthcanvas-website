@@ -108,3 +108,7 @@ temp/
 # Local payment secrets
 .env.*.local
 .netlify/
+
+.wrangler/
+.dev.vars
+.dev.vars.*

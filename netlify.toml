@@ -25,6 +25,25 @@
   to = "/"
   status = 301
 
+# Same API paths as Cloudflare Pages.
+[[redirects]]
+  from = "/api/mhc-checkout"
+  to = "/.netlify/functions/mhc-checkout"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/mhc-order"
+  to = "/.netlify/functions/mhc-order"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/mhc-webhook"
+  to = "/.netlify/functions/mhc-webhook"
+  status = 200
+  force = true
+
 # SPA fallback - must be last
 [[redirects]]
   from = "/*"
@@ -55,7 +74,6 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
-  included_files = ["private/forms/*.enc"]
 
 [[headers]]
   for = "/myhealthcanvas/thank-you"

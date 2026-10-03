@@ -6,9 +6,9 @@ This PR replaces PayPal on `/myhealthcanvas` and `/start`. Prices remain CHF 22 
 
 **Do not merge to production until preview test-mode checkout, delivery email and both PDF downloads pass.** The implementation fails closed when configuration is missing; merging unconfigured replaces working payment buttons with an unavailable message.
 
-Uses Netlify Functions (the plain Vite preview/Express server does not implement these endpoints). For a local function preview use `npx netlify-cli dev`. Configure the HTTPS Netlify deploy preview for the full payment test. Do not expose secrets using a `VITE_` prefix.
+Supports Cloudflare Pages Functions and Netlify Functions through the same `/api/mhc-*` endpoints. The live domain responds through Cloudflare and both hosts have deploy checks. `wrangler.toml` enables Node compatibility and keeps the existing `dist/public` output. For local Cloudflare testing use `npx wrangler pages dev dist/public`; for Netlify use `npx netlify-cli dev`. Plain Vite preview/Express does not implement the API. Use an HTTPS deploy preview for the full payment test. Do not expose secrets using a `VITE_` prefix.
 
-Netlify environment variables (Functions scope; separate preview and production values):
+Runtime environment variables (Cloudflare Pages Variables/Secrets or Netlify Functions scope; separate preview and production values):
 
 | Variable | Value |
 | --- | --- |
@@ -23,9 +23,9 @@ Netlify environment variables (Functions scope; separate preview and production 
 | `MHC_EMAIL_FROM` | Sender on a verified Resend domain |
 | `MHC_LIVE_CHECKOUT_ENABLED` | `true` for production only, after tests |
 
-Live mode additionally requires Netlify `CONTEXT=production`. Preview builds reject live keys. The current development asset key is stored only in the ignored, mode-0600 `.env.stripe-assets.local` file in the developer checkout. Transfer it directly to the Functions secret setting and store a secure backup; never paste it into a PR, chat or public file. If replacing that key, re-encrypt both files with `scripts/protect-forms.mjs` and deploy files/key together.
+Live mode additionally requires Netlify `CONTEXT=production` or Cloudflare `CF_PAGES_BRANCH=main`. The Cloudflare adapter sets context from the platform branch, ignoring a user-supplied CONTEXT value. Preview builds reject live keys. Confirm the Cloudflare runtime exposes `CF_PAGES_BRANCH` before activation; absence safely disables live mode. The current development asset key is stored only in the ignored, mode-0600 `.env.stripe-assets.local` file in the developer checkout. Transfer it directly to the runtime secret setting and store a secure backup; never paste it into a PR, chat or public file. If replacing that key, re-encrypt both files with `scripts/protect-forms.mjs` and deploy files/key together.
 
-Configure Stripe webhook URL `https://<deployment>/.netlify/functions/mhc-webhook` for `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Use the matching mode and endpoint signing secret. Only card checkout is enabled. No discounts, adjustable quantities or automatic-tax additions are enabled; the expected charged totals are exactly CHF 22/31. Confirm the merchant's tax handling before live activation. Retain these Price IDs for existing orders; changing a configured Price ID invalidates old downloads until compatibility is implemented.
+Configure Stripe webhook URL `https://<deployment>/api/mhc-webhook` for `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Use the matching mode and endpoint signing secret. Only card checkout is enabled. No discounts, adjustable quantities or automatic-tax additions are enabled; the expected charged totals are exactly CHF 22/31. Confirm the merchant's tax handling before live activation. Retain these Price IDs for existing orders; changing a configured Price ID invalidates old downloads until compatibility is implemented.
 
 Resend is the selected delivery adapter, not an existing account we have verified. Configure sender-domain verification and disable email click tracking for these private links. Confirm provider arrangements and final privacy wording before launch. Presence of an API key does not establish deliverability: the successful test email is a release gate.
 
@@ -45,7 +45,7 @@ Resend is the selected delivery adapter, not an existing account we have verifie
 ## Security and recovery boundaries
 
 - Server validates paid/completed status, store, product, exact Price ID, amount, currency, quantity, environment, and absence of refunds/disputes on every download. The browser cannot select a different file.
-- AES-256-GCM encrypted files are included only in function bundles. The key and plaintext are never delivered to the browser; the purchased PDF is decrypted on the server. Checkout also checks the chosen file before creating a payment session.
+- AES-256-GCM ciphertext is bundled from `private/forms.mjs` only into server functions, allowing both hosting runtimes to serve the same encrypted assets. The key and plaintext are never delivered to the browser; the purchased PDF is decrypted on the server. Checkout also checks the chosen file before creating a payment session.
 - Return links carry a Stripe session capability in the URL fragment, captured and removed before third-party scripts start. Requests send it in POST bodies, not query strings. Responses are no-store. Never log request bodies or share the private link. Storage is session-only; the email is the recovery path across devices.
 - This is purchase gating, not DRM. A buyer can share a downloaded form or their private link. Downloads have no arbitrary expiry, but are re-verified each time. A lost email is handled manually against a verified Stripe receipt, not an unauthenticated order lookup.
 - Removed five public paid/legacy PDFs from the current tree. **Public Git history and old deployments may still contain originals.** This PR cannot retract existing copies. No history rewrite or old-deployment deletion was performed. Future revised paid editions must originate outside the public repository.
