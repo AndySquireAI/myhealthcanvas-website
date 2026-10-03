@@ -26,7 +26,7 @@ const searchIndex: SearchItem[] = [
     title: "MyHealthCanvas Product",
     description: "Your appointment companion — a downloadable PDF to organise questions, symptoms, goals and medications.",
     path: "/myhealthcanvas",
-    keywords: ["buy", "purchase", "product", "pdf", "download", "companion", "essential", "complete", "price", "£19", "£27"],
+    keywords: ["buy", "purchase", "product", "pdf", "download", "companion", "essential", "complete", "price", "CHF 22", "CHF 31"],
   },
   {
     title: "Caregivers",

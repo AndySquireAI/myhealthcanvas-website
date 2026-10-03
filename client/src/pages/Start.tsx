@@ -14,7 +14,7 @@ export default function Start() {
     // Load PayPal SDK
     const script = document.createElement("script");
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=GBP";
+      "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=CHF";
     script.async = true;
     document.body.appendChild(script);
 
@@ -28,8 +28,8 @@ export default function Start() {
                 purchase_units: [
                   {
                     amount: {
-                      value: "19.00",
-                      currency_code: "GBP",
+                      value: "22.00",
+                      currency_code: "CHF",
                     },
                     description: "MyHealthCanvas - Current Plan",
                   },
@@ -41,8 +41,8 @@ export default function Start() {
                 trackPurchase(
                   {
                     transactionId: _data.orderID,
-                    value: 19.0,
-                    currency: "GBP",
+                    value: 22.0,
+                    currency: "CHF",
                     itemName: "MyHealthCanvas Current Plan",
                   },
                   () => {
@@ -68,8 +68,8 @@ export default function Start() {
                 purchase_units: [
                   {
                     amount: {
-                      value: "27.00",
-                      currency_code: "GBP",
+                      value: "31.00",
+                      currency_code: "CHF",
                     },
                     description: "MyHealthCanvas - Complete Plan",
                   },
@@ -81,8 +81,8 @@ export default function Start() {
                 trackPurchase(
                   {
                     transactionId: _data.orderID,
-                    value: 27.0,
-                    currency: "GBP",
+                    value: 31.0,
+                    currency: "CHF",
                     itemName: "MyHealthCanvas Complete Plan",
                   },
                   () => {
@@ -108,7 +108,7 @@ export default function Start() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
-        title="Get Your Health Toolkit | MyHealthCanvas — From £19"
+        title="Get Your Health Toolkit | MyHealthCanvas — From CHF 22"
         description="Prepare for every cancer appointment with confidence. Curated questions from Macmillan, NHS & Cancer Research UK. Built by a 2× cancer survivor. Instant download."
         keywords="questions to ask oncologist, cancer appointment preparation, health toolkit cancer, patient health form, MyHealthCanvas"
         canonicalPath="/start"
@@ -149,7 +149,7 @@ export default function Start() {
               background: 'linear-gradient(135deg, #643296, #19878C)',
             }}
           >
-            Get yours from £19
+            Get yours from CHF 22
           </a>
         </div>
       </section>
@@ -227,7 +227,7 @@ export default function Start() {
       <section id="pricing" className="py-16 px-6 scroll-mt-10" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-3xl mx-auto">
           
-          <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>50% of all proceeds are donated to cancer charities, to fund research.</p>
+          <p className="text-center text-[18px] md:text-[20px] font-bold mb-10" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>We commit 50% of net proceeds to cancer research charities.</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Current Plan */}
@@ -237,7 +237,7 @@ export default function Start() {
                 <CardDescription className="text-[15px]">Your Health Story, Always at Hand</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£19</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">CHF 22</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> All your key health information in one place</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Curated questions from Macmillan, NHS & CRUK</li>
@@ -260,7 +260,7 @@ export default function Start() {
                 <CardDescription className="text-[15px]">Your Complete Cancer Journey, Organised</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[32px] font-bold text-gray-900 mb-6">£27</p>
+                <p className="text-[32px] font-bold text-gray-900 mb-6">CHF 31</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Current Plan</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Advance care planning & your wishes</li>

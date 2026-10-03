@@ -2,8 +2,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
-import PatientStories from "@/components/PatientStories";
-import CaregiverCompanion from "@/components/CaregiverCompanion";
 import { trackPurchase } from "@/lib/analytics";
 
 declare global {
@@ -152,19 +150,20 @@ export default function MyHealthCanvas() {
           <img
             src="/images/MyHealthCanvasLOGOX2.webp"
             alt="MyHealthCanvas Logo"
-            className="h-36 md:h-44 lg:h-52 mx-auto"
+            className="h-20 md:h-24 mx-auto"
           />
 
           <p className="text-[14px] uppercase tracking-[0.2em] text-[oklch(0.55_0.15_195)] font-bold">
             A patient-led oncology appointment companion
           </p>
 
-          <h1 className="text-[30px] md:text-5xl lg:text-[54px] font-bold text-gray-900 leading-[1.15] text-center">
-            Keep your <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">questions, symptoms</span> and <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">care story</span> ready for every appointment.
+          <h1 className="text-[30px] md:text-5xl font-bold text-gray-900 leading-[1.15] text-center">
+            Your next appointment.<br />
+            <span className="text-[#007699]">What matters, in one place.</span>
           </h1>
 
           <p className="text-[20px] md:text-[24px] font-semibold text-gray-700 leading-[1.4] text-center">
-            Take back control. <span className="bg-gradient-to-r from-[oklch(0.55_0.15_195)] to-[oklch(0.60_0.15_300)] bg-clip-text text-transparent">Ask better questions.</span> Give yourself every chance.
+            A printable companion to complete yourself or with someone you trust.
           </p>
 
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-[1.7] text-center">
@@ -184,7 +183,7 @@ export default function MyHealthCanvas() {
               Choose the version that fits you
             </button>
             <a
-              href="mailto:andy@patientcentriccare.ai?subject=Free%20Oncology%20Appointment%20Checklist"
+              href="/oncology-appointment-checklist"
               className="w-full sm:w-auto px-8 py-4 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[16px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors no-underline"
             >
               Get free checklist
@@ -237,6 +236,7 @@ export default function MyHealthCanvas() {
       {/* Illustrative patient journey: replaces the repeated legacy photo sequence. */}
       <section id="patient-journey" className="px-6 md:px-12 lg:px-24 pt-10 pb-4" style={{ backgroundColor: "#FDFCF8" }} aria-labelledby="patient-journey-title">
         <div className="max-w-5xl mx-auto">
+          <h2 id="patient-journey-title" className="text-2xl md:text-3xl font-bold text-center mb-6">Prepare at home. Bring what matters to your appointment.</h2>
           <figure className="space-y-4">
             <img
               src="/images/home-companion-myhealthcanvas-patient-journey.webp"
@@ -249,201 +249,20 @@ export default function MyHealthCanvas() {
               className="w-full rounded-xl shadow-lg"
             />
             <figcaption className="max-w-4xl mx-auto text-center text-[13px] text-gray-500 leading-[1.6]">
-              <strong>Illustrative patient journey.</strong> MyHealthCanvas is a private downloadable PDF completed and kept on the patient&apos;s own device. Home Companion and MyHealthCanvas work independently today; a joined patient-controlled pathway is a target research direction.
+              <strong>Illustrative patient journey.</strong> MyHealthCanvas is a private downloadable PDF completed and kept on the patient&apos;s own device. This purchase covers the PDF only; Home Companion voice support is not included.
             </figcaption>
           </figure>
         </div>
       </section>
 
-      {/* Text panel 1: Never leave an oncology appointment... */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 id="patient-journey-title" className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
-            Prepare for an oncology appointment with the questions and priorities that matter to you.
-          </h2>
-          <p className="text-[16px] text-gray-600 leading-[1.7]">
-            MyHealthCanvas helps you organise your questions, symptoms, medications and priorities so you can have clearer, more confident conversations with your care team.
-          </p>
-          <div className="flex items-center gap-2 justify-center">
-            <svg className="w-5 h-5 text-[oklch(0.55_0.15_195)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            <span className="text-[14px] font-medium text-gray-700">Private. Secure. Yours.</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Text panel 2: Prepare together */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900 leading-[1.2]">
-            Prepare together. Feel more in control.
-          </h2>
-          <p className="text-[16px] text-gray-600 leading-[1.7]">
-            Review tomorrow's appointment, add questions, and make sure everything that matters is on your list.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
-              <span className="text-[13px] font-medium text-gray-700">Stay organised</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              <span className="text-[13px] font-medium text-gray-700">Work together</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span className="text-[13px] font-medium text-gray-700">Feel confident</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              <span className="text-[13px] font-medium text-gray-700">Save time</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-[26px] md:text-[36px] font-bold text-gray-900">Start simple. Go deeper only when you are ready.</h2>
-            <p className="text-[17px] md:text-[19px] text-gray-600 leading-[1.8] max-w-3xl mx-auto">
-              A newly diagnosed patient may not be ready for sensitive future-planning questions. That is why MyHealthCanvas has two versions: a practical one-page appointment companion for immediate use, and a fuller two-page version for reflection and future care planning when the time feels right.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 shadow-sm">
-              <p className="text-[13px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold">For shock, diagnosis and first appointments</p>
-              <h3 className="text-[22px] font-bold text-gray-900">Essential Appointment Companion</h3>
-              <p className="text-[15px] text-gray-600 leading-[1.7]">
-                The one-page version focuses on what most patients need first: diagnosis details, medicines, symptoms, immediate priorities and questions for the healthcare team.
-              </p>
-              <p className="text-[14px] text-gray-500 italic">
-                Many newly diagnosed patients prefer to start here.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)] p-6 space-y-4 shadow-sm relative">
-              <div className="absolute -top-3 left-6 px-3 py-1 text-[12px] font-bold text-white rounded-full" style={{ background: "oklch(0.55 0.15 195)" }}>Optional deeper layer</div>
-              <p className="text-[13px] uppercase tracking-[0.15em] text-[oklch(0.55_0.15_195)] font-bold pt-2">For reflection, family and future care</p>
-              <h3 className="text-[22px] font-bold text-gray-900">Complete Care & Future Planning Companion</h3>
-              <p className="text-[15px] text-gray-600 leading-[1.7]">
-                The two-page version includes everything in Essential, plus space for comfort, reflections, feedback, useful resources, future wishes, advance directive location and healthcare power of attorney.
-              </p>
-              <p className="text-[14px] text-gray-500 italic">
-                Use this only if and when these questions feel helpful.
-              </p>
-            </div>
-          </div>
-
-          {/* Visual Comparison Table */}
-          <div className="mt-10">
-            <h3 className="text-[20px] md:text-[24px] font-bold text-gray-900 text-center mb-6">What's included in each version</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b-2 border-gray-200">
-                    <th className="py-3 px-4 text-[14px] font-semibold text-gray-600">Feature</th>
-                    <th className="py-3 px-4 text-[14px] font-semibold text-center text-gray-800">Essential</th>
-                    <th className="py-3 px-4 text-[14px] font-semibold text-center" style={{ color: 'oklch(0.55 0.15 195)' }}>Complete</th>
-                  </tr>
-                </thead>
-                <tbody className="text-[15px] text-gray-700">
-                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Diagnosis information</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Questions for your team</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Symptoms and priorities</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Medicines and allergies</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Caregiver notes</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Future wishes</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100"><td className="py-3 px-4">Advance directives</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                  <tr className="border-b border-gray-100 bg-gray-50/50"><td className="py-3 px-4">Healthcare power of attorney</td><td className="py-3 px-4 text-center text-gray-300">—</td><td className="py-3 px-4 text-center text-[oklch(0.55_0.15_195)] font-bold">✓</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="grid md:grid-cols-2 gap-4 mt-6">
-              <div className="text-center p-3 rounded-lg bg-white border border-gray-100">
-                <p className="text-[13px] text-gray-500">Recommended if newly diagnosed</p>
-                <p className="text-[15px] font-bold text-gray-800 mt-1">Essential Appointment Companion</p>
-              </div>
-              <div className="text-center p-3 rounded-lg bg-white border border-[oklch(0.55_0.15_195)]/30">
-                <p className="text-[13px] text-gray-500">Recommended when ready for broader planning</p>
-                <p className="text-[15px] font-bold text-gray-800 mt-1">Complete Care & Future Planning Companion</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Oncologist quote - moved above pricing for social proof */}
-      <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="p-6 bg-white rounded-xl border border-[oklch(0.55_0.15_195)] shadow-sm text-center space-y-3">
-            <p className="text-[13px] text-gray-500">Illustrative — composite example, not an individual testimonial.</p>
-            <p className="text-[16px] md:text-[18px] text-gray-700 leading-[1.8] italic">
-              "Some of my patients bring their MyHC with them to appointments so they do not forget questions. Having a standard template is much easier for me to scan, and a lot less complex than fragmented EHR records."
-            </p>
-            <p className="text-[14px] text-gray-500 font-medium">Illustrative clinician perspective</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Which version is right for me? - Decision helper */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-5xl mx-auto space-y-8">
-          <h2 className="text-[26px] md:text-[34px] font-bold text-gray-900 text-center">Which version is right for me?</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 shadow-sm">
-              <p className="text-[20px]">❤️</p>
-              <h3 className="text-[18px] font-bold text-gray-900">Essential (CHF 22)</h3>
-              <p className="text-[13px] text-gray-500">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
-              <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
-              <ul className="text-[14px] text-gray-600 space-y-2">
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Recently diagnosed</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Want to stay organised</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Need somewhere for questions and symptoms</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Prefer a simple one-page summary</li>
-              </ul>
-              <div className="pt-2 border-t border-gray-100 space-y-1">
-                <p className="text-[13px] font-semibold text-gray-700">What it is designed to help with:</p>
-                <p className="text-[13px] text-gray-600">✔ Capture questions and priorities in one place</p>
-                <p className="text-[13px] text-gray-600">✔ Prepare for an appointment conversation</p>
-                <p className="text-[13px] text-gray-600">✔ Keep a patient-owned summary to share if you choose</p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)] p-6 space-y-4 shadow-sm">
-              <p className="text-[20px]">🤝</p>
-              <h3 className="text-[18px] font-bold text-gray-900">Complete (CHF 31)</h3>
-              <p className="text-[13px] text-gray-500">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
-              <p className="text-[14px] font-semibold text-gray-700">Best if:</p>
-              <ul className="text-[14px] text-gray-600 space-y-2">
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Treatment is already underway</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> You have a caregiver helping</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> Multiple specialists are involved</li>
-                <li className="flex items-start gap-2"><span className="text-gray-400">·</span> You want future planning included</li>
-              </ul>
-              <div className="pt-2 border-t border-gray-100 space-y-1">
-                <p className="text-[13px] font-semibold text-gray-700">What it is designed to help with:</p>
-                <p className="text-[13px] text-gray-600">✔ Prepare questions, symptoms and priorities with a caregiver</p>
-                <p className="text-[13px] text-gray-600">✔ Bring a broader care picture together</p>
-                <p className="text-[13px] text-gray-600">✔ Create space for reflection and future planning</p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 shadow-sm flex flex-col justify-center">
-              <p className="text-[20px]">❓</p>
-              <h3 className="text-[18px] font-bold text-gray-900">Still unsure?</h3>
-              <p className="text-[15px] text-gray-600 leading-[1.7]">
-                Start with the free checklist. Upgrade later if it helps.
-              </p>
-              <Link href="/oncology-appointment-checklist">
-                <button className="w-full px-5 py-3 border-2 border-[oklch(0.55_0.15_195)] text-[oklch(0.55_0.15_195)] bg-white text-[14px] font-semibold rounded-xl hover:bg-[oklch(0.55_0.15_195)]/5 transition-colors">
-                  Get free checklist
-                </button>
-              </Link>
-            </div>
-          </div>
+      <section className="py-10 px-6 md:px-12 lg:px-24" aria-labelledby="how-to-use-title">
+        <div className="max-w-4xl mx-auto">
+          <h2 id="how-to-use-title" className="text-2xl md:text-3xl font-bold text-center mb-6">Three simple steps</h2>
+          <ol className="grid md:grid-cols-3 gap-6 text-gray-600">
+            <li className="rounded-xl bg-white border border-gray-200 p-6"><strong className="block text-gray-900 mb-2">1. Download</strong>Choose your PDF. Open it with free Adobe Acrobat Reader, or print it.</li>
+            <li className="rounded-xl bg-white border border-gray-200 p-6"><strong className="block text-gray-900 mb-2">2. Make it yours</strong>Add your questions, symptoms and priorities. A caregiver can help if you choose.</li>
+            <li className="rounded-xl bg-white border border-gray-200 p-6"><strong className="block text-gray-900 mb-2">3. Bring it with you</strong>Use it during your appointment, then save and update your own copy for next time.</li>
+          </ol>
         </div>
       </section>
 
@@ -451,7 +270,7 @@ export default function MyHealthCanvas() {
         <div className="max-w-4xl mx-auto space-y-10">
           <div className="text-center space-y-4">
             <p className="text-[18px] md:text-[20px] font-bold" style={{ background: "linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              We commit 50% of net proceeds to cancer research charities; recipients and amounts are published annually.
+              We commit 50% of net proceeds to cancer research charities.
             </p>
             <h2 className="text-[28px] md:text-[36px] font-bold text-gray-900">Choose the version that fits where you are today</h2>
             <p className="text-[16px] text-gray-600 leading-[1.7] max-w-2xl mx-auto">
@@ -467,14 +286,14 @@ export default function MyHealthCanvas() {
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 22</p>
-                <p className="text-[13px] text-gray-500 mb-2">Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
+                <p className="text-[13px] text-gray-500 mb-2">One-time payment in CHF. Your payment provider may apply currency conversion.</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for first appointments, active treatment and quick sharing.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Diagnosis and key medical information</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Questions and topics for your healthcare team</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Symptoms, current thoughts and priorities</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Medicines, allergies and important warnings</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your health data</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Downloadable PDF to complete and keep on your device</li>
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
@@ -505,14 +324,14 @@ export default function MyHealthCanvas() {
               </CardHeader>
               <CardContent>
                 <p className="text-[32px] font-bold text-gray-900 mb-1">CHF 31</p>
-                <p className="text-[13px] text-gray-500 mb-2">Approx. €33 · approx. £28 reference — charged in CHF at PayPal</p>
+                <p className="text-[13px] text-gray-500 mb-2">One-time payment in CHF. Your payment provider may apply currency conversion.</p>
                 <p className="text-[14px] text-gray-500 mb-6">Best for patients and families ready for broader reflection and future care planning.</p>
                 <ul className="space-y-3 text-[15px] text-gray-600">
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Everything in the Essential version</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Sources of comfort and wellbeing</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Reflections, feedback and useful resources</li>
                   <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Future wishes, advance directive location and healthcare power of attorney</li>
-                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Private downloadable PDF — we never see your health data</li>
+                  <li className="flex items-start gap-2"><span className="text-[oklch(0.55_0.15_195)] mt-0.5">✓</span> Downloadable PDF to complete and keep on your device</li>
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
@@ -545,56 +364,11 @@ export default function MyHealthCanvas() {
             </p>
           </div>
 
-          {/* Illustrative perspectives beside pricing */}
-          <div className="text-center space-y-2">
-            <p className="text-[15px] font-semibold text-gray-700">Illustrative perspectives</p>
-            <p className="text-[13px] text-gray-500">Illustrative — composite examples, not individual testimonials.</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="p-4 bg-white rounded-lg border border-gray-100 text-center">
-              <p className="text-[14px] text-gray-600 italic leading-[1.6]">"I never forgot my questions again."</p>
-              <p className="text-[12px] text-gray-400 mt-2">Illustrative patient perspective</p>
-            </div>
-            <div className="p-4 bg-white rounded-lg border border-gray-100 text-center">
-              <p className="text-[14px] text-gray-600 italic leading-[1.6]">"It reduced the amount of information I had to keep in my head."</p>
-              <p className="text-[12px] text-gray-400 mt-2">Illustrative caregiver perspective</p>
-            </div>
-          </div>
-
           <p className="text-[13px] text-center" style={{ color: "#888888", fontStyle: "italic" }}>
             Secure checkout via PayPal. No account needed. All major cards accepted. Instant access after payment.
           </p>
         </div>
       </section>
-
-      {/* Illustrative perspectives - condensed */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
-        <div className="max-w-5xl mx-auto space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="text-[26px] md:text-[34px] font-bold text-gray-900">Illustrative perspectives</h2>
-            <p className="text-[16px] text-gray-500">Illustrative — composite examples, not individual testimonials.</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3 shadow-sm">
-              <p className="text-[15px] text-gray-600 leading-[1.8] italic">
-                "After diagnosis, it is an avalanche of emails, letters, phone calls, SMS and in-person appointments. MyHC helps me organise my key information — especially the questions for my oncologist — so I never forget anything."
-              </p>
-              <p className="text-[13px] text-gray-400 font-medium">Illustrative patient perspective</p>
-            </div>
-
-            <div className="p-6 bg-white rounded-xl border border-gray-100 space-y-3 shadow-sm">
-              <p className="text-[15px] text-gray-600 leading-[1.8] italic">
-                "My wife was in pain before treatment started. I had to take care of a mountain of admin. MyHC helped us think through our priorities and start to plan for a better future."
-              </p>
-              <p className="text-[13px] text-gray-400 font-medium">Illustrative caregiver perspective</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PatientStories />
-      <CaregiverCompanion />
 
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
@@ -614,25 +388,11 @@ export default function MyHealthCanvas() {
         </div>
       </section>
 
-      {/* COMING SOON: PATIENT MEMORY - emerging direction teaser (vision, not a delivered capability) */}
-      <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#f9f9f7" }}>
-        <div className="max-w-2xl mx-auto">
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm p-8 md:p-10 text-center space-y-4">
-            <span className="inline-block text-[12px] font-bold tracking-[0.08em] uppercase text-[#369994] bg-[oklch(0.95_0.03_195)] rounded-full px-4 py-1.5">Coming soon</span>
-            <h2 className="text-[22px] md:text-[28px] font-bold text-gray-800 leading-[1.25]">We're building Trusted Health Memory</h2>
-            <p className="text-[16px] text-gray-600 leading-[1.7]">
-              MyHealthCanvas is the first practical step. Today it helps you prepare, remember and capture what matters for each appointment. Next, we're working towards helping you <strong>carry that information forward</strong> &mdash; across appointments, clinicians and care settings &mdash; so your next appointment can start where the last one finished.
-            </p>
-            <p className="text-[13px] font-semibold text-[#369994]">Our vision for continuity of care &mdash; an emerging capability we're developing, not yet available.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-[22px] md:text-[26px] font-bold text-gray-800">How we protect you</h2>
           <p className="text-[16px] text-gray-500 leading-[1.7]">
-            MyHealthCanvas was built on one simple rule: your health information belongs to you. We never store, share or process your personal health data. Your completed form stays on your device unless you choose to share it.
+            This purchase is a downloadable PDF. You complete and save it on your own device, and choose whether to share it with your care team. Home Companion voice support is not included in this purchase.
           </p>
           <div className="grid md:grid-cols-3 gap-6 pt-4">
             <div className="p-4 bg-white rounded-lg border border-gray-100">
@@ -675,7 +435,7 @@ export default function MyHealthCanvas() {
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-white font-bold text-[15px] leading-tight">Start simple from CHF 22</p>
-              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>Approx. €23 · approx. £20 reference — charged in CHF at PayPal</p>
+              <p className="text-[12px] leading-tight" style={{ color: "#AACCCC" }}>One-time payment in CHF. Your payment provider may apply currency conversion.</p>
             </div>
             <a
               href="#pricing"

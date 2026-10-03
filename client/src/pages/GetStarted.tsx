@@ -39,7 +39,7 @@ export default function GetStarted() {
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDFCF8" }}>
       <SEO
         title="Be ready for your next oncology appointment | MyHealthCanvas"
-        description="A guided companion that helps you organise your questions, symptoms and medications before your oncology appointment. Instant download from £19. 50% of proceeds donated to cancer charities."
+        description="A guided companion that helps you organise your questions, symptoms and medications before your oncology appointment. Instant download from CHF 22. We commit 50% of net proceeds to cancer research charities."
         canonicalPath="/get-started"
         noindex
       />
@@ -71,7 +71,7 @@ export default function GetStarted() {
                 <Link href="/myhealthcanvas#pricing" onClick={() => trackCta("hero_get_yours")}>
                   <button className="w-full sm:w-auto px-8 py-4 rounded-xl text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg shadow-md cursor-pointer"
                     style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))" }}>
-                    Get yours from £19 →
+                    Get yours from CHF 22 →
                   </button>
                 </Link>
                 <Link href="/oncology-appointment-checklist" onClick={() => trackCta("hero_free_checklist")}>
@@ -88,7 +88,7 @@ export default function GetStarted() {
                   Private. Secure. Yours.
                 </span>
                 <span>Instant download</span>
-                <span className="text-[oklch(0.55_0.15_195)] font-semibold">50% of proceeds to cancer charities</span>
+                <span className="text-[oklch(0.55_0.15_195)] font-semibold">We commit 50% of net proceeds to cancer research charities.</span>
               </div>
             </div>
 
@@ -161,7 +161,7 @@ export default function GetStarted() {
             <Link href="/myhealthcanvas#pricing" onClick={() => trackCta("midpage_get_yours")}>
               <button className="w-full sm:w-auto px-10 py-4 rounded-xl text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg cursor-pointer"
                 style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))" }}>
-                Get yours from £19 →
+                Get yours from CHF 22 →
               </button>
             </Link>
             <p className="text-[13px] text-gray-500 italic">

@@ -26,13 +26,13 @@ export default function ThankYou() {
   const downloadLinks = {
     current: {
       name: "MyHealthCanvas - Current Plan",
-      price: "£9",
+      price: "CHF 22",
       description: "One-page template",
       file: "/downloads/MyHealthCanvas-Current-Plan.pdf",
     },
     complete: {
       name: "MyHealthCanvas - Complete Plan",
-      price: "£12",
+      price: "CHF 31",
       description: "Two-page template",
       file: "/downloads/MyHealthCanvas-Complete-Plan.pdf",
     },
@@ -138,7 +138,7 @@ export default function ThankYou() {
                 <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
                   <CardHeader>
                     <CardTitle className="text-lg">Current Plan</CardTitle>
-                    <p className="text-sm text-gray-500">One-page template (£9)</p>
+                    <p className="text-sm text-gray-500">One-page template (CHF 22)</p>
                   </CardHeader>
                   <CardContent>
                     <a href="/downloads/MyHealthCanvas-Current-Plan.pdf" download>
@@ -152,7 +152,7 @@ export default function ThankYou() {
                 <Card className="border-gray-200" style={{ backgroundColor: '#FFFFFF' }}>
                   <CardHeader>
                     <CardTitle className="text-lg">Complete Plan</CardTitle>
-                    <p className="text-sm text-gray-500">Two-page template (£12)</p>
+                    <p className="text-sm text-gray-500">Two-page template (CHF 31)</p>
                   </CardHeader>
                   <CardContent>
                     <a href="/downloads/MyHealthCanvas-Complete-Plan.pdf" download>
