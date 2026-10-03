@@ -331,8 +331,8 @@ export default function Welcome() {
       <section className="py-14 px-6 md:px-12 lg:px-24" style={{ backgroundColor: '#FDFCF8' }}>
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-3">
-            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Real voices from people using MyHealthCanvas</h2>
-            <p className="text-[16px] text-gray-500 leading-[1.6]">Patients, caregivers and clinicians describe how preparation helps before cancer care appointments.</p>
+            <h2 className="text-[24px] md:text-[32px] font-bold text-gray-900">Illustrative perspectives</h2>
+            <p className="text-[16px] text-gray-500 leading-[1.6]">Composite examples of intended use, not individual testimonials.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -342,7 +342,7 @@ export default function Welcome() {
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "After diagnosis, it's an avalanche of emails, letters, phone calls. MyHealthCanvas helps me organise my key information — especially the questions for my oncologist — so I never forget anything."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">Cancer patient, 58 · Switzerland</p>
+              <p className="text-[13px] text-gray-400 font-medium">Illustrative patient perspective</p>
             </div>
 
             {/* Caregiver voice */}
@@ -351,7 +351,7 @@ export default function Welcome() {
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "My wife was in pain before treatment started. I had to take care of a mountain of admin. MyHealthCanvas helped us think through our priorities and start to plan for a better future."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">Caregiver, 64 · UK</p>
+              <p className="text-[13px] text-gray-400 font-medium">Illustrative caregiver perspective</p>
             </div>
 
             {/* Clinician voice */}
@@ -360,7 +360,7 @@ export default function Welcome() {
               <p className="text-[15px] text-gray-600 leading-[1.8] italic">
                 "Some of my patients bring their MyHealthCanvas to appointments so they don't forget questions. Having a standard template is much easier for me to scan than fragmented records."
               </p>
-              <p className="text-[13px] text-gray-400 font-medium">Oncologist, 38 · Switzerland</p>
+              <p className="text-[13px] text-gray-400 font-medium">Illustrative clinician perspective</p>
             </div>
           </div>
         </div>
@@ -504,7 +504,7 @@ export default function Welcome() {
               <p className="text-[14px] text-gray-500 italic">
                 Many newly diagnosed patients prefer to start here.
               </p>
-              <p className="text-[15px] font-semibold text-gray-800 pt-2">£19</p>
+              <p className="text-[15px] font-semibold text-gray-800 pt-2">CHF 22</p>
             </div>
 
             <div className="bg-white rounded-xl border-2 border-[oklch(0.55_0.15_195)]/40 p-6 space-y-3 shadow-sm relative">
@@ -517,7 +517,7 @@ export default function Welcome() {
               <p className="text-[14px] text-gray-500 italic">
                 Use this only when these questions feel helpful.
               </p>
-              <p className="text-[15px] font-semibold text-gray-800 pt-2">£27</p>
+              <p className="text-[15px] font-semibold text-gray-800 pt-2">CHF 31</p>
             </div>
           </div>
 
@@ -536,7 +536,7 @@ export default function Welcome() {
           </div>
 
           <p className="text-[14px] text-gray-400 italic">
-            50% of all proceeds are donated to cancer charities.
+            We commit 50% of net proceeds to cancer research charities.
           </p>
         </div>
       </section>

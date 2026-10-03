@@ -871,7 +871,7 @@ export default function Caregivers() {
       <section className="py-10 px-6 md:px-12 lg:px-24" style={{ backgroundColor: "#FDFCF8" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-[18px] md:text-[20px] font-bold" style={{ background: 'linear-gradient(90deg, oklch(0.55 0.15 195), oklch(0.45 0.15 300))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            50% of all MyHealthCanvas proceeds go to cancer charities.
+            We commit 50% of net proceeds to cancer research charities.
           </p>
         </div>
       </section>
