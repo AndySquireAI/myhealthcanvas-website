@@ -1,110 +1,8 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { useEffect } from "react";
 import SEO from "@/components/SEO";
-import { trackPurchase } from "@/lib/analytics";
-
-declare global {
-  interface Window {
-    paypal?: any;
-  }
-}
+import StripeCheckoutButton from "@/components/StripeCheckoutButton";
 
 export default function Start() {
-  useEffect(() => {
-    // Load PayPal SDK
-    const script = document.createElement("script");
-    script.src =
-      "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=CHF";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // Render Current Plan button
-      if (window.paypal && document.getElementById("paypal-button-current-start")) {
-        window.paypal
-          .Buttons({
-            createOrder: function (_data: any, actions: any) {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: {
-                      value: "22.00",
-                      currency_code: "CHF",
-                    },
-                    description: "MyHealthCanvas - Current Plan",
-                  },
-                ],
-              });
-            },
-            onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function () {
-                trackPurchase(
-                  {
-                    transactionId: _data.orderID,
-                    value: 22.0,
-                    currency: "CHF",
-                    itemName: "MyHealthCanvas Current Plan",
-                  },
-                  () => {
-                    window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
-                  },
-                );
-              });
-            },
-            onError: function (err: any) {
-              console.error("PayPal error:", err);
-              alert("There was an error processing your payment. Please try again.");
-            },
-          })
-          .render("#paypal-button-current-start");
-      }
-
-      // Render Complete Plan button
-      if (window.paypal && document.getElementById("paypal-button-complete-start")) {
-        window.paypal
-          .Buttons({
-            createOrder: function (_data: any, actions: any) {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: {
-                      value: "31.00",
-                      currency_code: "CHF",
-                    },
-                    description: "MyHealthCanvas - Complete Plan",
-                  },
-                ],
-              });
-            },
-            onApprove: function (_data: any, actions: any) {
-              return actions.order.capture().then(function () {
-                trackPurchase(
-                  {
-                    transactionId: _data.orderID,
-                    value: 31.0,
-                    currency: "CHF",
-                    itemName: "MyHealthCanvas Complete Plan",
-                  },
-                  () => {
-                    window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
-                  },
-                );
-              });
-            },
-            onError: function (err: any) {
-              console.error("PayPal error:", err);
-              alert("There was an error processing your payment. Please try again.");
-            },
-          })
-          .render("#paypal-button-complete-start");
-      }
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDFCF8' }}>
       <SEO
@@ -248,7 +146,7 @@ export default function Start() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <div id="paypal-button-current-start" className="w-full"></div>
+                <StripeCheckoutButton product="current" />
               </CardFooter>
             </Card>
 
@@ -272,13 +170,13 @@ export default function Start() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <div id="paypal-button-complete-start" className="w-full"></div>
+                <StripeCheckoutButton product="complete" />
               </CardFooter>
             </Card>
           </div>
 
           <p className="text-[13px] text-center mt-8" style={{ color: '#888888', fontStyle: 'italic' }}>
-            Secure checkout via PayPal (no account needed) · All major cards accepted · Instant access after payment
+            Secure card checkout via Stripe · No MyHealthCanvas account needed · Download after payment, with a return link by email
           </p>
         </div>
       </section>
