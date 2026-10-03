@@ -12,10 +12,14 @@ export async function onRequest({ request, env, params }) {
     ? handlers[params.action]
     : null;
   if (!handle) return new Response("Not found", { status: 404 });
-  // Never trust an environment-supplied CONTEXT to promote a branch preview.
+  // Live checkout is allowed only on the production custom domain, never a pages.dev preview.
   const config = {
     ...env,
-    CONTEXT: env.CF_PAGES_BRANCH === "main" ? "production" : "deploy-preview",
+    CONTEXT: ["myhealthcanvas.com", "www.myhealthcanvas.com"].includes(
+      new URL(request.url).hostname
+    )
+      ? "production"
+      : "deploy-preview",
   };
   const result = await handle(
     {
