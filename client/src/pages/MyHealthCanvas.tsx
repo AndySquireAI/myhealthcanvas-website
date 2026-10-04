@@ -2,13 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
-import { trackPurchase } from "@/lib/analytics";
-
-declare global {
-  interface Window {
-    paypal?: any;
-  }
-}
+import StripeCheckoutButton from "@/components/StripeCheckoutButton";
 
 export default function MyHealthCanvas() {
 
@@ -40,87 +34,6 @@ export default function MyHealthCanvas() {
       const t = window.setTimeout(scrollToPricingDeepLink, 300);
       return () => window.clearTimeout(t);
     }
-  }, []);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=Aeh8fC5lOPXjj-f1dqDeegz-8EDOi4BTMNLM01BQH4N4nqqKjwYhxKoAdnn_zDe6wQA7YqN0Da5ltbV4&currency=CHF";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      if (window.paypal && document.getElementById("paypal-button-current")) {
-        window.paypal.Buttons({
-          createOrder: function (_data: any, actions: any) {
-            return actions.order.create({
-              purchase_units: [{
-                amount: { value: "22.00", currency_code: "CHF" },
-                description: "MyHealthCanvas - Essential Appointment Companion",
-              }],
-            });
-          },
-          onApprove: function (_data: any, actions: any) {
-            return actions.order.capture().then(function () {
-              // Fire the purchase event, then redirect only once GA has sent the
-              // beacon (with a timeout fallback so checkout never hangs).
-              trackPurchase(
-                {
-                  transactionId: _data.orderID,
-                  value: 22.0,
-                  currency: "CHF",
-                  itemName: "MyHealthCanvas Essential Appointment Companion",
-                },
-                () => {
-                  window.location.href = `/myhealthcanvas/thank-you?product=current&order_id=${_data.orderID}`;
-                },
-              );
-            });
-          },
-          onError: function (err: any) {
-            console.error("PayPal error:", err);
-            alert("There was an error processing your payment. Please try again.");
-          },
-        }).render("#paypal-button-current");
-      }
-
-      if (window.paypal && document.getElementById("paypal-button-complete")) {
-        window.paypal.Buttons({
-          createOrder: function (_data: any, actions: any) {
-            return actions.order.create({
-              purchase_units: [{
-                amount: { value: "31.00", currency_code: "CHF" },
-                description: "MyHealthCanvas - Complete Care & Future Planning Companion",
-              }],
-            });
-          },
-          onApprove: function (_data: any, actions: any) {
-            return actions.order.capture().then(function () {
-              trackPurchase(
-                {
-                  transactionId: _data.orderID,
-                  value: 31.0,
-                  currency: "CHF",
-                  itemName: "MyHealthCanvas Complete Care & Future Planning Companion",
-                },
-                () => {
-                  window.location.href = `/myhealthcanvas/thank-you?product=complete&order_id=${_data.orderID}`;
-                },
-              );
-            });
-          },
-          onError: function (err: any) {
-            console.error("PayPal error:", err);
-            alert("There was an error processing your payment. Please try again.");
-          },
-        }).render("#paypal-button-complete");
-      }
-    };
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
   }, []);
 
   const scrollToPricing = () => {
@@ -297,20 +210,7 @@ export default function MyHealthCanvas() {
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
-                <button
-                  data-gtag-purchase
-                  data-plan="essential"
-                  className="w-full py-3 rounded-lg text-[16px] font-semibold transition-all duration-300 hover:shadow-lg border-2 cursor-pointer"
-                  style={{ backgroundColor: "#FFFFFF", color: "oklch(0.45 0.15 195)", borderColor: "oklch(0.55 0.15 195)" }}
-                  onClick={() => {
-                    // Intent signal only — NOT a purchase. The real `purchase`
-                    // event fires on PayPal onApprove (payment captured).
-                    document.getElementById("paypal-button-current")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Get the Essential version →
-                </button>
-                <div id="paypal-button-current" className="w-full"></div>
+                <StripeCheckoutButton product="current" />
               </CardFooter>
             </Card>
 
@@ -335,20 +235,7 @@ export default function MyHealthCanvas() {
                 </ul>
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
-                <button
-                  data-gtag-purchase
-                  data-plan="complete"
-                  className="w-full py-3 rounded-lg text-[16px] font-semibold text-white transition-all duration-300 hover:shadow-lg cursor-pointer"
-                  style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.18 270))" }}
-                  onClick={() => {
-                    // Intent signal only — NOT a purchase. The real `purchase`
-                    // event fires on PayPal onApprove (payment captured).
-                    document.getElementById("paypal-button-complete")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Get the Complete version →
-                </button>
-                <div id="paypal-button-complete" className="w-full"></div>
+                <StripeCheckoutButton product="complete" />
               </CardFooter>
             </Card>
           </div>
@@ -365,7 +252,7 @@ export default function MyHealthCanvas() {
           </div>
 
           <p className="text-[13px] text-center" style={{ color: "#888888", fontStyle: "italic" }}>
-            Secure checkout via PayPal. No account needed. All major cards accepted. Instant access after payment.
+            Secure card checkout via Stripe. No MyHealthCanvas account needed. Download after payment, with a return link by email.
           </p>
         </div>
       </section>

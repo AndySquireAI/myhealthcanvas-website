@@ -2,6 +2,17 @@
 <html lang="en" translate="no" class="notranslate">
 
   <head>
+    <script>
+      (function () {
+        if (location.pathname !== '/myhealthcanvas/thank-you') return;
+        var id = new URLSearchParams(location.hash.slice(1)).get('session_id');
+        if (id && /^cs_(test_|live_)?[a-zA-Z0-9]{10,250}$/.test(id)) {
+          window.mhcOrderSession = id;
+          try { sessionStorage.setItem('mhc_order_session', id); } catch (e) {}
+        }
+        history.replaceState(null, '', location.pathname);
+      })();
+    </script>
     <!-- Google Consent Mode v2 — default state (MUST run before GTM) -->
     <script>
       window.dataLayer = window.dataLayer || [];

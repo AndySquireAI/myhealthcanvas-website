@@ -165,7 +165,7 @@ export default function GetStarted() {
               </button>
             </Link>
             <p className="text-[13px] text-gray-500 italic">
-              Secure checkout via PayPal. No account needed. 30-day refund promise.
+              Secure card checkout via Stripe. No MyHealthCanvas account needed. 30-day refund promise.
             </p>
           </div>
         </div>

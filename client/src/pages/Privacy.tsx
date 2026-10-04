@@ -11,7 +11,7 @@ export default function Privacy() {
       />
       <div className="container py-16 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
-        <p className="text-muted-foreground mb-8">Last updated: January 2025</p>
+        <p className="text-muted-foreground mb-8">Last updated: 3 October 2026</p>
 
         <div className="space-y-8">
           <section>
@@ -40,7 +40,8 @@ export default function Privacy() {
               <p><strong>Information you provide:</strong></p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Contact information (name, email address) when you contact us or subscribe to updates</li>
-                <li>Any information you voluntarily provide through forms or correspondence</li>
+                <li>Any information you voluntarily provide through correspondence</li>
+                <li>Purchase information: your checkout email, chosen product, amount and payment reference. Information you write into a downloaded PDF stays on your device and is not submitted to this website.</li>
               </ul>
               <p><strong>Information collected automatically:</strong></p>
               <ul className="list-disc pl-6 space-y-2">
@@ -86,6 +87,8 @@ export default function Privacy() {
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Service providers who assist in operating our website (hosting, analytics)</li>
+                <li>Stripe processes card payments. We do not receive or store your full card number.</li>
+                <li>Resend sends your purchase download email using your checkout email address and order details. Purchase emails are for delivery and support, not newsletter enrolment.</li>
                 <li>Legal authorities when required by law</li>
               </ul>
               <p>

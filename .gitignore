@@ -104,3 +104,11 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Local payment secrets
+.env.*.local
+.netlify/
+
+.wrangler/
+.dev.vars
+.dev.vars.*
