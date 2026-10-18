@@ -1,3 +1,4 @@
+import PatientJourneyAnimation from "@/components/PatientJourneyAnimation";
 import { Link } from "wouter";
 import SEO from "@/components/SEO";
 import { useEffect, useState } from "react";
@@ -154,6 +155,8 @@ export default function Welcome() {
           </div>
         </div>
       </section>
+
+      <PatientJourneyAnimation />
 
       {/* EVIDENCE STRIP - Immediate social proof */}
       <section className="py-5 px-6 md:px-12 lg:px-24 bg-gradient-to-r from-[oklch(0.55_0.15_195)]/5 to-[oklch(0.60_0.15_300)]/5 border-y border-[oklch(0.55_0.15_195)]/10">

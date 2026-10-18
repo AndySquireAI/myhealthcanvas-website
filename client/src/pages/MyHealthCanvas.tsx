@@ -1,3 +1,4 @@
+import PatientJourneyAnimation from "@/components/PatientJourneyAnimation";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
@@ -106,6 +107,8 @@ export default function MyHealthCanvas() {
 
         </div>
       </section>
+
+      <PatientJourneyAnimation />
 
       <section className="py-6 px-6 md:px-12 lg:px-24" style={{ background: "linear-gradient(135deg, oklch(0.55 0.15 195), oklch(0.50 0.12 270))" }}>
         <div className="max-w-4xl mx-auto">
