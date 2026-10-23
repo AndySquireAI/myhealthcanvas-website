@@ -1,10 +1,19 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
   // Function to scroll to top when navigating
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const trackPccSafetyOsClick = () => {
+    trackEvent("pcc_safety_os_click", {
+      event_category: "engagement",
+      event_label: "MyHealthCanvas shared footer",
+      destination: "patientcentriccare.ai",
+    });
   };
 
   return (
@@ -117,7 +126,7 @@ export default function Footer() {
         <div className="mt-6 text-center text-xs text-muted-foreground/70">
           <p>
             Governance framework and clinical AI documentation available at{" "}
-            <a href="https://andysquire.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">PatientCentricCare.AI</a>
+            <a href="https://www.patientcentriccare.ai/" target="_blank" rel="noopener noreferrer" onClick={trackPccSafetyOsClick} className="hover:text-primary underline">PatientCentricCare.AI &amp; PCC Safety OS ↗</a>
           </p>
         </div>
 
