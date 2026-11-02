@@ -9,6 +9,19 @@
 [build.processing.html]
   pretty_urls = true
 
+# Consolidate organisational consulting at PCC; keep this above the SPA fallback.
+[[redirects]]
+  from = "/aaa"
+  to = "https://www.patientcentriccare.ai/consulting"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/aaa/"
+  to = "https://www.patientcentriccare.ai/consulting"
+  status = 301
+  force = true
+
 # Redirect trailing slashes to non-trailing (301)
 [[redirects]]
   from = "/pdfs/*"

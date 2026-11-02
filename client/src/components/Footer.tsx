@@ -117,7 +117,7 @@ export default function Footer() {
         <div className="mt-6 text-center text-xs text-muted-foreground/70">
           <p>
             Governance framework and clinical AI documentation available at{" "}
-            <a href="https://andysquire.ai" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">PatientCentricCare.AI</a>
+            <a href="https://www.patientcentriccare.ai/consulting" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">PatientCentricCare.AI</a>
           </p>
         </div>
 

@@ -14,7 +14,7 @@ import Home from "./pages/Home";
 import MyHealthCanvas from "./pages/MyHealthCanvas";
 import MyHealthCanvasAdvocacy from "./pages/MyHealthCanvasAdvocacy";
 import First30Days from "./pages/First30Days";
-import AAA from "./pages/AAA";
+import ConsultingRedirect from "./pages/ConsultingRedirect";
 import ELibrary from "./pages/ELibrary";
 import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
@@ -80,7 +80,8 @@ function Router() {
         <Route path="/evidence-dashboard" component={EvidenceDashboard} />
         <Route path="/caregivers" component={Caregivers} />
         <Route path="/caregiver-help" component={CaregiverHelp} />
-        <Route path="/aaa" component={AAA} />
+        <Route path="/aaa" component={ConsultingRedirect} />
+        <Route path="/aaa/" component={ConsultingRedirect} />
         <Route path="/elibrary" component={ELibrary} />
         <Route path="/elibrary/:slug" component={BlogPost} />
         <Route path="/about" component={About} />

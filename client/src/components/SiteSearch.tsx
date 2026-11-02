@@ -35,12 +35,6 @@ const searchIndex: SearchItem[] = [
     keywords: ["caregiver", "carer", "family", "support", "funding", "second opinion", "treatment plan", "dignity", "medication"],
   },
   {
-    title: "AAA - AI Agents",
-    description: "AI Automation Agency — workflow automation, AI governance audit, and training for healthcare organisations.",
-    path: "/aaa",
-    keywords: ["ai", "automation", "agents", "governance", "workflow", "business", "enterprise", "training"],
-  },
-  {
     title: "eLibrary",
     description: "Articles and guides on cancer care, appointment preparation, patient advocacy, and caregiver support.",
     path: "/elibrary",
