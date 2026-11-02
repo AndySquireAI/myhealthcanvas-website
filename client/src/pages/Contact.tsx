@@ -283,10 +283,10 @@ export default function Contact() {
                       </li>
                       <li>
                         <a
-                          href="/aaa"
+                          href="https://www.patientcentriccare.ai/consulting"
                           className="text-muted-foreground hover:text-primary"
                         >
-                          → AAA AI Agent Services
+                          → Healthcare AI Consulting
                         </a>
                       </li>
                       <li>

@@ -15,7 +15,6 @@ export default function Header() {
     { path: "/questions", label: "Questions", isEmail: false },
     { path: "/myhealthcanvas", label: "MyHealthCanvas", isEmail: false },
     { path: "/caregivers", label: "Caregivers", isEmail: false },
-    { path: "/aaa", label: "AAA - AI Agents", isEmail: false },
     { path: "/elibrary", label: "eLibrary", isEmail: false },
     { path: "/about", label: "About Andy", isEmail: false },
   ];

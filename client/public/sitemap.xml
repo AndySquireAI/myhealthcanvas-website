@@ -30,14 +30,6 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- AAA - AI Agents Page -->
-  <url>
-    <loc>https://myhealthcanvas.com/aaa</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
   <!-- eLibrary Main Page -->
   <url>
     <loc>https://myhealthcanvas.com/elibrary</loc>
